@@ -1,0 +1,17 @@
+/* Keep MathJax formulas readable in article content on desktop and mobile. */
+#articleContent .math-inline,
+#articleContent .math-inline-display {
+    max-width: 100%;
+}
+
+#articleContent .math-block {
+    margin: 1.5rem 0;
+    padding: 0.2rem 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+
+#articleContent .math-block .MathJax_Display {
+    margin: 0.2rem 0 !important;
+}
