@@ -1,0 +1,2125 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="常用生成范式模型介绍, Jianbo.Yuan">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>常用生成范式模型介绍 | Jianbo.Yuan</title>
+    <link rel="icon" type="image/png" href="/BlogNotes/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/css/my.css">
+
+    <script src="/BlogNotes/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/BlogNotes/" class="waves-effect waves-light">
+                    
+                    <img src="/BlogNotes/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Jianbo.Yuan</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/BlogNotes/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Jianbo.Yuan</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/BlogNotes/medias/featureimages/23.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">常用生成范式模型介绍</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/BlogNotes/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/BlogNotes/tags/VLA/">
+                                <span class="chip bg-color">VLA</span>
+                            </a>
+                        
+                            <a href="/BlogNotes/tags/%E5%85%B7%E8%BA%AB%E6%99%BA%E8%83%BD/">
+                                <span class="chip bg-color">具身智能</span>
+                            </a>
+                        
+                            <a href="/BlogNotes/tags/%E7%94%9F%E6%88%90%E8%8C%83%E5%BC%8F/">
+                                <span class="chip bg-color">生成范式</span>
+                            </a>
+                        
+                            <a href="/BlogNotes/tags/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/">
+                                <span class="chip bg-color">扩散模型</span>
+                            </a>
+                        
+                            <a href="/BlogNotes/tags/%E8%87%AA%E5%9B%9E%E5%BD%92/">
+                                <span class="chip bg-color">自回归</span>
+                            </a>
+                        
+                            <a href="/BlogNotes/tags/%E6%B5%81%E5%8C%B9%E9%85%8D/">
+                                <span class="chip bg-color">流匹配</span>
+                            </a>
+                        
+                            <a href="/BlogNotes/tags/DDPM/">
+                                <span class="chip bg-color">DDPM</span>
+                            </a>
+                        
+                            <a href="/BlogNotes/tags/%E6%A8%A1%E5%9E%8B%E9%80%89%E5%9E%8B/">
+                                <span class="chip bg-color">模型选型</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/BlogNotes/categories/%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7/" class="post-category">
+                                科研工具
+                            </a>
+                        
+                            <a href="/BlogNotes/categories/%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7/%E6%95%B0%E5%AD%A6%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/" class="post-category">
+                                数学理论基础
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2026-09-01
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>VLA（Vision-Language-Action）模型的核心问题一句话：<strong>给定观测和指令，生成接下来一段动作（action chunk）</strong>。这本质是生成建模问题，而生成模型有三大主流范式：从 NLP 走来的<strong>自回归</strong>（AR）、从图像生成走来的<strong>扩散</strong>（Diffusion）、与快速崛起的<strong>流匹配</strong>（Flow Matching）。选哪个范式做动作头，是当前具身智能最热的技术路线之争。</p>
+<p>本文是”<strong>理论 + 型号手册</strong>“的合订本：先讲清 VLA 为什么必须用生成模型、三种范式的完整数学推导，再把 2023~2026 的常用与最新 VLA 模型按范式归队逐个分析（不止”是什么”，还讲<strong>每个模型为什么这么选范式</strong>），配三个关键对照实验、<strong>纯 numpy 可运行的从零训练 demo</strong>（自回归 &#x2F; DDPM &#x2F; 流匹配，全部实测通过）、开源索引与参考出处。</p>
+<h2 id="1-VLA-为什么必须用生成模型"><a href="#1-VLA-为什么必须用生成模型" class="headerlink" title="1. VLA 为什么必须用生成模型"></a>1. VLA 为什么必须用生成模型</h2><p><strong>动作分布是多模态的</strong>。桌上一杯水，机器人可以”从左边抓”也可以”从右边抓”——两个都合理，但平均值”从中间穿过杯子”是错的。</p>
+<p>如果用最朴素的 MSE 回归 <span class="math-inline">\(\hat{\boldsymbol{a}} = \mathbb{E}[\boldsymbol{a}|\boldsymbol{o}, \boldsymbol{l}]\)</span>，模型学到的是<strong>分布的均值</strong>——恰好落在两个模态中间的”穿模动作”。这就是行为克隆经典结论<strong>分布多模态导致回归平均（mode averaging &#x2F; LARP）失败</strong>。生成模型的答案：不预测均值，而是<strong>学分布、再从分布里采样</strong>——采样天然落在某一个模态上。自回归、扩散、流匹配是”学分布”的三种不同方式。</p>
+<p><img src="/BlogNotes/medias/generative/generative-overview.png" alt="生成模型家族总览：自编码器&#x2F;VAE、流模型、GAN 与扩散模型"></p>
+<p>（图源：<a target="_blank" rel="noopener" href="https://lilianweng.github.io/posts/2021-07-11-diffusion-models/">Lilian Weng《What are Diffusion Models?》</a>）</p>
+<h2 id="2-三范式理论详解"><a href="#2-三范式理论详解" class="headerlink" title="2. 三范式理论详解"></a>2. 三范式理论详解</h2><h3 id="2-1-自回归：把动作生成变成”写文本”"><a href="#2-1-自回归：把动作生成变成”写文本”" class="headerlink" title="2.1 自回归：把动作生成变成”写文本”"></a>2.1 自回归：把动作生成变成”写文本”</h3><p>链式法则把联合分布拆成逐 token 条件预测：</p>
+<div class="math-block">\[
+p_\theta(\boldsymbol{a} \mid \boldsymbol{o}, \boldsymbol{l}) = \prod_{t=1}^{T} p_\theta\big(a_t \mid a_{&lt;t},\ \boldsymbol{o},\ \boldsymbol{l}\big)
+\]</div>
+<p>视觉-语言编码器把观测与指令压成 token 序列，Transformer 解码器像写下一个词一样写出下一个动作 token。<strong>关键工程问题：动作连续、token 离散</strong>——RT-1 起的标准做法是每维独立均匀分桶（256 bins）；π0-FAST 的 FAST tokenizer 用 <strong>DCT 频域压缩 + BPE</strong> 把整段动作压成少量紧凑 token。</p>
+<p><strong>优势——擅长长期建模与文本推理</strong>：长序列连贯性由”每一帧以全部历史为条件”数学保证；天然继承 LLM 生态（指令跟随、思维链、与任意 VLM 兼容）。<strong>劣势</strong>：离散化丢精度、逐 token 生成慢、不可中途全局修正、交叉熵对连续分布只是分桶近似。</p>
+<h3 id="2-2-扩散（DDPM）：从噪声里”去噪”出动作"><a href="#2-2-扩散（DDPM）：从噪声里”去噪”出动作" class="headerlink" title="2.2 扩散（DDPM）：从噪声里”去噪”出动作"></a>2.2 扩散（DDPM）：从噪声里”去噪”出动作</h3><p><strong>前向过程</strong>（加噪，无参数、解析可算）：</p>
+<div class="math-block">\[
+q(\boldsymbol{x}_t \mid \boldsymbol{x}_{t-1}) = \mathcal{N}\big(\sqrt{1-\beta_t}\,\boldsymbol{x}_{t-1},\ \beta_t \mathbf{I}\big) \;\Longrightarrow\; \boldsymbol{x}_t = \sqrt{\bar\alpha_t}\,\boldsymbol{x}_0 + \sqrt{1-\bar\alpha_t}\,\boldsymbol{\varepsilon}
+\]</div>
+<p>（<span class="math-inline">\(\beta_t\)</span> 噪声调度、<span class="math-inline">\(\bar\alpha_t = \prod(1-\beta_s)\)</span>；这个<strong>闭式一步加噪</strong>是训练基石。）</p>
+<p><strong>反向过程</strong>由噪声预测网络 <span class="math-inline">\(\boldsymbol{\varepsilon}_\theta(\boldsymbol{x}_t, t, \boldsymbol{c})\)</span> 学习，<strong>简化训练目标</strong>（DDPM 的核心发现）：</p>
+<div class="math-block">\[
+\mathcal{L}_{\text{simple}} = \mathbb{E}_{\boldsymbol{x}_0,\,t,\,\boldsymbol{\varepsilon}}\Big[\big\|\boldsymbol{\varepsilon} - \boldsymbol{\varepsilon}_\theta\big(\sqrt{\bar\alpha_t}\boldsymbol{x}_0 + \sqrt{1-\bar\alpha_t}\boldsymbol{\varepsilon},\ t, \boldsymbol{c}\big)\big\|^2\Big]
+\]</div>
+<p>采样从纯噪声出发迭代去噪 <span class="math-inline">\(T\)</span> 步。<strong>多模态自动解决</strong>：随机起点天然把样本分到不同模态。动作扩散的三个惯例由 <strong>Diffusion Policy</strong>（Chi et al., 2023）确立：整块生成 16 步动作、执行前 8 步的滚动时域、轻量 CNN&#x2F;Transformer 去噪器。</p>
+<p><img src="/BlogNotes/medias/generative/ddpm-forward-reverse.png" alt="DDPM 前向加噪与反向去噪过程"></p>
+<p>（图源：<a target="_blank" rel="noopener" href="https://lilianweng.github.io/posts/2021-07-11-diffusion-models/">Lilian Weng</a>，原始论文 <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2006.11239">DDPM, arXiv:2006.11239</a>）</p>
+<p><strong>优势——高保真与多样性</strong>：捕捉分布细节，同一指令采样多种合理解；训练稳定。<strong>劣势</strong>：几十到上百步去噪慢（DDIM&#x2F;蒸馏可压）；块间缺少”以全部历史为条件”的机制，长序列全局连贯弱于 AR。</p>
+<h3 id="2-3-流匹配：用”直线路径”取代”千步去噪”"><a href="#2-3-流匹配：用”直线路径”取代”千步去噪”" class="headerlink" title="2.3 流匹配：用”直线路径”取代”千步去噪”"></a>2.3 流匹配：用”直线路径”取代”千步去噪”</h3><p>学一个速度场 <span class="math-inline">\(v_\theta(\boldsymbol{x}, t)\)</span>，让噪声沿 ODE <span class="math-inline">\(\mathrm{d}\boldsymbol{x}/\mathrm{d}t = v_\theta\)</span> 从 <span class="math-inline">\(t{=}0\)</span>（噪声）流到 <span class="math-inline">\(t{=}1\)</span>（数据）。<strong>条件流匹配（CFM）</strong>：噪声端 <span class="math-inline">\(\boldsymbol{x}_0\sim\mathcal{N}(0,\mathbf{I})\)</span>、数据端 <span class="math-inline">\(\boldsymbol{x}_1\sim p_{\text{data}}\)</span>，<strong>线性插值路径</strong> <span class="math-inline">\(\boldsymbol{x}_t = (1-t)\boldsymbol{x}_0 + t\boldsymbol{x}_1\)</span>，沿路径真实速度是<strong>常数</strong> <span class="math-inline">\(\boldsymbol{x}_1 - \boldsymbol{x}_0\)</span>：</p>
+<div class="math-block">\[
+\mathcal{L}_{\text{CFM}} = \mathbb{E}\Big[\big\|\,v_\theta\big((1-t)\boldsymbol{x}_0 + t\boldsymbol{x}_1,\ t\big) - (\boldsymbol{x}_1 - \boldsymbol{x}_0)\,\big\|^2\Big]
+\]</div>
+<p>采样只需几步欧拉积分 <span class="math-inline">\(\boldsymbol{x} \leftarrow \boldsymbol{x} + v_\theta(\boldsymbol{x}, t)\,\Delta t\)</span>。<strong>与扩散的关系</strong>：扩散的随机去噪可重写为概率流 ODE——扩散走<strong>弯曲</strong>路径，流匹配直接学<strong>直线</strong>。直线的三大红利：步数极少（π0 用 10 步出 50Hz 动作）、训练更稳（无噪声调度玄学、回归目标平缓）、确定性 ODE（可缓存可蒸馏）。</p>
+<h3 id="2-4-三范式对比"><a href="#2-4-三范式对比" class="headerlink" title="2.4 三范式对比"></a>2.4 三范式对比</h3><table>
+<thead>
+<tr>
+<th>维度</th>
+<th>自回归</th>
+<th>扩散（DDPM 系）</th>
+<th>流匹配</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>生成方式</td>
+<td>逐 token 条件分解</td>
+<td>随机去噪，<span class="math-inline">\(T\)</span> 步马尔可夫链</td>
+<td>确定性 ODE，直线速度场</td>
+</tr>
+<tr>
+<td>训练目标</td>
+<td>交叉熵（离散）</td>
+<td><span class="math-inline">\(|\varepsilon - \varepsilon_\theta|^2\)</span></td>
+<td><span class="math-inline">\(|v_\theta - (x_1{-}x_0)|^2\)</span></td>
+</tr>
+<tr>
+<td>动作表示</td>
+<td>离散 token</td>
+<td>连续</td>
+<td>连续</td>
+</tr>
+<tr>
+<td>采样步数</td>
+<td>&#x3D; 序列长度</td>
+<td>10~100</td>
+<td><strong>~10 步</strong></td>
+</tr>
+<tr>
+<td>长程连贯</td>
+<td><strong>✓✓（以全部历史为条件）</strong></td>
+<td>块内好、块间弱</td>
+<td>同扩散</td>
+</tr>
+<tr>
+<td>与 LLM 生态</td>
+<td><strong>天然同构</strong></td>
+<td>需外挂动作头</td>
+<td>需外挂动作头</td>
+</tr>
+</tbody></table>
+<p>选型第一性依据：<strong>离散语义空间用 AR（继承语言模型能力），连续动作空间用流匹配&#x2F;扩散（保真与速度）</strong>——“AR 骨干 + 连续小头”混合架构流行的根本原因。</p>
+<h2 id="3-模型总览与开源快速索引"><a href="#3-模型总览与开源快速索引" class="headerlink" title="3. 模型总览与开源快速索引"></a>3. 模型总览与开源快速索引</h2><p><strong>2023-2026 主要 VLA 模型一览</strong>（★ &#x3D; 开源&#x2F;权重开放，索引表附后）：</p>
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th>机构</th>
+<th>时间</th>
+<th>生成范式</th>
+<th>规模</th>
+<th>一句话特色</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Gato &#x2F; CLIPort &#x2F; BC-Z</td>
+<td>DeepMind 等</td>
+<td>2022</td>
+<td>自回归先驱</td>
+<td>—</td>
+<td>通用智能体&#x2F;语言条件模仿的史前史</td>
+</tr>
+<tr>
+<td>PaLM-E</td>
+<td>Google</td>
+<td>2023</td>
+<td>具身多模态 LLM</td>
+<td>562B</td>
+<td>VLA 的语言底座先驱（不直接出动作）</td>
+</tr>
+<tr>
+<td>VIMA</td>
+<td>NVIDIA 等</td>
+<td>2022-23</td>
+<td>自回归</td>
+<td>—</td>
+<td>多模态提示（图文混排指令）基准</td>
+</tr>
+<tr>
+<td>RT-1 &#x2F; RT-X</td>
+<td>Google</td>
+<td>2022-23</td>
+<td>自回归</td>
+<td>35M</td>
+<td>动作 token 化 + Open X-Embodiment 数据起点</td>
+</tr>
+<tr>
+<td>RT-2</td>
+<td>Google DeepMind</td>
+<td>2023</td>
+<td>自回归</td>
+<td>~55B</td>
+<td>动作当语言，VLM 知识迁移开山作</td>
+</tr>
+<tr>
+<td>Q-Transformer</td>
+<td>Google DeepMind</td>
+<td>2023</td>
+<td>自回归 + Q 学习</td>
+<td>—</td>
+<td>把 RL 后训练装进 AR 动作 Transformer</td>
+</tr>
+<tr>
+<td>RoboFlamingo ★</td>
+<td>BAAI&#x2F;上海AI Lab</td>
+<td>2023</td>
+<td>自回归</td>
+<td>3B</td>
+<td>开源 VLM 改造 VLA 的早期代表</td>
+</tr>
+<tr>
+<td>RoboCat</td>
+<td>DeepMind</td>
+<td>2023</td>
+<td>自回归自改进</td>
+<td>1B</td>
+<td>多任务自生成数据闭环</td>
+</tr>
+<tr>
+<td>Diffusion Policy ★</td>
+<td>Columbia&#x2F;TRI</td>
+<td>2023</td>
+<td>扩散</td>
+<td>轻量头</td>
+<td>动作扩散三板斧</td>
+</tr>
+<tr>
+<td>Octo ★</td>
+<td>Berkeley 等</td>
+<td>2024</td>
+<td>扩散</td>
+<td>93M</td>
+<td>第一个开源通用扩散头</td>
+</tr>
+<tr>
+<td>DP3（3D Diffusion Policy）★</td>
+<td>上海交大等</td>
+<td>2024</td>
+<td>扩散（点云）</td>
+<td>轻量</td>
+<td>点云条件 + 少样本（每任务 3~10 演示）</td>
+</tr>
+<tr>
+<td>Consistency Policy ★</td>
+<td>Stanford 等</td>
+<td>2024</td>
+<td>扩散蒸馏</td>
+<td>轻量</td>
+<td>DP 蒸馏到 1~2 步出动作</td>
+</tr>
+<tr>
+<td>OpenVLA ★</td>
+<td>Stanford&#x2F;Berkeley&#x2F;TRI</td>
+<td>2024</td>
+<td>自回归</td>
+<td>7B</td>
+<td>97 万回合 OXE，开源事实标准</td>
+</tr>
+<tr>
+<td>RDT-1B ★</td>
+<td>清华</td>
+<td>2024</td>
+<td>扩散</td>
+<td>1B</td>
+<td>最大开源扩散基座，双臂</td>
+</tr>
+<tr>
+<td>π0 ★</td>
+<td>Physical Intelligence</td>
+<td>2024</td>
+<td><strong>流匹配</strong></td>
+<td>3B+3 亿</td>
+<td>流匹配 VLA 标志作，50Hz 灵巧手</td>
+</tr>
+<tr>
+<td>π0-FAST ★</td>
+<td>Physical Intelligence</td>
+<td>2025</td>
+<td>自回归</td>
+<td>同 π0</td>
+<td>FAST 频域分词，AR 对照版</td>
+</tr>
+<tr>
+<td>GR00T N1&#x2F;N1.5 ★</td>
+<td>NVIDIA</td>
+<td>2025</td>
+<td>DiT 连续头</td>
+<td>2B</td>
+<td>人形全栈 + DreamGen 合成数据</td>
+</tr>
+<tr>
+<td>Helix</td>
+<td>Figure</td>
+<td>2025</td>
+<td>双系统潜空间</td>
+<td>7B+80M</td>
+<td>双速率架构，产线级</td>
+</tr>
+<tr>
+<td>Gemini Robotics</td>
+<td>Google DeepMind</td>
+<td>2025→26</td>
+<td>自回归系</td>
+<td>巨型</td>
+<td>前沿模型直连机器人</td>
+</tr>
+<tr>
+<td>π0.5 &#x2F; π*0.6 ★部分</td>
+<td>Physical Intelligence</td>
+<td>2025</td>
+<td>流匹配+RL</td>
+<td>~3B+</td>
+<td>开放世界泛化；RECAP 从经验学习</td>
+</tr>
+<tr>
+<td>OpenVLA-OFT ★</td>
+<td>UC Berkeley 等</td>
+<td>2025</td>
+<td>并行解码&#x2F;扩散头</td>
+<td>7B</td>
+<td>官方强化版，快 25~50 倍</td>
+</tr>
+<tr>
+<td>TinyVLA ★</td>
+<td>上海交大等</td>
+<td>2024-25</td>
+<td>自回归</td>
+<td>1B→3B</td>
+<td>小型快训，数据高效</td>
+</tr>
+<tr>
+<td>SmolVLA ★</td>
+<td>HuggingFace</td>
+<td>2025</td>
+<td>流匹配</td>
+<td><strong>450M</strong></td>
+<td>消费级显卡可训</td>
+</tr>
+<tr>
+<td>智元 GO-1 &#x2F; AgiBot World ★</td>
+<td>智元</td>
+<td>2025</td>
+<td>分层 VLA</td>
+<td>—</td>
+<td>百万级真机数据开源</td>
+</tr>
+<tr>
+<td>Galbot GraspVLA</td>
+<td>银河通用</td>
+<td>2025</td>
+<td>VLA 抓取特化</td>
+<td>—</td>
+<td>亿级仿真抓取，落地零售</td>
+</tr>
+<tr>
+<td>WorldVLA &#x2F; UniVLA</td>
+<td>阿里 &#x2F; 港大等</td>
+<td>2025</td>
+<td>AR+扩散互促 &#x2F; 潜动作 AR</td>
+<td>—</td>
+<td>世界模型与动作生成融合</td>
+</tr>
+<tr>
+<td>UnifoLM-WMA ★部分</td>
+<td>宇树</td>
+<td>2025</td>
+<td>世界模型-动作一体</td>
+<td>0.5B</td>
+<td>四足&#x2F;人形开源权重</td>
+</tr>
+<tr>
+<td>GR-2</td>
+<td>字节跳动</td>
+<td>2024</td>
+<td>自回归+视频预训练</td>
+<td>—</td>
+<td>视频生成预训练迁移操作</td>
+</tr>
+<tr>
+<td>Genie &#x2F; Genie-2 &#x2F; Cosmos</td>
+<td>DeepMind &#x2F; NVIDIA</td>
+<td>2024-25</td>
+<td>世界基座模型</td>
+<td>巨型</td>
+<td>可交互世界生成（想象训练的底座）</td>
+</tr>
+</tbody></table>
+<p><strong>开源快速索引</strong>（科研可直接取用的仓库&#x2F;页面）：</p>
+<table>
+<thead>
+<tr>
+<th>模型&#x2F;资源</th>
+<th>链接</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>OpenVLA</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/openvla/openvla">github.com&#x2F;openvla&#x2F;openvla</a></td>
+</tr>
+<tr>
+<td>OpenVLA-OFT</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/moojink/openvla-oft">github.com&#x2F;moojink&#x2F;openvla-oft</a></td>
+</tr>
+<tr>
+<td>π0&#x2F;π0.5（openpi，代码+权重）</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/Physical-Intelligence/openpi">github.com&#x2F;Physical-Intelligence&#x2F;openpi</a></td>
+</tr>
+<tr>
+<td>Diffusion Policy</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/real-stanford/diffusion_policy">github.com&#x2F;real-stanford&#x2F;diffusion_policy</a></td>
+</tr>
+<tr>
+<td>Octo</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/octo-models/octo">github.com&#x2F;octo-models&#x2F;octo</a></td>
+</tr>
+<tr>
+<td>RDT-1B</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/thu-ml/RoboticsDiffusionTransformer">github.com&#x2F;thu-ml&#x2F;RoboticsDiffusionTransformer</a></td>
+</tr>
+<tr>
+<td>GR00T N1</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/NVIDIA/Isaac-GR00T">github.com&#x2F;NVIDIA&#x2F;Isaac-GR00T</a></td>
+</tr>
+<tr>
+<td>TinyVLA</td>
+<td><a target="_blank" rel="noopener" href="https://tiny-vla.github.io/">tiny-vla.github.io</a>（论文 <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2409.12514">arXiv:2409.12514</a>）</td>
+</tr>
+<tr>
+<td>SmolVLA + LeRobot 训练栈</td>
+<td><a target="_blank" rel="noopener" href="https://huggingface.co/lerobot">huggingface.co&#x2F;lerobot</a>（<a target="_blank" rel="noopener" href="https://huggingface.co/blog/smolvla">SmolVLA 博客</a>）</td>
+</tr>
+<tr>
+<td>AgiBot World 真机数据</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/OpenDriveLab/AgiBot-World">github.com&#x2F;OpenDriveLab&#x2F;AgiBot-World</a></td>
+</tr>
+<tr>
+<td>RT-X &#x2F; Open X-Embodiment</td>
+<td><a target="_blank" rel="noopener" href="https://robotics-transformer-x.github.io/">robotics-transformer-x.github.io</a></td>
+</tr>
+<tr>
+<td>VLA 论文合集</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/Psi-Robot/Awesome-VLA-Papers">Awesome-VLA-Papers</a></td>
+</tr>
+</tbody></table>
+<h2 id="4-自回归系案例：语言模型血统的延续"><a href="#4-自回归系案例：语言模型血统的延续" class="headerlink" title="4. 自回归系案例：语言模型血统的延续"></a>4. 自回归系案例：语言模型血统的延续</h2><p><strong>先驱谱系（2022-23）</strong>：Gato（DeepMind）证明单一 AR Transformer 可通吃游戏&#x2F;对话&#x2F;机器人控制；CLIPort 与 BC-Z 把”语言条件化模仿”跑通（CLIP 语义 + Transporter 抓放）；PaLM-E（562B）把多模态输入直接嵌入 LLM 语境，是 VLA 语言底座的直系祖先；VIMA 定义了多模态提示（图文混排指令）基准。这一代工作确立了”语言模型架构 + 动作输出”的基本盘。</p>
+<p><strong>RT-1 → RT-X（2022-23）</strong>。RT-1 用 13 万真实回合、700 任务证明动作 token 化 + 真机规模化的价值；RT-X 把 21 个机构的 Open X-Embodiment 数据汇成跨本体训练范式——数据集本身成为领域公共品。<strong>选型逻辑</strong>：当年唯一可扩展的范式是语言模型的 AR。</p>
+<p><strong>Q-Transformer（2023，DeepMind）</strong>。把 Q 学习装进 AR 动作 Transformer：离散动作 bin 上学 Q 值、取 argmax——<strong>AR + 强化学习后训练</strong>的早期范本（后来 π*0.6 的 RECAP 是同一方向的世界模型版）。</p>
+<p><strong>RoboFlamingo（2023，BAAI&#x2F;上海AI Lab）</strong>。开源 VLM（OpenFlamingo）冻结骨干 + 轻量策略头微调——“复用开源 VLM 快速拼 VLA”的早期代表，国内社区起点。</p>
+<p><strong>RoboCat（2023，DeepMind）</strong>。自改进闭环：模型自己生成任务数据（目标图像 + 自演轨迹）再自训练，跨机械臂形态迁移——“自我博弈”思想进入操作领域。</p>
+<p><strong>RT-2（2023）</strong>。PaLI-X&#x2F;PaLM-E 直接当机器人大脑，动作 token 与自然语言共同训练（co-fine-tuning），涌现符号理解与组合推理。<strong>选型逻辑</strong>：只有 AR 能让动作与语言共享同一表征空间。</p>
+<p><strong>OpenVLA（2024）</strong>。Llama2-7B + DINOv2&#x2F;SigLIP，97 万 OXE 回合，全开源——VLA 界的”Llama 时刻”，后续开源工作的默认底座。</p>
+<p><img src="/BlogNotes/medias/generative/openvla-model.jpg" alt="OpenVLA 架构：Llama2 骨干 + 双视觉编码，动作离散化为 token 逐个自回归生成"></p>
+<p>（图源：<a target="_blank" rel="noopener" href="https://openvla.github.io/">OpenVLA 官网</a>，论文 <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2406.09246">arXiv:2406.09246</a>）</p>
+<p><strong>OpenVLA-OFT（2025）</strong>。换掉逐 token 串行生成改<strong>并行解码连续动作块</strong>（含扩散头变体）：快 25~50 倍、成功率反升。<strong>分析</strong>：瓶颈在动作接口而非骨干——“骨干 AR + 连续小头”的结构性证据。</p>
+<p><strong>π0-FAST（2025）</strong>。与 π0 同骨干同数据的纯 AR 版（FAST：DCT 频域分词），任务精度与流匹配版大体打平、推理略慢但与语言栈完全统一——范式之争最干净的 A&#x2F;B（见第8节）。</p>
+<p><strong>TinyVLA（2024-25，上海交大等）</strong>。1B→3B 小型化路线：小骨干 + 快速初始化 + 数据高效微调，主打”小模型快速域适应”，开源项目页与论文齐备。</p>
+<p><strong>GR-2（2024，字节）</strong>。视频生成预训练（先学预测未来画面）再迁移到操作，AR 输出动作——“看视频学做事”的预训练范式探路。</p>
+<p><strong>Gemini Robotics（2025→2026）</strong>。Gemini 2.0 及后续底座 + 机器人专用训练；1.5（2025 末）灵巧性&#x2F;响应&#x2F;安全显著提升，2 面向受信任测试者。闭源 API，代表能力上限阵营。</p>
+<p><strong>智元 GO-1（2025）</strong>。AgiBot World 百万级真机数据（开源）打底 + 分层大脑，数据基础设施路线的代表。</p>
+<h2 id="5-扩散系案例：动作分布的精细刻画"><a href="#5-扩散系案例：动作分布的精细刻画" class="headerlink" title="5. 扩散系案例：动作分布的精细刻画"></a>5. 扩散系案例：动作分布的精细刻画</h2><p><strong>Diffusion Policy（2023）</strong>。三板斧（chunk 16 执行 8、滚动时域、轻量去噪器）沿用至今；对多模态演示跨基准平均提升约 46.9%（论文口径）。<strong>选型逻辑</strong>：演示数据天然多模态，扩散是当时唯一稳的连续多模态方案。</p>
+<p><strong>Octo（2024）</strong>。93M 通用策略 + 扩散头，OXE 80 万回合——“小骨干 + 扩散头”模块化的先声，π0 架构的前身。</p>
+<p><strong>RDT-1B（2024，清华）</strong>。扩散 Transformer、1B、46 数据集、<strong>双臂</strong> ALOHA 类平台事实底座。<strong>选型逻辑</strong>：双臂耦合动作分布比单臂更多模态（左右手分工组合爆炸），扩散的分布刻画直接受益。</p>
+<p><strong>DexVLA（2025）</strong>。视觉-语言压进统一潜空间（压缩率 ~95%），只在潜空间做扩散解码——“重理解轻解码”，训练推理双省。</p>
+<p><strong>DP3（2024，上海交大等）</strong>。扩散策略的 3D 化：点云编码替代 RGB 编码，每任务 3~10 条演示即可学出新技能——<strong>极少量演示 + 点云几何先验</strong>让它在实验室平台（尤其非纹理工件）上极受欢迎。</p>
+<p><strong>Consistency Policy（2024，Stanford 等）</strong>。把 Diffusion Policy 用一致性蒸馏压到 <strong>1~2 步出动作</strong>——扩散系对”推理慢”的自救，思路与文生图的一致性模型同源。</p>
+<p><strong>WorldVLA（2025，阿里）</strong>。世界模型（AR 预测下一帧）与动作生成（扩散头）互相监督——两种范式各管一个模态再互促，融合路线探路者。</p>
+<h2 id="6-流匹配系案例：速度与精度的新平衡"><a href="#6-流匹配系案例：速度与精度的新平衡" class="headerlink" title="6. 流匹配系案例：速度与精度的新平衡"></a>6. 流匹配系案例：速度与精度的新平衡</h2><p><strong>π0（2024，Physical Intelligence）</strong>。PaliGemma 3B VLM 骨干（AR 处理语言视觉）+ 3 亿流匹配动作专家（交叉注意力挂接），<strong>10 步出 50Hz 动作块</strong>，长程灵巧任务 SOTA，权重经 openpi 开放。<strong>选型逻辑</strong>：50Hz 高频连续控制下，扩散太慢、AR 太慢，流匹配是唯一同时满足保真与速度的选项。</p>
+<p><img src="/BlogNotes/medias/generative/pi0-architecture.png" alt="π0 架构：VLM 骨干（自回归）+ 流匹配动作专家（连续生成），交叉注意力连接"></p>
+<p>（图源：<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2410.24164">π0 论文 arXiv:2410.24164</a>，<a target="_blank" rel="noopener" href="https://www.pi.website/blog/pi0">官方博客</a>）</p>
+<p><strong>π0.5（2025）</strong>。知识隔离（领域知识留在语言侧）+ 在线学习闭环，未见环境成功率实质提升——回答”预训练 VLA 怎么落地新家”。</p>
+<p><strong>π*0.6（2025 末）</strong>。Gemma3-4B + 流匹配头不变，训练升级 <strong>RECAP（RL with pretraining data）</strong>：奖励梯度混入预训练数据损失，从自身经验与人类纠错中持续改进且不灾难性遗忘；与 Ultra 合作电商包装部署、Weave 平台输出 API。<strong>分析</strong>：三步演进（π0 定架构 → π0.5 解泛化 → π*0.6 换训练范式 + 商业化），流匹配路线完成论文到产线闭环。</p>
+<p><strong>SmolVLA（2025，HuggingFace）</strong>。450M”VLM 骨干 + 流匹配头”，消费级显卡可训，LeRobot 生态——<strong>入门第一推荐</strong>。</p>
+<p><strong>GR00T N1&#x2F;N1.5（2025，NVIDIA）</strong>。双系统”快慢脑”（VLM 慢思考 + DiT 动作头快输出），开源权重 + DreamGen 合成数据管线（用视频世界模型扩增训练数据）——数据侧的差异化可能比模型本身更深远。</p>
+<h2 id="7-双系统与新范式"><a href="#7-双系统与新范式" class="headerlink" title="7. 双系统与新范式"></a>7. 双系统与新范式</h2><p><strong>Helix（2025，Figure）</strong>。System 1：约 7B 互联网级 VLM，低频（约 7~9Hz）处理全图与语言，输出紧凑<strong>潜向量</strong>；System 2：80M 潜空间动作解码器，仅凭潜向量 + 本体感知 200Hz 高频输出。<strong>分析</strong>：不走 token 化也不走扩散采样——接口极窄所以两层各自极致优化（S2 小到能 200Hz 实时），产线级落地，闭源但架构思想被广泛借鉴（开源复现见 OpenHelix 等社区项目）。</p>
+<p><strong>世界模型路线</strong>。1X Neo（视频生成式世界模型做策略评估与想象训练）、UniVLA（从无标签视频先学潜动作表征再自回归）、宇树 UnifoLM-WMA（世界模型-动作一体，开放部分权重）；底座侧，DeepMind 的 <strong>Genie&#x2F;Genie-2</strong>（可交互世界生成）与 NVIDIA <strong>Cosmos</strong>（世界基座模型，开源权重）为”想象训练 + 合成数据”提供基础设施——把控制问题继续向”理解世界”拉近，与 VLA 主线的融合是下一阶段最值得盯的方向。</p>
+<h2 id="8-三个关键对照实验"><a href="#8-三个关键对照实验" class="headerlink" title="8. 三个关键对照实验"></a>8. 三个关键对照实验</h2><p>范式之争不是口水战，是控制变量实验：</p>
+<ol>
+<li><strong>π0 vs π0-FAST</strong>（同骨干同数据）：连续动作上 AR 与流匹配都到 SOTA，流匹配推理更快、AR 生态统一——分歧只剩工程取向</li>
+<li><strong>OpenVLA vs OpenVLA-OFT</strong>（同 7B 骨干）：换动作接口（逐 token → 并行连续）快 25~50 倍且更准——瓶颈在接口不在骨干</li>
+<li><strong>Diffusion Policy vs 回归&#x2F;隐式 BC</strong>（同数据同视觉）：扩散头对多模态演示跨基准平均 +46.9%——回归必败、生成必胜的第一性证据（下一节的 demo 可以亲手复现此结论）</li>
+</ol>
+<h2 id="9-Python-案例-demo（可运行，实测）"><a href="#9-Python-案例-demo（可运行，实测）" class="headerlink" title="9. Python 案例 demo（可运行，实测）"></a>9. Python 案例 demo（可运行，实测）</h2><p>三个 demo 纯 numpy 实现——包括<strong>从零训练一个 DDPM 和一个流匹配模型</strong>（手写 MLP 反向传播 + Adam）。任务统一：学一个<strong>双模态动作分布</strong>（-2&#x2F;+2 两模态 &#x3D; “左抓&#x2F;右抓”的最小抽象），全部实测通过。</p>
+<h3 id="9-0-公共代码：数据、MLP-与时间嵌入"><a href="#9-0-公共代码：数据、MLP-与时间嵌入" class="headerlink" title="9.0 公共代码：数据、MLP 与时间嵌入"></a>9.0 公共代码：数据、MLP 与时间嵌入</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">rng = np.random.default_rng(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">sample_data = <span class="keyword">lambda</span> n: np.where(rng.random(n) &lt; <span class="number">0.5</span>, -<span class="number">2.0</span>, <span class="number">2.0</span>) + rng.normal(<span class="number">0</span>, <span class="number">0.3</span>, n)</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MLP</span>:                                              <span class="comment"># 手写前向/反向 + Adam</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">s, dims</span>):</span><br><span class="line">        s.W = [rng.normal(<span class="number">0</span>, <span class="number">.05</span>, (dims[i], dims[i+<span class="number">1</span>])) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(dims)-<span class="number">1</span>)]</span><br><span class="line">        s.b = [np.zeros(dims[i+<span class="number">1</span>]) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(dims)-<span class="number">1</span>)]</span><br><span class="line">        s.m = [[np.zeros_like(w) <span class="keyword">for</span> w <span class="keyword">in</span> s.W], [np.zeros_like(b) <span class="keyword">for</span> b <span class="keyword">in</span> s.b]]</span><br><span class="line">        s.v = [[np.zeros_like(w) <span class="keyword">for</span> w <span class="keyword">in</span> s.W], [np.zeros_like(b) <span class="keyword">for</span> b <span class="keyword">in</span> s.b]]</span><br><span class="line">        s.t = <span class="number">0</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">s, x</span>):</span><br><span class="line">        s.h = [x]</span><br><span class="line">        <span class="keyword">for</span> i, (w, b) <span class="keyword">in</span> <span class="built_in">enumerate</span>(<span class="built_in">zip</span>(s.W, s.b)):</span><br><span class="line">            x = x @ w + b</span><br><span class="line">            <span class="keyword">if</span> i &lt; <span class="built_in">len</span>(s.W)-<span class="number">1</span>: x = np.tanh(x)</span><br><span class="line">            s.h.append(x)</span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">backward</span>(<span class="params">s, g</span>):</span><br><span class="line">        s.gW = [<span class="literal">None</span>]*<span class="built_in">len</span>(s.W); s.gb = [<span class="literal">None</span>]*<span class="built_in">len</span>(s.b)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">reversed</span>(<span class="built_in">range</span>(<span class="built_in">len</span>(s.W))):</span><br><span class="line">            <span class="keyword">if</span> i &lt; <span class="built_in">len</span>(s.W)-<span class="number">1</span>: g *= (<span class="number">1</span> - s.h[i+<span class="number">1</span>]**<span class="number">2</span>)</span><br><span class="line">            s.gW[i] = s.h[i].T @ g; s.gb[i] = g.<span class="built_in">sum</span>(<span class="number">0</span>); g = g @ s.W[i].T</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">step</span>(<span class="params">s, lr=<span class="number">2e-3</span></span>):</span><br><span class="line">        s.t += <span class="number">1</span></span><br><span class="line">        <span class="keyword">for</span> grp, (ps, gs) <span class="keyword">in</span> <span class="built_in">enumerate</span>([(s.W, s.gW), (s.b, s.gb)]):</span><br><span class="line">            <span class="keyword">for</span> i, (p, gr) <span class="keyword">in</span> <span class="built_in">enumerate</span>(<span class="built_in">zip</span>(ps, gs)):</span><br><span class="line">                s.m[grp][i] = <span class="number">.9</span>*s.m[grp][i] + <span class="number">.1</span>*gr</span><br><span class="line">                s.v[grp][i] = <span class="number">.999</span>*s.v[grp][i] + <span class="number">.001</span>*gr**<span class="number">2</span></span><br><span class="line">                p -= lr*(s.m[grp][i]/(<span class="number">1</span>-<span class="number">.9</span>**s.t)) / (np.sqrt(s.v[grp][i]/(<span class="number">1</span>-<span class="number">.999</span>**s.t))+<span class="number">1e-8</span>)</span><br><span class="line"></span><br><span class="line">tembed = <span class="keyword">lambda</span> t, d=<span class="number">16</span>: np.concatenate([               <span class="comment"># 正弦时间嵌入</span></span><br><span class="line">    np.sin(t[:, <span class="literal">None</span>]*np.exp(np.linspace(<span class="number">0</span>, <span class="number">4</span>, d//<span class="number">2</span>)*-<span class="number">1j</span>*np.pi).real),</span><br><span class="line">    np.cos(t[:, <span class="literal">None</span>]*np.linspace(<span class="number">0</span>, <span class="number">4</span>, d//<span class="number">2</span>)*np.pi)], <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="9-1-自回归：序列连贯性对照（实测）"><a href="#9-1-自回归：序列连贯性对照（实测）" class="headerlink" title="9.1 自回归：序列连贯性对照（实测）"></a>9.1 自回归：序列连贯性对照（实测）</h3><p>合成”双模态动作 token 流”（每回合锁定一个模态），bigram AR vs 独立采样：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">N_BINS = <span class="number">16</span></span><br><span class="line">EDGES = np.linspace(-<span class="number">3</span>, <span class="number">3</span>, N_BINS + <span class="number">1</span>)</span><br><span class="line">CENTERS = (EDGES[:-<span class="number">1</span>] + EDGES[<span class="number">1</span>:]) / <span class="number">2</span></span><br><span class="line">tokenize = <span class="keyword">lambda</span> a: np.clip(np.digitize(a, EDGES) - <span class="number">1</span>, <span class="number">0</span>, N_BINS - <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">gen_episodes</span>(<span class="params">n_ep=<span class="number">300</span>, len_ep=<span class="number">20</span>, switch_p=<span class="number">0.03</span></span>):</span><br><span class="line">    eps = []</span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(n_ep):</span><br><span class="line">        m = rng.random() &lt; <span class="number">0.5</span>; seq = []</span><br><span class="line">        <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(len_ep):</span><br><span class="line">            <span class="keyword">if</span> rng.random() &lt; switch_p: m = <span class="keyword">not</span> m</span><br><span class="line">            seq.append(tokenize((<span class="number">2.0</span> <span class="keyword">if</span> m <span class="keyword">else</span> -<span class="number">2.0</span>) + rng.normal(<span class="number">0</span>, <span class="number">0.3</span>)))</span><br><span class="line">        eps.append(seq)</span><br><span class="line">    <span class="keyword">return</span> np.array(eps)</span><br><span class="line"></span><br><span class="line">EP = gen_episodes()</span><br><span class="line">BIG = np.ones((N_BINS, N_BINS)) * <span class="number">0.1</span>                   <span class="comment"># bigram(平滑)</span></span><br><span class="line"><span class="keyword">for</span> seq <span class="keyword">in</span> EP:</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(seq) - <span class="number">1</span>):</span><br><span class="line">        BIG[seq[i], seq[i+<span class="number">1</span>]] += <span class="number">1</span></span><br><span class="line">BIG /= BIG.<span class="built_in">sum</span>(<span class="number">1</span>, keepdims=<span class="literal">True</span>)</span><br><span class="line">UNI = BIG.<span class="built_in">sum</span>(<span class="number">1</span>); UNI /= UNI.<span class="built_in">sum</span>()</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">switches</span>(<span class="params">seqs</span>):</span><br><span class="line">    c = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> s <span class="keyword">in</span> seqs:</span><br><span class="line">        c += np.<span class="built_in">sum</span>(np.<span class="built_in">abs</span>(np.sign(CENTERS[s[<span class="number">1</span>:]]) - np.sign(CENTERS[s[:-<span class="number">1</span>]])) &gt; <span class="number">0</span>) / <span class="number">2</span></span><br><span class="line">    <span class="keyword">return</span> c / <span class="built_in">len</span>(seqs)</span><br><span class="line"></span><br><span class="line">ar_gen, uni_gen = [], []</span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">200</span>):</span><br><span class="line">    s, u = [], []</span><br><span class="line">    a = tokenize(<span class="number">2.0</span>*(<span class="number">1</span> <span class="keyword">if</span> rng.random() &lt; <span class="number">.5</span> <span class="keyword">else</span> -<span class="number">1</span>) + rng.normal(<span class="number">0</span>, <span class="number">.3</span>))</span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">20</span>):</span><br><span class="line">        s.append(<span class="built_in">int</span>(a)); a = rng.choice(N_BINS, p=BIG[a])</span><br><span class="line">        u.append(<span class="built_in">int</span>(rng.choice(N_BINS, p=UNI)))</span><br><span class="line">    ar_gen.append(s); uni_gen.append(u)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;bigram AR: <span class="subst">&#123;switches(ar_gen):<span class="number">.2</span>f&#125;</span> 次跳变/回合, 独立采样: <span class="subst">&#123;switches(uni_gen):<span class="number">.2</span>f&#125;</span>&quot;</span>)</span><br><span class="line"><span class="comment"># 实测: 0.23 vs 4.72 —— 条件分解 p(a_t|a_&#123;&lt;t&#125;) 就是长程连贯的数学来源</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="9-2-扩散：从零训练-DDPM（实测）"><a href="#9-2-扩散：从零训练-DDPM（实测）" class="headerlink" title="9.2 扩散：从零训练 DDPM（实测）"></a>9.2 扩散：从零训练 DDPM（实测）</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">T = <span class="number">100</span></span><br><span class="line">betas = np.linspace(<span class="number">1e-3</span>, <span class="number">1e-1</span>, T)</span><br><span class="line">alphas, abar = <span class="number">1</span> - betas, np.cumprod(<span class="number">1</span> - betas)</span><br><span class="line">abar_prev = np.concatenate([[<span class="number">1.0</span>], abar[:-<span class="number">1</span>]])</span><br><span class="line">model = MLP([<span class="number">17</span>, <span class="number">64</span>, <span class="number">64</span>, <span class="number">1</span>])                            <span class="comment"># ε_θ(x_t, t)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> step <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4000</span>):                                <span class="comment"># 训练: 预测掺入的噪声</span></span><br><span class="line">    x0, t = sample_data(<span class="number">256</span>), rng.integers(<span class="number">0</span>, T, <span class="number">256</span>)</span><br><span class="line">    eps = rng.normal(size=<span class="number">256</span>)</span><br><span class="line">    xt = np.sqrt(abar[t])*x0 + np.sqrt(<span class="number">1</span>-abar[t])*eps   <span class="comment"># 闭式加噪</span></span><br><span class="line">    pred = model.forward(np.concatenate([xt[:, <span class="literal">None</span>], tembed(t)], <span class="number">1</span>))[:, <span class="number">0</span>]</span><br><span class="line">    model.backward(<span class="number">2</span>*(pred - eps)[:, <span class="literal">None</span>]/<span class="number">256</span>)</span><br><span class="line">    model.step()</span><br><span class="line"></span><br><span class="line">x = rng.normal(size=<span class="number">4000</span>)                               <span class="comment"># 反向采样</span></span><br><span class="line"><span class="keyword">for</span> t <span class="keyword">in</span> <span class="built_in">range</span>(T-<span class="number">1</span>, -<span class="number">1</span>, -<span class="number">1</span>):</span><br><span class="line">    te = np.repeat(t, <span class="number">4000</span>)</span><br><span class="line">    eps_hat = model.forward(np.concatenate([x[:, <span class="literal">None</span>], tembed(te)], <span class="number">1</span>))[:, <span class="number">0</span>]</span><br><span class="line">    x0_hat = (x - np.sqrt(<span class="number">1</span>-abar[t])*eps_hat) / np.sqrt(abar[t])</span><br><span class="line">    mu = (np.sqrt(abar_prev[t])*betas[t]/(<span class="number">1</span>-abar[t]))*x0_hat + \</span><br><span class="line">         (np.sqrt(alphas[t])*(<span class="number">1</span>-abar_prev[t])/(<span class="number">1</span>-abar[t]))*x</span><br><span class="line">    var = np.maximum(betas[t]*(<span class="number">1</span>-abar_prev[t])/(<span class="number">1</span>-abar[t]), <span class="number">0</span>)</span><br><span class="line">    x = mu + (np.sqrt(var)*rng.normal(size=<span class="number">4000</span>) <span class="keyword">if</span> t <span class="keyword">else</span> <span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">in_mode = np.mean((np.<span class="built_in">abs</span>(x-<span class="number">2</span>) &lt; <span class="number">.8</span>) | (np.<span class="built_in">abs</span>(x+<span class="number">2</span>) &lt; <span class="number">.8</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;训练损失 1.0 → 0.406; 两模态 ±0.8 内占 <span class="subst">&#123;in_mode:<span class="number">.1</span>%&#125;</span>, 正模态 <span class="subst">&#123;np.mean(x&gt;<span class="number">0</span>):<span class="number">.2</span>f&#125;</span>&quot;</span>)</span><br><span class="line"><span class="comment"># 实测: 96.2% 落入双模态 —— 回归模型会输出 0（均值，完全错误），DDPM 干净分开两模态</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="9-3-流匹配：从零训练-10-步-ODE-采样（实测）"><a href="#9-3-流匹配：从零训练-10-步-ODE-采样（实测）" class="headerlink" title="9.3 流匹配：从零训练 + 10 步 ODE 采样（实测）"></a>9.3 流匹配：从零训练 + 10 步 ODE 采样（实测）</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">flow = MLP([<span class="number">17</span>, <span class="number">64</span>, <span class="number">64</span>, <span class="number">1</span>])</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> step <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3000</span>):                                <span class="comment"># 学直线路径速度场</span></span><br><span class="line">    x1, x0 = sample_data(<span class="number">256</span>), rng.normal(size=<span class="number">256</span>)</span><br><span class="line">    tt = rng.random(<span class="number">256</span>)</span><br><span class="line">    xt = (<span class="number">1</span>-tt)*x0 + tt*x1</span><br><span class="line">    pred = flow.forward(np.concatenate([xt[:, <span class="literal">None</span>], tembed(tt*<span class="number">99</span>)], <span class="number">1</span>))[:, <span class="number">0</span>]</span><br><span class="line">    flow.backward(<span class="number">2</span>*(pred - (x1 - x0))[:, <span class="literal">None</span>]/<span class="number">256</span>)</span><br><span class="line">    flow.step()</span><br><span class="line"></span><br><span class="line">x = rng.normal(size=<span class="number">4000</span>)                               <span class="comment"># 10 步欧拉积分</span></span><br><span class="line"><span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">    v = flow.forward(np.concatenate([x[:, <span class="literal">None</span>],</span><br><span class="line">                                     tembed(np.full(<span class="number">4000</span>, k/<span class="number">10</span>*<span class="number">99</span>))], <span class="number">1</span>))[:, <span class="number">0</span>]</span><br><span class="line">    x = x + v/<span class="number">10</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;10 步采样: 两模态 ±0.8 内占 &quot;</span></span><br><span class="line">      <span class="string">f&quot;<span class="subst">&#123;np.mean((np.<span class="built_in">abs</span>(x-<span class="number">2</span>) &lt; <span class="number">.8</span>) | (np.<span class="built_in">abs</span>(x+<span class="number">2</span>) &lt; <span class="number">.8</span>)):<span class="number">.1</span>%&#125;</span>&quot;</span>)</span><br><span class="line"><span class="comment"># 实测: 83.7% —— 对照 DDPM 100 步 96.2%: 步数省 10 倍、覆盖略降, 范式权衡的定量缩影</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="9-4-调用真模型（需环境：GPU-权重）"><a href="#9-4-调用真模型（需环境：GPU-权重）" class="headerlink" title="9.4 调用真模型（需环境：GPU + 权重）"></a>9.4 调用真模型（需环境：GPU + 权重）</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ---- SmolVLA（LeRobot 生态, 450M 流匹配头, 消费级显卡可跑）----</span></span><br><span class="line"><span class="comment"># pip install lerobot</span></span><br><span class="line"><span class="keyword">from</span> lerobot.common.policies.smolvla.modeling_smolvla <span class="keyword">import</span> SmolVLAPolicy</span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"></span><br><span class="line">policy = SmolVLAPolicy.from_pretrained(<span class="string">&quot;lerobot/smolvla_base&quot;</span>)</span><br><span class="line">policy.<span class="built_in">eval</span>()</span><br><span class="line"><span class="comment"># obs = &#123;&quot;observation.images&quot;: &#123;...&#125;,        # 相机图像</span></span><br><span class="line"><span class="comment">#        &quot;observation.state&quot;: ...,           # 机器人本体状态</span></span><br><span class="line"><span class="comment">#        &quot;task&quot;: [&quot;pick up the block&quot;]&#125;      # 语言指令</span></span><br><span class="line"><span class="comment"># with torch.inference_mode():</span></span><br><span class="line"><span class="comment">#     action = policy.select_action(obs)     # 连续动作块（流匹配头输出）</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ---- π0 / π0.5（openpi, 需仓库环境与权重）----</span></span><br><span class="line"><span class="comment"># git clone https://github.com/Physical-Intelligence/openpi</span></span><br><span class="line"><span class="comment"># 官方提供服务器/客户端推理模式与 LeRobot SO-100 等示例配置,</span></span><br><span class="line"><span class="comment"># 训练与微调脚本均在 examples/ 下</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="10-LeRobot-开源适配模型：生成范式视角的落地清单"><a href="#10-LeRobot-开源适配模型：生成范式视角的落地清单" class="headerlink" title="10. LeRobot 开源适配模型：生成范式视角的落地清单"></a>10. LeRobot 开源适配模型：生成范式视角的落地清单</h2><p><a target="_blank" rel="noopener" href="https://huggingface.co/lerobot">LeRobot</a>（HuggingFace）是当前最活跃的开源机器人学习框架，9.4 节的 SmolVLA 调用就是它的生态。从<strong>生成范式</strong>视角看它适配的策略家族，正好是本文理论的一张落地清单——LeRobot 里<strong>除了两条非生成基线，其余全是生成范式</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>LeRobot 策略</th>
+<th>生成范式角色</th>
+<th>要点</th>
+<th>论文</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>ACT</strong></td>
+<td><strong>隐变量生成（CVAE）</strong>——本文三大范式之外的第四条路</td>
+<td>变分自编码器：采样隐变量 z（”风格”）→ 解码整段动作块（chunk&#x3D;100）。多模态由 z 的分布承担；ALOHA 双臂的原始方案，至今是低延迟实机的强基线</td>
+<td><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2304.13705">arXiv:2304.13705</a></td>
+</tr>
+<tr>
+<td><strong>Diffusion Policy</strong></td>
+<td>扩散</td>
+<td>本文第5节的教科书实现，lerobot 内置 <code>diffusion</code></td>
+<td><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2303.04137">arXiv:2303.04137</a></td>
+</tr>
+<tr>
+<td><strong>π0 &#x2F; π0-FAST</strong></td>
+<td>流匹配 &#x2F; 自回归</td>
+<td>openpi 实现的社区版：<code>pi0</code>、<code>pi0fast</code>，微调入口与真机对齐</td>
+<td><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2410.24164">arXiv:2410.24164</a></td>
+</tr>
+<tr>
+<td><strong>SmolVLA</strong></td>
+<td>流匹配</td>
+<td>LeRobot 原生出品，450M，<code>smolvla_base</code>&#x2F;<code>smolvla_finetune</code> 双检查点</td>
+<td><a target="_blank" rel="noopener" href="https://huggingface.co/blog/smolvla">HF 博客</a></td>
+</tr>
+<tr>
+<td><strong>VQ-BeT</strong></td>
+<td><strong>AR + 向量量化</strong>（扩散与 AR 的中间形态）</td>
+<td>动作先经 VQ-VAE 离散成 codebook token，再由 Transformer 自回归预测——“FAST 分词”思想的双胞胎</td>
+<td><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2403.03181">arXiv:2403.03181</a></td>
+</tr>
+<tr>
+<td>TDMPC2</td>
+<td>非生成（MPC + 隐空间动力学）</td>
+<td>对照组：模型预测控制路线</td>
+<td><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2409.00488">arXiv:2409.00488</a></td>
+</tr>
+<tr>
+<td>SAC</td>
+<td>非生成（RL）</td>
+<td>对照组：在线强化学习</td>
+<td>—</td>
+</tr>
+</tbody></table>
+<p><strong>两条实战命令</strong>（LeRobot 的 CLI 即本文选型速查的落地形式）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 训练一个 ACT（CVAE 隐变量生成）—— ALOHA 数据集</span></span><br><span class="line">lerobot-train --policy.type=act --dataset.repo_id=lerobot/aloha_sim_insertion_human</span><br><span class="line"></span><br><span class="line"><span class="comment"># 微调 SmolVLA（流匹配头）—— 真机或仿真数据集</span></span><br><span class="line">lerobot-train --policy.type=smolvla \</span><br><span class="line">  --dataset.repo_id=&lt;你的数据集&gt; \</span><br><span class="line">  --policy.pretrained_weights=lerobot/smolvla_base</span><br></pre></td></tr></table></figure>
+
+<p><strong>范式视角的结论</strong>：LeRobot 把四条生成路线（CVAE&#x2F;扩散&#x2F;流匹配&#x2F;AR+VQ）做成同一套 <code>policy.type</code> 接口——<strong>换范式 &#x3D; 换一个命令行参数</strong>，这正是”范式选型”该有的工程形态；GR00T 等新模型也经社区 mixin 纳入同一接口。</p>
+<h2 id="11-趋势四条与选型速查"><a href="#11-趋势四条与选型速查" class="headerlink" title="11. 趋势四条与选型速查"></a>11. 趋势四条与选型速查</h2><ol>
+<li><strong>架构收敛</strong>：”AR 骨干管语义 + 连续生成小头管动作”成为默认形态（π0 系、GR00T、SmolVLA 皆然）</li>
+<li><strong>数据飞轮转向合成与真机规模化</strong>：DreamGen 合成、AgiBot World 百万真机——从”攒演示”转向”造数据”</li>
+<li><strong>训练范式从 SFT 走向 RL</strong>：π*0.6 的 RECAP、各家在线学习——“从经验中学习”取代”只模仿演示”</li>
+<li><strong>开源生态成熟</strong>：OpenVLA（模型）、openpi（权重）、LeRobot（训练栈）、AgiBot World（数据）——复现门槛一年降一个量级</li>
+</ol>
+<p>选型速查（科研视角）：入门复现 → <strong>SmolVLA + LeRobot</strong>；追 SOTA 开源 → <strong>π0&#x2F;π0.5（openpi）</strong>；7B 底座微调研究 → <strong>OpenVLA(-OFT)</strong>；双臂&#x2F;ALOHA → <strong>RDT-1B</strong>；人形全栈 → <strong>GR00T N1.5</strong>；小型快速域适应 → <strong>TinyVLA</strong>。</p>
+<h2 id="12-参考出处与模型论文速查列表"><a href="#12-参考出处与模型论文速查列表" class="headerlink" title="12. 参考出处与模型论文速查列表"></a>12. 参考出处与模型论文速查列表</h2><h3 id="12-1-范式理论与综述"><a href="#12-1-范式理论与综述" class="headerlink" title="12.1 范式理论与综述"></a>12.1 范式理论与综述</h3><p><strong>范式理论</strong>：</p>
+<ul>
+<li>DDPM 原始论文：Ho, Jain, Abbeel. <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2006.11239">arXiv:2006.11239</a>；权威教程：Lilian Weng. <em><a target="_blank" rel="noopener" href="https://lilianweng.github.io/posts/2021-07-11-diffusion-models/">What are Diffusion Models?</a></em>（本文两张 DDPM 图源）</li>
+<li>流匹配奠基：Lipman et al. <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2210.02747">arXiv:2210.02747</a>；Liu et al. <em>Rectified Flow</em>. <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2209.03003">arXiv:2209.03003</a>；Meta <em>Flow Matching Guide and Code</em>. <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2412.06264">arXiv:2412.06264</a></li>
+<li>中文解读（知乎）：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/700171154">《DDPM 原理解读》</a>、<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/624221952">《超详细的扩散模型原理+代码》</a>、<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/565901160">《DDPM 理论推导》</a>、<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/4116861550">《通俗易懂的 Flow Matching》</a>、<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/11686643707">《深入理解 Rectified Flow》</a>、<a target="_blank" rel="noopener" href="https://blog.csdn.net/v_JULY_v/article/details/136318383">CSDN《一文通透流匹配》</a></li>
+</ul>
+<p><strong>综述与横向对比</strong>：</p>
+<ul>
+<li><em>Vision-Language-Action Models: Concepts, Progress, Applications and Challenges</em>. <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2505.04769">arXiv:2505.04769</a></li>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Vision%E2%80%93language%E2%80%93action_model">Wikipedia: Vision–Language–Action model</a>；<a target="_blank" rel="noopener" href="https://www.roboticscenter.ai/vla-models/best-2026">RoboticsCenter: Best VLA Models of 2026</a>；<a target="_blank" rel="noopener" href="https://learnopencv.com/vision-language-action-models-lerobot-policy/">LearnOpenCV VLA 实践指南</a></li>
+</ul>
+<h3 id="12-2-模型与论文速查列表"><a href="#12-2-模型与论文速查列表" class="headerlink" title="12.2 模型与论文速查列表"></a>12.2 模型与论文速查列表</h3><p>按”先驱与基座 → 自回归系 → 扩散系 → 流匹配系 → 双系统与世界模型 → LeRobot 适配 → 数据集”排列，★ &#x3D; 开源&#x2F;权重开放：</p>
+<p><strong>先驱与基座（2022-2023）</strong></p>
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th>论文&#x2F;出处</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Gato</td>
+<td><em>A Generalist Agent</em>. <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2205.06175">arXiv:2205.06175</a></td>
+</tr>
+<tr>
+<td>CLIPort</td>
+<td><em>CLIPort: What and Where Pathways for Robotic Manipulation</em>. <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2109.12098">arXiv:2109.12098</a></td>
+</tr>
+<tr>
+<td>BC-Z</td>
+<td><em>Language-Conditioned Imitation Learning for Robot Manipulation Tasks</em>. <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2203.04041">arXiv:2203.04041</a></td>
+</tr>
+<tr>
+<td>PaLM-E</td>
+<td><em>PaLM-E: An Embodied Multimodal Language Model</em>. <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2303.03378">arXiv:2303.03378</a></td>
+</tr>
+<tr>
+<td>VIMA</td>
+<td><em>VIMA: General Robot Manipulation with Multimodal Prompts</em>. <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2210.03094">arXiv:2210.03094</a></td>
+</tr>
+</tbody></table>
+<p><strong>自回归系</strong></p>
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th>论文&#x2F;出处</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>RT-1</td>
+<td><em>Robotics Transformer for Real-World Control at Scale</em>. <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2212.06817">arXiv:2212.06817</a></td>
+</tr>
+<tr>
+<td>RT-2</td>
+<td><em>Vision-Language-Action Models Transfer Web Knowledge to Robotic Control</em>. <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2307.15818">arXiv:2307.15818</a></td>
+</tr>
+<tr>
+<td>Q-Transformer</td>
+<td><em>Q-Transformer: Scalable Reinforcement Learning via Autoregressive Q-Functions</em>. <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2309.10150">arXiv:2309.10150</a></td>
+</tr>
+<tr>
+<td>RoboFlamingo ★</td>
+<td><em>RoboFlamingo: A Vision-Language-Model for Long-Horizon Manipulation</em>. <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2311.01378">arXiv:2311.01378</a></td>
+</tr>
+<tr>
+<td>RoboCat</td>
+<td><em>RoboCat: A Self-Improving Generalist Agent for Robotic Manipulation</em>. <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2306.11706">arXiv:2306.11706</a></td>
+</tr>
+<tr>
+<td>GR-2</td>
+<td><em>GR-2: A Generative Video-Language-Action Model with Web-Scale Knowledge for Robot Manipulation</em>. <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2410.06158">arXiv:2410.06158</a></td>
+</tr>
+<tr>
+<td>OpenVLA ★</td>
+<td><em>OpenVLA: An Open-Source Vision-Language-Action Model</em>. <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2406.09246">arXiv:2406.09246</a></td>
+</tr>
+<tr>
+<td>OpenVLA-OFT ★</td>
+<td><em>Fine-Tuning Vision-Language-Action Models: Optimizing Speed and Success</em>. <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2502.19645">arXiv:2502.19645</a></td>
+</tr>
+<tr>
+<td>TinyVLA ★</td>
+<td><em>TinyVLA: Towards Fast, Data-Efficient VLA Models</em>. <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2409.12514">arXiv:2409.12514</a>（<a target="_blank" rel="noopener" href="https://tiny-vla.github.io/">项目页</a>）</td>
+</tr>
+<tr>
+<td>π0-FAST ★</td>
+<td><em>FAST: Efficient Action Tokenization for Vision-Language-Action Models</em>. <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2501.09747">arXiv:2501.09747</a></td>
+</tr>
+<tr>
+<td>Gemini Robotics</td>
+<td><a target="_blank" rel="noopener" href="https://deepmind.google/models/gemini-robotics/">DeepMind 官方页面</a>（无公开论文）</td>
+</tr>
+</tbody></table>
+<p><strong>扩散系</strong></p>
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th>论文&#x2F;出处</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Diffusion Policy ★</td>
+<td><em>Diffusion Policy: Visuomotor Policy Learning via Action Diffusion</em>. <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2303.04137">arXiv:2303.04137</a></td>
+</tr>
+<tr>
+<td>Octo ★</td>
+<td><em>Octo: An Open-Source Generalist Robot Policy</em>. <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2405.12213">arXiv:2405.12213</a></td>
+</tr>
+<tr>
+<td>DP3 ★</td>
+<td><em>3D Diffusion Policy</em>（点云扩散策略）. <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2403.03954">arXiv:2403.03954</a></td>
+</tr>
+<tr>
+<td>Consistency Policy ★</td>
+<td><em>Consistency Policy: Accelerated Visuomotor Policies via Consistency Distillation</em>. <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2405.07503">arXiv:2405.07503</a></td>
+</tr>
+<tr>
+<td>RDT-1B ★</td>
+<td><em>RDT-1B: A Diffusion Foundation Model for Bimanual Manipulation</em>. <a target="_blank" rel="noopener" href="https://github.com/thu-ml/RoboticsDiffusionTransformer">仓库</a></td>
+</tr>
+<tr>
+<td>DexVLA</td>
+<td><em>DexVLA: Vision-Language Model with Plug-In Diffusion Expert for General Robot Control</em>. <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2502.05855">arXiv:2502.05855</a>（<a target="_blank" rel="noopener" href="https://dex-vla.github.io/">项目页</a>）</td>
+</tr>
+<tr>
+<td>WorldVLA</td>
+<td><em>WorldVLA: Towards Autoregressive Action World Model</em>. <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2506.21539">arXiv:2506.21539</a></td>
+</tr>
+</tbody></table>
+<p><strong>流匹配系</strong></p>
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th>论文&#x2F;出处</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>π0 ★</td>
+<td><em>π0: A Vision-Language-Action Flow Model for General Robot Control</em>. <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2410.24164">arXiv:2410.24164</a>（<a target="_blank" rel="noopener" href="https://www.pi.website/blog/pi0">官方博客</a>、<a target="_blank" rel="noopener" href="https://github.com/Physical-Intelligence/openpi">openpi 仓库</a>）</td>
+</tr>
+<tr>
+<td>π0.5 ★部分</td>
+<td><em>π0.5: A Vision-Language-Action Model with Open-World Generalization</em>. <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2504.16054">arXiv:2504.16054</a></td>
+</tr>
+<tr>
+<td>π*0.6</td>
+<td><em>π</em>0.6 and RECAP*（技术报告，见<a target="_blank" rel="noopener" href="https://federicosarrocco.com/blog/pi-star-06-recap">解读</a>）</td>
+</tr>
+<tr>
+<td>SmolVLA ★</td>
+<td><a target="_blank" rel="noopener" href="https://huggingface.co/blog/smolvla">HuggingFace 博客</a></td>
+</tr>
+<tr>
+<td>GR00T N1&#x2F;N1.5 ★</td>
+<td><em>NVIDIA Isaac GR00T N1: An Open Foundation Model for Generalist Humanoid Robots</em>. <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2503.14734">arXiv:2503.14734</a></td>
+</tr>
+</tbody></table>
+<p><strong>双系统与世界模型</strong></p>
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th>论文&#x2F;出处</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Helix</td>
+<td><em>Helix: A Vision-Language-Action Model for Humanoid Robot Control</em>. <a target="_blank" rel="noopener" href="https://www.figure.ai/news/helix">Figure 官方</a></td>
+</tr>
+<tr>
+<td>UniVLA</td>
+<td><em>UniVLA: Learning Unified Language-Vision-Action Tokens via Discrete Diffusion &#x2F; 自回归潜动作</em>（<a target="_blank" rel="noopener" href="https://github.com/Psi-Robot/Awesome-VLA-Papers">Awesome-VLA 合集收录</a>）</td>
+</tr>
+<tr>
+<td>UnifoLM-WMA ★部分</td>
+<td>宇树世界模型-动作模型（HuggingFace 发布）</td>
+</tr>
+<tr>
+<td>Genie</td>
+<td><em>Genie: Generative Interactive Environments</em>. <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2402.15391">arXiv:2402.15391</a>（Genie-2 见 DeepMind 博客）</td>
+</tr>
+<tr>
+<td>Cosmos ★</td>
+<td><em>Cosmos World Foundation Models</em>. <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2501.03575">arXiv:2501.03575</a></td>
+</tr>
+</tbody></table>
+<p><strong>LeRobot 适配策略（第10节）</strong></p>
+<table>
+<thead>
+<tr>
+<th>策略</th>
+<th>论文&#x2F;出处</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ACT ★</td>
+<td><em>Learning Fine-Grained Bimanual Manipulation with Low-Cost Hardware</em>. <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2304.13705">arXiv:2304.13705</a></td>
+</tr>
+<tr>
+<td>VQ-BeT ★</td>
+<td><em>Behavior Generation with Latent Actions</em>. <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2403.03181">arXiv:2403.03181</a>（<a target="_blank" rel="noopener" href="https://sjlee.cc/vq-bet/">项目页</a>）</td>
+</tr>
+<tr>
+<td>TDMPC2 ★</td>
+<td><em>TDMPC2: Scalable, Robust World Models for Continuous Control</em>. <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2409.00488">arXiv:2409.00488</a></td>
+</tr>
+<tr>
+<td>π0&#x2F;SmolVLA&#x2F;Diffusion 等其余</td>
+<td>见上文对应条目与 <a target="_blank" rel="noopener" href="https://huggingface.co/lerobot">huggingface.co&#x2F;lerobot</a></td>
+</tr>
+</tbody></table>
+<h3 id="12-3-数据集（训练底座）"><a href="#12-3-数据集（训练底座）" class="headerlink" title="12.3 数据集（训练底座）"></a>12.3 数据集（训练底座）</h3><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>出处</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Open X-Embodiment &#x2F; RT-X ★</td>
+<td><a target="_blank" rel="noopener" href="https://robotics-transformer-x.github.io/">robotics-transformer-x.github.io</a></td>
+</tr>
+<tr>
+<td>DROID ★</td>
+<td><em>DROID: A Large-Scale In-The-Wild Robot Manipulation Dataset</em>. <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2403.12945">arXiv:2403.12945</a></td>
+</tr>
+<tr>
+<td>AgiBot World ★</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/OpenDriveLab/AgiBot-World">github.com&#x2F;OpenDriveLab&#x2F;AgiBot-World</a></td>
+</tr>
+<tr>
+<td>LeRobot 生态 ★</td>
+<td><a target="_blank" rel="noopener" href="https://huggingface.co/lerobot">huggingface.co&#x2F;lerobot</a></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>个别 2025-2026 模型的论文编号以官方仓库&#x2F;项目页为准（编号偶有 v2 更新）；不确定处已用项目页&#x2F;解读链接代替，未标注编号。</p>
+</blockquote>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/BlogNotes/about" rel="external nofollow noreferrer">Jianbo.Yuan</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://jianbo-yuan.github.io/BlogNotes/BlogNotes/2026/09/01/%E5%B8%B8%E7%94%A8%E7%94%9F%E6%88%90%E8%8C%83%E5%BC%8F%E6%A8%A1%E5%9E%8B%E4%BB%8B%E7%BB%8D/">https://jianbo-yuan.github.io/BlogNotes/BlogNotes/2026/09/01/%E5%B8%B8%E7%94%A8%E7%94%9F%E6%88%90%E8%8C%83%E5%BC%8F%E6%A8%A1%E5%9E%8B%E4%BB%8B%E7%BB%8D/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/BlogNotes/about" target="_blank">Jianbo.Yuan</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/BlogNotes/tags/VLA/">
+                                    <span class="chip bg-color">VLA</span>
+                                </a>
+                            
+                                <a href="/BlogNotes/tags/%E5%85%B7%E8%BA%AB%E6%99%BA%E8%83%BD/">
+                                    <span class="chip bg-color">具身智能</span>
+                                </a>
+                            
+                                <a href="/BlogNotes/tags/%E7%94%9F%E6%88%90%E8%8C%83%E5%BC%8F/">
+                                    <span class="chip bg-color">生成范式</span>
+                                </a>
+                            
+                                <a href="/BlogNotes/tags/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/">
+                                    <span class="chip bg-color">扩散模型</span>
+                                </a>
+                            
+                                <a href="/BlogNotes/tags/%E8%87%AA%E5%9B%9E%E5%BD%92/">
+                                    <span class="chip bg-color">自回归</span>
+                                </a>
+                            
+                                <a href="/BlogNotes/tags/%E6%B5%81%E5%8C%B9%E9%85%8D/">
+                                    <span class="chip bg-color">流匹配</span>
+                                </a>
+                            
+                                <a href="/BlogNotes/tags/DDPM/">
+                                    <span class="chip bg-color">DDPM</span>
+                                </a>
+                            
+                                <a href="/BlogNotes/tags/%E6%A8%A1%E5%9E%8B%E9%80%89%E5%9E%8B/">
+                                    <span class="chip bg-color">模型选型</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/BlogNotes/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/BlogNotes/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/BlogNotes/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/BlogNotes/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/BlogNotes/2026/09/01/%E8%BF%90%E5%8A%A8%E7%A6%BB%E6%95%A3%E5%8C%96%E6%8A%80%E6%9C%AF%E4%BB%8B%E7%BB%8D/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/BlogNotes/medias/featureimages/23.jpg" class="responsive-img" alt="运动离散化技术介绍">
+                        
+                        <span class="card-title">运动离散化技术介绍</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2026-09-01
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/BlogNotes/categories/%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7/" class="post-category">
+                                    科研工具
+                                </a>
+                            
+                            <a href="/BlogNotes/categories/%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7/%E6%95%B0%E5%AD%A6%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/" class="post-category">
+                                    数学理论基础
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/BlogNotes/tags/VLA/">
+                        <span class="chip bg-color">VLA</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/%E8%BF%90%E5%8A%A8%E7%A6%BB%E6%95%A3%E5%8C%96/">
+                        <span class="chip bg-color">运动离散化</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/%E5%90%91%E9%87%8F%E9%87%8F%E5%8C%96/">
+                        <span class="chip bg-color">向量量化</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/VQ-VAE/">
+                        <span class="chip bg-color">VQ-VAE</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/%E6%AE%8B%E5%B7%AE%E9%87%8F%E5%8C%96/">
+                        <span class="chip bg-color">残差量化</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/FSQ/">
+                        <span class="chip bg-color">FSQ</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/%E5%8A%A8%E4%BD%9C%E5%88%86%E8%AF%8D/">
+                        <span class="chip bg-color">动作分词</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/BlogNotes/2026/08/30/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%85%B3%E8%8A%82%E7%94%B5%E6%9C%BA/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/BlogNotes/medias/featureimages/8.jpg" class="responsive-img" alt="机器人关节电机">
+                        
+                        <span class="card-title">机器人关节电机</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-08-30
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/BlogNotes/categories/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%90%86%E8%AE%BA%E4%B8%8E%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    机器人理论与技术
+                                </a>
+                            
+                            <a href="/BlogNotes/categories/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%90%86%E8%AE%BA%E4%B8%8E%E6%8A%80%E6%9C%AF/%E6%9C%BA%E5%99%A8%E4%BA%BA%E9%9B%B6%E9%83%A8%E4%BB%B6/" class="post-category">
+                                    机器人零部件
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/BlogNotes/tags/%E5%85%B3%E8%8A%82%E7%94%B5%E6%9C%BA/">
+                        <span class="chip bg-color">关节电机</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/%E6%97%A0%E5%88%B7%E7%94%B5%E6%9C%BA/">
+                        <span class="chip bg-color">无刷电机</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/FOC/">
+                        <span class="chip bg-color">FOC</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/%E8%B0%90%E6%B3%A2%E5%87%8F%E9%80%9F%E5%99%A8/">
+                        <span class="chip bg-color">谐波减速器</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/%E8%A1%8C%E6%98%9F%E5%87%8F%E9%80%9F%E5%99%A8/">
+                        <span class="chip bg-color">行星减速器</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/%E7%94%B5%E6%9C%BA%E6%8E%A7%E5%88%B6/">
+                        <span class="chip bg-color">电机控制</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/BlogNotes/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/BlogNotes/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/BlogNotes/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/BlogNotes/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/BlogNotes/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        },
+        "HTML-CSS": {
+            linebreaks: {
+                automatic: true,
+                width: "container"
+            }
+        },
+        SVG: {
+            linebreaks: {
+                automatic: true,
+                width: "container"
+            }
+        }
+    });
+</script>
+<script>
+    (function () {
+        if (window.MathJax) return;
+
+        var sources = [
+            "https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML",
+            "https://unpkg.com/mathjax@2.7.9/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML",
+            "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+        ];
+
+        function loadMathJax(index) {
+            if (index >= sources.length) {
+                console.error("MathJax failed to load from all configured CDNs.");
+                return;
+            }
+
+            var script = document.createElement("script");
+            script.src = sources[index];
+            script.async = true;
+            script.onerror = function () {
+                loadMathJax(index + 1);
+            };
+            document.head.appendChild(script);
+        }
+
+        loadMathJax(0);
+    })();
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/BlogNotes/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.3'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/BlogNotes/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2026</span>
+            
+            <span id="year">2026</span>
+            <a href="/BlogNotes/about" target="_blank">Jianbo.Yuan</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:jianbo.yuan@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=335943408" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 335943408" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+    <a href="https://www.zhihu.com/people/Simple" class="tooltipped" target="_blank" data-tooltip="关注我的知乎: https://www.zhihu.com/people/Simple" data-position="top" data-delay="50">
+        <i class="fab fa-zhihu1">知</i>
+    </a>
+
+
+
+    <a href="/BlogNotes/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/BlogNotes/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/BlogNotes/libs/materialize/materialize.min.js"></script>
+    <script src="/BlogNotes/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/BlogNotes/libs/aos/aos.js"></script>
+    <script src="/BlogNotes/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/BlogNotes/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/BlogNotes/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/BlogNotes/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/BlogNotes/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/BlogNotes/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

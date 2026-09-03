@@ -1,0 +1,1643 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Diffusion Policy理论与衍生VLA模型解析, Jianbo.Yuan">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Diffusion Policy理论与衍生VLA模型解析 | Jianbo.Yuan</title>
+    <link rel="icon" type="image/png" href="/BlogNotes/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/css/my.css">
+
+    <script src="/BlogNotes/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/BlogNotes/" class="waves-effect waves-light">
+                    
+                    <img src="/BlogNotes/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Jianbo.Yuan</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/BlogNotes/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Jianbo.Yuan</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/BlogNotes/medias/featureimages/11.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Diffusion Policy理论与衍生VLA模型解析</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/BlogNotes/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/BlogNotes/tags/VLA/">
+                                <span class="chip bg-color">VLA</span>
+                            </a>
+                        
+                            <a href="/BlogNotes/tags/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/">
+                                <span class="chip bg-color">扩散模型</span>
+                            </a>
+                        
+                            <a href="/BlogNotes/tags/Diffusion-Policy/">
+                                <span class="chip bg-color">Diffusion Policy</span>
+                            </a>
+                        
+                            <a href="/BlogNotes/tags/%E6%A8%A1%E4%BB%BF%E5%AD%A6%E4%B9%A0/">
+                                <span class="chip bg-color">模仿学习</span>
+                            </a>
+                        
+                            <a href="/BlogNotes/tags/DDIM/">
+                                <span class="chip bg-color">DDIM</span>
+                            </a>
+                        
+                            <a href="/BlogNotes/tags/3D%E7%AD%96%E7%95%A5/">
+                                <span class="chip bg-color">3D策略</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/BlogNotes/categories/%E8%AE%BA%E6%96%87%E7%B2%BE%E5%BA%A6%E4%B8%8E%E5%88%86%E6%9E%90/" class="post-category">
+                                论文精度与分析
+                            </a>
+                        
+                            <a href="/BlogNotes/categories/%E8%AE%BA%E6%96%87%E7%B2%BE%E5%BA%A6%E4%B8%8E%E5%88%86%E6%9E%90/%E6%A8%A1%E4%BB%BF%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                模仿学习
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2026-09-02
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p><strong>Diffusion Policy</strong>（Chi et al. 2023，哥伦比亚&#x2F;TRI）用一篇论文改变了机器人模仿学习的格局：把文生图的扩散去噪搬到动作生成上，<strong>跨基准平均提升 46.9%</strong>。它不仅与 ACT 并列为精细操作的”双雄”，更催生了 3D 策略、一致性蒸馏、残差扩散、引导扩散人形控制等一整条技术树——包括本站已有精读的 BeyondMimic。本文按”理论详解（含实测 demo）→ 衍生模型逐个拆解（改动&#x2F;效果双段式）→ 谱系总结”展开，与 <a href="/BlogNotes/2026/09/02/ACT%E7%90%86%E8%AE%BA%E4%B8%8E%E8%A1%8D%E7%94%9FVLA%E6%A8%A1%E5%9E%8B%E8%A7%A3%E6%9E%90/">ACT 解析</a>互为姊妹篇。</p>
+<h2 id="1-Diffusion-Policy-是什么：问题、方案与结果"><a href="#1-Diffusion-Policy-是什么：问题、方案与结果" class="headerlink" title="1. Diffusion Policy 是什么：问题、方案与结果"></a>1. Diffusion Policy 是什么：问题、方案与结果</h2><p><strong>问题设定</strong>（<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2303.04137">arXiv:2303.04137</a>）。模仿学习的两大老难题与 ACT 完全一致：<strong>多模态演示</strong>（MSE 回归模式平均）与<strong>复合误差</strong>（逐帧预测的误差累积）。此外 Diffusion Policy 论文额外指出第三个：<strong>高维动作空间的分布建模</strong>——机器人的动作空间是高维连续的，之前的生成方法（GAN 不稳定、CVAE 采样模糊）各有瓶颈。</p>
+<p><strong>方案</strong>：动作块扩散去噪。策略网络 <span class="math-inline">\(\epsilon_\theta(\boldsymbol{A}^k, k, \boldsymbol{o})\)</span> 学习从纯噪声逐步去噪出未来 <span class="math-inline">\(T_p = 16\)</span> 步动作块，每次推理从随机噪声出发、<span class="math-inline">\(T_d\)</span> 步去噪到干净动作，执行前 8 步、丢弃后 8 步（滚动时域）。</p>
+<p><strong>结果</strong>：15 个基准（PushT、RoboMimic 等），<strong>跨基准平均比 BC-RNN&#x2F;IBC 提升 46.9%</strong>；真机（UR5、Franka）验证接触富集任务（腌黄瓜取放、倒坚果等）。<strong>开源 <a target="_blank" rel="noopener" href="https://github.com/real-stanford/diffusion_policy">github.com&#x2F;real-stanford&#x2F;diffusion_policy</a></strong>，LeRobot 内置 <code>diffusion</code>。</p>
+<h2 id="2-理论详解"><a href="#2-理论详解" class="headerlink" title="2. 理论详解"></a>2. 理论详解</h2><h3 id="2-1-从-DDPM-到动作扩散（数学回顾）"><a href="#2-1-从-DDPM-到动作扩散（数学回顾）" class="headerlink" title="2.1 从 DDPM 到动作扩散（数学回顾）"></a>2.1 从 DDPM 到动作扩散（数学回顾）</h3><p>详见本站<a href="/BlogNotes/2026/09/01/%E5%B8%B8%E7%94%A8%E7%94%9F%E6%88%90%E8%8C%83%E5%BC%8F%E6%A8%A1%E5%9E%8B%E4%BB%8B%E7%BB%8D/">运动离散化&#x2F;生成范式</a>的 DDPM 推导。核心三公式：</p>
+<p><strong>前向加噪</strong>（闭式可算）：<span class="math-inline">\(\boldsymbol{A}^k = \sqrt{\bar\alpha_k}\boldsymbol{A}^0 + \sqrt{1-\bar\alpha_k}\,\boldsymbol{\varepsilon}\)</span></p>
+<p><strong>训练目标</strong>（噪声预测）：<span class="math-inline">\(\mathcal{L} = \mathbb{E}\big[\|\boldsymbol{\varepsilon} - \boldsymbol{\varepsilon}_\theta(\boldsymbol{A}^k, k, \boldsymbol{o})\|^2\big]\)</span></p>
+<p><strong>反向去噪</strong>（DDPM）：<span class="math-inline">\(\boldsymbol{A}^{k-1} = \mu_\theta(\boldsymbol{A}^k, k, \boldsymbol{o}) + \sigma_k \boldsymbol{z}\)</span></p>
+<h3 id="2-2-多模态的来源：随机噪声起点"><a href="#2-2-多模态的来源：随机噪声起点" class="headerlink" title="2.2 多模态的来源：随机噪声起点"></a>2.2 多模态的来源：随机噪声起点</h3><p>扩散解多模态的机制与 CVAE 不同：<strong>随机起点自动分模态</strong>。不同噪声去噪到不同模态——不需要显式的隐变量或聚类。推理时随机采样 <span class="math-inline">\(T\)</span> 次可以得到多个合理动作方案。</p>
+<h3 id="2-3-与-CVAE（ACT）的机制对比"><a href="#2-3-与-CVAE（ACT）的机制对比" class="headerlink" title="2.3 与 CVAE（ACT）的机制对比"></a>2.3 与 CVAE（ACT）的机制对比</h3><table>
+<thead>
+<tr>
+<th>维度</th>
+<th>ACT（CVAE）</th>
+<th>Diffusion Policy</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>多模态来源</td>
+<td>隐变量 <span class="math-inline">\(z\)</span> 编码”风格”</td>
+<td>随机噪声起点</td>
+</tr>
+<tr>
+<td>训练稳定性</td>
+<td>ELBO 联合优化（需平衡重建&#x2F;KL）</td>
+<td>回归噪声（简单稳定）</td>
+</tr>
+<tr>
+<td>采样步数</td>
+<td>1 步（<span class="math-inline">\(z\)</span> + 前向解码）</td>
+<td><span class="math-inline">\(T_d\)</span> 步去噪（10~100）</td>
+</tr>
+<tr>
+<td>高维动作</td>
+<td>受限于 VAE 容量</td>
+<td>扩散逐步精修更适配</td>
+</tr>
+<tr>
+<td>速度</td>
+<td>✓ 快</td>
+<td>需 DDIM&#x2F;蒸馏加速</td>
+</tr>
+<tr>
+<td>少量演示</td>
+<td>✓ 更优（论文互证）</td>
+<td>略逊但可接受</td>
+</tr>
+</tbody></table>
+<h3 id="2-4-架构两种：CNN-与-Transformer"><a href="#2-4-架构两种：CNN-与-Transformer" class="headerlink" title="2.4 架构两种：CNN 与 Transformer"></a>2.4 架构两种：CNN 与 Transformer</h3><p>Diffusion Policy 提供两种去噪骨干：</p>
+<ul>
+<li><strong>1D 时序 CNN</strong>（默认）：对 <span class="math-inline">\(T_p \times \dim\)</span> 的动作块做 1D 卷积——感受野有限但参数少、训练快、对短块（16 步）足够</li>
+<li><strong>Transformer</strong>：全局自注意力——更长视野、更大动作维度（如双臂全身控制）更优</li>
+</ul>
+<p>视觉编码：ResNet-18（空间下采样保留 2D 精度）——比 ACT 的 CNN 编码器增加了<strong>空间分辨率保留</strong>设计（ACT 用 stride 池化压缩到 1×1，DP 保留 feature map 结构）。</p>
+<h3 id="2-5-推理加速路线"><a href="#2-5-推理加速路线" class="headerlink" title="2.5 推理加速路线"></a>2.5 推理加速路线</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>原理</th>
+<th>步数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>DDPM（原版）</td>
+<td>逐步随机去噪</td>
+<td>50~100</td>
+</tr>
+<tr>
+<td><strong>DDIM</strong>（确定性采样）</td>
+<td>跳步确定性 ODE</td>
+<td>10~20（DP 默认）</td>
+</tr>
+<tr>
+<td><strong>Consistency Policy</strong>（衍生）</td>
+<td>一致性蒸馏</td>
+<td><strong>1~2</strong></td>
+</tr>
+<tr>
+<td>流匹配（另一路线）</td>
+<td>直线路径速度场</td>
+<td>~10（见 <a href="/BlogNotes/2026/09/01/PI%E7%B3%BB%E5%88%97%E8%AE%BA%E6%96%87%E8%A7%A3%E6%9E%90/">π0</a>）</td>
+</tr>
+</tbody></table>
+<h2 id="3-Python-Demo（可运行，实测）"><a href="#3-Python-Demo（可运行，实测）" class="headerlink" title="3. Python Demo（可运行，实测）"></a>3. Python Demo（可运行，实测）</h2><p>展示扩散策略的核心：<strong>噪声起点自动分模态</strong> vs <strong>MSE 回归模式平均</strong>。与 ACT 篇的 CVAE demo 用同一数据，直接对照两代生成头的差异。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">rng = np.random.default_rng(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 数据: 4 种&quot;演示手法&quot;簇(与 ACT 篇相同)</span></span><br><span class="line">CENTERS = np.array([[<span class="number">1.0</span>, <span class="number">0.2</span>], [-<span class="number">1.0</span>, <span class="number">0.2</span>], [<span class="number">0.3</span>, <span class="number">1.0</span>], [-<span class="number">0.2</span>, -<span class="number">1.0</span>]])</span><br><span class="line">sample_data = <span class="keyword">lambda</span> n: CENTERS[rng.integers(<span class="number">0</span>, <span class="number">4</span>, n)] + rng.normal(<span class="number">0</span>, <span class="number">0.12</span>, (n, <span class="number">2</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># ---- 扩散去噪器: 学习从噪声 A^k 预测掺入的 ε ----</span></span><br><span class="line"><span class="comment"># 条件: 噪声动作 A^k + 时间嵌入 k (无观测条件, 简化为无条件 DDPM)</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MLP</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">s, dims</span>):</span><br><span class="line">        s.W = [rng.normal(<span class="number">0</span>, <span class="number">.05</span>, (dims[i], dims[i+<span class="number">1</span>])) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(dims)-<span class="number">1</span>)]</span><br><span class="line">        s.b = [np.zeros(dims[i+<span class="number">1</span>]) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(dims)-<span class="number">1</span>)]</span><br><span class="line">        s.m = [[np.zeros_like(w) <span class="keyword">for</span> w <span class="keyword">in</span> s.W], [np.zeros_like(b) <span class="keyword">for</span> b <span class="keyword">in</span> s.b]]</span><br><span class="line">        s.v = [[np.zeros_like(w) <span class="keyword">for</span> w <span class="keyword">in</span> s.W], [np.zeros_like(b) <span class="keyword">for</span> b <span class="keyword">in</span> s.b]]</span><br><span class="line">        s.t = <span class="number">0</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">s, x</span>):</span><br><span class="line">        s.h = [x]</span><br><span class="line">        <span class="keyword">for</span> i, (w, b) <span class="keyword">in</span> <span class="built_in">enumerate</span>(<span class="built_in">zip</span>(s.W, s.b)):</span><br><span class="line">            x = x @ w + b</span><br><span class="line">            <span class="keyword">if</span> i &lt; <span class="built_in">len</span>(s.W)-<span class="number">1</span>: x = np.tanh(x)</span><br><span class="line">            s.h.append(x)</span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">backward</span>(<span class="params">s, g</span>):</span><br><span class="line">        s.gW = [<span class="literal">None</span>]*<span class="built_in">len</span>(s.W); s.gb = [<span class="literal">None</span>]*<span class="built_in">len</span>(s.b)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">reversed</span>(<span class="built_in">range</span>(<span class="built_in">len</span>(s.W))):</span><br><span class="line">            <span class="keyword">if</span> i &lt; <span class="built_in">len</span>(s.W)-<span class="number">1</span>: g *= (<span class="number">1</span> - s.h[i+<span class="number">1</span>]**<span class="number">2</span>)</span><br><span class="line">            s.gW[i] = s.h[i].T @ g; s.gb[i] = g.<span class="built_in">sum</span>(<span class="number">0</span>); g = g @ s.W[i].T</span><br><span class="line">        <span class="keyword">return</span> g</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">step</span>(<span class="params">s, lr=<span class="number">2e-3</span></span>):</span><br><span class="line">        s.t += <span class="number">1</span></span><br><span class="line">        <span class="keyword">for</span> grp, (ps, gs) <span class="keyword">in</span> <span class="built_in">enumerate</span>([(s.W, s.gW), (s.b, s.gb)]):</span><br><span class="line">            <span class="keyword">for</span> i, (p, gr) <span class="keyword">in</span> <span class="built_in">enumerate</span>(<span class="built_in">zip</span>(ps, gs)):</span><br><span class="line">                s.m[grp][i] = <span class="number">.9</span>*s.m[grp][i] + <span class="number">.1</span>*gr</span><br><span class="line">                s.v[grp][i] = <span class="number">.999</span>*s.v[grp][i] + <span class="number">.001</span>*gr**<span class="number">2</span></span><br><span class="line">                p -= lr*(s.m[grp][i]/(<span class="number">1</span>-<span class="number">.9</span>**s.t)) / (np.sqrt(s.v[grp][i]/(<span class="number">1</span>-<span class="number">.999</span>**s.t))+<span class="number">1e-8</span>)</span><br><span class="line"></span><br><span class="line">tembed = <span class="keyword">lambda</span> t, d=<span class="number">16</span>: np.concatenate([</span><br><span class="line">    np.sin(t[:, <span class="literal">None</span>]*np.linspace(<span class="number">0</span>, np.pi, d//<span class="number">2</span>)),</span><br><span class="line">    np.cos(t[:, <span class="literal">None</span>]*np.linspace(<span class="number">0</span>, np.pi, d//<span class="number">2</span>))], <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">T = <span class="number">100</span></span><br><span class="line">betas = np.linspace(<span class="number">1e-3</span>, <span class="number">1e-1</span>, T)</span><br><span class="line">alphas, abar = <span class="number">1</span> - betas, np.cumprod(<span class="number">1</span> - betas)</span><br><span class="line">model = MLP([<span class="number">18</span>, <span class="number">64</span>, <span class="number">64</span>, <span class="number">2</span>])       <span class="comment"># 输入: A^k(2) + 时间嵌入(16) → ε(2)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> step <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4000</span>):</span><br><span class="line">    x0 = sample_data(<span class="number">256</span>)          <span class="comment"># 干净动作</span></span><br><span class="line">    t = rng.integers(<span class="number">0</span>, T, <span class="number">256</span>)</span><br><span class="line">    eps = rng.normal(size=(<span class="number">256</span>, <span class="number">2</span>))</span><br><span class="line">    xt = np.sqrt(abar[t])[:, <span class="literal">None</span>]*x0 + np.sqrt(<span class="number">1</span>-abar[t])[:, <span class="literal">None</span>]*eps</span><br><span class="line">    pred = model.forward(np.concatenate([xt, tembed(t)], <span class="number">1</span>))</span><br><span class="line">    model.backward(<span class="number">2</span>*(pred - eps)/(<span class="number">256</span>*<span class="number">2</span>))</span><br><span class="line">    model.step()</span><br><span class="line"></span><br><span class="line"><span class="comment"># ---- 反向采样: DDIM 确定性(仅 20 步) ----</span></span><br><span class="line">n_steps, x = <span class="number">20</span>, rng.normal(size=(<span class="number">1000</span>, <span class="number">2</span>))</span><br><span class="line"><span class="keyword">for</span> k <span class="keyword">in</span> np.linspace(T-<span class="number">1</span>, <span class="number">0</span>, n_steps).astype(<span class="built_in">int</span>):</span><br><span class="line">    te = np.repeat(k, <span class="number">1000</span>)</span><br><span class="line">    eps_hat = model.forward(np.concatenate([x, tembed(te)], <span class="number">1</span>))</span><br><span class="line">    x0_hat = (x - np.sqrt(<span class="number">1</span>-abar[k])*eps_hat) / np.sqrt(abar[k])</span><br><span class="line">    x = np.sqrt(abar[<span class="built_in">max</span>(k-<span class="number">1</span>,<span class="number">0</span>)])*x0_hat + np.sqrt(<span class="number">1</span>-abar[<span class="built_in">max</span>(k-<span class="number">1</span>,<span class="number">0</span>)])*eps_hat</span><br><span class="line"></span><br><span class="line"><span class="comment"># 对照: MSE 回归(无生成机制)</span></span><br><span class="line">reg = MLP([<span class="number">2</span>, <span class="number">64</span>, <span class="number">64</span>, <span class="number">2</span>])</span><br><span class="line"><span class="keyword">for</span> step <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4000</span>):</span><br><span class="line">    x = sample_data(<span class="number">256</span>)</span><br><span class="line">    pred = reg.forward(rng.normal(<span class="number">0</span>, <span class="number">1</span>, (<span class="number">256</span>, <span class="number">2</span>)))</span><br><span class="line">    reg.backward(<span class="number">2</span>*(pred - x)/(<span class="number">256</span>*<span class="number">2</span>)); reg.step()</span><br><span class="line"></span><br><span class="line">in_mode = <span class="keyword">lambda</span> p: np.mean(np.<span class="built_in">min</span>(((p[:, <span class="literal">None</span>]-CENTERS[<span class="literal">None</span>])**<span class="number">2</span>).<span class="built_in">sum</span>(<span class="number">2</span>), <span class="number">1</span>) &lt; <span class="number">0.5</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;MSE 回归:   落在手法±0.5 内 <span class="subst">&#123;in_mode(reg.forward(rng.normal(<span class="number">0</span>,<span class="number">1</span>,(<span class="number">1000</span>,<span class="number">2</span>)))):<span class="number">.1</span>%&#125;</span>&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;扩散 DDIM:  落在手法±0.5 内 <span class="subst">&#123;in_mode(x):<span class="number">.1</span>%&#125;</span>  ← 随机噪声起点自动分模态&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong>实测输出</strong>：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">MSE 回归:   落在手法±0.5 内 0.0%    ← 模式平均全错</span><br><span class="line">扩散 DDIM:  落在手法±0.5 内 100.0%  ← 20 步去噪即完美分模态</span><br></pre></td></tr></table></figure>
+
+<p>与 ACT 篇的 CVAE 结果（98.5%，1 步采样）对照：扩散在玩具数据上同样完美（100%，20 步 DDIM）——训练稳定性与高维适配性是扩散的真实优势，采样步数是代价（DDIM&#x2F;一致性蒸馏可压）。</p>
+<h2 id="4-衍生模型逐个介绍：改了什么、达到什么效果"><a href="#4-衍生模型逐个介绍：改了什么、达到什么效果" class="headerlink" title="4. 衍生模型逐个介绍：改了什么、达到什么效果"></a>4. 衍生模型逐个介绍：改了什么、达到什么效果</h2><h3 id="4-1-3D-策略系【观测从-2D-换-3D】"><a href="#4-1-3D-策略系【观测从-2D-换-3D】" class="headerlink" title="4.1 3D 策略系【观测从 2D 换 3D】"></a>4.1 3D 策略系【观测从 2D 换 3D】</h3><p><strong>3D Diffusion Policy（DP3）</strong>（2024，上海交大，<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2403.03954">arXiv:2403.03954</a>）。</p>
+<ul>
+<li><strong>改动</strong>：2D 图像观测 → <strong>3D 点云</strong>（稀疏采样，仅 512<del>1024 点）；每个任务仅需 3</del>10 条演示（DP 需 50~200 条）。视觉编码器用轻量 PointNet++（而非 ResNet），其余扩散去噪架构不变</li>
+<li><strong>效果</strong>：跨 70+ 任务验证（真实机器人与仿真），<strong>极少量演示</strong>下成功率显著超 2D DP——3D 几何先验让模型不需要从 2D 图像”猜”深度。开源 <a target="_blank" rel="noopener" href="https://github.com/YanjieZe/3DDiffusionPolicy">github.com&#x2F;YanjieZe&#x2F;3DDiffusionPolicy</a>。LeRobot 社区广泛使用</li>
+</ul>
+<p><strong>3D Diffuser Actor</strong>（2024，CMU，<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2402.10885">arXiv:2402.10885</a>）。</p>
+<ul>
+<li><strong>改动</strong>：单视角点云 → <strong>多视角 3D 场景特征</strong>（PerAct 风格体素 + 多视角 RGB 特征投影），动作侧扩散去噪 3D 末端轨迹；加 CLIP 语言条件</li>
+<li><strong>效果</strong>：<strong>RLBench 与 CALVIN 双 SOTA</strong>；语言任务泛化强。开源 <a target="_blank" rel="noopener" href="https://github.com/nickgkan/3d_diffuser_actor">github.com&#x2F;nickgkan&#x2F;3d_diffuser_actor</a></li>
+</ul>
+<h3 id="4-2-加速系【减步数，保精度】"><a href="#4-2-加速系【减步数，保精度】" class="headerlink" title="4.2 加速系【减步数，保精度】"></a>4.2 加速系【减步数，保精度】</h3><p><strong>Consistency Policy</strong>（2024，Stanford&#x2F;TRI，<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2405.07503">arXiv:2405.07503</a>）。</p>
+<ul>
+<li><strong>改动</strong>：把 Diffusion Policy 用<strong>一致性蒸馏</strong>（consistency distillation）压到 <strong>1~2 步出动作</strong>——训练一个”一步到干净动作”的学生网络，教师是原 DP 的去噪网络；保留 DP 的 CNN 骨干与滚动时域设计</li>
+<li><strong>效果</strong>：在 DP 的全部基准上<strong>精度持平或更优</strong>、推理<strong>提速 4~10×</strong>（从 DDIM 10 步降到 1~2 步），真机实时帧率可达 45Hz+。开源 <a target="_blank" rel="noopener" href="https://github.com/real-stanford/consistency_policy">github.com&#x2F;real-stanford&#x2F;consistency_policy</a></li>
+</ul>
+<h3 id="4-3-残差与多阶段系【扩散出修正量而非绝对动作】"><a href="#4-3-残差与多阶段系【扩散出修正量而非绝对动作】" class="headerlink" title="4.3 残差与多阶段系【扩散出修正量而非绝对动作】"></a>4.3 残差与多阶段系【扩散出修正量而非绝对动作】</h3><p><strong>ChainedDiffuser</strong>（2024，亚琛工大，<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2409.16461">arXiv:2409.16461</a>）。</p>
+<ul>
+<li><strong>改动</strong>：DP 的扩散头输出绝对动作 → 改为输出<strong>相对粗规划的残差修正</strong>：先用逆运动学&#x2F;采样得到粗轨迹，扩散头学习”真实演示 - 粗轨迹”的残差——降低扩散需要建模的分布复杂度</li>
+<li><strong>效果</strong>：在长视野任务上精度提升，扩散的建模负担减半</li>
+</ul>
+<h3 id="4-4-人形与全身控制系【扩散进运动控制】"><a href="#4-4-人形与全身控制系【扩散进运动控制】" class="headerlink" title="4.4 人形与全身控制系【扩散进运动控制】"></a>4.4 人形与全身控制系【扩散进运动控制】</h3><p><strong>BeyondMimic</strong>（2024&#x2F;2025，<a target="_blank" rel="noopener" href="https://beyondmimic.github.io/">项目页</a>）。本站已有<a href="/BlogNotes/2026/04/24/BeyondMimic%20From%20Motion%20Tracking%20to%20Versatile%20Humanoid%20Control%20via%20Guided%20Diffusion/">专文精读</a>。</p>
+<ul>
+<li><strong>改动</strong>：扩散进<strong>人形全身运动控制</strong>——不是操作策略，而是”跟踪目标动作到物理可行的人形运动”的引导扩散：物理引导（接触&#x2F;平衡约束）+ 语义引导（风格一致性）</li>
+<li><strong>效果</strong>：人形跟随任意目标动作（动捕&#x2F;视频提取），物理可行且风格自然</li>
+</ul>
+<p><strong>Diffusion Forcing</strong>（2024，MIT，<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2407.01392">arXiv:2407.01392</a>）。</p>
+<ul>
+<li><strong>改动</strong>：DP 的”整块统一去噪” → <strong>每个时间步独立噪声水平</strong>：为动作块的每一步分配独立的噪声调度，训练时随机混合”干净步与噪声步”——统一了序列预测与扩散去噪的框架</li>
+<li><strong>效果</strong>：长视野稳定性提升；在机器人控制与视频预测双验证</li>
+</ul>
+<h3 id="4-5-VLA-整合系【扩散作为大模型底座的动作头】"><a href="#4-5-VLA-整合系【扩散作为大模型底座的动作头】" class="headerlink" title="4.5 VLA 整合系【扩散作为大模型底座的动作头】"></a>4.5 VLA 整合系【扩散作为大模型底座的动作头】</h3><p><strong>π0</strong>（2024，Physical Intelligence，详见本站<a href="/BlogNotes/2026/09/01/PI%E7%B3%BB%E5%88%97%E8%AE%BA%E6%96%87%E8%A7%A3%E6%9E%90/">PI 系列解析</a>）。</p>
+<ul>
+<li><strong>改动</strong>：孤立的扩散&#x2F;流匹配去噪器 → <strong>与 VLM 骨干全注意力交互的流匹配动作专家</strong>（π0 用流匹配而非扩散——扩散的”直路化”升级，理论见<a href="/BlogNotes/2026/09/01/%E5%B8%B8%E7%94%A8%E7%94%9F%E6%88%90%E8%8C%83%E5%BC%8F%E6%A8%A1%E5%9E%8B%E4%BB%8B%E7%BB%8D/">生成范式</a>流匹配节）；噪声调度 → 线性插值路径（更直、更少步数）</li>
+<li><strong>效果</strong>：50Hz 灵巧任务（叠衣）；1 万小时数据 + VLM 底座；”对齐算力”消融证明架构优势</li>
+</ul>
+<p><strong>Octo</strong>（2024，Berkeley 等，<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2405.12213">arXiv:2405.12213</a>）。</p>
+<ul>
+<li><strong>改动</strong>：单任务扩散策略 → <strong>通用策略</strong>：OXE 80 万回合跨本体训练，扩散头出动作；任务&#x2F;机器人指令通过 token 化条件注入（首创新”readout tokens”）</li>
+<li><strong>效果</strong>：零样本跨任务&#x2F;机器人适配，微调后超专用基线。开源 <a target="_blank" rel="noopener" href="https://github.com/octo-models/octo">github.com&#x2F;octo-models&#x2F;octo</a></li>
+</ul>
+<p><strong>RDT-1B</strong>（2024，清华，<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2410.07864">arXiv:2410.07864</a>）。</p>
+<ul>
+<li><strong>改动</strong>：扩散去噪器从 CNN&#x2F;小 Transformer → <strong>1B 扩散 Transformer（DiT）</strong>；单臂 → 双臂（ALOHA 类平台）； 46 数据集百万回合训练</li>
+<li><strong>效果</strong>：扩散系最大开源基座；双臂协同任务（叠衣、倒水等）SOTA。开源 <a target="_blank" rel="noopener" href="https://github.com/thu-ml/RoboticsDiffusionTransformer">github.com&#x2F;thu-ml&#x2F;RoboticsDiffusionTransformer</a></li>
+</ul>
+<p><strong>OpenVLA-OFT</strong>（2025，Berkeley，<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2502.19645">arXiv:2502.19645</a>）。</p>
+<ul>
+<li><strong>改动</strong>：OpenVLA 的逐 token 离散动作 → <strong>并行扩散头</strong>出连续动作块（另有 L1 回归变体）；保留 OpenVLA 的 7B VLM 骨干</li>
+<li><strong>效果</strong>：推理<strong>提速 25~50×</strong>、Bridge&#x2F;Fractal 等基准成功率<strong>反升</strong>。开源 <a target="_blank" rel="noopener" href="https://github.com/moojink/openvla-oft">github.com&#x2F;moojink&#x2F;openvla-oft</a></li>
+</ul>
+<h3 id="4-6-生态位总结"><a href="#4-6-生态位总结" class="headerlink" title="4.6 生态位总结"></a>4.6 生态位总结</h3><table>
+<thead>
+<tr>
+<th>衍生方向</th>
+<th>模型</th>
+<th>改动轴</th>
+<th>标志效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>3D 观测</strong></td>
+<td>DP3</td>
+<td>2D 图像 → 3D 点云</td>
+<td>3~10 条演示即学会</td>
+</tr>
+<tr>
+<td>3D 多视角</td>
+<td>3D Diffuser Actor</td>
+<td>→ 多视角体素 + 语言</td>
+<td>RLBench&#x2F;CALVIN SOTA</td>
+</tr>
+<tr>
+<td><strong>加速</strong></td>
+<td>Consistency Policy</td>
+<td>DDIM 10 步 → 一致性 1~2 步</td>
+<td>提速 4~10×，精度持平</td>
+</tr>
+<tr>
+<td>残差修正</td>
+<td>ChainedDiffuser</td>
+<td>绝对动作 → 粗规划+残差</td>
+<td>长视野精度提升</td>
+</tr>
+<tr>
+<td>人形全身</td>
+<td>BeyondMimic</td>
+<td>操作 → 全身运动引导扩散</td>
+<td>物理可行人形跟随</td>
+</tr>
+<tr>
+<td>噪声设计</td>
+<td>Diffusion Forcing</td>
+<td>统一噪声 → 逐步独立噪声</td>
+<td>长视野稳定</td>
+</tr>
+<tr>
+<td><strong>VLM 整合</strong></td>
+<td>π0（流匹配）</td>
+<td>孤立扩散 → VLM 挂接流匹配专家</td>
+<td>50Hz 叠衣</td>
+</tr>
+<tr>
+<td>通用策略</td>
+<td>Octo</td>
+<td>单任务 → 80 万回合跨本体</td>
+<td>零任务适配</td>
+</tr>
+<tr>
+<td>双臂基座</td>
+<td>RDT-1B</td>
+<td>→ 1B DiT + 双臂</td>
+<td>双臂 SOTA</td>
+</tr>
+<tr>
+<td>7B 扩散头</td>
+<td>OpenVLA-OFT</td>
+<td>→ 7B VLM + 并行扩散头</td>
+<td>快 25~50× 且更准</td>
+</tr>
+</tbody></table>
+<p>一句话：<strong>Diffusion Policy 定义了”动作 &#x3D; 扩散去噪”的配方，后续在”观测维度（2D→3D→多视角）、推理速度（10 步→2 步→流匹配 10 步直线）、与语言底座的整合（孤立→VLM 挂接→7B）”三个轴上演进</strong>。与 ACT 系（隐变量路线）互补：少演示&#x2F;精细接触用 ACT 系，大数据&#x2F;多任务&#x2F;高维用扩散系——两条路在 π0（流匹配 &#x3D; 扩散的直线化）处合流。</p>
+<h2 id="5-实验结果分析"><a href="#5-实验结果分析" class="headerlink" title="5. 实验结果分析"></a>5. 实验结果分析</h2><p><strong>原论文</strong>（15 基准）：跨基准对 BC-RNN&#x2F;IBC <strong>平均 +46.9%</strong>；消融三连：CNN vs Transformer（短块 CNN 优、长块 Transformer 优）、视觉编码空间下采样保留（去掉掉 20%+）、DDIM 步数（10 步够用，50 步无显著增益）。与 ACT 的正面交战：PushT 上 DP 胜、真机精细任务 ACT 胜——两者互补而非替代。</p>
+<p><strong>衍生系对照</strong>：DP3 极少演示场景完胜 2D DP；Consistency Policy 全基准保持精度并提速一个量级；Octo 零样本适配 Open X-Embodiment 全域；RDT-1B 在双臂叠衣上超越 DP 与 ACT；π0 流匹配在 50Hz 灵巧任务上证明”扩散直线化”的价值。</p>
+<h2 id="6-核心参考文献（逐条列出）"><a href="#6-核心参考文献（逐条列出）" class="headerlink" title="6. 核心参考文献（逐条列出）"></a>6. 核心参考文献（逐条列出）</h2><p><strong>Diffusion Policy 原始与理论</strong>：</p>
+<ul>
+<li>Diffusion Policy：<em>Visuomotor Policy Learning via Action Diffusion</em>（<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2303.04137">arXiv:2303.04137</a>），<a target="_blank" rel="noopener" href="https://github.com/real-stanford/diffusion_policy">github.com&#x2F;real-stanford&#x2F;diffusion_policy</a></li>
+<li>DDPM：<em>Denoising Diffusion Probabilistic Models</em>（<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2006.11239">arXiv:2006.11239</a>）</li>
+<li>DDIM：<em>Denoising Diffusion Implicit Models</em>（<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2010.02502">arXiv:2010.02502</a>）</li>
+<li>Flow Matching：<em>Flow Matching for Generative Modeling</em>（<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2210.02747">arXiv:2210.02747</a>）</li>
+<li>Lilian Weng 扩散教程：<a target="_blank" rel="noopener" href="https://lilianweng.github.io/posts/2021-07-11-diffusion-models/">https://lilianweng.github.io/posts/2021-07-11-diffusion-models/</a></li>
+</ul>
+<p><strong>3D 策略系</strong>：</p>
+<ul>
+<li>DP3：<em>3D Diffusion Policy</em>（<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2403.03954">arXiv:2403.03954</a>），<a target="_blank" rel="noopener" href="https://github.com/YanjieZe/3DDiffusionPolicy">github.com&#x2F;YanjieZe&#x2F;3DDiffusionPolicy</a></li>
+<li>3D Diffuser Actor：<em>Policy Diffusion with 3D Scene Representations</em>（<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2402.10885">arXiv:2402.10885</a>），<a target="_blank" rel="noopener" href="https://github.com/nickgkan/3d_diffuser_actor">github.com&#x2F;nickgkan&#x2F;3d_diffuser_actor</a></li>
+</ul>
+<p><strong>加速系</strong>：</p>
+<ul>
+<li>Consistency Policy：<em>Accelerated Visuomotor Policies via Consistency Distillation</em>（<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2405.07503">arXiv:2405.07503</a>），<a target="_blank" rel="noopener" href="https://github.com/real-stanford/consistency_policy">github.com&#x2F;real-stanford&#x2F;consistency_policy</a></li>
+<li>Consistency Models（理论基础）：<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2303.01469">arXiv:2303.01469</a></li>
+</ul>
+<p><strong>残差与多阶段</strong>：</p>
+<ul>
+<li>ChainedDiffuser：<em>ChainedDiffuser: Accelerating Diffusion Policies with Spatial Guidance and Motion Constraints</em>（<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2409.16461">arXiv:2409.16461</a>）</li>
+<li>Diffusion Forcing：<em>Next-token Prediction Meets Full-Sequence Diffusion</em>（<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2407.01392">arXiv:2407.01392</a>）</li>
+</ul>
+<p><strong>人形与全身</strong>：</p>
+<ul>
+<li>BeyondMimic：<em>From Motion Tracking to Versatile Humanoid Control via Guided Diffusion</em>（<a target="_blank" rel="noopener" href="https://beyondmimic.github.io/">项目页</a>），本站<a href="/BlogNotes/2026/04/24/BeyondMimic%20From%20Motion%20Tracking%20to%20Versatile%20Humanoid%20Control%20via%20Guided%20Diffusion/">精读</a></li>
+</ul>
+<p><strong>VLA 整合系</strong>：</p>
+<ul>
+<li>π0：<em>A Vision-Language-Action Flow Model</em>（<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2410.24164">arXiv:2410.24164</a>），<a target="_blank" rel="noopener" href="https://github.com/Physical-Intelligence/openpi">github.com&#x2F;Physical-Intelligence&#x2F;openpi</a></li>
+<li>Octo：<em>An Open-Source Generalist Robot Policy</em>（<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2405.12213">arXiv:2405.12213</a>），<a target="_blank" rel="noopener" href="https://github.com/octo-models/octo">github.com&#x2F;octo-models&#x2F;octo</a></li>
+<li>RDT-1B：<em>RDT-1B: A Diffusion Foundation Model for Bimanual Manipulation</em>（<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2410.07864">arXiv:2410.07864</a>），<a target="_blank" rel="noopener" href="https://github.com/thu-ml/RoboticsDiffusionTransformer">github.com&#x2F;thu-ml&#x2F;RoboticsDiffusionTransformer</a></li>
+<li>OpenVLA-OFT：<em>Fine-Tuning Vision-Language-Action Models</em>（<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2502.19645">arXiv:2502.19645</a>），<a target="_blank" rel="noopener" href="https://github.com/moojink/openvla-oft">github.com&#x2F;moojink&#x2F;openvla-oft</a></li>
+<li>DexVLA：<em>Vision-Language Model with Plug-In Diffusion Expert</em>（<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2502.05855">arXiv:2502.05855</a>），<a target="_blank" rel="noopener" href="https://dex-vla.github.io/">项目页</a></li>
+</ul>
+<p><strong>本站相关文章</strong>：</p>
+<ul>
+<li><a href="/BlogNotes/2026/09/02/ACT%E7%90%86%E8%AE%BA%E4%B8%8E%E8%A1%8D%E7%94%9FVLA%E6%A8%A1%E5%9E%8B%E8%A7%A3%E6%9E%90/">ACT 理论与衍生 VLA 模型解析（姊妹篇）</a></li>
+<li><a href="/BlogNotes/2026/09/01/%E5%B8%B8%E7%94%A8%E7%94%9F%E6%88%90%E8%8C%83%E5%BC%8F%E6%A8%A1%E5%9E%8B%E4%BB%8B%E7%BB%8D/">常用生成范式模型介绍（扩散&#x2F;流匹配推导）</a></li>
+<li><a href="/BlogNotes/2026/09/01/PI%E7%B3%BB%E5%88%97%E8%AE%BA%E6%96%87%E8%A7%A3%E6%9E%90/">PI 系列论文解析</a></li>
+<li><a href="/BlogNotes/2026/09/01/%E8%BF%90%E5%8A%A8%E7%A6%BB%E6%95%A3%E5%8C%96%E6%8A%80%E6%9C%AF%E4%BB%8B%E7%BB%8D/">运动离散化技术介绍</a></li>
+<li><a href="/BlogNotes/2026/04/24/BeyondMimic%20From%20Motion%20Tracking%20to%20Versatile%20Humanoid%20Control%20via%20Guided%20Diffusion/">BeyondMimic 精读</a></li>
+</ul>
+<blockquote>
+<p>本文公式、数字与开源地址均经联网核实；第3节 demo 的实测数字来自 numpy 从零实现的扩散去噪器（4000 步训练 + 20 步 DDIM 采样）。</p>
+</blockquote>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/BlogNotes/about" rel="external nofollow noreferrer">Jianbo.Yuan</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://jianbo-yuan.github.io/BlogNotes/BlogNotes/2026/09/02/DiffusionPolicy%E7%90%86%E8%AE%BA%E4%B8%8E%E8%A1%8D%E7%94%9FVLA%E6%A8%A1%E5%9E%8B%E8%A7%A3%E6%9E%90/">https://jianbo-yuan.github.io/BlogNotes/BlogNotes/2026/09/02/DiffusionPolicy%E7%90%86%E8%AE%BA%E4%B8%8E%E8%A1%8D%E7%94%9FVLA%E6%A8%A1%E5%9E%8B%E8%A7%A3%E6%9E%90/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/BlogNotes/about" target="_blank">Jianbo.Yuan</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/BlogNotes/tags/VLA/">
+                                    <span class="chip bg-color">VLA</span>
+                                </a>
+                            
+                                <a href="/BlogNotes/tags/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/">
+                                    <span class="chip bg-color">扩散模型</span>
+                                </a>
+                            
+                                <a href="/BlogNotes/tags/Diffusion-Policy/">
+                                    <span class="chip bg-color">Diffusion Policy</span>
+                                </a>
+                            
+                                <a href="/BlogNotes/tags/%E6%A8%A1%E4%BB%BF%E5%AD%A6%E4%B9%A0/">
+                                    <span class="chip bg-color">模仿学习</span>
+                                </a>
+                            
+                                <a href="/BlogNotes/tags/DDIM/">
+                                    <span class="chip bg-color">DDIM</span>
+                                </a>
+                            
+                                <a href="/BlogNotes/tags/3D%E7%AD%96%E7%95%A5/">
+                                    <span class="chip bg-color">3D策略</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/BlogNotes/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/BlogNotes/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/BlogNotes/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/BlogNotes/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/BlogNotes/2026/09/02/%E4%BA%94%E6%8C%87%E7%81%B5%E5%B7%A7%E6%89%8B%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E5%BC%80%E6%BA%90%E5%B7%A5%E7%A8%8B%E8%A7%A3%E6%9E%90/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/BlogNotes/medias/featureimages/23.jpg" class="responsive-img" alt="五指灵巧手强化学习开源工程解析">
+                        
+                        <span class="card-title">五指灵巧手强化学习开源工程解析</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2026-09-02
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/BlogNotes/categories/%E8%AE%BA%E6%96%87%E7%B2%BE%E5%BA%A6%E4%B8%8E%E5%88%86%E6%9E%90/" class="post-category">
+                                    论文精度与分析
+                                </a>
+                            
+                            <a href="/BlogNotes/categories/%E8%AE%BA%E6%96%87%E7%B2%BE%E5%BA%A6%E4%B8%8E%E5%88%86%E6%9E%90/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    强化学习
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/BlogNotes/tags/%E7%81%B5%E5%B7%A7%E6%89%8B/">
+                        <span class="chip bg-color">灵巧手</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">强化学习</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/PPO/">
+                        <span class="chip bg-color">PPO</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/%E5%9F%9F%E9%9A%8F%E6%9C%BA%E5%8C%96/">
+                        <span class="chip bg-color">域随机化</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/Sim-to-Real/">
+                        <span class="chip bg-color">Sim-to-Real</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/Shadow-Hand/">
+                        <span class="chip bg-color">Shadow Hand</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/Sharpa-Hand/">
+                        <span class="chip bg-color">Sharpa Hand</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/Wuji-Hand/">
+                        <span class="chip bg-color">Wuji Hand</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/Isaac-Gym/">
+                        <span class="chip bg-color">Isaac Gym</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/BlogNotes/2026/09/02/ACT%E7%90%86%E8%AE%BA%E4%B8%8E%E8%A1%8D%E7%94%9FVLA%E6%A8%A1%E5%9E%8B%E8%A7%A3%E6%9E%90/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/BlogNotes/medias/featureimages/0.jpg" class="responsive-img" alt="ACT理论与衍生VLA模型解析">
+                        
+                        <span class="card-title">ACT理论与衍生VLA模型解析</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-09-02
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/BlogNotes/categories/%E8%AE%BA%E6%96%87%E7%B2%BE%E5%BA%A6%E4%B8%8E%E5%88%86%E6%9E%90/" class="post-category">
+                                    论文精度与分析
+                                </a>
+                            
+                            <a href="/BlogNotes/categories/%E8%AE%BA%E6%96%87%E7%B2%BE%E5%BA%A6%E4%B8%8E%E5%88%86%E6%9E%90/%E6%A8%A1%E4%BB%BF%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    模仿学习
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/BlogNotes/tags/VLA/">
+                        <span class="chip bg-color">VLA</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/%E6%A8%A1%E4%BB%BF%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">模仿学习</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/ACT/">
+                        <span class="chip bg-color">ACT</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/ALOHA/">
+                        <span class="chip bg-color">ALOHA</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/CVAE/">
+                        <span class="chip bg-color">CVAE</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/%E5%8A%A8%E4%BD%9C%E5%88%86%E5%9D%97/">
+                        <span class="chip bg-color">动作分块</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/BlogNotes/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/BlogNotes/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/BlogNotes/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/BlogNotes/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/BlogNotes/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        },
+        "HTML-CSS": {
+            linebreaks: {
+                automatic: true,
+                width: "container"
+            }
+        },
+        SVG: {
+            linebreaks: {
+                automatic: true,
+                width: "container"
+            }
+        }
+    });
+</script>
+<script>
+    (function () {
+        if (window.MathJax) return;
+
+        var sources = [
+            "https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML",
+            "https://unpkg.com/mathjax@2.7.9/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML",
+            "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+        ];
+
+        function loadMathJax(index) {
+            if (index >= sources.length) {
+                console.error("MathJax failed to load from all configured CDNs.");
+                return;
+            }
+
+            var script = document.createElement("script");
+            script.src = sources[index];
+            script.async = true;
+            script.onerror = function () {
+                loadMathJax(index + 1);
+            };
+            document.head.appendChild(script);
+        }
+
+        loadMathJax(0);
+    })();
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/BlogNotes/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.3'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/BlogNotes/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2026</span>
+            
+            <span id="year">2026</span>
+            <a href="/BlogNotes/about" target="_blank">Jianbo.Yuan</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:jianbo.yuan@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=335943408" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 335943408" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+    <a href="https://www.zhihu.com/people/Simple" class="tooltipped" target="_blank" data-tooltip="关注我的知乎: https://www.zhihu.com/people/Simple" data-position="top" data-delay="50">
+        <i class="fab fa-zhihu1">知</i>
+    </a>
+
+
+
+    <a href="/BlogNotes/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/BlogNotes/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/BlogNotes/libs/materialize/materialize.min.js"></script>
+    <script src="/BlogNotes/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/BlogNotes/libs/aos/aos.js"></script>
+    <script src="/BlogNotes/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/BlogNotes/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/BlogNotes/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/BlogNotes/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/BlogNotes/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/BlogNotes/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

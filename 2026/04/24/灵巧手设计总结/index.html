@@ -1,0 +1,2207 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="灵巧手设计与分析, Jianbo.Yuan">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>灵巧手设计与分析 | Jianbo.Yuan</title>
+    <link rel="icon" type="image/png" href="/BlogNotes/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/css/my.css">
+
+    <script src="/BlogNotes/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/BlogNotes/" class="waves-effect waves-light">
+                    
+                    <img src="/BlogNotes/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Jianbo.Yuan</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/BlogNotes/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Jianbo.Yuan</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/BlogNotes/medias/featureimages/20.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">灵巧手设计与分析</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/BlogNotes/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/BlogNotes/categories/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%90%86%E8%AE%BA%E4%B8%8E%E6%8A%80%E6%9C%AF/" class="post-category">
+                                机器人理论与技术
+                            </a>
+                        
+                            <a href="/BlogNotes/categories/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%90%86%E8%AE%BA%E4%B8%8E%E6%8A%80%E6%9C%AF/%E7%81%B5%E5%B7%A7%E6%89%8B%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%88%86%E6%9E%90/" class="post-category">
+                                灵巧手设计与分析
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2026-04-24
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>五指灵巧手被业内称为具身智能的”最后一厘米”（last centimeter）——它直接决定人形机器人能否完成抓、握、捏、旋、抛掷等精细操作。本文系统梳理截至 2026 年国内外主要五指灵巧手厂商的产品线、传动技术路线、参数、优缺点与应用案例，并对国产厂商灵巧智能（DexRobot）的 DexHand021 家族做重点拆解，供选型与设计参考。</p>
+<blockquote>
+<p>信息主要来源：各厂商官网（2026 年在线版本）、2025 世界机器人大会（WRC）产品梳理、RSS&#x2F;ICRA 论文与公开报道。价格为公开渠道参考价，实际以商务报价为准；带 * 的数据来自媒体报道而非官方规格书。</p>
+</blockquote>
+<h2 id="1-技术路线总览"><a href="#1-技术路线总览" class="headerlink" title="1. 技术路线总览"></a>1. 技术路线总览</h2><p>理解任何一款灵巧手，先看三个维度：<strong>驱动方式、传动方式、感知方案</strong>。</p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>主流方案</th>
+<th>代表厂商</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>驱动</td>
+<td>空心杯电机直驱 &#x2F; 微型伺服电缸 &#x2F; 液压人工肌肉 &#x2F; 气动</td>
+<td>因时、Unitree &#x2F; 强脑 &#x2F; Clone Robotics &#x2F; 中科硅纪（软体）</td>
+</tr>
+<tr>
+<td>传动</td>
+<td>连杆直驱 &#x2F; 腱绳（tendon） &#x2F; 齿轮准直驱</td>
+<td>兆威、灵心巧手 &#x2F; Shadow、Tesla、灵巧智能 &#x2F; 星动纪元</td>
+</tr>
+<tr>
+<td>感知</td>
+<td>关节编码器 &#x2F; 电流环力觉 &#x2F; 压阻式点阵触觉 &#x2F; 视触觉（GelSight 类）&#x2F; MEMS 触觉</td>
+<td>传统方案 &#x2F; 傲意、帕西尼 &#x2F; 戴盟、智元</td>
+</tr>
+</tbody></table>
+<p>2026 年的行业共识趋势：</p>
+<ul>
+<li><strong>驱动上移</strong>：电机从手掌移向前臂、腱绳回传（Tesla Gen3 开创，国内多家跟进）；</li>
+<li><strong>触觉密度指数级提升</strong>：指尖 1mm² 级分辨率、多维力矢量感知成为高端标配；</li>
+<li><strong>成本快速下降</strong>：国产从 10 万级压到万元级，千元级三指手已出现；</li>
+<li><strong>传动路线收敛</strong>：从纯连杆刚性方案转向腱绳及”腱绳 + 丝杠”复合传动，混合传动成为主流。</li>
+</ul>
+<h2 id="2-传动方式分类与代表产品"><a href="#2-传动方式分类与代表产品" class="headerlink" title="2. 传动方式分类与代表产品"></a>2. 传动方式分类与代表产品</h2><p>传动方式决定了灵巧手的力密度、寿命、可维护性与拟人度，是产品选型最重要的技术分水岭。2026 年主流方案分为四大类加一类混合趋势。</p>
+<h3 id="2-1-腱绳传动（Tendon-driven，绳驱）"><a href="#2-1-腱绳传动（Tendon-driven，绳驱）" class="headerlink" title="2.1 腱绳传动（Tendon-driven，绳驱）"></a>2.1 腱绳传动（Tendon-driven，绳驱）</h3><p><strong>原理</strong>：电机（通常置于手掌或前臂）通过超高分子量聚乙烯纤维（如 Dyneema、UHMWPE）或钢丝腱绳牵拉指节，模仿人体肌腱-骨骼结构，常采用”双绳驱”（主动屈伸双向驱动）或”绳+弹簧回位”单驱方案。</p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>表现</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>优点</td>
+<td>手部极轻（电机可移出）、自由度上限高（可达 20+）、拟人外观、能量传递路径灵活、手指可拆换</td>
+</tr>
+<tr>
+<td>缺点</td>
+<td>腱绳弹性形变影响刚度与精度、需定期预紧维护、寿命受磨损限制（十万到百万次级）、多绳耦合控制复杂</td>
+</tr>
+<tr>
+<td>典型腱绳材料</td>
+<td>Dyneema&#x2F;UHMWPE 纤维、钢丝、高分子复合绳（腱绳材料已是产业链高价值环节）</td>
+</tr>
+</tbody></table>
+<p><strong>代表产品</strong>：Shadow Dexterous Hand（20 电机全腱绳）、Tesla Optimus Gen3 手（前臂 25 执行器腱绳回传）、灵巧智能 DexHand021 量产版（双绳驱仿生）与 Pro（22 DOF 双绳驱）、曦诺未来 Xynova Flex 1（25 DOF 全绳驱）、灵心巧手 Linker Hand 高自由度系列（由连杆转向腱绳后 DOF 提升至 25+）、ORCA Hand（17 DOF 开源腱绳）。</p>
+<h3 id="2-2-连杆传动（Linkage）"><a href="#2-2-连杆传动（Linkage）" class="headerlink" title="2.2 连杆传动（Linkage）"></a>2.2 连杆传动（Linkage）</h3><p><strong>原理</strong>：电机经多连杆串并联机构将旋转&#x2F;直线运动传递到指节，常见曲柄-滑块与欠驱动连杆两种构型。</p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>表现</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>优点</td>
+<td>传动效率高、刚性强、定位精度高、负载能力大、结构可靠免维护</td>
+</tr>
+<tr>
+<td>缺点</td>
+<td>自重大、手指体积粗、自由度提升受限（连杆包络空间随 DOF 指数增长）、柔顺性差</td>
+</tr>
+</tbody></table>
+<p><strong>代表产品</strong>：因时机器人 RH56 系列（连杆耦合欠驱动）、兆威机电 ZW HAND-DM17（连杆与腱绳混合的模块化单指）、大寰 DH-5-6、灵心巧手早期 O 系列连杆款。</p>
+<h3 id="2-3-齿轮-蜗轮蜗杆传动与电机直驱（准直驱）"><a href="#2-3-齿轮-蜗轮蜗杆传动与电机直驱（准直驱）" class="headerlink" title="2.3 齿轮&#x2F;蜗轮蜗杆传动与电机直驱（准直驱）"></a>2.3 齿轮&#x2F;蜗轮蜗杆传动与电机直驱（准直驱）</h3><p><strong>原理</strong>：电机经行星齿轮&#x2F;蜗轮蜗杆减速直接驱动关节，或采用大力矩电机+低减速比”准直驱”（quasi-direct drive）方案。</p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>表现</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>优点</td>
+<td>结构刚性强、传动精确、反向可驱动性好（准直驱）、力控带宽高、抗冲击</td>
+</tr>
+<tr>
+<td>缺点</td>
+<td>电机须内置于指节导致手指粗大、自重与体积随 DOF 快速增长、对电机力密度要求极高</td>
+</tr>
+</tbody></table>
+<p><strong>代表产品</strong>：Allegro Hand V4&#x2F;V5（1:369 齿轮组每关节独立力矩控制）、LEAP Hand（Dynamixel 舵机直驱，无腱绳）、星动纪元 XHAND1（12 DOF 齿轮准直驱）、灵心巧手 L 系列（纯电机直驱）、Unitree Dex5-1。</p>
+<h3 id="2-4-液压-气动人工肌肉与软体"><a href="#2-4-液压-气动人工肌肉与软体" class="headerlink" title="2.4 液压&#x2F;气动人工肌肉与软体"></a>2.4 液压&#x2F;气动人工肌肉与软体</h3><p><strong>原理</strong>：以液压肌肉纤维、气动腔体或软体材料直接产生收缩&#x2F;弯曲运动，无需传统传动机构。</p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>表现</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>优点</td>
+<td>力密度与功率密度天花板级、天然柔顺安全、仿生度最高</td>
+</tr>
+<tr>
+<td>缺点</td>
+<td>需泵阀与密封系统、控制精度低、泄漏与疲劳问题、系统集成门槛高</td>
+</tr>
+</tbody></table>
+<p><strong>代表产品</strong>：Clone Robotics Clone Hand（Myofiber 液压肌肉，27 DOF、36 束肌肉）、中科硅纪 Casia Hand L1&#x2F;L2（气动软体）、Shadow 早期 Air Muscle 气动版。</p>
+<h3 id="2-5-混合传动（2026-主流收敛方向）"><a href="#2-5-混合传动（2026-主流收敛方向）" class="headerlink" title="2.5 混合传动（2026 主流收敛方向）"></a>2.5 混合传动（2026 主流收敛方向）</h3><p>单一传动方式难以同时满足”高 DOF + 高力密度 + 小体积”，头部厂商普遍采用复合方案：</p>
+<table>
+<thead>
+<tr>
+<th>混合方案</th>
+<th>代表产品</th>
+<th>设计逻辑</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>腱绳 + 丝杠</td>
+<td>Tesla Optimus Gen3</td>
+<td>前臂丝杠直线执行器 + 腱绳回传</td>
+</tr>
+<tr>
+<td>连杆 + 腱绳</td>
+<td>智元 OmniHand Pro、兆威 DM17</td>
+<td>掌内连杆保刚度 + 指端腱绳保 DOF</td>
+</tr>
+<tr>
+<td>双绳驱 + 腕手协同</td>
+<td>灵巧智能 DexHand021 Pro</td>
+<td>屈伸双向主动 + 腕部补偿手指姿态</td>
+</tr>
+<tr>
+<td>准直驱 + 腱绳</td>
+<td>星动纪元 XHAND1 路线演进</td>
+<td>关节内准直驱 + 跨指腱绳耦合</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>选传动本质上是在**力密度（连杆&#x2F;液压）—自由度上限（腱绳）—精度与寿命（齿轮直驱）**三角里按场景取舍；2026 年的答案普遍是”混合”。</p>
+</blockquote>
+<h2 id="3-重点厂商：灵巧智能-DexRobot-与-DexHand021-家族"><a href="#3-重点厂商：灵巧智能-DexRobot-与-DexHand021-家族" class="headerlink" title="3. 重点厂商：灵巧智能 DexRobot 与 DexHand021 家族"></a>3. 重点厂商：灵巧智能 DexRobot 与 DexHand021 家族</h2><p>灵巧智能（DexRobot，官网 <a target="_blank" rel="noopener" href="https://www.dex-robot.com/">dex-robot.com</a>）是国内灵巧手赛道最受关注的新兴厂商之一，定位”灵巧操作机器人及灵巧操作方案提供商”，其 DexHand021 系列以”绳驱仿生 + 多模态感知 + 开放生态”为核心标签，形成了覆盖科研到量产的完整产品矩阵。</p>
+<p><img src="/BlogNotes/medias/hands/dexhand021-banner.jpg" alt="DexHand021 量产版产品图"></p>
+<p><em>DexHand021 量产版主视觉（图片来源：灵巧智能官网）</em></p>
+<h3 id="3-1-产品矩阵总览"><a href="#3-1-产品矩阵总览" class="headerlink" title="3.1 产品矩阵总览"></a>3.1 产品矩阵总览</h3><table>
+<thead>
+<tr>
+<th>产品</th>
+<th>定位</th>
+<th>自由度</th>
+<th>关键特性</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>DexHand021 量产版（MP）</td>
+<td>旗舰量产</td>
+<td>19（主动 12 + 被动 7）</td>
+<td>5 种感知模态、绳驱仿生、7×24 工业级</td>
+</tr>
+<tr>
+<td>DexHand021 S</td>
+<td>入门&#x2F;教学</td>
+<td>三指构型</td>
+<td>千元级价格带*，科研教学普惠</td>
+</tr>
+<tr>
+<td>DexHand021 Pro</td>
+<td>研究旗舰</td>
+<td>22</td>
+<td>双绳驱、腕手协同、端侧算力、全掌感知</td>
+</tr>
+<tr>
+<td>DexHand021 概念版</td>
+<td>开放平台</td>
+<td>18</td>
+<td>5 模态感知、五指独立快换、主流末端接口</td>
+</tr>
+<tr>
+<td>DexCap</td>
+<td>数采外设</td>
+<td>—</td>
+<td>便携式遥操作数据采集（在售）</td>
+</tr>
+<tr>
+<td>DexSkill（在研）</td>
+<td>数采平台</td>
+<td>—</td>
+<td>高拟真遥操作数采，测试阶段</td>
+</tr>
+</tbody></table>
+<p><img src="/BlogNotes/medias/hands/dexhand021-mp.png" alt="DexHand021 产品矩阵：MP &#x2F; Pro &#x2F; S &#x2F; 概念版"></p>
+<p><em>左起：量产版产品卡图（官网产品矩阵页）</em></p>
+<h3 id="3-2-DexHand021-量产版（MP）详细拆解"><a href="#3-2-DexHand021-量产版（MP）详细拆解" class="headerlink" title="3.2 DexHand021 量产版（MP）详细拆解"></a>3.2 DexHand021 量产版（MP）详细拆解</h3><p><strong>运动与传动</strong></p>
+<ul>
+<li>19 自由度（主动 12 + 被动 7），<strong>双绳驱仿生设计</strong>，屈伸双向主动控制；</li>
+<li>尺寸 292.6 × 113.2 × 56.5 mm（不含腕），拟人比例；</li>
+<li>15+ 种抓握类型（捏取、包络抓、侧捏、三指钳等）。</li>
+</ul>
+<p><strong>感知系统（核心卖点）</strong></p>
+<p>全手集成 23 个传感器、5 种感知模态，0.1 N 灵敏度：</p>
+<p><img src="/BlogNotes/medias/hands/dexhand021-perception.png" alt="DexHand021 量产版多模态感知系统"></p>
+<table>
+<thead>
+<tr>
+<th>感知模态</th>
+<th>官方指标</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>位置感知</td>
+<td>全关节位置反馈</td>
+</tr>
+<tr>
+<td>温度感知</td>
+<td>电机&#x2F;驱动器温度监测</td>
+</tr>
+<tr>
+<td>多维力觉</td>
+<td>法向力 0–20 N（分辨率 0.1 N，精度 ±2% FS）；切向力分辨率 0.25 N、方向分辨率 45°</td>
+</tr>
+<tr>
+<td>接近觉</td>
+<td>接近传感（抓前预判）</td>
+</tr>
+<tr>
+<td>触觉</td>
+<td>指腹触觉阵列</td>
+</tr>
+</tbody></table>
+<p><img src="/BlogNotes/medias/hands/dexhand021-params.png" alt="DexHand021 量产版官方参数表"></p>
+<p><img src="/BlogNotes/medias/hands/dexhand021-size.png" alt="DexHand021 量产版尺寸图"></p>
+<p><em>参数表与尺寸图（图片来源：灵巧智能官网量产版产品页）</em></p>
+<p><strong>可靠性与工程化</strong></p>
+<p><img src="/BlogNotes/medias/hands/dexhand021-lasting.png" alt="DexHand021 量产版可靠性设计"></p>
+<ul>
+<li>温升 ≤ 4°C 的温控设计，支持 <strong>7×24 小时连续运行</strong>；</li>
+<li>传动系统超<strong>百万次</strong>寿命验证；</li>
+<li>标配 ZLG USB-CAN FD 转接器即插即用，提供全平台 SDK。</li>
+</ul>
+<p><strong>软件生态</strong></p>
+<ul>
+<li><strong>DexTac</strong>：配套物理仿真框架，支持 19 DOF 全关节仿真与 23 传感器多模态输出仿真，具备 15+ 预置抓取场景；</li>
+<li><strong>DexCanvas 数据集</strong>：灵巧手真机操作数据集，支持具身智能模型训练；</li>
+<li>支持主流遥操作与 RL&#x2F;IL 训练框架接入。</li>
+</ul>
+<p><strong>应用场景</strong></p>
+<p><img src="/BlogNotes/medias/hands/dexhand021-scenario1.png" alt="DexHand021 应用场景"></p>
+<p><img src="/BlogNotes/medias/hands/dexhand021-scenario2.png" alt="DexHand021 应用场景"></p>
+<p>覆盖人形机器人配套、高校科研教学、工业精密装配、具身智能数据采集四大方向。</p>
+<p><strong>优缺点小结</strong></p>
+<ul>
+<li><strong>优点</strong>：绳驱仿生带来的高 DOF 与拟人外形、五模态感知在同价位罕见、官方仿真+数据集生态完整、量产交付能力强、五指可独立更换（概念版起）；</li>
+<li><strong>缺点</strong>：绳驱固有的预紧维护需求、法向量程 20 N 对重载场景偏小、公司较新长期可靠性数据仍在积累、公开渠道无固定目录价（需询价）。</li>
+</ul>
+<h3 id="3-3-DexHand021-Pro-与-S：两端延伸"><a href="#3-3-DexHand021-Pro-与-S：两端延伸" class="headerlink" title="3.3 DexHand021 Pro 与 S：两端延伸"></a>3.3 DexHand021 Pro 与 S：两端延伸</h3><p><img src="/BlogNotes/medias/hands/dexhand021-pro.png" alt="DexHand021 Pro 产品卡图"></p>
+<p><strong>DexHand021 Pro（22 DOF 研究旗舰）</strong>：22 自由度仿生架构，<strong>双绳驱系统 + 腕手协同控制</strong>——腕部主动补偿手指姿态扩展操作空间；全掌感知系统 + 端侧算力实现低延迟本地闭环；支持多尺度连续可微动态控制，并可切换 8 自由度简操模式。面向前沿操作研究与数据采集。</p>
+<p><img src="/BlogNotes/medias/hands/dexhand021-s.png" alt="DexHand021 S 产品卡图"></p>
+<p><strong>DexHand021 S（三指千元级*）</strong>：以三指构型砍掉冗余自由度，把价格打到千元级别，主攻高校教学与入门科研，是”灵巧手普惠化”路线的典型代表。</p>
+<p><img src="/BlogNotes/medias/hands/dexhand021-concept.png" alt="DexHand021 概念版产品卡图"></p>
+<p><strong>DexHand021 概念版（18 DOF 开放平台）</strong>：灵巧智能首款高自由度多模态开放平台，18 DOF + 5 种感知能力高度集成于单手，五指独立快换，适配主流机器人末端接口，面向需要深度定制的科研团队。</p>
+<p><img src="/BlogNotes/medias/hands/dexcap-card.png" alt="DexCap 数据采集手套"></p>
+<p><strong>DexCap（数采外设）</strong>：便携式数据采集设备（在售），与人手佩戴遥操作方案配合采集真机操作数据；下一代 DexSkill 数采平台测试中——“卖手 + 卖数据生产工具”的组合拳是灵巧智能生态布局的关键一环。</p>
+<h2 id="4-国际厂商"><a href="#4-国际厂商" class="headerlink" title="4. 国际厂商"></a>4. 国际厂商</h2><h3 id="4-1-Shadow-Robot（英国）——-基准级科研旗舰"><a href="#4-1-Shadow-Robot（英国）——-基准级科研旗舰" class="headerlink" title="4.1 Shadow Robot（英国）—— 基准级科研旗舰"></a>4.1 Shadow Robot（英国）—— 基准级科研旗舰</h3><p>Shadow Dexterous Hand 是学术界使用最久、自由度最接近人手的五指灵巧手，长期作为”对标物”出现在各类论文里（LEAP 论文即以”1&#x2F;50 Shadow 价格”作为卖点）。</p>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>参数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>自由度</td>
+<td>24 个关节运动、20 个电机主动驱动（4 个欠驱动）</td>
+</tr>
+<tr>
+<td>传动</td>
+<td>20 个 Maxon 电机 + 全腱绳（早期有气动 Air Muscle 版本）</td>
+</tr>
+<tr>
+<td>传感</td>
+<td>100+ 传感器：关节位置、电机编码、指尖力、可选 BioTac 视触觉、IMU</td>
+</tr>
+<tr>
+<td>重量&#x2F;尺寸</td>
+<td>约 4.3 kg；13.5 × 13.5 × 44.8 cm</td>
+</tr>
+<tr>
+<td>指力</td>
+<td>单指约 10 N</td>
+</tr>
+<tr>
+<td>参考价</td>
+<td>约 10–11 万美元（£50k–90k，随传感配置浮动）</td>
+</tr>
+</tbody></table>
+<ul>
+<li><strong>优点</strong>：自由度与人手最接近、传感最全、ROS 生态与学术资料极其丰富、成熟可靠。</li>
+<li><strong>缺点</strong>：极贵；腱绳维护成本高；重（4.3 kg）；速度与力密度一般。</li>
+<li><strong>典型应用</strong>：NVIDIA 机器人操作研究、高校遥操作与操作学习基线平台、具身数据采集。</li>
+<li><strong>链接</strong>：<a target="_blank" rel="noopener" href="https://shadowrobot.com/dexterous-hand-series/">官网产品页</a>；视频可在 YouTube 搜 <code>Shadow Dexterous Hand</code>。</li>
+</ul>
+<h3 id="4-2-Wonik-Robotics（韩国）——-Allegro-Hand"><a href="#4-2-Wonik-Robotics（韩国）——-Allegro-Hand" class="headerlink" title="4.2 Wonik Robotics（韩国）—— Allegro Hand"></a>4.2 Wonik Robotics（韩国）—— Allegro Hand</h3><p>四指 16-DOF 结构，操作学习领域论文出镜率极高。</p>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>参数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>自由度</td>
+<td>16（4 指 × 每指 4 关节，全主动）</td>
+</tr>
+<tr>
+<td>传动</td>
+<td>直流有刷电机 + 1:369 齿轮组，每关节独立力矩&#x2F;电流控制</td>
+</tr>
+<tr>
+<td>力矩&#x2F;速度</td>
+<td>关节力矩约 0.7 N·m；60° 行程约 0.11 s</td>
+</tr>
+<tr>
+<td>负载</td>
+<td>约 5 kg；24 V &#x2F; 100 W；CAN 500 Hz 控制频率</td>
+</tr>
+<tr>
+<td>重量</td>
+<td>约 1.1 kg（指 0.17 kg、拇指 0.19 kg）</td>
+</tr>
+<tr>
+<td>参考价</td>
+<td>V4 约 1.5–2.45 万美元（渠道不同差异大）</td>
+</tr>
+</tbody></table>
+<ul>
+<li><strong>优点</strong>：结构坚固、力矩控制质量高、科研代码生态成熟、左右手可选。</li>
+<li><strong>缺点</strong>：四指非拟人；原生无触觉（V5 Sense 加入 16 通道压感，可配 XELA uSkin）；价格被国产产品逼近。</li>
+<li><strong>典型应用</strong>：四指抓取研究、模仿学习、遥操作数据采集。</li>
+<li><strong>链接</strong>：<a target="_blank" rel="noopener" href="https://www.allegrohand.com/">allegrohand.com</a>。</li>
+</ul>
+<h3 id="4-3-CMU-LEAP-Hand（美国）——-开源性价比之王"><a href="#4-3-CMU-LEAP-Hand（美国）——-开源性价比之王" class="headerlink" title="4.3 CMU LEAP Hand（美国）—— 开源性价比之王"></a>4.3 CMU LEAP Hand（美国）—— 开源性价比之王</h3><p>RSS 2023 论文《LEAP Hand: Low-Cost, Efficient, and Anthropomorphic Hand》，把灵巧手价格打到研究者可自费复现的水平。</p>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>参数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>自由度</td>
+<td>16（四指全主动，Dynamixel 舵机直驱，无腱绳）</td>
+</tr>
+<tr>
+<td>成本</td>
+<td>约 2000 美元（精心采购约 1772 美元；Lite 版约 714 美元）</td>
+</tr>
+<tr>
+<td>重量</td>
+<td>约 595 g；4 小时可组装完成</td>
+</tr>
+<tr>
+<td>开源</td>
+<td>CAD、软件、文档全部开源</td>
+</tr>
+</tbody></table>
+<ul>
+<li><strong>优点</strong>：极便宜、结构简单维修方便、可 3D 打印替换件、社区衍生版本多（如带触觉的 MIDAS）。</li>
+<li><strong>缺点</strong>：四指、非拟人；舵机力矩有限；无原生触觉；精度与寿命不如工业产品。</li>
+<li><strong>典型应用</strong>：全球 ML 实验室操作学习首选平台。</li>
+<li><strong>链接</strong>：<a target="_blank" rel="noopener" href="https://leaphand.com/">leaphand.com</a>｜<a target="_blank" rel="noopener" href="https://roboticsproceedings.org/rss19/p089.pdf">论文 PDF</a>｜<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=VKAlJPypQFI">官方视频</a>。</li>
+</ul>
+<h3 id="4-4-ETH-Zurich-ORCA-Hand（瑞士）——-开源-触觉"><a href="#4-4-ETH-Zurich-ORCA-Hand（瑞士）——-开源-触觉" class="headerlink" title="4.4 ETH Zürich ORCA Hand（瑞士）—— 开源 + 触觉"></a>4.4 ETH Zürich ORCA Hand（瑞士）—— 开源 + 触觉</h3><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>参数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>自由度</td>
+<td>17（16 手指 + 1 腕），五指腱绳驱动</td>
+</tr>
+<tr>
+<td>触觉</td>
+<td>指尖全集成触觉传感器</td>
+</tr>
+<tr>
+<td>成本</td>
+<td>BOM 约 2000 美元；官方整机约 6100 美元起</td>
+</tr>
+<tr>
+<td>开源</td>
+<td>CAD 与文档开源；论文 arXiv:2504.04259</td>
+</tr>
+</tbody></table>
+<ul>
+<li><strong>优点</strong>：开源方案里少见的五指 + 触觉完整组合；ROBOTIS 等渠道可买到整机（有质保）。</li>
+<li><strong>缺点</strong>：主动 DOF 密度低于商业五指手；腱绳需定期维护。</li>
+<li><strong>链接</strong>：<a target="_blank" rel="noopener" href="https://www.orcahand.com/">orcahand.com</a>｜<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2504.04259">论文</a>。</li>
+</ul>
+<h3 id="4-5-Clone-Robotics（美国-波兰）——-液压仿生肌肉路线"><a href="#4-5-Clone-Robotics（美国-波兰）——-液压仿生肌肉路线" class="headerlink" title="4.5 Clone Robotics（美国&#x2F;波兰）—— 液压仿生肌肉路线"></a>4.5 Clone Robotics（美国&#x2F;波兰）—— 液压仿生肌肉路线</h3><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>参数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>自由度</td>
+<td>27（对应人手解剖结构，V15 版 36 束肌肉）</td>
+</tr>
+<tr>
+<td>驱动</td>
+<td>专利 Myofiber 液压肌肉纤维：单束 3 g 出力约 1 kg、响应 &lt;50 ms、收缩 &gt;30%</td>
+</tr>
+<tr>
+<td>重量&#x2F;握力</td>
+<td>&lt;900 g；握力约 6.8 kg</td>
+</tr>
+<tr>
+<td>材料</td>
+<td>碳纤维骨骼 + 韧带式系绳 + 3D 打印液压管路（约 100 PSI 水压）</td>
+</tr>
+<tr>
+<td>寿命</td>
+<td>官方称 65 万次循环无故障</td>
+</tr>
+</tbody></table>
+<ul>
+<li><strong>优点</strong>：力密度、响应速度、仿生度均为行业天花板级；整机（ProtoClone）演示惊艳。</li>
+<li><strong>缺点</strong>：液压系统复杂；量产与可靠性待验证；生态封闭；价格未公开（预订制）。</li>
+<li><strong>链接</strong>：<a target="_blank" rel="noopener" href="https://clonerobotics.com/">clonerobotics.com</a>。</li>
+</ul>
+<h3 id="4-6-Unitree-Dex5-1（中国，国际渠道在售）"><a href="#4-6-Unitree-Dex5-1（中国，国际渠道在售）" class="headerlink" title="4.6 Unitree Dex5-1（中国，国际渠道在售）"></a>4.6 Unitree Dex5-1（中国，国际渠道在售）</h3><p>宇树为自家 H1&#x2F;H2&#x2F;G1 人形配套的五指灵巧手，也单卖。</p>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>参数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>自由度</td>
+<td>20（16 主动 + 4 被动），五指侧摆</td>
+</tr>
+<tr>
+<td>触觉</td>
+<td>每手 94 个压觉传感单元</td>
+</tr>
+<tr>
+<td>指尖力</td>
+<td>约 10 N；负载约 4.5 kg</td>
+</tr>
+<tr>
+<td>重量&#x2F;尺寸</td>
+<td>约 1100 g；217.3 × 127.5 × 72.1 mm</td>
+</tr>
+<tr>
+<td>参考价</td>
+<td>约 2.7 万美元&#x2F;对（美国渠道促销价）</td>
+</tr>
+</tbody></table>
+<ul>
+<li><strong>优点</strong>：与 Unitree 本体即插即用、触觉原生集成、可单买。</li>
+<li><strong>缺点</strong>：重量偏大；主动自由度不算高；渠道价格差异大。</li>
+<li><strong>链接</strong>：<a target="_blank" rel="noopener" href="https://www.unitree.com/mobile/Dex5-1">unitree.com&#x2F;mobile&#x2F;Dex5-1</a>。</li>
+</ul>
+<h3 id="4-7-Tesla-Optimus-手（美国）——-量产定义的工程路线"><a href="#4-7-Tesla-Optimus-手（美国）——-量产定义的工程路线" class="headerlink" title="4.7 Tesla Optimus 手（美国）—— 量产定义的工程路线"></a>4.7 Tesla Optimus 手（美国）—— 量产定义的工程路线</h3><p>不单独售卖，但它是”为量产而生”设计哲学的代表。</p>
+<ul>
+<li>Gen2：11 DOF，腱绳驱动，手内集成；</li>
+<li>Gen3（专利披露，非官方规格）：<strong>手部 22 DOF + 腕&#x2F;前臂 3 DOF</strong>，驱动器全部移入前臂（每侧 25 个执行器，双手共 50 个），经腱绳+丝杠复合传动回传；</li>
+<li><strong>启示</strong>：把”驱动上移 + 腱绳回传”做成主流方向，国内多家厂商 2025 年起跟进。</li>
+<li><strong>链接</strong>：专利分析见 <a target="_blank" rel="noopener" href="https://www.basenor.com/blogs/news/tesla-optimus-gen-3-hands-22-dof-50-actuators-explained">Basenor 解读</a>（非官方，注意甄别）。</li>
+</ul>
+<h2 id="5-国内其他厂商"><a href="#5-国内其他厂商" class="headerlink" title="5. 国内其他厂商"></a>5. 国内其他厂商</h2><blockquote>
+<p>国内格局速览：因时机器人 2025 年灵巧手出货量全球第一（唯一交付超万只的企业）；强脑、傲意以脑机接口&#x2F;肌电技术起家；智元、星动纪元等本体厂商自研配套；灵心巧手在高自由度细分市占领先。<a target="_blank" rel="noopener" href="https://www.21jingji.com/article/20260608/herald/4e56b2bcfe114853c57f3552f560d501.html">21 财经报道</a></p>
+</blockquote>
+<h3 id="5-1-因时机器人-Inspire-Robots（北京）——-出货量全球第一"><a href="#5-1-因时机器人-Inspire-Robots（北京）——-出货量全球第一" class="headerlink" title="5.1 因时机器人 Inspire Robots（北京）—— 出货量全球第一"></a>5.1 因时机器人 Inspire Robots（北京）—— 出货量全球第一</h3><p>微型伺服电缸路线的开创者，产品覆盖科研与量产人形配套。</p>
+<table>
+<thead>
+<tr>
+<th>型号</th>
+<th>关键参数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>RH5EG1</td>
+<td>12 关节 &#x2F; 6 主动 DOF；指尖持续力 700 gf、峰值 1000 gf；负载 5 kg；350 g；重复定位 0.2 mm；IP54</td>
+</tr>
+<tr>
+<td>RH56F1 系列</td>
+<td>12 关节 &#x2F; 6 主动 DOF；连杆耦合；500 g；负载 3 kg；精度 0.1 mm</td>
+</tr>
+<tr>
+<td>RH56DFX&#x2F;DFQ</td>
+<td>5 指、6 DOF &#x2F; 12 关节；540–800 g；负载 3 kg；24 V 供电；0.5 N 力控分辨率</td>
+</tr>
+</tbody></table>
+<ul>
+<li>参考价：RH56 系列约 8000–12000 美元。</li>
+<li><strong>优点</strong>：电缸直驱响应快、寿命长（百万次级）、量产成本低、与 Unitree G1 等本体兼容性好。</li>
+<li><strong>缺点</strong>：主动自由度低（6），精细内旋&#x2F;对掌能力有限；触觉需选配。</li>
+<li><strong>链接</strong>：官网 inspire-robots.com；<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8GDVIAPAx3g">RH56DFQ 演示视频</a>。</li>
+</ul>
+<h3 id="5-2-傲意科技-OYMotion（上海）——-触觉-假肢双线"><a href="#5-2-傲意科技-OYMotion（上海）——-触觉-假肢双线" class="headerlink" title="5.2 傲意科技 OYMotion（上海）—— 触觉 + 假肢双线"></a>5.2 傲意科技 OYMotion（上海）—— 触觉 + 假肢双线</h3><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>ROH-AP001 参数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>自由度</td>
+<td>11 运动关节 &#x2F; 6 主动 DOF，五指独立驱动</td>
+</tr>
+<tr>
+<td>精度&#x2F;触觉</td>
+<td>重复定位 ±0.05 mm；0.1–25 N 压力感知（点阵触觉）</td>
+</tr>
+<tr>
+<td>重量&#x2F;尺寸</td>
+<td>640 g；约 184 mm 高</td>
+</tr>
+<tr>
+<td>性能</td>
+<td>全行程 0.7 s；指尖主动力 ≥0.5 kgf；整手负载 30 kg*</td>
+</tr>
+</tbody></table>
+<ul>
+<li><strong>优点</strong>：触觉分辨率业内领先（0.1 N）、轻、快；自研空心杯电机把单颗成本从 4800 元降到百元级。</li>
+<li><strong>缺点</strong>：主动 DOF 同样是 6；高自由度不是其路线。</li>
+<li><strong>链接</strong>：<a target="_blank" rel="noopener" href="https://www.oymotion.com/product61">oymotion.com&#x2F;product61</a>。</li>
+</ul>
+<h3 id="5-3-强脑科技-BrainCo（杭州）——-假肢巨头跨界"><a href="#5-3-强脑科技-BrainCo（杭州）——-假肢巨头跨界" class="headerlink" title="5.3 强脑科技 BrainCo（杭州）—— 假肢巨头跨界"></a>5.3 强脑科技 BrainCo（杭州）—— 假肢巨头跨界</h3><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>Revo 2 参数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>自由度</td>
+<td>6 电机、6 主动、11 关节</td>
+</tr>
+<tr>
+<td>重量</td>
+<td>仅 383 g</td>
+</tr>
+<tr>
+<td>力</td>
+<td>整手握力 ≥50 N；单手负载 20 kg</td>
+</tr>
+</tbody></table>
+<ul>
+<li><strong>优点</strong>：重量&#x2F;握力比极佳；假肢级的成本控制与人因工程积累。</li>
+<li><strong>缺点</strong>：主动自由度低；科研生态不如国际品牌完善。</li>
+<li><strong>链接</strong>：官网 brainco.cn。</li>
+</ul>
+<h3 id="5-4-智元-Agibot（上海）——-本体厂商自研，价格杀手"><a href="#5-4-智元-Agibot（上海）——-本体厂商自研，价格杀手" class="headerlink" title="5.4 智元 Agibot（上海）—— 本体厂商自研，价格杀手"></a>5.4 智元 Agibot（上海）—— 本体厂商自研，价格杀手</h3><table>
+<thead>
+<tr>
+<th>型号</th>
+<th>关键参数</th>
+<th>参考价</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>灵动款</td>
+<td>16 DOF（10 主动）；500 g；手背触控交互</td>
+<td>9800 元</td>
+</tr>
+<tr>
+<td>灵动触觉款</td>
+<td>灵动款 + MEMS 触觉</td>
+<td>14800 元</td>
+</tr>
+<tr>
+<td>专业款</td>
+<td>19 DOF（15 主动）；750 g；MEMS 触觉 + 指尖视触觉；连杆+腱绳混合传动</td>
+<td>未公开</td>
+</tr>
+</tbody></table>
+<ul>
+<li><strong>链接</strong>：<a target="_blank" rel="noopener" href="https://jp.agibot.com/article/188/detail/33.html">官方解读</a>。</li>
+</ul>
+<h3 id="5-5-星动纪元-Robot-Era（北京）——-触觉密度标杆"><a href="#5-5-星动纪元-Robot-Era（北京）——-触觉密度标杆" class="headerlink" title="5.5 星动纪元 Robot Era（北京）—— 触觉密度标杆"></a>5.5 星动纪元 Robot Era（北京）—— 触觉密度标杆</h3><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>参数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>自由度</td>
+<td>12 DOF 齿轮准直驱</td>
+</tr>
+<tr>
+<td>触觉</td>
+<td>指尖每 1 mm² 超 10 个传感点（拇指 314 点、指尖 140+ 点、掌心 500+ 点*）</td>
+</tr>
+<tr>
+<td>力</td>
+<td>单指 5 kg；四指并联 20 kg；整手负载 25 kg</td>
+</tr>
+<tr>
+<td>可靠性</td>
+<td>6 米跌落无损坏*</td>
+</tr>
+</tbody></table>
+<ul>
+<li><strong>链接</strong>：官网 robotera.net；视频搜 <code>XHAND1</code>。</li>
+</ul>
+<h3 id="5-6-灵心巧手-Linker-Hand（深圳）——-高自由度市占第一"><a href="#5-6-灵心巧手-Linker-Hand（深圳）——-高自由度市占第一" class="headerlink" title="5.6 灵心巧手 Linker Hand（深圳）—— 高自由度市占第一"></a>5.6 灵心巧手 Linker Hand（深圳）—— 高自由度市占第一</h3><table>
+<thead>
+<tr>
+<th>型号</th>
+<th>DOF 配置</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>O6 &#x2F; O7</td>
+<td>6 &#x2F; 7 DOF（入门连杆）</td>
+</tr>
+<tr>
+<td>L10 &#x2F; L20 &#x2F; L30</td>
+<td>10 &#x2F; 20 &#x2F; 30 DOF（腱绳化后最高 42，宣称全球高自由度市占 80%、月销千台*）</td>
+</tr>
+</tbody></table>
+<ul>
+<li><strong>优点</strong>：自由度选择丰富、迭代快；<strong>从连杆转向腱绳后 DOF 上限大增</strong>，是传动路线演进的活样本。</li>
+<li><strong>链接</strong>：官网 linkerbot.com。</li>
+</ul>
+<h3 id="5-7-帕西尼-PaXini（深圳）——-多维触觉专家"><a href="#5-7-帕西尼-PaXini（深圳）——-多维触觉专家" class="headerlink" title="5.7 帕西尼 PaXini（深圳）—— 多维触觉专家"></a>5.7 帕西尼 PaXini（深圳）—— 多维触觉专家</h3><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>GMH18 参数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>自由度</td>
+<td>18 DOF（15 主动），拇指独享 5 DOF</td>
+</tr>
+<tr>
+<td>触觉</td>
+<td>全手千级 ITPU 触觉单元，输出压力+剪切多维分量</td>
+</tr>
+<tr>
+<td>力</td>
+<td>负载 20 kg</td>
+</tr>
+</tbody></table>
+<ul>
+<li><strong>优点</strong>：力矢量触觉业内独有，对滑移检测、精细力控价值大。</li>
+<li><strong>链接</strong>：官网 paxini.com。</li>
+</ul>
+<h3 id="5-8-其他值得关注的国内厂商"><a href="#5-8-其他值得关注的国内厂商" class="headerlink" title="5.8 其他值得关注的国内厂商"></a>5.8 其他值得关注的国内厂商</h3><table>
+<thead>
+<tr>
+<th>厂商</th>
+<th>产品</th>
+<th>亮点参数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>兆威机电（深圳）</td>
+<td>ZW HAND-DM17</td>
+<td>17 DOF（可扩 20）连杆+腱混合；900 g；0.3° 精度；约 10 万元*</td>
+</tr>
+<tr>
+<td>赛博格（北京）</td>
+<td>Cyborg-H01</td>
+<td>16 DOF 肌腱驱动、500 g、抓取 10 kg、指尖 40 N；32 通道超声肌电神经接口研究</td>
+</tr>
+<tr>
+<td>自变量机器人</td>
+<td>ArtiXon Hand</td>
+<td>双手 19 DOF×2、0.02 mm 重复定位、指尖 45 N、宣称 MTBF 超 5 万小时</td>
+</tr>
+<tr>
+<td>曦诺未来（上海）</td>
+<td>Xynova Flex 1</td>
+<td>25 DOF（20 主动）全绳驱、380 g、0.2 mm 重复定位、指尖 20 N</td>
+</tr>
+<tr>
+<td>中科灵犀（合肥）</td>
+<td>LQS-02 &#x2F; LQS-03</td>
+<td>16 DOF（12 主动）&#x2F; 24 DOF（18 主动）、0.05 mm 重复定位、25 N 指尖力</td>
+</tr>
+<tr>
+<td>戴盟机器人</td>
+<td>DM-Hand1</td>
+<td>指尖视触觉（摄像头+凝胶）路线</td>
+</tr>
+<tr>
+<td>伟景智能</td>
+<td>第三代灵巧手</td>
+<td>16 DOF（12 主动）、指尖 12 N、视觉引导、约 1.8 万元</td>
+</tr>
+<tr>
+<td>中科硅纪</td>
+<td>Casia Hand 系列</td>
+<td>软体手 L1（375 g、5 N）&#x2F; L2（550 g、15 N、指尖摄像）&#x2F; 金属 S（18 DOF、100 Hz 力控）&#x2F; 两指 G（20 N）</td>
+</tr>
+<tr>
+<td>睿研智控</td>
+<td>RY-H1&#x2F;H2&#x2F;H2pro</td>
+<td>6&#x2F;9&#x2F;11 DOF、空心杯电机、260–350 g、指尖 5 N、单指独立模块</td>
+</tr>
+<tr>
+<td>大寰机器人</td>
+<td>DH-5-6</td>
+<td>6 微型伺服电缸、10 关节、指尖 15 N、276 g、宣称连续抓取 10 万次</td>
+</tr>
+</tbody></table>
+<h2 id="6-横向对比总表"><a href="#6-横向对比总表" class="headerlink" title="6. 横向对比总表"></a>6. 横向对比总表</h2><table>
+<thead>
+<tr>
+<th>厂商&#x2F;型号</th>
+<th>指数</th>
+<th>主动 DOF</th>
+<th>传动</th>
+<th>重量</th>
+<th>负载&#x2F;指力</th>
+<th>触觉</th>
+<th>参考价</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Shadow Dexterous</td>
+<td>5 指</td>
+<td>20</td>
+<td>腱绳</td>
+<td>4.3 kg</td>
+<td>10 N&#x2F;指</td>
+<td>可选 BioTac</td>
+<td>~$100k</td>
+</tr>
+<tr>
+<td>Allegro V4&#x2F;V5</td>
+<td>4 指</td>
+<td>16</td>
+<td>齿轮</td>
+<td>1.1 kg</td>
+<td>5 kg</td>
+<td>V5 压感</td>
+<td>$15–25k</td>
+</tr>
+<tr>
+<td>LEAP Hand</td>
+<td>4 指</td>
+<td>16</td>
+<td>电机直驱</td>
+<td>0.6 kg</td>
+<td>—</td>
+<td>无</td>
+<td>~$2k（开源）</td>
+</tr>
+<tr>
+<td>ORCA Hand</td>
+<td>5 指</td>
+<td>16+1 腕</td>
+<td>腱绳</td>
+<td>—</td>
+<td>—</td>
+<td>指尖触觉</td>
+<td><span class="math-inline">\(2k BOM/\)</span>6.1k</td>
+</tr>
+<tr>
+<td>Clone Hand</td>
+<td>5 指</td>
+<td>27</td>
+<td>液压肌肉</td>
+<td>0.9 kg</td>
+<td>握力 6.8 kg</td>
+<td>本体感知</td>
+<td>预订制</td>
+</tr>
+<tr>
+<td>Unitree Dex5-1</td>
+<td>5 指</td>
+<td>16+4 被动</td>
+<td>直驱</td>
+<td>1.1 kg</td>
+<td>4.5 kg</td>
+<td>94 点&#x2F;手</td>
+<td>~$27k&#x2F;对</td>
+</tr>
+<tr>
+<td>Tesla Gen3 手</td>
+<td>5 指</td>
+<td>22+3 腕</td>
+<td>腱绳+丝杠</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>不单独售卖</td>
+</tr>
+<tr>
+<td><strong>灵巧智能 DexHand021 量产版</strong></td>
+<td><strong>5 指</strong></td>
+<td><strong>12+7 被动</strong></td>
+<td><strong>双绳驱</strong></td>
+<td>—</td>
+<td><strong>法向 20 N</strong></td>
+<td><strong>5 模态 23 传感器</strong></td>
+<td><strong>询价</strong></td>
+</tr>
+<tr>
+<td><strong>灵巧智能 DexHand021 Pro</strong></td>
+<td><strong>5 指</strong></td>
+<td><strong>16+2+4</strong></td>
+<td><strong>双绳驱+腕协同</strong></td>
+<td>—</td>
+<td>—</td>
+<td><strong>全掌感知</strong></td>
+<td><strong>询价</strong></td>
+</tr>
+<tr>
+<td>因时 RH56</td>
+<td>5 指</td>
+<td>6</td>
+<td>连杆</td>
+<td>0.5–0.8 kg</td>
+<td>3 kg</td>
+<td>选配</td>
+<td>$8–12k</td>
+</tr>
+<tr>
+<td>傲意 ROHand</td>
+<td>5 指</td>
+<td>6</td>
+<td>—</td>
+<td>0.64 kg</td>
+<td>30 kg*</td>
+<td>0.1 N 级</td>
+<td>询价</td>
+</tr>
+<tr>
+<td>强脑 Revo 2</td>
+<td>5 指</td>
+<td>6</td>
+<td>—</td>
+<td>0.383 kg</td>
+<td>20 kg</td>
+<td>—</td>
+<td>询价</td>
+</tr>
+<tr>
+<td>智元 OmniHand 灵动</td>
+<td>5 指</td>
+<td>10</td>
+<td>混合</td>
+<td>0.5 kg</td>
+<td>—</td>
+<td>触觉款有</td>
+<td>¥9800 起</td>
+</tr>
+<tr>
+<td>星动纪元 XHAND1</td>
+<td>5 指</td>
+<td>12</td>
+<td>准直驱</td>
+<td>—</td>
+<td>25 kg</td>
+<td>1mm²×10+ 点</td>
+<td>询价</td>
+</tr>
+<tr>
+<td>灵心巧手 L30</td>
+<td>5 指</td>
+<td>30</td>
+<td>腱绳</td>
+<td>—</td>
+<td>—</td>
+<td>选配</td>
+<td>询价</td>
+</tr>
+<tr>
+<td>帕西尼 GMH18</td>
+<td>5 指</td>
+<td>15</td>
+<td>—</td>
+<td>—</td>
+<td>20 kg</td>
+<td>千级多维</td>
+<td>询价</td>
+</tr>
+</tbody></table>
+<h2 id="7-选型建议"><a href="#7-选型建议" class="headerlink" title="7. 选型建议"></a>7. 选型建议</h2><p><strong>按场景选：</strong></p>
+<ol>
+<li><strong>ML&#x2F;操作学习科研、预算有限</strong>：LEAP Hand（入门）→ ORCA（要五指+触觉）→ DexHand021 S（三指千元级，国内获取更容易）→ Allegro&#x2F;Shadow（要力矩控制或生态）。</li>
+<li><strong>遥操作数据采集（配人形）</strong>：灵巧智能 DexHand021 量产版 + DexCap（配套仿真与数据集生态最完整）、Unitree Dex5-1（配 H2&#x2F;G1）或智元 OmniHand——带触觉版本优先，触觉数据是 2026 年最有价值的具身数据。</li>
+<li><strong>人形量产配套（成本敏感）</strong>：因时 RH56、傲意 ROHand、强脑 Revo 2——6–10 主动 DOF 覆盖大部分工业&#x2F;服务任务，单价低、寿命长。</li>
+<li><strong>触觉研究&#x2F;精密力控</strong>：帕西尼 GMH18（多维矢量触觉）、星动纪元 XHAND1（密度）、DexHand021 量产版（0.1 N 五模态）、戴盟&#x2F;智元（视触觉）。</li>
+<li><strong>假肢&#x2F;人因方向</strong>：强脑、傲意 OHand（肌电解码生态）。</li>
+<li><strong>极致仿生研究</strong>：Clone Hand（液压肌肉）——工程门槛高但天花板最高。</li>
+</ol>
+<p><strong>趋势判断</strong>（截至 2026 年中）：</p>
+<ul>
+<li>自由度竞赛从”堆 DOF”转向”DOF + 触觉密度 + 寿命”的综合竞争；ICRA 2026 与 CES 2026 上 21–22 DOF、1:1 人手比例的产品已成第一梯队门槛；</li>
+<li>传动路线上<strong>腱绳及”腱绳+丝杠&#x2F;连杆”混合方案</strong>明显收敛为主流，纯连杆方案向低成本入门段下沉；</li>
+<li>万元级带触觉五指手（智元、灵巧智能 S 系列）已出现，灵巧手正在重复机械臂的成本下降曲线；</li>
+<li>数据（真机遥操作数据、触觉数据集如 DexCanvas、AgiBot World）正在成为比硬件更深的护城河。</li>
+</ul>
+<h2 id="8-主要资料来源"><a href="#8-主要资料来源" class="headerlink" title="8. 主要资料来源"></a>8. 主要资料来源</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://www.dex-robot.com/productionDexhand">灵巧智能 DexRobot 官网及 DexHand021 产品页</a>（本文图片亦来源于官网，版权归原作者所有）</li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/1939806956740126558">2025 WRC 17 家灵巧手产品梳理（知乎）</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.21jingji.com/article/20260608/herald/4e56b2bcfe114853c57f3552f560d501.html">21 财经：灵巧手行业估值与出货量分析</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/717179760">知乎：一文看懂灵巧手（传动分类）</a> &#x2F; <a target="_blank" rel="noopener" href="https://www.aibangbots.com/a/6601">艾邦机器人：灵巧手传动方式分析</a></li>
+<li><a target="_blank" rel="noopener" href="https://shadowrobot.com/dexterous-hand-series/">Shadow 官网</a> &#x2F; <a target="_blank" rel="noopener" href="https://www.allegrohand.com/">Allegro 官网</a> &#x2F; <a target="_blank" rel="noopener" href="https://leaphand.com/">LEAP Hand</a> &#x2F; <a target="_blank" rel="noopener" href="https://www.orcahand.com/">ORCA Hand</a> &#x2F; <a target="_blank" rel="noopener" href="https://clonerobotics.com/">Clone Robotics</a> &#x2F; <a target="_blank" rel="noopener" href="https://www.unitree.com/mobile/Dex5-1">Unitree Dex5-1</a> &#x2F; <a target="_blank" rel="noopener" href="https://www.oymotion.com/product61">傲意 ROHand</a> &#x2F; <a target="_blank" rel="noopener" href="https://jp.agibot.com/article/188/detail/33.html">智元灵巧手解读</a></li>
+<li><a target="_blank" rel="noopener" href="https://roboticsproceedings.org/rss19/p089.pdf">LEAP Hand 论文（RSS 2023）</a> &#x2F; <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2504.04259">ORCA 论文</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.stcn.com/article/detail/3021069.html">证券时报：灵巧手与传感器突破</a> &#x2F; <a target="_blank" rel="noopener" href="https://www.aibangbots.com/a/8104">艾邦机器人行业深度报告</a></li>
+</ul>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/BlogNotes/about" rel="external nofollow noreferrer">Jianbo.Yuan</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://jianbo-yuan.github.io/BlogNotes/BlogNotes/2026/04/24/%E7%81%B5%E5%B7%A7%E6%89%8B%E8%AE%BE%E8%AE%A1%E6%80%BB%E7%BB%93/">https://jianbo-yuan.github.io/BlogNotes/BlogNotes/2026/04/24/%E7%81%B5%E5%B7%A7%E6%89%8B%E8%AE%BE%E8%AE%A1%E6%80%BB%E7%BB%93/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/BlogNotes/about" target="_blank">Jianbo.Yuan</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/BlogNotes/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/BlogNotes/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/BlogNotes/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/BlogNotes/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/BlogNotes/tutorials/build-blog-with-github-pages-and-hexo/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/BlogNotes/medias/featureimages/22.jpg" class="responsive-img" alt="Github_pages_hexo搭建个人博客教程">
+                        
+                        <span class="card-title">Github_pages_hexo搭建个人博客教程</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            使用 GitHub、GitHub Pages、Hexo 与 Matery 主题，从零搭建个人博客，并完成主图、分类、标签、页面、公式与自动部署配置。
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2026-04-25
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/BlogNotes/categories/%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7/" class="post-category">
+                                    科研工具
+                                </a>
+                            
+                            <a href="/BlogNotes/categories/%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7/%E7%BD%91%E7%AB%99%E7%B1%BB/" class="post-category">
+                                    网站类
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/BlogNotes/tags/Github-Pages/">
+                        <span class="chip bg-color">Github Pages</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/Hexo/">
+                        <span class="chip bg-color">Hexo</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/Matery/">
+                        <span class="chip bg-color">Matery</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">
+                        <span class="chip bg-color">博客搭建</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/BlogNotes/2026/04/24/BeyondMimic%20From%20Motion%20Tracking%20to%20Versatile%20Humanoid%20Control%20via%20Guided%20Diffusion/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/BlogNotes/medias/featureimages/0.jpg" class="responsive-img" alt="BeyondMimic From Motion Tracking to Versatile Humanoid Control via Guided Diffusion">
+                        
+                        <span class="card-title">BeyondMimic From Motion Tracking to Versatile Humanoid Control via Guided Diffusion</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-04-24
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/BlogNotes/categories/%E8%AE%BA%E6%96%87%E7%B2%BE%E5%BA%A6%E4%B8%8E%E5%88%86%E6%9E%90/" class="post-category">
+                                    论文精度与分析
+                                </a>
+                            
+                            <a href="/BlogNotes/categories/%E8%AE%BA%E6%96%87%E7%B2%BE%E5%BA%A6%E4%B8%8E%E5%88%86%E6%9E%90/%E6%A8%A1%E4%BB%BF%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    模仿学习
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/BlogNotes/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/BlogNotes/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/BlogNotes/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/BlogNotes/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/BlogNotes/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        },
+        "HTML-CSS": {
+            linebreaks: {
+                automatic: true,
+                width: "container"
+            }
+        },
+        SVG: {
+            linebreaks: {
+                automatic: true,
+                width: "container"
+            }
+        }
+    });
+</script>
+<script>
+    (function () {
+        if (window.MathJax) return;
+
+        var sources = [
+            "https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML",
+            "https://unpkg.com/mathjax@2.7.9/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML",
+            "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+        ];
+
+        function loadMathJax(index) {
+            if (index >= sources.length) {
+                console.error("MathJax failed to load from all configured CDNs.");
+                return;
+            }
+
+            var script = document.createElement("script");
+            script.src = sources[index];
+            script.async = true;
+            script.onerror = function () {
+                loadMathJax(index + 1);
+            };
+            document.head.appendChild(script);
+        }
+
+        loadMathJax(0);
+    })();
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/BlogNotes/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.3'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/BlogNotes/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2026</span>
+            
+            <span id="year">2026</span>
+            <a href="/BlogNotes/about" target="_blank">Jianbo.Yuan</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:jianbo.yuan@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=335943408" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 335943408" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+    <a href="https://www.zhihu.com/people/Simple" class="tooltipped" target="_blank" data-tooltip="关注我的知乎: https://www.zhihu.com/people/Simple" data-position="top" data-delay="50">
+        <i class="fab fa-zhihu1">知</i>
+    </a>
+
+
+
+    <a href="/BlogNotes/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/BlogNotes/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/BlogNotes/libs/materialize/materialize.min.js"></script>
+    <script src="/BlogNotes/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/BlogNotes/libs/aos/aos.js"></script>
+    <script src="/BlogNotes/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/BlogNotes/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/BlogNotes/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/BlogNotes/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/BlogNotes/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/BlogNotes/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

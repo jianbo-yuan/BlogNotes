@@ -1,0 +1,1766 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="PI系列论文解析, Jianbo.Yuan">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>PI系列论文解析 | Jianbo.Yuan</title>
+    <link rel="icon" type="image/png" href="/BlogNotes/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/css/my.css">
+
+    <script src="/BlogNotes/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/BlogNotes/" class="waves-effect waves-light">
+                    
+                    <img src="/BlogNotes/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Jianbo.Yuan</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/BlogNotes/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Jianbo.Yuan</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/BlogNotes/medias/featureimages/9.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">PI系列论文解析</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/BlogNotes/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/BlogNotes/tags/VLA/">
+                                <span class="chip bg-color">VLA</span>
+                            </a>
+                        
+                            <a href="/BlogNotes/tags/%E6%B5%81%E5%8C%B9%E9%85%8D/">
+                                <span class="chip bg-color">流匹配</span>
+                            </a>
+                        
+                            <a href="/BlogNotes/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/">
+                                <span class="chip bg-color">强化学习</span>
+                            </a>
+                        
+                            <a href="/BlogNotes/tags/%E6%A8%A1%E4%BB%BF%E5%AD%A6%E4%B9%A0/">
+                                <span class="chip bg-color">模仿学习</span>
+                            </a>
+                        
+                            <a href="/BlogNotes/tags/%CF%800/">
+                                <span class="chip bg-color">π0</span>
+                            </a>
+                        
+                            <a href="/BlogNotes/tags/Physical-Intelligence/">
+                                <span class="chip bg-color">Physical Intelligence</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/BlogNotes/categories/%E8%AE%BA%E6%96%87%E7%B2%BE%E5%BA%A6%E4%B8%8E%E5%88%86%E6%9E%90/" class="post-category">
+                                论文精度与分析
+                            </a>
+                        
+                            <a href="/BlogNotes/categories/%E8%AE%BA%E6%96%87%E7%B2%BE%E5%BA%A6%E4%B8%8E%E5%88%86%E6%9E%90/%E6%A8%A1%E4%BB%BF%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                模仿学习
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2026-09-01
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>Physical Intelligence（PI）的 <strong>π 系列</strong>是具身大模型”工程与科学双满分”的代表作：π0 定下”VLM 骨干 + 流匹配动作专家”的架构范式，FAST 换自回归头做最干净的范式对照，π0.5 攻开放世界泛化，π*0.6 用 RECAP 把强化学习带进 VLA，π0.7 用上下文条件化实现”开箱即用、性能比肩 RL 专家”。五代工作构成一条完整的技术演进链：<strong>架构 → 分词 → 泛化 → 经验 → 可控</strong>。</p>
+<p>系列资源：<a target="_blank" rel="noopener" href="https://github.com/Physical-Intelligence/openpi">openpi 代码与权重</a> ｜ <a target="_blank" rel="noopener" href="https://www.pi.website/blog">官方博客</a> ｜ 本站 <a href="/BlogNotes/2026/09/01/Being_H%E7%B3%BB%E5%88%97%E8%AE%BA%E6%96%87%E8%A7%A3%E6%9E%90/">Being-H 系列解析</a>（人类视频路线的镜像对照）</p>
+<table>
+<thead>
+<tr>
+<th>代际</th>
+<th>论文</th>
+<th>一句话</th>
+<th>关键数字</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>π0</strong>（2024.10）</td>
+<td><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2410.24164">arXiv:2410.24164</a></td>
+<td>VLM + 流匹配动作专家的架构奠基</td>
+<td>PaliGemma 3B + 300M 专家；~1 万小时数据；50Hz、10 步</td>
+</tr>
+<tr>
+<td><strong>FAST&#x2F;π0-FAST</strong>（2025.01）</td>
+<td><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2501.09747">arXiv:2501.09747</a></td>
+<td>DCT 频域动作分词，AR 也能打高频灵巧任务</td>
+<td>匹配 π0 且<strong>训练快 5×</strong>；FAST+ &#x3D; 100 万轨迹通用分词器</td>
+</tr>
+<tr>
+<td><strong>π0.5</strong>（2025.04）</td>
+<td><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2504.16054">arXiv:2504.16054</a></td>
+<td>异构协同训练 → 开放世界泛化</td>
+<td>多机器人 + 语义子任务 + 网络数据 + ~400h 真实家庭数据；首次端到端清理厨房&#x2F;卧室</td>
+</tr>
+<tr>
+<td><strong>π*0.6 &#x2F; RECAP</strong>（2025.11）</td>
+<td><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2511.14759">arXiv:2511.14759</a></td>
+<td>从经验中学习：优势条件化的 RL 进 VLA</td>
+<td>Gemma3-4B + 860M 专家；吞吐 ~2×、失败率减半；咖啡机连续 13 小时</td>
+</tr>
+<tr>
+<td><strong>π0.7</strong>（2026.04）</td>
+<td><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2604.15483">arXiv:2604.15483</a></td>
+<td>多模态上下文条件化：可操控的通才</td>
+<td>开箱即用比肩 RL 专家；5 步去噪、零样本跨本体</td>
+</tr>
+</tbody></table>
+<h2 id="1-引言：从模仿学习到机器人基础模型"><a href="#1-引言：从模仿学习到机器人基础模型" class="headerlink" title="1. 引言：从模仿学习到机器人基础模型"></a>1. 引言：从模仿学习到机器人基础模型</h2><p><strong>范式背景</strong>。机器人学习长期困在”每个任务一套专用系统”：行为克隆（模仿学习）在单任务上可行，但数据贵、泛化差；与此同时 NLP&#x2F;视觉被”预训练基础模型”彻底改写。2022-2024 年，两条路合流出 <strong>VLA（视觉-语言-动作）模型</strong>：RT-1&#x2F;RT-2 证明动作可以 token 化进语言模型，Diffusion Policy&#x2F;ACT 证明连续动作块扩散&#x2F;隐变量生成能处理高频灵巧任务——但两派各有死穴：<strong>AR 路线丢精度限频率</strong>（2~10Hz），<strong>扩散路线与 VLM 语义割裂</strong>（去噪器不知道”指令”）。π 系列从这一断层出发。</p>
+<p><strong>π 系列的五问递进</strong>。每一代都在回答前一代留下的核心问题：</p>
+<ol>
+<li><strong>架构怎么搭</strong>（π0）：怎么让 VLM 的互联网知识无损流向连续高频动作？——不要把动作塞进语言 token，用<strong>独立的流匹配动作专家</strong>挂接骨干</li>
+<li><strong>分词要不要</strong>（FAST）：自回归路线还能不能救？——能，但必须换掉”逐维逐帧分桶”的朴素分词</li>
+<li><strong>怎么出实验室</strong>（π0.5）：只在训练环境好使的模型没有意义——异构数据协同训练 + 语义子任务预测</li>
+<li><strong>怎么超越演示</strong>（π*0.6）：模仿学习的天花板是演示质量——RECAP，把 RL 的自我改进装进 VLA 全流程</li>
+<li><strong>怎么被操控</strong>（π0.7）：通才模型输出”不可预测”——上下文条件化，用”怎么做”的多模态提示操控策略</li>
+</ol>
+<p><strong>与 Being-H 的镜像</strong>（详见本站<a href="/BlogNotes/2026/09/01/Being_H%E7%B3%BB%E5%88%97%E8%AE%BA%E6%96%87%E8%A7%A3%E6%9E%90/">解析</a>）：π 系全部押注<strong>机器人真机数据</strong>（1 万小时演示 → 自主经验 → 部署数据），Being-H 押注<strong>人类视频</strong>；两家在”VLM 骨干 + 流匹配头”上殊途同归，在数据哲学上背道而驰——这是当前具身大模型最有信息量的一组对照实验。</p>
+<h2 id="2-相关研究背景"><a href="#2-相关研究背景" class="headerlink" title="2. 相关研究背景"></a>2. 相关研究背景</h2><p>每项研究标注【对应代际】，随后给出技术栈解析，最后总结同异。</p>
+<h3 id="2-1-模仿学习与动作块生成【π0-血统】"><a href="#2-1-模仿学习与动作块生成【π0-血统】" class="headerlink" title="2.1 模仿学习与动作块生成【π0 血统】"></a>2.1 模仿学习与动作块生成【π0 血统】</h3><p><strong>ACT</strong>【π0、FAST】。CVAE 隐变量 + 50Hz 动作块（ALOHA 硬件）——“高频灵巧任务需要<strong>整块动作</strong>“的最早证明。π0 的 H&#x3D;50 动作块直接延续此设定；其”隐变量决定动作风格”的思想与流匹配的随机起点一脉相承。</p>
+<p><strong>Diffusion Policy</strong>【π0】。动作扩散三板斧（整块生成&#x2F;滚动时域&#x2F;轻量去噪器）——π0 最直接的前身。π0 的三点升级：去噪器从孤立小网络升级为<strong>与 VLM 全注意力交互的专家</strong>；扩散采样换<strong>流匹配</strong>（路径更直、步数更少）；数据从单任务演示升级为跨平台万小时级。</p>
+<p><strong>Diffusion Forcing &#x2F; 扩散 Transformer 一系</strong>【π0 对照】。把扩散与序列建模结合的同期探索——π0 实验中作为消融对照，验证流匹配目标的选择。</p>
+<h3 id="2-2-AR-路线与分词【FAST-主场】"><a href="#2-2-AR-路线与分词【FAST-主场】" class="headerlink" title="2.2 AR 路线与分词【FAST 主场】"></a>2.2 AR 路线与分词【FAST 主场】</h3><p><strong>RT-2 &#x2F; OpenVLA(-OFT)</strong>【FAST】。AR 路线代表。FAST 论文的出发点正是它们的标准分桶在高频灵巧数据上”完全失败”——<strong>问题不在自回归，在分词</strong>。</p>
+<p><strong>LLM 分词血统（BPE）</strong>【FAST】。语言模型早已证明”分词决定序列模型上限”（BPE 合并高频子串）；FAST 把同一思想搬进动作域——先压缩（DCT）再 BPE，与”先学字母表再造句”同构。本站<a href="/BlogNotes/2026/09/01/%E8%BF%90%E5%8A%A8%E7%A6%BB%E6%95%A3%E5%8C%96%E6%8A%80%E6%9C%AF%E4%BB%8B%E7%BB%8D/">运动离散化</a>系统梳理了这一技术族。</p>
+<p><strong>VQ-BeT &#x2F; 码本系</strong>【FAST 相邻】。向量量化”动作原型”——码本域 vs FAST 的频域，同族异构。</p>
+<h3 id="2-3-通用策略与数据联盟【π0、π0-5】"><a href="#2-3-通用策略与数据联盟【π0、π0-5】" class="headerlink" title="2.3 通用策略与数据联盟【π0、π0.5】"></a>2.3 通用策略与数据联盟【π0、π0.5】</h3><p><strong>Octo</strong>【π0】。开源通用策略 + 扩散头——“机器人基座”理念先声；π0 实验中的基线之一（320k 步对照）。</p>
+<p><strong>Open X-Embodiment &#x2F; OXE + Bridge v2 + DROID</strong>【π0、π0.5】。跨机构数据联盟——π0 预训练混入（约占 1%，其余为专有万小时数据）；π0.5 的异构协同训练是同一精神的深化：多机器人 + 网络数据 + 语义标注。</p>
+<p><strong>GR00T N1 &#x2F; DreamGen</strong>【π0.5】。合成数据路线同行对照。</p>
+<h3 id="2-4-强化学习进-Transformer-策略【π-0-6-血统】"><a href="#2-4-强化学习进-Transformer-策略【π-0-6-血统】" class="headerlink" title="2.4 强化学习进 Transformer 策略【π*0.6 血统】"></a>2.4 强化学习进 Transformer 策略【π*0.6 血统】</h3><p><strong>离线 RL 经典（IQL&#x2F;AWR&#x2F;优势加权系）</strong>【π*0.6】。离线数据上学策略改进的两大流派——RECAP 的”优势条件化”是优势加权思想在 VLA 时代的化身：不直接改策略梯度，而是<strong>把优势值变成条件</strong>，训练仍是最稳定的似然最大化。</p>
+<p><strong>Human-gated DAgger</strong>【π*0.6】。专家在自主执行中介入纠正的在线数据采集范式——RECAP 把”干预数据”与演示、自主数据统一进价值函数训练。</p>
+<p><strong>Q-Transformer</strong>【π*0.6】。AR + Q 学习的早期尝试——同问”RL 怎么进 Transformer”，但 RECAP 保留流匹配连续头、用条件化而非 Q 值 argmax，对高频动作更友好。</p>
+<h3 id="2-5-可控性与上下文学习【π0-7-血统】"><a href="#2-5-可控性与上下文学习【π0-7-血统】" class="headerlink" title="2.5 可控性与上下文学习【π0.7 血统】"></a>2.5 可控性与上下文学习【π0.7 血统】</h3><p><strong>LLM 指令跟随 &#x2F; 上下文学习</strong>【π0.7】。π0.7 的本质是把 LLM 的”指令 + 风格控制”平移到机器人：条件 <span class="math-inline">\(\mathcal{C}_t\)</span> 不只说”做什么”，还说”<strong>怎么做</strong>“（子目标图像、历史成绩元数据、策略描述）——具身版的 instruction following + in-context learning。</p>
+<p><strong>Classifier-Free Guidance 式条件 dropout</strong>【π0.7】。训练时对各类条件随机丢弃（详见第7节数字），推理时可通过条件组合”操控”策略——与文生图 CFG 同一思想的不同用法。</p>
+<p><strong>RTC 实时分块</strong>【π0.7】。推理延迟下保持动作平滑的分块执行机制——工程上让 5 步去噪的通才模型能在 240ms 延迟下稳定 50Hz 控制。</p>
+<h3 id="2-6-技术栈解析：五代工作的具体工具"><a href="#2-6-技术栈解析：五代工作的具体工具" class="headerlink" title="2.6 技术栈解析：五代工作的具体工具"></a>2.6 技术栈解析：五代工作的具体工具</h3><table>
+<thead>
+<tr>
+<th>层</th>
+<th>具体工具&#x2F;技术</th>
+<th>用在</th>
+<th>解析</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>VLM 骨干</td>
+<td><strong>PaliGemma 3B</strong>（π0&#x2F;FAST）→ <strong>Gemma 3 4B</strong>（π*0.6&#x2F;π0.7，另含 400M 视觉编码器）</td>
+<td>全系</td>
+<td>开源 VLM 底座继承互联网语义</td>
+</tr>
+<tr>
+<td>动作头</td>
+<td><strong>流匹配动作专家</strong>：π0 为 300M 从零训练，π*0.6&#x2F;0.7 扩到 <strong>860M</strong>；50 个动作 token（H&#x3D;50）</td>
+<td>全系（FAST 除外）</td>
+<td>专家与骨干全注意力交互；FAST 版换 AR token 头</td>
+</tr>
+<tr>
+<td>采样</td>
+<td>Euler <span class="math-inline">\(\delta{=}0.1\)</span>（10 步）→ π0.7 <strong>5 步 + RTC</strong>（延迟 ≤240ms 平滑出动作；执行块内 15~25 步）</td>
+<td>π0 → π0.7</td>
+<td>步数持续压缩；RTC 解决推理延迟下的控制连续性</td>
+</tr>
+<tr>
+<td>动作分词</td>
+<td><strong>FAST</strong>（DCT→量化→BPE）；<strong>FAST+</strong> 通用分词器（100 万真机轨迹）</td>
+<td>FAST、π*0.6 文本通道</td>
+<td>π*0.6 用 FAST token 出子任务文本，stop-gradient 隔离流匹配专家</td>
+</tr>
+<tr>
+<td>RL 机制</td>
+<td><strong>RECAP</strong>：优势条件化 + 二值优势指示 <span class="math-inline">\(I_t\)</span> + 分布价值函数 + 稀疏时间惩罚奖励</td>
+<td>π*0.6</td>
+<td>演示&#x2F;在线采集&#x2F;专家干预三类异构数据统一进自我改进</td>
+</tr>
+<tr>
+<td>上下文条件化</td>
+<td>条件 <span class="math-inline">\(\mathcal{C}_t\)</span> &#x3D; 语言 + <strong>子目标图像（25% 批样本）+ 成绩&#x2F;策略元数据（各自 5% dropout）</strong>；MEM 式视频历史编码器</td>
+<td>π0.7</td>
+<td>“做什么 + 怎么做”双通道操控</td>
+</tr>
+<tr>
+<td>数据</td>
+<td><del>1 万小时专有演示 + 1% 开源（OXE&#x2F;Bridge&#x2F;DROID）（π0）；异构多机器人 + 网络数据 + **</del>400h 移动操作真家数据**（π0.5）；<strong>部署期自主经验 + 专家干预</strong>（π*0.6）</td>
+<td>全系</td>
+<td>数据三级跳：演示 → 泛化配方 → 经验闭环</td>
+</tr>
+<tr>
+<td>部署</td>
+<td>家庭&#x2F;工厂：咖啡机、装盒、叠衣；移动双臂&#x2F;静态双臂&#x2F;UR5e（20Hz）等多平台 50Hz</td>
+<td>π*0.6、π0.7</td>
+<td>与 Ultra 合作产线、Weave 平台输出 API</td>
+</tr>
+<tr>
+<td>开源</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/Physical-Intelligence/openpi">openpi</a>：π0&#x2F;π0.5 权重与训练栈</td>
+<td>全系</td>
+<td>社区可复现的 SOTA 天花板</td>
+</tr>
+</tbody></table>
+<p>读表要点：<strong>五代的变化集中在”数据与训练方式”层，骨干与流匹配专家这条架构主线从 π0 之后再没换过</strong>——架构收敛、训练进化，是 π 系列最鲜明的工程判断。</p>
+<h3 id="2-7-相同点与不同点总结"><a href="#2-7-相同点与不同点总结" class="headerlink" title="2.7 相同点与不同点总结"></a>2.7 相同点与不同点总结</h3><p><strong>相同点</strong>：(1) 全系”VLM 骨干 + 动作专家”双塔结构不变；(2) 连续动作块 + 流匹配（FAST 是唯一 AR 变体，且仅作对照与文本通道）；(3) 数据策略始终以真机为中心；(4) 每代都把上一代当基座（π0.5 基于 π0，π*0.6 基于 π0.5，π0.7 继承 π*0.6 的能力评测场）。</p>
+<p><strong>不同点</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>π0</th>
+<th>FAST</th>
+<th>π0.5</th>
+<th>π*0.6</th>
+<th>π0.7</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>动作头</td>
+<td>流匹配</td>
+<td><strong>AR token</strong></td>
+<td>流匹配</td>
+<td>流匹配 + 优势条件</td>
+<td>流匹配</td>
+</tr>
+<tr>
+<td>训练范式</td>
+<td>SFT 模仿</td>
+<td>SFT 模仿</td>
+<td>异构协同 SFT</td>
+<td><strong>离线 RL + 在线 RL</strong></td>
+<td>SFT + 上下文条件化</td>
+</tr>
+<tr>
+<td>解决的问题</td>
+<td>架构&#x2F;高频</td>
+<td>分词</td>
+<td>泛化</td>
+<td>超越演示</td>
+<td>可控&#x2F;开箱即用</td>
+</tr>
+<tr>
+<td>标志结果</td>
+<td>50Hz 叠衣</td>
+<td>训练快 5×</td>
+<td>厨房卧室整理</td>
+<td>吞吐 2×&#x2F;失败率减半</td>
+<td>比肩 RL 专家</td>
+</tr>
+</tbody></table>
+<h2 id="3-π0：VLM-流匹配动作专家（架构奠基）"><a href="#3-π0：VLM-流匹配动作专家（架构奠基）" class="headerlink" title="3. π0：VLM + 流匹配动作专家（架构奠基）"></a>3. π0：VLM + 流匹配动作专家（架构奠基）</h2><p><strong>核心逻辑</strong>。三个障碍——数据、泛化、鲁棒——的统一答案是<strong>通用机器人策略（机器人基础模型）</strong>。架构主张：动作不该被塞进语言的离散 token，而应由<strong>独立的连续动作专家</strong>生成，专家通过注意力接收 VLM 的语义表征——“大脑管语义、小脑管动作”。</p>
+<p><strong>理论分析：为什么是流匹配（而非离散 token 或扩散）</strong>。三个理由层层递进：</p>
+<ol>
+<li><strong>连续多模态分布</strong>：灵巧动作的分布是多模态的（同一指令多种手法），离散 token 的交叉熵只能分桶近似，扩散&#x2F;流匹配天然采样多模态</li>
+<li><strong>训练稳定性与高频适配</strong>：流匹配回归的是<strong>常数速度场</strong> <span class="math-inline">\(u = A - \varepsilon\)</span>（比扩散的噪声预测目标更平缓），且整个 H&#x3D;50 动作块<strong>并行</strong>去噪——没有 AR 的逐 token 串行瓶颈，50Hz 控制可行</li>
+<li><strong>推理时计算可调</strong>：步数是超参（<span class="math-inline">\(\delta\)</span> 越小越准越慢）——同一模型可在”快糙”与”慢精”之间切换，AR 与固定步扩散都做不到这么干净</li>
+</ol>
+<p><strong>核心公式</strong>。观测 <span class="math-inline">\(\boldsymbol{o}_t=[\boldsymbol{I}^1_t,\dots,\boldsymbol{I}^n_t,\ell_t,\boldsymbol{q}_t]\)</span>（多相机、语言、本体状态），动作块 <span class="math-inline">\(\boldsymbol{A}_t\)</span>（<span class="math-inline">\(H=50\)</span>）：</p>
+<div class="math-block">\[
+q(\boldsymbol{A}_t^{\tau}\mid\boldsymbol{A}_t)=\mathcal{N}\big(\tau\boldsymbol{A}_t,\ (1-\tau)\mathbf{I}\big):\quad \boldsymbol{A}_t^{\tau}=\tau\boldsymbol{A}_t+(1-\tau)\boldsymbol{\varepsilon},\qquad \boldsymbol{u}=\boldsymbol{A}_t-\boldsymbol{\varepsilon}
+\]</div>
+<p>推理 Euler 积分（10 步）：<span class="math-inline">\(\boldsymbol{A}_t^{\tau+\delta}=\boldsymbol{A}_t^{\tau}+\delta\,\boldsymbol{v}_\theta(\boldsymbol{A}_t^{\tau},\boldsymbol{o}_t)\)</span>，<span class="math-inline">\(\delta=0.1\)</span>。</p>
+<p><strong>核心数据</strong>。<strong>~1 万小时</strong>专有真机演示（当时最大）+ 1% 开源（OXE&#x2F;Bridge v2&#x2F;DROID）；单任务 5~100+ 小时；覆盖单臂、双臂、移动操作。</p>
+<p><strong>实验结果</strong>。(1) <strong>预训练零样本评测</strong>：在全部任务上取得 <strong>&gt;50% 最大得分</strong>，全面超越基线——关键消融：<strong>“对齐算力”版 π0（160k 步，与 OpenVLA 完全同训练步数）仍全面胜过 OpenVLA（160k）与 Octo（320k）</strong>，说明优势来自架构而非算力堆叠；<strong>π0-small（去掉 VLM 预训练的小模型）也胜过 OpenVLA&#x2F;Octo</strong>，而 π0 对 π0-small 的提升证明 <strong>VLM 预训练本身贡献显著</strong>。(2) <strong>微调评测 20+ 任务</strong>：超越先前 VLA 与灵巧专用模型（含 ACT 一系）；Tupperware 等最难任务上 1 小时数据微调即显著领先。(3) <strong>50Hz 叠衣</strong>等灵巧任务实时控制。<strong>意义</strong>：确立 π 形态架构 + “VLM 预训练有用”的严格证据链。</p>
+<h2 id="4-FAST-π0-FAST：动作分词的救赎（AR-对照版）"><a href="#4-FAST-π0-FAST：动作分词的救赎（AR-对照版）" class="headerlink" title="4. FAST &#x2F; π0-FAST：动作分词的救赎（AR 对照版）"></a>4. FAST &#x2F; π0-FAST：动作分词的救赎（AR 对照版）</h2><p><strong>核心逻辑与理论</strong>。AR VLA 的瓶颈在<strong>分词</strong>：逐维逐帧分桶把 <span class="math-inline">\(H\times|\mathcal{A}|\)</span> 维的动作块切成海量弱相关 token——高频灵巧数据的相邻帧高度冗余，朴素分桶让自回归学到的是”噪声级”转移。FAST 形式化：把动作块 <span class="math-inline">\(\boldsymbol{a}_{1:H}\)</span>（维数 <span class="math-inline">\(|\mathcal{A}|\)</span>）映射为词表 <span class="math-inline">\(|\mathcal{V}|\)</span> 上的 <span class="math-inline">\(n\)</span> 个 token——<strong>关键在映射函数</strong>。FAST 三步：<strong>DCT</strong>（时域→频域，能量集中低频，序列有效长度骤降）→ 幅度量化 → <strong>BPE</strong>（在动作语料上合并高频模式）。哲学与 LLM 完全同构：好分词 &#x3D; 压缩。</p>
+<p><strong>实验结果</strong>。(1) 朴素分桶在标准高频灵巧基准上<strong>完全失败</strong>（论文核心图之一）；(2) FAST 使 AR VLA 在灵巧与长程任务上<strong>匹配 π0 流匹配版的性能，同时训练快 5×</strong>；(3) <strong>FAST+</strong>：100 万真机轨迹预训的通用分词器，可作黑盒接入任意 VLA。<strong>意义</strong>：证明”AR vs 生成式”之争很大程度是”分词”之争；FAST+ 成为后续模型（含 π*0.6 文本通道）的标准件。</p>
+<h2 id="5-π0-5：异构协同训练与开放世界泛化"><a href="#5-π0-5：异构协同训练与开放世界泛化" class="headerlink" title="5. π0.5：异构协同训练与开放世界泛化"></a>5. π0.5：异构协同训练与开放世界泛化</h2><p><strong>核心逻辑与理论</strong>。实验室到荒野的差距靠<strong>知识迁移</strong>填，π0.5 的配方有三味药：</p>
+<ol>
+<li><strong>异构协同训练（co-training）</strong>：多机器人数据 + 网络数据 + ~400 小时<strong>移动操作机器人在真实家庭</strong>采集的数据混合</li>
+<li><strong>语义-动作联合预测</strong>：对多子任务数据人工标注语义子任务，模型<strong>先（FAST 文本通道）预测子任务标签、再以子任务为条件生成低层动作</strong>——“想清楚再动手”的显式化</li>
+<li><strong>归一化与配比工程</strong>：各数据集按每维 1%&#x2F;99% 分位归一到 <span class="math-inline">\([-1,1]\)</span>；混合比例消融确定</li>
+</ol>
+<p><strong>实验结果</strong>。(1) 消融证明<strong>知识迁移（跨机器人&#x2F;网络数据&#x2F;子任务预测）是泛化的必要条件</strong>；(2) 评测设计严谨：先在可复现的模拟环境验证，再进<strong>三个从未见过的真实家庭（3 厨房 + 3 卧室）、双机型</strong>终测，采用<strong>部分给分制</strong>（如”放一半碗进水槽 ≈ 50% 分”）量化长程家务完成度；(3) <strong>首次</strong>端到端学习系统完成厨房与卧室清理整理。<strong>意义</strong>：从”任务”走向”环境”；其骨干成为 π*0.6 的直接底座。</p>
+<h2 id="6-π-0-6-RECAP：从经验中学习（RL-进-VLA）"><a href="#6-π-0-6-RECAP：从经验中学习（RL-进-VLA）" class="headerlink" title="6. π*0.6 &#x2F; RECAP：从经验中学习（RL 进 VLA）"></a>6. π*0.6 &#x2F; RECAP：从经验中学习（RL 进 VLA）</h2><p><strong>核心逻辑与理论</strong>。模仿学习的天花板是演示质量；RECAP（<strong>R</strong>L with <strong>E</strong>xperience and <strong>C</strong>orrections via <strong>A</strong>dvantage-conditioned <strong>P</strong>olicies）的三步循环：</p>
+<ol>
+<li><strong>自主采集</strong>：策略自主 rollout，专家可随时<strong>遥操作介入纠正</strong>（human-gated DAgger）</li>
+<li><strong>价值函数训练</strong>：在”演示 + 自主数据 + 干预”三类异构数据上训练<strong>分布价值函数</strong></li>
+<li><strong>优势条件化策略提取</strong>：由优势构造改进分布并做 KL 提取（<strong>策略改进有保证</strong>）：</li>
+</ol>
+<div class="math-block">\[
+\hat{\pi}(\boldsymbol{a}\mid\boldsymbol{o})\ \propto\ \pi_{\text{ref}}(\boldsymbol{a}\mid\boldsymbol{o})\,\exp\big(A^{\pi_{\text{ref}}}(\boldsymbol{o},\boldsymbol{a})/\beta\big)\ \Longrightarrow\ \mathcal{J}(\hat{\pi})\geq\mathcal{J}(\pi_{\text{ref}}),\qquad \min_\theta\ \mathbb{E}\big[\mathrm{KL}(\hat{\pi},\pi_\theta)\big]
+\]</div>
+<p><strong>为什么条件化而不是策略梯度</strong>：策略梯度对异构离线数据脆弱、易熵塌缩；条件化把 RL 变回<strong>似然最大化</strong>（给策略看”好坏标签” <span class="math-inline">\(I_t\)</span> 二值优势指示），训练与 SFT 一样稳——这是 RECAP 能在数万小时预训练规模上跑通的关键。奖励设计是稀疏 + 时间惩罚：</p>
+<div class="math-block">\[
+r_t=\begin{cases}0 &amp; t=T,\ \text{成功}\\ -C_{\text{fail}} &amp; t=T,\ \text{失败}\\ -1 &amp; \text{否则（拖越久罚越多）}\end{cases}
+\]</div>
+<p><strong>离线 RL 预训练</strong>：把上述目标跑在**整个预训练数据集（数万小时、多任务多机器人）**上得到通才 π*0.6——离线 RL 首次在 VLA 规模落地。</p>
+<p><strong>架构变化</strong>：骨干换 <strong>Gemma 3 4B</strong>；动作专家扩到 <strong>860M</strong>；子任务文本经 FAST token 输出、stop-gradient 与流匹配专家隔离。</p>
+<p><strong>实验结果</strong>。真机硬任务三连：<strong>咖啡机连续 13 小时</strong>无人干预出饮品、新家庭<strong>连续 2 小时+<strong>叠陌生衣物、<strong>工厂真实包装</strong>装盒；量化：最难任务上</strong>吞吐 ~2×、失败率降 2×以上</strong>；价值函数可视化验证其学会了区分成功&#x2F;失败轨迹。<strong>意义</strong>：”机器人从自己的部署经验中变强”首次大规模兑现。</p>
+<h2 id="7-π0-7：可操控的通才（开箱即用比肩-RL-专家）"><a href="#7-π0-7：可操控的通才（开箱即用比肩-RL-专家）" class="headerlink" title="7. π0.7：可操控的通才（开箱即用比肩 RL 专家）"></a>7. π0.7：可操控的通才（开箱即用比肩 RL 专家）</h2><p><strong>核心逻辑与理论</strong>。π*0.6 的 RL 专家”每任务练一遍”太贵；π0.7 的答案：<strong>训练时注入多样的上下文条件</strong>，让同一通才模型在推理时被”提示”操控：</p>
+<div class="math-block">\[
+\max_\theta\ \mathbb{E}_{\mathcal{D}}\Big[\log\pi_\theta\big(\boldsymbol{a}_{t:t+H}\mid \boldsymbol{o}_{t-T:t},\ \mathcal{C}_t\big)\Big]
+\]</div>
+<p>条件 <span class="math-inline">\(\mathcal{C}_t\)</span> 从语言扩展为<strong>多模态</strong>：子任务指令 <span class="math-inline">\(\hat{\ell}_t\)</span>（继承 π0.5）、<strong>子目标图像</strong>（episode 末帧——“照着这个样子做”）、<strong>episode 元数据</strong>（历史速度&#x2F;质量&#x2F;错误标签——“按上次的策略做”）。训练采用 <strong>CFG 式条件 dropout</strong> 保证条件可组合、可缺省：子目标图像只加进 25% 批样本；有图时 30% 概率丢弃文本子任务（图可替代文）；三个元数据项各自 5% 概率丢弃。</p>
+<p><strong>架构</strong>：4B VLM（含 400M 视觉编码器）+ <strong>MEM 式视频历史编码器</strong> + 860M 流匹配专家；50 token 动作块、<strong>5 步去噪</strong>、RTC 异步分块（最大 240ms 推理延迟下仍平滑 50Hz）；执行块内 15~25 步。</p>
+<p><strong>实验结果</strong>。开箱即用（无任务数据微调）四能力：(1) 未见厨房&#x2F;卧室环境跟随开放指令、多阶段家电任务；(2) <strong>零样本跨本体</strong>（未见任务上叠衣）；(3) <strong>咖啡机等硬任务上比肩 π*0.6 的 RL 专家模型，叠衣与装盒吞吐更高</strong>；(4) <strong>Coach 模式</strong>：粗指令（”倒垃圾”）可被分步详细指令逐步引导完成。<strong>意义</strong>：通才 + 条件化首次在硬任务上追平专才 RL——部署经济学被改写。</p>
+<h2 id="8-实验结果分析"><a href="#8-实验结果分析" class="headerlink" title="8. 实验结果分析"></a>8. 实验结果分析</h2><h3 id="8-1-各代核心结果总表"><a href="#8-1-各代核心结果总表" class="headerlink" title="8.1 各代核心结果总表"></a>8.1 各代核心结果总表</h3><table>
+<thead>
+<tr>
+<th>代际</th>
+<th>评测场景</th>
+<th>核心数字</th>
+<th>击败的对手</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>π0</td>
+<td>6 个预训练零样本任务 + 20+ 微调任务</td>
+<td>零任务数据下<strong>全部任务 &gt;50% 最大得分</strong>；50Hz 实时灵巧；1 小时数据微调即大幅领先</td>
+<td>OpenVLA（160k 对齐算力）、Octo（320k）、π0-small、ACT 系灵巧专用模型</td>
+</tr>
+<tr>
+<td>FAST</td>
+<td>高频灵巧 + 长程任务</td>
+<td><strong>匹配 π0 性能、训练快 5×</strong>；朴素分桶 AR 完全失败</td>
+<td>逐维分桶 AR VLA（RT-2&#x2F;OpenVLA 式）</td>
+</tr>
+<tr>
+<td>π0.5</td>
+<td>可复现模拟环境 → <strong>3 个陌生真实家庭</strong>（3 厨房+3 卧室、双机型）</td>
+<td>长程家务部分给分制达标（如”放一半碗 ≈ 50%”）；消融：去掉任一数据源均显著掉分</td>
+<td>π0 基线、单源数据训练版</td>
+</tr>
+<tr>
+<td>π*0.6</td>
+<td>真机硬任务：咖啡机 &#x2F; 装盒 &#x2F; 叠衣</td>
+<td>最难任务<strong>吞吐 ~2×、失败率降 2×+</strong>；<strong>13 小时</strong>连续咖啡、**2 小时+**陌生衣物、工厂级装盒</td>
+<td>π0.5（纯模仿版）、无干预数据消融版</td>
+</tr>
+<tr>
+<td>π0.7</td>
+<td>开箱即用（零任务数据）：家电多阶段 &#x2F; 叠衣 &#x2F; 咖啡机</td>
+<td><strong>比肩 π*0.6 的 RL 专家</strong>；叠衣与装盒吞吐<strong>更高</strong>；零样本跨本体（UR5e）；指令跟随覆盖未见环境</td>
+<td>RL 微调专家模型（每任务单独训练）</td>
+</tr>
+</tbody></table>
+<h3 id="8-2-消融实验：π-系列的”证据链”设计"><a href="#8-2-消融实验：π-系列的”证据链”设计" class="headerlink" title="8.2 消融实验：π 系列的”证据链”设计"></a>8.2 消融实验：π 系列的”证据链”设计</h3><p>π 论文的实验不只是刷分，每篇都用消融回答一个因果问题：</p>
+<table>
+<thead>
+<tr>
+<th>消融</th>
+<th>设置</th>
+<th>结论</th>
+<th>意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>算力对齐</strong>（π0）</td>
+<td>π0 只训 160k 步 &#x3D; OpenVLA 同算力</td>
+<td>仍全面胜过 OpenVLA(160k)&#x2F;Octo(320k)</td>
+<td>优势来自<strong>架构</strong>而非算力堆叠</td>
+</tr>
+<tr>
+<td><strong>VLM 预训练</strong>（π0）</td>
+<td>π0-small（去 VLM 骨干的小模型）</td>
+<td>π0-small 仍胜 OpenVLA&#x2F;Octo；π0 又显著胜 π0-small</td>
+<td><strong>架构与预训练各自独立有贡献</strong>——双证据链</td>
+</tr>
+<tr>
+<td><strong>分词方式</strong>（FAST）</td>
+<td>朴素分桶 vs FAST（同模型同数据）</td>
+<td>分桶在高频灵巧上失败、FAST 复活</td>
+<td>瓶颈定位在<strong>分词</strong>而非自回归</td>
+</tr>
+<tr>
+<td><strong>知识迁移</strong>（π0.5）</td>
+<td>逐项移除多机器人&#x2F;网络数据&#x2F;子任务预测</td>
+<td>每项移除都显著降泛化</td>
+<td>异构协同是泛化的<strong>必要条件</strong></td>
+</tr>
+<tr>
+<td><strong>经验与干预</strong>（π*0.6）</td>
+<td>纯模仿 vs +自主数据 vs +专家干预</td>
+<td>全配方（RECAP）最好</td>
+<td>经验闭环的每一类数据都有增量价值</td>
+</tr>
+</tbody></table>
+<h3 id="8-3-跨代分析：改进落点与评测哲学的演进"><a href="#8-3-跨代分析：改进落点与评测哲学的演进" class="headerlink" title="8.3 跨代分析：改进落点与评测哲学的演进"></a>8.3 跨代分析：改进落点与评测哲学的演进</h3><p><strong>每一代的数字提升落在上一代的失败模式上</strong>：</p>
+<ul>
+<li>π0 → FAST：不掉点（匹配 π0）但<strong>训练成本 ÷5</strong>——效率维度的改进</li>
+<li>π0 → π0.5：从”任务成功率”转向”<strong>陌生环境完成度</strong>“（部分给分制）——泛化维度</li>
+<li>π0.5 → π*0.6：从”一次成功”转向”<strong>吞吐量与失败率</strong>“（工业指标）+ 13 小时级长跑——可靠性与经济性维度</li>
+<li>π*0.6 → π0.7：从”每任务 RL 专家”到”<strong>零任务数据开箱即用</strong>还追平专家”——部署成本维度</li>
+</ul>
+<p><strong>评测哲学本身在递进</strong>：静态基准（π0 的零样本任务）→ 真实家庭（π0.5）→ 工业长跑指标（π*0.6）→ 开箱即用横评（π0.7）。指标从”成功率”演进到”吞吐 &#x2F; 失败率 &#x2F; 干预率 &#x2F; 部分完成度”——<strong>评测越来越像运营指标，反映系列从论文到产品的定位迁移</strong>。</p>
+<p><strong>未对齐之处（诚实标注）</strong>：π 系基本不刷 LIBERO 等公开仿真榜（主打真机），因此与 Being-H0.7 等刷榜路线没有同表可比的数字；跨家族对比只能在各自主场分别解读（见 Being-H 篇 8.2 节）。</p>
+<h2 id="9-五代递进关系：能力的接力"><a href="#9-五代递进关系：能力的接力" class="headerlink" title="9. 五代递进关系：能力的接力"></a>9. 五代递进关系：能力的接力</h2><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">π0 (2024.10)        FAST (2025.01)      π0.5 (2025.04)      π*0.6 (2025.11)     π0.7 (2026.04)</span><br><span class="line">架构奠基             分词对照             开放世界泛化         从经验中学习          可操控通才</span><br><span class="line">VLM+流匹配专家 ──►   同骨干换AR头 ──►     异构协同训练 ──►     RECAP 离线+在线RL ──► 上下文条件化</span><br></pre></td></tr></table></figure>
+
+<p><strong>递进的优势不是”下一代更强”，而是”每一代把上一代的能力当燃料”</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>接力棒</th>
+<th>上代留下</th>
+<th>下代拿它做什么</th>
+<th>证据</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>π0 → FAST</td>
+<td>50Hz 高频动作块设定</td>
+<td>证明 AR 换 FAST 分词也能吃下同款任务</td>
+<td>FAST 匹配 π0 性能、训练快 5×</td>
+</tr>
+<tr>
+<td>π0 → π0.5</td>
+<td>双塔架构 + 万小时数据底座</td>
+<td>加异构数据与子任务语义，冲出实验室</td>
+<td>三个陌生家庭完成厨房&#x2F;卧室清理</td>
+</tr>
+<tr>
+<td>π0.5 → π*0.6</td>
+<td>泛化通才（π0.5 骨干）</td>
+<td>在数万小时上做<strong>离线 RL 预训练</strong>，再用部署经验在线进化</td>
+<td>吞吐 2×、失败率减半、13h 咖啡机</td>
+</tr>
+<tr>
+<td>π*0.6 → π0.7</td>
+<td>RL 专家的性能天花板 + 硬任务考场</td>
+<td>用条件化把”专家水平”蒸进通才，零任务数据开箱达线</td>
+<td>开箱即用比肩 RL 专家、部分任务吞吐更高</td>
+</tr>
+</tbody></table>
+<p>三条主线贯穿：(1) <strong>架构极稳</strong>——双塔 + 流匹配头从未更换，只有骨干换代（PaliGemma 3B → Gemma3-4B）与专家扩容（300M → 860M）；(2) <strong>训练范式三级跳</strong>——SFT → 异构协同 → RL 经验闭环 → 条件化操控；(3) <strong>数据哲学一贯</strong>——真机演示起步、以部署经验进化。对照 Being-H（人类视频路线，见<a href="/BlogNotes/2026/09/01/Being_H%E7%B3%BB%E5%88%97%E8%AE%BA%E6%96%87%E8%A7%A3%E6%9E%90/">本站解析</a>）：π 用”经验”换能力，Being-H 用”人类先验”换能力——两线并进、尚未合流，是具身智能未来两年最大的悬念。</p>
+<h2 id="10-核心参考文献（逐条列出）"><a href="#10-核心参考文献（逐条列出）" class="headerlink" title="10. 核心参考文献（逐条列出）"></a>10. 核心参考文献（逐条列出）</h2><p><strong>系列原著</strong>：</p>
+<ul>
+<li>π0：<em>π0: A Vision-Language-Action Flow Model for General Robot Control</em>（<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2410.24164">arXiv:2410.24164</a>）</li>
+<li>FAST &#x2F; π0-FAST：<em>FAST: Efficient Action Tokenization for Vision-Language-Action Models</em>（<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2501.09747">arXiv:2501.09747</a>）</li>
+<li>π0.5：<em>π0.5: A Vision-Language-Action Model with Open-World Generalization</em>（<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2504.16054">arXiv:2504.16054</a>）</li>
+<li>π*0.6 &#x2F; RECAP：<em>π*0.6: a VLA That Learns From Experience</em>（<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2511.14759">arXiv:2511.14759</a>）</li>
+<li>π0.7：<em>π0.7: A Steerable Generalist Foundation Model for Robot Control</em>（<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2604.15483">arXiv:2604.15483</a>）</li>
+<li>openpi 代码与权重：<a target="_blank" rel="noopener" href="https://github.com/Physical-Intelligence/openpi">https://github.com/Physical-Intelligence/openpi</a></li>
+<li>官方博客：<a target="_blank" rel="noopener" href="https://www.pi.website/blog">https://www.pi.website/blog</a></li>
+<li>π*0.6 深度解读（第三方）：<a target="_blank" rel="noopener" href="https://federicosarrocco.com/blog/pi-star-06-recap">https://federicosarrocco.com/blog/pi-star-06-recap</a></li>
+</ul>
+<p><strong>模仿学习与动作生成</strong>：</p>
+<ul>
+<li>ACT：<em>Learning Fine-Grained Bimanual Manipulation with Low-Cost Hardware</em>（<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2304.13705">arXiv:2304.13705</a>）</li>
+<li>Diffusion Policy：<em>Visuomotor Policy Learning via Action Diffusion</em>（<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2303.04137">arXiv:2303.04137</a>）</li>
+<li>Flow Matching：<em>Flow Matching for Generative Modeling</em>（<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2210.02747">arXiv:2210.02747</a>）</li>
+<li>DDPM：<em>Denoising Diffusion Probabilistic Models</em>（<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2006.11239">arXiv:2006.11239</a>）</li>
+</ul>
+<p><strong>AR 路线与分词</strong>：</p>
+<ul>
+<li>RT-2：<em>Vision-Language-Action Models Transfer Web Knowledge to Robotic Control</em>（<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2307.15818">arXiv:2307.15818</a>）</li>
+<li>OpenVLA：<em>An Open-Source Vision-Language-Action Model</em>（<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2406.09246">arXiv:2406.09246</a>）</li>
+<li>OpenVLA-OFT：<em>Fine-Tuning Vision-Language-Action Models</em>（<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2502.19645">arXiv:2502.19645</a>）</li>
+<li>VQ-BeT：<em>Behavior Generation with Latent Actions</em>（<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2403.03181">arXiv:2403.03181</a>）</li>
+</ul>
+<p><strong>通用策略、RL 与数据</strong>：</p>
+<ul>
+<li>Octo：<em>An Open-Source Generalist Robot Policy</em>（<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2405.12213">arXiv:2405.12213</a>）</li>
+<li>Open X-Embodiment &#x2F; RT-X（<a target="_blank" rel="noopener" href="https://robotics-transformer-x.github.io/">官网</a>）；DROID（<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2403.12945">arXiv:2403.12945</a>）</li>
+<li>Q-Transformer：<em>Scalable RL via Autoregressive Q-Functions</em>（<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2309.10150">arXiv:2309.10150</a>）</li>
+<li>GR00T N1：<em>An Open Foundation Model for Generalist Humanoid Robots</em>（<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2503.14734">arXiv:2503.14734</a>）</li>
+</ul>
+<p><strong>本站相关文章</strong>：</p>
+<ul>
+<li><a href="/BlogNotes/2026/09/01/%E5%B8%B8%E7%94%A8%E7%94%9F%E6%88%90%E8%8C%83%E5%BC%8F%E6%A8%A1%E5%9E%8B%E4%BB%8B%E7%BB%8D/">常用生成范式模型介绍（π0 是流匹配路线主角）</a></li>
+<li><a href="/BlogNotes/2026/09/01/%E8%BF%90%E5%8A%A8%E7%A6%BB%E6%95%A3%E5%8C%96%E6%8A%80%E6%9C%AF%E4%BB%8B%E7%BB%8D/">运动离散化技术介绍（FAST 分词原理）</a></li>
+<li><a href="/BlogNotes/2026/09/01/Being_H%E7%B3%BB%E5%88%97%E8%AE%BA%E6%96%87%E8%A7%A3%E6%9E%90/">Being_H 系列论文解析（人类视频路线镜像对照）</a></li>
+</ul>
+<blockquote>
+<p>本文公式与关键数字（PaliGemma 3B&#x2F;300M→860M、Gemma3-4B、H&#x3D;50、δ&#x3D;0.1、5 步&#x2F;RTC 240ms、训练快 5×、~400h 家庭数据、吞吐 2×、13 小时咖啡机、条件 dropout 比例等）均从五篇论文 arXiv 版原文提取；π0.7 完整标题以 arXiv 页面为准。</p>
+</blockquote>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/BlogNotes/about" rel="external nofollow noreferrer">Jianbo.Yuan</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://jianbo-yuan.github.io/BlogNotes/BlogNotes/2026/09/01/PI%E7%B3%BB%E5%88%97%E8%AE%BA%E6%96%87%E8%A7%A3%E6%9E%90/">https://jianbo-yuan.github.io/BlogNotes/BlogNotes/2026/09/01/PI%E7%B3%BB%E5%88%97%E8%AE%BA%E6%96%87%E8%A7%A3%E6%9E%90/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/BlogNotes/about" target="_blank">Jianbo.Yuan</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/BlogNotes/tags/VLA/">
+                                    <span class="chip bg-color">VLA</span>
+                                </a>
+                            
+                                <a href="/BlogNotes/tags/%E6%B5%81%E5%8C%B9%E9%85%8D/">
+                                    <span class="chip bg-color">流匹配</span>
+                                </a>
+                            
+                                <a href="/BlogNotes/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/">
+                                    <span class="chip bg-color">强化学习</span>
+                                </a>
+                            
+                                <a href="/BlogNotes/tags/%E6%A8%A1%E4%BB%BF%E5%AD%A6%E4%B9%A0/">
+                                    <span class="chip bg-color">模仿学习</span>
+                                </a>
+                            
+                                <a href="/BlogNotes/tags/%CF%800/">
+                                    <span class="chip bg-color">π0</span>
+                                </a>
+                            
+                                <a href="/BlogNotes/tags/Physical-Intelligence/">
+                                    <span class="chip bg-color">Physical Intelligence</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/BlogNotes/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/BlogNotes/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/BlogNotes/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/BlogNotes/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/BlogNotes/2026/09/02/ACT%E7%90%86%E8%AE%BA%E4%B8%8E%E8%A1%8D%E7%94%9FVLA%E6%A8%A1%E5%9E%8B%E8%A7%A3%E6%9E%90/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/BlogNotes/medias/featureimages/0.jpg" class="responsive-img" alt="ACT理论与衍生VLA模型解析">
+                        
+                        <span class="card-title">ACT理论与衍生VLA模型解析</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2026-09-02
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/BlogNotes/categories/%E8%AE%BA%E6%96%87%E7%B2%BE%E5%BA%A6%E4%B8%8E%E5%88%86%E6%9E%90/" class="post-category">
+                                    论文精度与分析
+                                </a>
+                            
+                            <a href="/BlogNotes/categories/%E8%AE%BA%E6%96%87%E7%B2%BE%E5%BA%A6%E4%B8%8E%E5%88%86%E6%9E%90/%E6%A8%A1%E4%BB%BF%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    模仿学习
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/BlogNotes/tags/VLA/">
+                        <span class="chip bg-color">VLA</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/%E6%A8%A1%E4%BB%BF%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">模仿学习</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/ACT/">
+                        <span class="chip bg-color">ACT</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/ALOHA/">
+                        <span class="chip bg-color">ALOHA</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/CVAE/">
+                        <span class="chip bg-color">CVAE</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/%E5%8A%A8%E4%BD%9C%E5%88%86%E5%9D%97/">
+                        <span class="chip bg-color">动作分块</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/BlogNotes/2026/09/01/Being_H%E7%B3%BB%E5%88%97%E8%AE%BA%E6%96%87%E8%A7%A3%E6%9E%90/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/BlogNotes/medias/featureimages/10.jpg" class="responsive-img" alt="Being_H系列论文解析">
+                        
+                        <span class="card-title">Being_H系列论文解析</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-09-01
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/BlogNotes/categories/%E8%AE%BA%E6%96%87%E7%B2%BE%E5%BA%A6%E4%B8%8E%E5%88%86%E6%9E%90/" class="post-category">
+                                    论文精度与分析
+                                </a>
+                            
+                            <a href="/BlogNotes/categories/%E8%AE%BA%E6%96%87%E7%B2%BE%E5%BA%A6%E4%B8%8E%E5%88%86%E6%9E%90/Ego%E6%B7%B7%E5%90%88%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    Ego混合数据学习
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/BlogNotes/tags/VLA/">
+                        <span class="chip bg-color">VLA</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/Being-H/">
+                        <span class="chip bg-color">Being-H</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/%E4%B8%96%E7%95%8C%E6%A8%A1%E5%9E%8B/">
+                        <span class="chip bg-color">世界模型</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/%E4%BA%BA%E7%B1%BB%E8%A7%86%E9%A2%91%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">人类视频学习</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/%E8%B7%A8%E6%9C%AC%E4%BD%93%E6%B3%9B%E5%8C%96/">
+                        <span class="chip bg-color">跨本体泛化</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/%E8%A7%A6%E8%A7%89/">
+                        <span class="chip bg-color">触觉</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/BlogNotes/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/BlogNotes/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/BlogNotes/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/BlogNotes/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/BlogNotes/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        },
+        "HTML-CSS": {
+            linebreaks: {
+                automatic: true,
+                width: "container"
+            }
+        },
+        SVG: {
+            linebreaks: {
+                automatic: true,
+                width: "container"
+            }
+        }
+    });
+</script>
+<script>
+    (function () {
+        if (window.MathJax) return;
+
+        var sources = [
+            "https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML",
+            "https://unpkg.com/mathjax@2.7.9/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML",
+            "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+        ];
+
+        function loadMathJax(index) {
+            if (index >= sources.length) {
+                console.error("MathJax failed to load from all configured CDNs.");
+                return;
+            }
+
+            var script = document.createElement("script");
+            script.src = sources[index];
+            script.async = true;
+            script.onerror = function () {
+                loadMathJax(index + 1);
+            };
+            document.head.appendChild(script);
+        }
+
+        loadMathJax(0);
+    })();
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/BlogNotes/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.3'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/BlogNotes/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2026</span>
+            
+            <span id="year">2026</span>
+            <a href="/BlogNotes/about" target="_blank">Jianbo.Yuan</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:jianbo.yuan@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=335943408" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 335943408" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+    <a href="https://www.zhihu.com/people/Simple" class="tooltipped" target="_blank" data-tooltip="关注我的知乎: https://www.zhihu.com/people/Simple" data-position="top" data-delay="50">
+        <i class="fab fa-zhihu1">知</i>
+    </a>
+
+
+
+    <a href="/BlogNotes/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/BlogNotes/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/BlogNotes/libs/materialize/materialize.min.js"></script>
+    <script src="/BlogNotes/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/BlogNotes/libs/aos/aos.js"></script>
+    <script src="/BlogNotes/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/BlogNotes/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/BlogNotes/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/BlogNotes/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/BlogNotes/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/BlogNotes/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

@@ -1,0 +1,2262 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="五指灵巧手强化学习开源工程解析, Jianbo.Yuan">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>五指灵巧手强化学习开源工程解析 | Jianbo.Yuan</title>
+    <link rel="icon" type="image/png" href="/BlogNotes/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/css/my.css">
+
+    <script src="/BlogNotes/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/BlogNotes/" class="waves-effect waves-light">
+                    
+                    <img src="/BlogNotes/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Jianbo.Yuan</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/BlogNotes/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Jianbo.Yuan</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/BlogNotes/medias/featureimages/23.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">五指灵巧手强化学习开源工程解析</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/BlogNotes/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/BlogNotes/tags/%E7%81%B5%E5%B7%A7%E6%89%8B/">
+                                <span class="chip bg-color">灵巧手</span>
+                            </a>
+                        
+                            <a href="/BlogNotes/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/">
+                                <span class="chip bg-color">强化学习</span>
+                            </a>
+                        
+                            <a href="/BlogNotes/tags/PPO/">
+                                <span class="chip bg-color">PPO</span>
+                            </a>
+                        
+                            <a href="/BlogNotes/tags/%E5%9F%9F%E9%9A%8F%E6%9C%BA%E5%8C%96/">
+                                <span class="chip bg-color">域随机化</span>
+                            </a>
+                        
+                            <a href="/BlogNotes/tags/Sim-to-Real/">
+                                <span class="chip bg-color">Sim-to-Real</span>
+                            </a>
+                        
+                            <a href="/BlogNotes/tags/Shadow-Hand/">
+                                <span class="chip bg-color">Shadow Hand</span>
+                            </a>
+                        
+                            <a href="/BlogNotes/tags/Sharpa-Hand/">
+                                <span class="chip bg-color">Sharpa Hand</span>
+                            </a>
+                        
+                            <a href="/BlogNotes/tags/Wuji-Hand/">
+                                <span class="chip bg-color">Wuji Hand</span>
+                            </a>
+                        
+                            <a href="/BlogNotes/tags/Isaac-Gym/">
+                                <span class="chip bg-color">Isaac Gym</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/BlogNotes/categories/%E8%AE%BA%E6%96%87%E7%B2%BE%E5%BA%A6%E4%B8%8E%E5%88%86%E6%9E%90/" class="post-category">
+                                论文精度与分析
+                            </a>
+                        
+                            <a href="/BlogNotes/categories/%E8%AE%BA%E6%96%87%E7%B2%BE%E5%BA%A6%E4%B8%8E%E5%88%86%E6%9E%90/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                强化学习
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2026-09-02
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>五指灵巧手是强化学习的”珠穆朗玛”：24+ 自由度、高维连续动作空间、密集接触动力学、多指协调。本文按五章组织：<strong>① 灵巧操作难点与 RL 的作用 → ② RL 理论全景（从 MDP 到最新算法的完整数学）→ ③ 分品牌逐工程深度解析（ShadowHand &#x2F; Sharpa &#x2F; Wuji 舞肌）→ ④ 算法在灵巧手上的对比 → ⑤ 完整参考列表</strong>。覆盖 <a target="_blank" rel="noopener" href="https://openai.com/index/learning-dexterity/">OpenAI Dactyl</a>、<a target="_blank" rel="noopener" href="https://github.com/isaac-sim/IsaacGymEnvs">IsaacGymEnvs</a>、<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2305.12127">DexPBT</a>、<a target="_blank" rel="noopener" href="https://github.com/pku-marl/dexteroushands">Bi-DexHands</a>、<a target="_blank" rel="noopener" href="https://github.com/sharpa-robotics/sharpa-rl-lab">Sharpa RL Lab</a>、<a target="_blank" rel="noopener" href="https://github.com/wuji-technology/wuji-mjlab">Wuji MJ Lab</a> 等十余个开源工程，含源码级配置与超参数。</p>
+<hr>
+<h2 id="1-五指灵巧手的灵巧操作难点与强化学习的作用"><a href="#1-五指灵巧手的灵巧操作难点与强化学习的作用" class="headerlink" title="1. 五指灵巧手的灵巧操作难点与强化学习的作用"></a>1. 五指灵巧手的灵巧操作难点与强化学习的作用</h2><h3 id="1-1-五维挑战"><a href="#1-1-五维挑战" class="headerlink" title="1.1 五维挑战"></a>1.1 五维挑战</h3><table>
+<thead>
+<tr>
+<th>挑战</th>
+<th>数字</th>
+<th>后果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>高维动作空间</strong></td>
+<td>Shadow Hand 24 DOF &#x2F; 双手 48+ 双臂 14 &#x3D; 62</td>
+<td>探索效率极低（维度灾难）</td>
+</tr>
+<tr>
+<td><strong>密集接触</strong></td>
+<td>指尖与物体每步数百个接触点</td>
+<td>物理仿真精度与速度的矛盾</td>
+</tr>
+<tr>
+<td><strong>稀疏奖励</strong></td>
+<td>抓住后翻转到位才得分</td>
+<td>大部分轨迹零信号</td>
+</tr>
+<tr>
+<td><strong>多指耦合</strong></td>
+<td>手指联动、自碰撞约束</td>
+<td>策略空间极度非凸</td>
+</tr>
+<tr>
+<td><strong>Sim-to-Real</strong></td>
+<td>电机延迟&#x2F;传感器噪声&#x2F;摩擦差异</td>
+<td>仿真高分真机全败</td>
+</tr>
+</tbody></table>
+<h3 id="1-2-RL-的作用：为什么不用监督学习"><a href="#1-2-RL-的作用：为什么不用监督学习" class="headerlink" title="1.2 RL 的作用：为什么不用监督学习"></a>1.2 RL 的作用：为什么不用监督学习</h3><ul>
+<li><strong>无法标注最优动作</strong>：灵巧操作的”正确动作”因物体&#x2F;姿态&#x2F;策略流派而异，人类示教者自己的动作也不唯一</li>
+<li><strong>需要长序列决策</strong>：每步动作影响后续接触状态——序列优化正是 RL 的核心</li>
+<li><strong>可从奖励自学策略</strong>：只需定义”什么是好”（目标朝向&#x2F;物体不掉），不需要”怎么做”</li>
+<li><strong>域随机化训练</strong>：在仿真中随机物理参数使策略对真实世界的未知物理鲁棒——监督学习做不到</li>
+</ul>
+<h3 id="1-3-破局三件套"><a href="#1-3-破局三件套" class="headerlink" title="1.3 破局三件套"></a>1.3 破局三件套</h3><p>几乎所有成功的灵巧手 RL 系统共用三个组件：</p>
+<ol>
+<li><strong>GPU 并行仿真</strong>：Isaac Gym &#x2F; Isaac Lab &#x2F; MJX 等在单卡 GPU 上并行跑 <strong>4096~16384</strong> 个环境——比 MuJoCo CPU 快约 100×</li>
+<li><strong>域随机化</strong>：训练时随机数十项物理参数（摩擦&#x2F;质量&#x2F;延迟&#x2F;初始姿态），让策略对”任何可能的物理”都鲁棒</li>
+<li><strong>大规模 PPO</strong>：天然适配 GPU 并行采集的 on-policy 策略梯度——简单、稳定、可扩展</li>
+</ol>
+<hr>
+<h2 id="2-强化学习理论全景"><a href="#2-强化学习理论全景" class="headerlink" title="2. 强化学习理论全景"></a>2. 强化学习理论全景</h2><p>本章尽可能完整地列出当前 RL 的理论方法，每种给出核心数学公式与在灵巧手场景中的适配性。</p>
+<h3 id="2-1-问题框架"><a href="#2-1-问题框架" class="headerlink" title="2.1 问题框架"></a>2.1 问题框架</h3><p><strong>MDP（马尔可夫决策过程）</strong>：五元组 <span class="math-inline">\((\mathcal{S}, \mathcal{A}, P, r, \gamma)\)</span>，智能体观测 <span class="math-inline">\(s_t\)</span>、执行 <span class="math-inline">\(a_t\)</span>、获得 <span class="math-inline">\(r_t\)</span>、转移到 <span class="math-inline">\(s_{t+1}\)</span>，最大化累计折扣回报：</p>
+<div class="math-block">\[
+J(\pi) = \mathbb{E}_\pi\left[\sum_{t=0}^{T} \gamma^t r_t\right]
+\]</div>
+<p><strong>POMDP（部分可观测）</strong>：灵巧手操作的现实——触觉只感知接触点、相机帧率有限、关节编码器有噪声——策略必须从<strong>观测历史</strong>推断隐含状态。LSTM&#x2F;Transformer 递归策略是标准解法。</p>
+<h3 id="2-2-基于价值的方法（Value-Based）"><a href="#2-2-基于价值的方法（Value-Based）" class="headerlink" title="2.2 基于价值的方法（Value-Based）"></a>2.2 基于价值的方法（Value-Based）</h3><p><strong>Bellman 方程</strong>（一切价值方法的基石）：</p>
+<div class="math-block">\[
+Q^*(s,a) = r + \gamma \max_{a'} Q^*(s', a')
+\]</div>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>核心公式</th>
+<th>灵巧手适配</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Q-Learning</strong></td>
+<td><span class="math-inline">\(Q(s,a) \leftarrow Q + \alpha[r + \gamma\max_{a'}Q(s',a') - Q]\)</span></td>
+<td>仅离散动作，不适合连续关节</td>
+</tr>
+<tr>
+<td><strong>DQN</strong></td>
+<td><span class="math-inline">\(\mathcal{L} = (r + \gamma\max_{a'}Q_{\bar\theta} - Q_\theta)^2\)</span></td>
+<td>同上</td>
+</tr>
+<tr>
+<td><strong>CQL（保守 Q 学习）</strong></td>
+<td><span class="math-inline">\(\mathcal{L} = \mathcal{L}_{\text{Bellman}} + \alpha \cdot [\mathbb{E}_{s,a\sim\text{OOD}}Q - \mathbb{E}_{s,a\sim D}Q]\)</span></td>
+<td>离线 RL，从固定数据集学——灵巧手可用演示数据预训练</td>
+</tr>
+</tbody></table>
+<h3 id="2-3-基于策略的方法（Policy-Based）"><a href="#2-3-基于策略的方法（Policy-Based）" class="headerlink" title="2.3 基于策略的方法（Policy-Based）"></a>2.3 基于策略的方法（Policy-Based）</h3><p><strong>REINFORCE</strong>（策略梯度定理）：</p>
+<div class="math-block">\[
+\nabla_\theta J(\pi_\theta) = \mathbb{E}_\pi\left[\nabla_\theta \log \pi_\theta(a_t|s_t) \cdot R_t\right]
+\]</div>
+<p>方差极大——灵巧手几乎不单独使用，但是一切 Actor-Critic 的数学基础。</p>
+<h3 id="2-4-Actor-Critic-家族（灵巧手主力）"><a href="#2-4-Actor-Critic-家族（灵巧手主力）" class="headerlink" title="2.4 Actor-Critic 家族（灵巧手主力）"></a>2.4 Actor-Critic 家族（灵巧手主力）</h3><p>引入<strong>价值网络</strong>（Critic）作为基线，把梯度改为<strong>优势函数</strong>：</p>
+<div class="math-block">\[
+A^\pi(s,a) = Q^\pi(s,a) - V^\pi(s)
+\]</div>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>核心公式</th>
+<th>特点</th>
+<th>灵巧手适配</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>A2C&#x2F;A3C</strong></td>
+<td><span class="math-inline">\(\nabla_\theta J = \mathbb{E}[\nabla_\theta\log\pi \cdot A]\)</span></td>
+<td>同步&#x2F;异步</td>
+<td>基线方案</td>
+</tr>
+<tr>
+<td><strong>DDPG</strong></td>
+<td><span class="math-inline">\(\nabla_\theta J = \mathbb{E}[\nabla_a Q(s,a|\theta^Q)\nabla_\theta\pi(s)]\)</span></td>
+<td>确定性策略，连续动作</td>
+<td>可用但不稳定</td>
+</tr>
+<tr>
+<td><strong>TD3</strong></td>
+<td>DDPG + 双 Q + 目标策略平滑</td>
+<td>修正 Q 过估计</td>
+<td>比 DDPG 稳定</td>
+</tr>
+<tr>
+<td><strong>SAC</strong></td>
+<td><span class="math-inline">\(\max_\pi \mathbb{E}[Q - \alpha\log\pi]\)</span>，自动温度</td>
+<td>最大熵，off-policy</td>
+<td>采样效率高但 GPU 并行不如 PPO</td>
+</tr>
+<tr>
+<td><strong>TRPO</strong></td>
+<td><span class="math-inline">\(\max_\theta \mathbb{E}[\tfrac{\pi_\theta}{\pi_{\theta_{old}}}A]\)</span> s.t. <span class="math-inline">\(\bar{KL} &lt; \delta\)</span></td>
+<td>信任域约束</td>
+<td>理论优美但二阶优化太慢</td>
+</tr>
+<tr>
+<td><strong>PPO</strong></td>
+<td><span class="math-inline">\(L^{CLIP} = \mathbb{E}[\min(r_t A_t, \text{clip}(r_t, 1\pm\epsilon)A_t)]\)</span></td>
+<td><strong>截断概率比</strong>，一阶近似 TRPO</td>
+<td><strong>灵巧手事实标准</strong></td>
+</tr>
+</tbody></table>
+<p><strong>PPO 详细公式</strong>（灵巧手 RL 的默认选择）：</p>
+<p>概率比 <span class="math-inline">\(r_t(\theta) = \frac{\pi_\theta(a_t|s_t)}{\pi_{\theta_{\text{old}}}(a_t|s_t)}\)</span>，截断目标：</p>
+<div class="math-block">\[
+L^{\text{CLIP}}(\theta) = \mathbb{E}\Big[\min\big(r_t A_t,\; \underbrace{\text{clip}(r_t, 1{-}\epsilon, 1{+}\epsilon)}_{\epsilon=0.2} A_t\big)\Big]
+\]</div>
+<p><strong>为什么灵巧手非 PPO 不可</strong>：On-policy 天然适配 GPU 并行采集、截断梯度在高维下稳定、简单到可大规模调参、支持连续高斯策略。</p>
+<h3 id="2-5-基于模型的方法（Model-Based）"><a href="#2-5-基于模型的方法（Model-Based）" class="headerlink" title="2.5 基于模型的方法（Model-Based）"></a>2.5 基于模型的方法（Model-Based）</h3><p>学习环境动力学模型 <span class="math-inline">\(\hat{P}(s'|s,a)\)</span>，用模型规划而非试错：</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>核心</th>
+<th>灵巧手适配</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>MPC</strong></td>
+<td><span class="math-inline">\(\max_{a_{0:H}} \sum \gamma^t r\)</span> 在学到的模型上滚动优化</td>
+<td>需精确接触动力学——灵巧手极难建模</td>
+</tr>
+<tr>
+<td><strong>Dreamer</strong></td>
+<td>世界模型（RSSM）+ 想象中训练 Actor-Critic</td>
+<td>采样效率高但接触动力学误差大</td>
+</tr>
+<tr>
+<td><strong>TD-MPC</strong></td>
+<td>MPC + 价值函数引导</td>
+<td>有潜力但灵巧手上验证少</td>
+</tr>
+</tbody></table>
+<h3 id="2-6-离线-RL"><a href="#2-6-离线-RL" class="headerlink" title="2.6 离线 RL"></a>2.6 离线 RL</h3><p>从固定数据集学策略（不与环境交互），适合用演示数据预训练：</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>核心</th>
+<th>灵巧手场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>CQL</strong></td>
+<td>惩罚分布外动作的 Q 值</td>
+<td>演示数据预训练</td>
+</tr>
+<tr>
+<td><strong>IQL</strong></td>
+<td>期望回归避免分布外查询</td>
+<td>同上</td>
+</tr>
+<tr>
+<td><strong>AWR</strong></td>
+<td><span class="math-inline">\(\pi \propto \pi_{\text{base}} \exp(A/\beta)\)</span></td>
+<td>优势加权——RECAP 的理论基础</td>
+</tr>
+</tbody></table>
+<h3 id="2-7-多智能体-RL（MARL）"><a href="#2-7-多智能体-RL（MARL）" class="headerlink" title="2.7 多智能体 RL（MARL）"></a>2.7 多智能体 RL（MARL）</h3><p>双手操作可建模为两只手各自是智能体：</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>核心</th>
+<th>Bi-DexHands 中的角色</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>MAPPO</strong></td>
+<td>共享 Critic 的多智能体 PPO</td>
+<td>双手共享评估</td>
+</tr>
+<tr>
+<td><strong>HAPPO</strong></td>
+<td>异构智能体（左右手能力不同）</td>
+<td>Bi-DexHands 主打</td>
+</tr>
+<tr>
+<td><strong>QMIX</strong></td>
+<td>值分解：<span class="math-inline">\(Q_{\text{tot}} = f(\text{mix}(Q_1, Q_2))\)</span></td>
+<td>协作价值分解</td>
+</tr>
+</tbody></table>
+<h3 id="2-8-课程学习与域随机化"><a href="#2-8-课程学习与域随机化" class="headerlink" title="2.8 课程学习与域随机化"></a>2.8 课程学习与域随机化</h3><p><strong>课程学习</strong>（Curriculum）：先易后难——密集奖励→稀疏奖励→无奖励，模拟婴儿学抓握。</p>
+<p><strong>域随机化</strong>（Domain Randomization，DR）：</p>
+<div class="math-block">\[
+\mu_{\text{friction}} \sim U(0.3, 1.0),\quad m_{\text{obj}} \sim U(0.8m, 1.2m),\quad \tau_{\text{delay}} \sim U(0, 50\text{ms}),\;\dots
+\]</div>
+<p><strong>自动域随机化</strong>（ADR）：从窄范围开始逐步扩大（OpenAI Dactyl 的核心创新）——先学基础技能再面对极端物理。</p>
+<h3 id="2-9-RL-与模仿学习融合"><a href="#2-9-RL-与模仿学习融合" class="headerlink" title="2.9 RL 与模仿学习融合"></a>2.9 RL 与模仿学习融合</h3><table>
+<thead>
+<tr>
+<th>路线</th>
+<th>思路</th>
+<th>代表</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>演示预训练 + RL 微调</td>
+<td>先 IL 学个大概，再 RL 打磨</td>
+<td>DexMV + RL</td>
+</tr>
+<tr>
+<td>RL + 演示混合回放</td>
+<td>训练时混入演示数据</td>
+<td>DAgger</td>
+</tr>
+<tr>
+<td>优势条件化（RECAP）</td>
+<td>RL 奖励反馈以条件化方式进 VLA</td>
+<td>π*0.6</td>
+</tr>
+<tr>
+<td>VLA + RL</td>
+<td>VLM 骨干管语义，RL 管精细</td>
+<td>π*0.6、Sharpa Copilot</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="3-分品牌灵巧手研究工作深度解析"><a href="#3-分品牌灵巧手研究工作深度解析" class="headerlink" title="3. 分品牌灵巧手研究工作深度解析"></a>3. 分品牌灵巧手研究工作深度解析</h2><p>按品牌组织：<strong>ShadowHand（英）→ Sharpa（国际新兴）→ Wuji 舞肌（国产）→ 其他</strong>。每个工程给出背景、数学方法、实验配置与结果。</p>
+<h3 id="3-1-Shadow-Hand-体系（英国-Shadow-Robot）"><a href="#3-1-Shadow-Hand-体系（英国-Shadow-Robot）" class="headerlink" title="3.1 Shadow Hand 体系（英国 Shadow Robot）"></a>3.1 Shadow Hand 体系（英国 Shadow Robot）</h3><h4 id="3-1-1-OpenAI-Dactyl-Learning-Dexterity（2018-2019）"><a href="#3-1-1-OpenAI-Dactyl-Learning-Dexterity（2018-2019）" class="headerlink" title="3.1.1 OpenAI Dactyl &#x2F; Learning Dexterity（2018-2019）"></a>3.1.1 OpenAI Dactyl &#x2F; Learning Dexterity（2018-2019）</h4><ul>
+<li><strong>论文</strong>：<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1808.00177">arXiv:1808.00177</a>（翻方块）、<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1910.07113">arXiv:1910.07113</a>（解魔方）</li>
+<li><strong>背景</strong>：首次用纯 RL + 域随机化实现真机灵巧手手内操作——零真机演示、100 年模拟经验</li>
+<li><strong>方法</strong>：PPO + LSTM（处理 POMDP）+ ADR（从窄随机域到宽域的课程）；观测 &#x3D; 三目相机 + 关节状态</li>
+<li><strong>结果</strong>：真机连续翻转 50 次不掉、魔方 60% 解出率</li>
+<li><strong>开源</strong>：OpenAI 仅开源 MuJoCo 环境；<a target="_blank" rel="noopener" href="https://github.com/isaac-sim/IsaacGymEnvs">IsaacGymEnvs</a> 中的 ShadowHand 任务即其 GPU 复现</li>
+</ul>
+<h4 id="3-1-2-IsaacGymEnvs-ShadowHand（NVIDIA，2021）"><a href="#3-1-2-IsaacGymEnvs-ShadowHand（NVIDIA，2021）" class="headerlink" title="3.1.2 IsaacGymEnvs ShadowHand（NVIDIA，2021）"></a>3.1.2 IsaacGymEnvs ShadowHand（NVIDIA，2021）</h4><ul>
+<li><strong>仓库</strong>：<a target="_blank" rel="noopener" href="https://github.com/isaac-sim/IsaacGymEnvs">github.com&#x2F;isaac-sim&#x2F;IsaacGymEnvs</a>（<code>shadow_hand.py</code>）</li>
+<li><strong>背景</strong>：把灵巧手 RL 从”只有 OpenAI 能做”变成”一张 RTX 显卡 15 分钟”</li>
+<li><strong>任务矩阵</strong>：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>任务</th>
+<th>配置文件</th>
+<th>目标</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ShadowHand</td>
+<td><code>ShadowHand.yaml</code></td>
+<td>手内方块翻转到目标朝向</td>
+</tr>
+<tr>
+<td>ShadowHandOpenAI_FF</td>
+<td>同名 yaml</td>
+<td>OpenAI 观测 + 前馈网络</td>
+</tr>
+<tr>
+<td>ShadowHandOpenAI_LSTM</td>
+<td>同名 yaml</td>
+<td>+ LSTM 递归策略</td>
+</tr>
+<tr>
+<td>ShadowHandBlockStacking</td>
+<td>—</td>
+<td>抓住方块叠到另一块上</td>
+</tr>
+<tr>
+<td>ShadowHandCatchUnderarm</td>
+<td>—</td>
+<td>自抛自接</td>
+</tr>
+<tr>
+<td>AllegroHand</td>
+<td><code>AllegroHand.yaml</code></td>
+<td>同任务，Allegro 平台</td>
+</tr>
+</tbody></table>
+<ul>
+<li><strong>奖励函数</strong>（从 <code>ShadowHand.yaml</code> 源码提取）：</li>
+</ul>
+<div class="math-block">\[
+r_t = -10.0 \cdot d_{\text{pos}} + 1.0 \cdot \mathbb{1}[\text{aligned}] + 250 \cdot \mathbb{1}[\text{goal}] - 0.0002\|a\|^2
+\]</div>
+<ul>
+<li><strong>PPO 超参</strong>（从 <code>ShadowHandPPO.yaml</code> 完整提取）：MLP [512,512,256,128]&#x2F;ELU、<span class="math-inline">\(\gamma=0.99\)</span>、lr&#x3D;5e-4 自适应、minibatch&#x3D;32768、clip&#x3D;0.2、<strong>16384 并行环境</strong></li>
+<li><strong>性能</strong>：40,000+ FPS，~1000 epoch &gt;90% 成功率</li>
+<li><strong>运行</strong>：<code>python train.py task=ShadowHand num_envs=16384</code></li>
+</ul>
+<h4 id="3-1-3-DexPBT：种群化训练（NVIDIA，2023）"><a href="#3-1-3-DexPBT：种群化训练（NVIDIA，2023）" class="headerlink" title="3.1.3 DexPBT：种群化训练（NVIDIA，2023）"></a>3.1.3 DexPBT：种群化训练（NVIDIA，2023）</h4><ul>
+<li><strong>论文</strong>：<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2305.12127">arXiv:2305.12127</a>，ICLR 2024</li>
+<li><strong>背景</strong>：单策略 PPO 在高维稀疏奖励下卡局部最优——DexPBT 维护 512 个独立策略，定期淘汰&#x2F;复制&#x2F;变异</li>
+<li><strong>方法</strong>：<span class="math-inline">\(\text{每} 50 \text{ epoch}\)</span>：淘汰最差 <span class="math-inline">\(\lfloor N/4 \rfloor\)</span>、复制最优权重、变异超参 <span class="math-inline">\(\text{lr} \times U(0.8,1.25)\)</span></li>
+<li><strong>任务</strong>：ReGrasp（手内重抓，★★★★★）、Grasp-and-Throw、Catch-Underarm、HandOver（双手传递）等 6 个</li>
+<li><strong>结果</strong>：手内重抓在单策略 PPO 上极难收敛，PBT 首次稳定解决</li>
+<li><strong>运行</strong>：<code>python train.py task=DexPBTRegrasp num_envs=8192 population=512</code></li>
+</ul>
+<h4 id="3-1-4-Bi-DexHands：双手基准（北大，2022）"><a href="#3-1-4-Bi-DexHands：双手基准（北大，2022）" class="headerlink" title="3.1.4 Bi-DexHands：双手基准（北大，2022）"></a>3.1.4 Bi-DexHands：双手基准（北大，2022）</h4><ul>
+<li><strong>论文</strong>：<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2206.08686">arXiv:2206.08686</a>，NeurIPS 2022</li>
+<li><strong>仓库</strong>：<a target="_blank" rel="noopener" href="https://github.com/pku-marl/dexteroushands">github.com&#x2F;pku-marl&#x2F;dexteroushands</a></li>
+<li><strong>背景</strong>：双手协调操作的标准基准——20 个任务、2000+ 物体、10+ 种 RL&#x2F;MARL 算法</li>
+<li><strong>任务分级</strong>：HandOver ★ → BottleCap ★★★ → ScissorCut ★★★ → Assembly ★★★★</li>
+<li><strong>性能</strong>：2048 并行环境 &#x2F; 40,000+ FPS &#x2F; RTX 3090</li>
+<li><strong>MARL</strong>：支持 MAPPO&#x2F;HAPPO&#x2F;QMIX&#x2F;MADDPG——<strong>异构智能体</strong>（左右手不对称）是特色场景</li>
+</ul>
+<h4 id="3-1-5-DexGraspNet：抓取数据集（北大-EPIC，2022）"><a href="#3-1-5-DexGraspNet：抓取数据集（北大-EPIC，2022）" class="headerlink" title="3.1.5 DexGraspNet：抓取数据集（北大-EPIC，2022）"></a>3.1.5 DexGraspNet：抓取数据集（北大-EPIC，2022）</h4><ul>
+<li><strong>论文</strong>：<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2210.02697">arXiv:2210.02697</a>，ICRA 2023</li>
+<li><strong>仓库</strong>：<a target="_blank" rel="noopener" href="https://github.com/PKU-EPIC/DexGraspNet">github.com&#x2F;PKU-EPIC&#x2F;DexGraspNet</a></li>
+<li><strong>数据</strong>：<strong>132 万条 Shadow Hand 抓取</strong>、5355 物体、133+ 类别</li>
+<li><strong>生成管线</strong>：SynGrasp 优化 <span class="math-inline">\(\min_{q,T} \mathcal{L}_{\text{contact}} + \lambda_1\mathcal{L}_{\text{closure}} + \lambda_2\mathcal{L}_{\text{collision}}\)</span></li>
+<li><strong>用途</strong>：RL 重置分布 &#x2F; 抓取检测训练 &#x2F; IL 演示源</li>
+</ul>
+<h4 id="3-1-6-DexMV：人类视频到演示（USC-北大，2021）"><a href="#3-1-6-DexMV：人类视频到演示（USC-北大，2021）" class="headerlink" title="3.1.6 DexMV：人类视频到演示（USC&#x2F;北大，2021）"></a>3.1.6 DexMV：人类视频到演示（USC&#x2F;北大，2021）</h4><ul>
+<li><strong>论文</strong>：<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2108.05877">arXiv:2108.05877</a></li>
+<li><strong>仓库</strong>：<a target="_blank" rel="noopener" href="https://github.com/yzqin/dexmv-sim">github.com&#x2F;yzqin&#x2F;dexmv-sim</a></li>
+<li><strong>管线</strong>：人类视频 → MANO 姿态 → 机器人重定向 → IL 演示</li>
+</ul>
+<h3 id="3-2-Sharpa-体系（新兴，触觉原生）"><a href="#3-2-Sharpa-体系（新兴，触觉原生）" class="headerlink" title="3.2 Sharpa 体系（新兴，触觉原生）"></a>3.2 Sharpa 体系（新兴，触觉原生）</h3><h4 id="3-2-1-公司与硬件"><a href="#3-2-1-公司与硬件" class="headerlink" title="3.2.1 公司与硬件"></a>3.2.1 公司与硬件</h4><ul>
+<li><strong>官网</strong>：<a target="_blank" rel="noopener" href="https://www.sharpa.com/">sharpa.com</a> | <strong>GitHub</strong>：<a target="_blank" rel="noopener" href="https://github.com/sharpa-robotics">github.com&#x2F;sharpa-robotics</a>（15 仓库）</li>
+<li><strong>SharpaWave</strong>：22 DoF + 指尖 320×240 高分辨率触觉（ViTacFormer 使用）</li>
+<li><strong>定位</strong>：灵巧手 + 触觉 + 基础模型纵向整合；ROS2 兼容全栈开源</li>
+</ul>
+<h4 id="3-2-2-Sharpa-RL-Lab"><a href="#3-2-2-Sharpa-RL-Lab" class="headerlink" title="3.2.2 Sharpa RL Lab"></a>3.2.2 Sharpa RL Lab</h4><ul>
+<li><strong>仓库</strong>：<a target="_blank" rel="noopener" href="https://github.com/sharpa-robotics/sharpa-rl-lab">github.com&#x2F;sharpa-robotics&#x2F;sharpa-rl-lab</a>（⭐104，Python，2026.03 创建）</li>
+<li><strong>内容</strong>：Isaac Lab 生态的 RL 训练环境，含灵巧手操作任务与 Sim-to-Real 部署</li>
+<li><strong>用法</strong>：<code>pip install sharpa-rl-lab &amp;&amp; python train.py task=SharpaHandReorientation</code></li>
+</ul>
+<h4 id="3-2-3-研究博客-13-篇精选"><a href="#3-2-3-研究博客-13-篇精选" class="headerlink" title="3.2.3 研究博客 13 篇精选"></a>3.2.3 研究博客 13 篇精选</h4><table>
+<thead>
+<tr>
+<th>主题</th>
+<th>工作</th>
+<th>核心</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>触觉基础模型</strong></td>
+<td>FTP-1</td>
+<td>跨 21 种触觉传感器的通用策略</td>
+</tr>
+<tr>
+<td></td>
+<td>Heterogeneous Tactile Transformer</td>
+<td>异构传感器共享表征</td>
+</tr>
+<tr>
+<td></td>
+<td>T-Rex</td>
+<td>kHz 级触觉实时反应</td>
+</tr>
+<tr>
+<td></td>
+<td>Spatially Anchored Tactile</td>
+<td>亚毫米空间触觉感知</td>
+</tr>
+<tr>
+<td><strong>遥操作</strong></td>
+<td>DexEMG</td>
+<td>肌电信号直接驱动（EMG2Pose）</td>
+</tr>
+<tr>
+<td></td>
+<td>DexTeleop-0</td>
+<td>双臂力觉 + 第一人称 + 共享自治</td>
+</tr>
+<tr>
+<td></td>
+<td>Copilot VLA（63 DoF）</td>
+<td>VLM 语义 + 灵巧手力控，削苹果</td>
+</tr>
+<tr>
+<td><strong>数据规模化</strong></td>
+<td>EgoScale</td>
+<td><strong>2 万小时</strong>第一人称视频（Scaling Law）</td>
+</tr>
+<tr>
+<td></td>
+<td>Do as I Do</td>
+<td>日常视频 → 机器人演示</td>
+</tr>
+<tr>
+<td></td>
+<td>Contrastive Action-Image</td>
+<td>视觉-动作对比预训练</td>
+</tr>
+<tr>
+<td><strong>Sim-to-Real</strong></td>
+<td>Tacmap</td>
+<td>几何语言统一触觉仿真与真实</td>
+</tr>
+<tr>
+<td></td>
+<td>SimToolReal</td>
+<td>零样本工具使用</td>
+</tr>
+<tr>
+<td></td>
+<td>Play2Perfect</td>
+<td>灵巧”玩”预训练 → 精密装配</td>
+</tr>
+</tbody></table>
+<p>全部链接见 <a target="_blank" rel="noopener" href="https://www.sharpa.com/blogs/research">sharpa.com&#x2F;blogs&#x2F;research</a>。</p>
+<h4 id="3-2-4-与-Shadow-生态对比"><a href="#3-2-4-与-Shadow-生态对比" class="headerlink" title="3.2.4 与 Shadow 生态对比"></a>3.2.4 与 Shadow 生态对比</h4><table>
+<thead>
+<tr>
+<th>维度</th>
+<th>Shadow Hand</th>
+<th>Sharpa</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>硬件</td>
+<td>24 DoF，无内置触觉</td>
+<td>22 DoF，<strong>指尖原生触觉</strong></td>
+</tr>
+<tr>
+<td>SDK</td>
+<td>封闭（C++&#x2F;ROS1）</td>
+<td><strong>全开源</strong>（ROS2）</td>
+</tr>
+<tr>
+<td>RL 环境</td>
+<td>IsaacGymEnvs&#x2F;DexPBT</td>
+<td>自有 <a target="_blank" rel="noopener" href="https://github.com/sharpa-robotics/sharpa-rl-lab">sharpa-rl-lab</a></td>
+</tr>
+<tr>
+<td>触觉</td>
+<td>需外接传感器</td>
+<td><strong>原生集成</strong> + Tacmap 仿真</td>
+</tr>
+<tr>
+<td>研究范式</td>
+<td>纯 RL 从零学</td>
+<td><strong>基础模型 + 人类数据 + 触觉</strong></td>
+</tr>
+</tbody></table>
+<h3 id="3-3-Wuji-舞肌体系（国产新兴）"><a href="#3-3-Wuji-舞肌体系（国产新兴）" class="headerlink" title="3.3 Wuji 舞肌体系（国产新兴）"></a>3.3 Wuji 舞肌体系（国产新兴）</h3><h4 id="3-3-1-公司与硬件"><a href="#3-3-1-公司与硬件" class="headerlink" title="3.3.1 公司与硬件"></a>3.3.1 公司与硬件</h4><ul>
+<li><strong>官网</strong>：<a target="_blank" rel="noopener" href="https://wuji.tech/">wuji.tech</a> | <strong>GitHub</strong>：<a target="_blank" rel="noopener" href="https://github.com/wuji-technology">github.com&#x2F;wuji-technology</a>（27 仓库）</li>
+<li><strong>Wuji Hand 1.0</strong>：<strong>20 全主动自由度</strong>（每指 4 个独立驱动），连杆直驱，单手 ~570g，静态握持力 12kg</li>
+<li><strong>Wuji Hand 2</strong>：2026 ICRA 展示，全直驱方案</li>
+<li><strong>定位</strong>：高仿生 + 高自由度 + 统一软件栈；创始人潘韫哲强调触觉多模态（压力&#x2F;形变&#x2F;温度&#x2F;湿度）</li>
+</ul>
+<h4 id="3-3-2-GitHub-全栈（27-仓库精选）"><a href="#3-3-2-GitHub-全栈（27-仓库精选）" class="headerlink" title="3.3.2 GitHub 全栈（27 仓库精选）"></a>3.3.2 GitHub 全栈（27 仓库精选）</h4><table>
+<thead>
+<tr>
+<th>类别</th>
+<th>仓库</th>
+<th>⭐</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>RL 核心</strong></td>
+<td><strong><a target="_blank" rel="noopener" href="https://github.com/wuji-technology/wuji-mjlab">wuji-mjlab</a></strong></td>
+<td><strong>200</strong></td>
+<td><strong>手内翻转 RL：PPO 训练 + Sim-to-Real 部署</strong></td>
+</tr>
+<tr>
+<td></td>
+<td><a target="_blank" rel="noopener" href="https://github.com/wuji-technology/isaaclab-sim">isaaclab-sim</a></td>
+<td>15</td>
+<td>Isaac Sim 加载与控制</td>
+</tr>
+<tr>
+<td></td>
+<td>wujimjx-brax &#x2F; wujimjx-playground</td>
+<td>0</td>
+<td>GPU 加速物理仿真（MJX&#x2F;Brax）</td>
+</tr>
+<tr>
+<td><strong>SDK</strong></td>
+<td><a target="_blank" rel="noopener" href="https://github.com/wuji-technology/wujihandpy">wujihandpy</a></td>
+<td>39</td>
+<td>C++ 核心 + Python 绑定</td>
+</tr>
+<tr>
+<td></td>
+<td><a target="_blank" rel="noopener" href="https://github.com/wuji-technology/wuji-sdk">wuji-sdk</a></td>
+<td>14</td>
+<td>设备发现 + 实时控制</td>
+</tr>
+<tr>
+<td></td>
+<td><a target="_blank" rel="noopener" href="https://github.com/wuji-technology/wujihandros2">wujihandros2</a></td>
+<td>16</td>
+<td>ROS2 驱动，1000Hz 关节状态</td>
+</tr>
+<tr>
+<td><strong>模型</strong></td>
+<td><a target="_blank" rel="noopener" href="https://github.com/wuji-technology/wuji-hand-description">wuji-hand-description</a></td>
+<td>29</td>
+<td>URDF + MJCF + MJX + USD</td>
+</tr>
+<tr>
+<td></td>
+<td><a target="_blank" rel="noopener" href="https://github.com/wuji-technology/wuji-description">wuji-description</a></td>
+<td>25</td>
+<td>全套机器人描述（含 RL 安装底座 3D 打印件）</td>
+</tr>
+<tr>
+<td><strong>工具</strong></td>
+<td><a target="_blank" rel="noopener" href="https://github.com/wuji-technology/wuji-retargeting">wuji-retargeting</a></td>
+<td><strong>79</strong></td>
+<td>高精度手部姿态重定向</td>
+</tr>
+<tr>
+<td></td>
+<td><a target="_blank" rel="noopener" href="https://github.com/wuji-technology/wuji-hand-teleop">wuji-hand-teleop</a></td>
+<td>38</td>
+<td>ROS2 遥操作</td>
+</tr>
+<tr>
+<td></td>
+<td>wujihand-hmi &#x2F; wuji-studio</td>
+<td>2&#x2F;5</td>
+<td>桌面监控&#x2F;调试</td>
+</tr>
+<tr>
+<td><strong>开源</strong></td>
+<td>wuji-openpi</td>
+<td>15</td>
+<td>OpenPI 集成</td>
+</tr>
+</tbody></table>
+<h4 id="3-3-3-wuji-mjlab：手内翻转-RL（核心工程）"><a href="#3-3-3-wuji-mjlab：手内翻转-RL（核心工程）" class="headerlink" title="3.3.3 wuji-mjlab：手内翻转 RL（核心工程）"></a>3.3.3 wuji-mjlab：手内翻转 RL（核心工程）</h4><ul>
+<li><strong>仓库</strong>：<a target="_blank" rel="noopener" href="https://github.com/wuji-technology/wuji-mjlab">github.com&#x2F;wuji-technology&#x2F;wuji-mjlab</a>（⭐200，最高星项目）</li>
+<li><strong>内容</strong>：MuJoCo MJX GPU 加速仿真 + PPO 训练 Wuji Hand 手内翻转 + Sim-to-Real 真机部署</li>
+<li><strong>技术栈</strong>：MJX（Google 的 MuJoCo XLA，GPU 并行）→ PPO → 域随机化 → 真机</li>
+<li><strong>特点</strong>：不依赖 Isaac Gym（NVIDIA 生态），而是用开源 MJX——国产自主路线</li>
+<li><strong>文档</strong>：<a target="_blank" rel="noopener" href="https://docs.wuji.tech/docs/en/wuji-hand/v1/">docs.wuji.tech</a> 有完整 RL 训练与 Sim-to-Real 部署指南</li>
+</ul>
+<h4 id="3-3-4-Wuji-vs-Shadow-vs-Sharpa-对比"><a href="#3-3-4-Wuji-vs-Shadow-vs-Sharpa-对比" class="headerlink" title="3.3.4 Wuji vs Shadow vs Sharpa 对比"></a>3.3.4 Wuji vs Shadow vs Sharpa 对比</h4><table>
+<thead>
+<tr>
+<th>维度</th>
+<th>Shadow</th>
+<th>Sharpa</th>
+<th>Wuji 舞肌</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>DOF</td>
+<td>24（20 驱动+4 被动）</td>
+<td>22</td>
+<td><strong>20 全主动</strong>（连杆直驱）</td>
+</tr>
+<tr>
+<td>触觉</td>
+<td>无内置</td>
+<td>指尖原生 320×240</td>
+<td>多模态（宣称压力+形变+温度+湿度）</td>
+</tr>
+<tr>
+<td>SDK 开源</td>
+<td>否</td>
+<td>全开源 ROS2</td>
+<td><strong>全开源 ROS2</strong>（27 仓库）</td>
+</tr>
+<tr>
+<td>RL 仿真</td>
+<td>IsaacGymEnvs</td>
+<td>Isaac Lab (sharpa-rl-lab)</td>
+<td><strong>MJX</strong>（wuji-mjlab）+ Isaac Sim</td>
+</tr>
+<tr>
+<td>RL GitHub 星</td>
+<td>~800（IsaacGymEnvs）</td>
+<td>104（sharpa-rl-lab）</td>
+<td><strong>200</strong>（wuji-mjlab）</td>
+</tr>
+<tr>
+<td>研究范式</td>
+<td>纯 RL</td>
+<td>基础模型+触觉</td>
+<td><strong>GPU 并行 RL + 视觉重定向</strong></td>
+</tr>
+</tbody></table>
+<h3 id="3-4-灵巧智能-DexHand021-Pro-体系（国产，DexRobot）"><a href="#3-4-灵巧智能-DexHand021-Pro-体系（国产，DexRobot）" class="headerlink" title="3.4 灵巧智能 DexHand021 Pro 体系（国产，DexRobot）"></a>3.4 灵巧智能 DexHand021 Pro 体系（国产，DexRobot）</h3><h4 id="3-4-1-公司与硬件"><a href="#3-4-1-公司与硬件" class="headerlink" title="3.4.1 公司与硬件"></a>3.4.1 公司与硬件</h4><ul>
+<li><strong>公司</strong>：灵巧智能（DexRobot），本站<a href="/BlogNotes/2026/04/24/%E7%81%B5%E5%B7%A7%E6%89%8B%E8%AE%BE%E8%AE%A1%E6%80%BB%E7%BB%93/">灵巧手设计综述</a>的重点拆解对象</li>
+<li><strong>DexHand021 家族</strong>：量产版（双绳驱仿生）与 <strong>Pro</strong>（22 DOF 双绳驱）</li>
+<li><strong>定位</strong>：国产灵巧手量产主力，供应链在境内，人形&#x2F;协作臂供应链</li>
+</ul>
+<h4 id="3-4-2-RL-内网工程：rl-rotating-cylinder-demo"><a href="#3-4-2-RL-内网工程：rl-rotating-cylinder-demo" class="headerlink" title="3.4.2 RL 内网工程：rl_rotating_cylinder_demo"></a>3.4.2 RL 内网工程：rl_rotating_cylinder_demo</h4><ul>
+<li><strong>内网仓库</strong>：<code>http://192.168.10.116/Robot/AI_algorithm/rl_demo/rl_rotating_cylinder_demo/-/tree/develop</code>（DexRobot 内部 GitLab，需登录访问）</li>
+<li><strong>任务</strong>：<strong>圆柱体手内旋转</strong>（Rotating Cylinder）——DexHand021 Pro 手内旋转圆柱体到目标朝向</li>
+<li><strong>算法</strong>：PPO + 域随机化 + Isaac Gym&#x2F;Isaac Lab GPU 并行仿真（基于本站第3章分析的 ShadowHand 基础设施迁移）</li>
+<li><strong>Pipeline</strong>：仿真训练（域随机化 PPO）→ Sim-to-Real 部署（DexHand021 Pro 真机）→ 视觉评估（目标朝向匹配）</li>
+<li><strong>与 ShadowHand 工程的关系</strong>：技术路线一致（PPO + DR + GPU 并行），适配到 DexHand021 Pro 的 22 DOF 双绳驱动力学模型——腱绳传动增加了额外延迟与柔性，域随机化范围需相应扩大</li>
+</ul>
+<p>（注：内网仓库需登录访问，具体配置与超参数以仓库 develop 分支最新版为准）</p>
+<h3 id="3-5-其他灵巧手-RL-平台"><a href="#3-5-其他灵巧手-RL-平台" class="headerlink" title="3.5 其他灵巧手 RL 平台"></a>3.5 其他灵巧手 RL 平台</h3><table>
+<thead>
+<tr>
+<th>灵巧手</th>
+<th>DOF</th>
+<th>RL 支持情况</th>
+<th>开源</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>LEAP Hand</strong></td>
+<td>16</td>
+<td>有专用 RL 环境</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/leap-hand/leap_hand_sim">github.com&#x2F;leap-hand&#x2F;leap_hand_sim</a></td>
+</tr>
+<tr>
+<td><strong>Allegro Hand</strong></td>
+<td>16</td>
+<td>IsaacGymEnvs 内置</td>
+<td>社区适配</td>
+</tr>
+<tr>
+<td><strong>DexHand021</strong>（灵巧智能）</td>
+<td>21&#x2F;22</td>
+<td>URDF 可导入 Isaac Lab</td>
+<td>量产供应</td>
+</tr>
+<tr>
+<td><strong>Inspire Hand</strong>（因时）</td>
+<td>6&#x2F;12</td>
+<td>有限 RL 支持</td>
+<td>商用</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="4-算法对比：不同方法在灵巧手上的优缺点"><a href="#4-算法对比：不同方法在灵巧手上的优缺点" class="headerlink" title="4. 算法对比：不同方法在灵巧手上的优缺点"></a>4. 算法对比：不同方法在灵巧手上的优缺点</h2><h3 id="4-1-算法维度对比"><a href="#4-1-算法维度对比" class="headerlink" title="4.1 算法维度对比"></a>4.1 算法维度对比</h3><table>
+<thead>
+<tr>
+<th>算法</th>
+<th>采样效率</th>
+<th>稳定性</th>
+<th>GPU 并行</th>
+<th>连续动作</th>
+<th>灵巧手适用</th>
+<th>代表工程</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>PPO</strong></td>
+<td>低（on-policy）</td>
+<td>★★★★★</td>
+<td>★★★★★</td>
+<td>✓</td>
+<td><strong>默认选择</strong></td>
+<td>全部工程</td>
+</tr>
+<tr>
+<td><strong>SAC</strong></td>
+<td>高（off-policy）</td>
+<td>★★★★</td>
+<td>★★★</td>
+<td>✓</td>
+<td>单环境精细调</td>
+<td>Bi-DexHands 基准</td>
+</tr>
+<tr>
+<td><strong>TD3</strong></td>
+<td>高</td>
+<td>★★★</td>
+<td>★★★</td>
+<td>✓</td>
+<td>可用但少</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>DDPG</strong></td>
+<td>高</td>
+<td>★★</td>
+<td>★★</td>
+<td>✓</td>
+<td>不推荐（不稳）</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>PBT + PPO</strong></td>
+<td>低</td>
+<td>★★★★★</td>
+<td>★★★★★</td>
+<td>✓</td>
+<td><strong>高难度任务</strong></td>
+<td>DexPBT</td>
+</tr>
+<tr>
+<td><strong>MAPPO&#x2F;HAPPO</strong></td>
+<td>低</td>
+<td>★★★★</td>
+<td>★★★★</td>
+<td>✓</td>
+<td>双手协调</td>
+<td>Bi-DexHands</td>
+</tr>
+<tr>
+<td><strong>Dreamer</strong></td>
+<td><strong>最高</strong></td>
+<td>★★★</td>
+<td>★★</td>
+<td>✓</td>
+<td>理论有潜力</td>
+<td>未有灵巧手验证</td>
+</tr>
+<tr>
+<td><strong>离线 RL（IQL&#x2F;CQL）</strong></td>
+<td>—</td>
+<td>★★★</td>
+<td>★★</td>
+<td>✓</td>
+<td>预训练</td>
+<td>可用演示数据</td>
+</tr>
+</tbody></table>
+<h3 id="4-2-具体工程结果对比"><a href="#4-2-具体工程结果对比" class="headerlink" title="4.2 具体工程结果对比"></a>4.2 具体工程结果对比</h3><table>
+<thead>
+<tr>
+<th>工程</th>
+<th>算法</th>
+<th>任务</th>
+<th>成功率</th>
+<th>训练时间</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>IsaacGymEnvs ShadowHand</td>
+<td>PPO (FF)</td>
+<td>BlockReorientation (full_state)</td>
+<td>&gt;90%</td>
+<td>~15 min</td>
+</tr>
+<tr>
+<td>IsaacGymEnvs ShadowHand</td>
+<td>PPO (LSTM)</td>
+<td>BlockReorientation (openai)</td>
+<td>~80%</td>
+<td>~2 h</td>
+</tr>
+<tr>
+<td><strong>DexPBT</strong></td>
+<td>PBT-PPO (512)</td>
+<td><strong>ReGrasp</strong></td>
+<td><strong>首次收敛</strong></td>
+<td>~4 h</td>
+</tr>
+<tr>
+<td>Bi-DexHands</td>
+<td>MAPPO</td>
+<td>HandOver</td>
+<td>&gt;85%</td>
+<td>~1 h</td>
+</tr>
+<tr>
+<td>Bi-DexHands</td>
+<td>MAPPO</td>
+<td>BottleCap</td>
+<td>~60%</td>
+<td>~4 h</td>
+</tr>
+<tr>
+<td>OpenAI Dactyl</td>
+<td>PPO + ADR</td>
+<td>真机翻方块</td>
+<td>50 连续次</td>
+<td>100 年模拟</td>
+</tr>
+<tr>
+<td><strong>wuji-mjlab</strong></td>
+<td><strong>PPO (MJX)</strong></td>
+<td>手内翻转</td>
+<td>Sim-to-Real</td>
+<td>—</td>
+</tr>
+</tbody></table>
+<h3 id="4-3-选择建议"><a href="#4-3-选择建议" class="headerlink" title="4.3 选择建议"></a>4.3 选择建议</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">入门 / 快速验证:     PPO + IsaacGymEnvs ShadowHand（15 分钟出结果）</span><br><span class="line">高难度稀疏奖励:      PBT 种群化（DexPBT）</span><br><span class="line">双手协调:           MAPPO / HAPPO（Bi-DexHands）</span><br><span class="line">采样效率优先:        SAC（但 GPU 并行不如 PPO）</span><br><span class="line">真机部署:           PPO + ADR 域随机化（OpenAI Dactyl 路线）</span><br><span class="line">国产平台:           wuji-mjlab（MJX + PPO）或 sharpa-rl-lab（Isaac Lab + PPO）</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="5-参考方法、资料与开源工程列表"><a href="#5-参考方法、资料与开源工程列表" class="headerlink" title="5. 参考方法、资料与开源工程列表"></a>5. 参考方法、资料与开源工程列表</h2><h3 id="5-1-论文（按时间排序）"><a href="#5-1-论文（按时间排序）" class="headerlink" title="5.1 论文（按时间排序）"></a>5.1 论文（按时间排序）</h3><ul>
+<li>OpenAI Dactyl：<em>Learning Dexterous In-Hand Manipulation</em>（<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1808.00177">arXiv:1808.00177</a>）</li>
+<li>OpenAI 魔方：<em>Solving Rubik’s Cube with a Robot Hand</em>（<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1910.07113">arXiv:1910.07113</a>）</li>
+<li>DexMV：<em>Imitation Learning for Dexterous Manipulation from Human Videos</em>（<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2108.05877">arXiv:2108.05877</a>）</li>
+<li>Isaac Gym 技术报告（<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2108.10470">arXiv:2108.10470</a>）</li>
+<li>Bi-DexHands：<em>Towards Human-Level Bimanual Dexterous Manipulation with RL</em>（<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2206.08686">arXiv:2206.08686</a>）</li>
+<li>DexGraspNet：<em>A Large-Scale Robotic Dexterous Grasp Dataset</em>（<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2210.02697">arXiv:2210.02697</a>）；2.0 版（<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2403.00622">arXiv:2403.00622</a>）</li>
+<li>DexPBT：<em>Scaling up Dexterous Manipulation with Population Based Training</em>（<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2305.12127">arXiv:2305.12127</a>）</li>
+<li>PPO：<em>Proximal Policy Optimization Algorithms</em>（<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1707.06347">arXiv:1707.06347</a>）</li>
+<li>域随机化：Tobin et al.（<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1703.06907">arXiv:1703.06907</a>）</li>
+<li>ViTacFormer（SharpaWave 使用方）：<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2506.15953">arXiv:2506.15953</a></li>
+</ul>
+<h3 id="5-2-开源工程（按品牌分组）"><a href="#5-2-开源工程（按品牌分组）" class="headerlink" title="5.2 开源工程（按品牌分组）"></a>5.2 开源工程（按品牌分组）</h3><p><strong>Shadow Hand 生态</strong>：</p>
+<ul>
+<li>IsaacGymEnvs（ShadowHand 全套任务）：<a target="_blank" rel="noopener" href="https://github.com/isaac-sim/IsaacGymEnvs">https://github.com/isaac-sim/IsaacGymEnvs</a></li>
+<li>Bi-DexHands（双手基准）：<a target="_blank" rel="noopener" href="https://github.com/pku-marl/dexteroushands">https://github.com/pku-marl/dexteroushands</a></li>
+<li>DexGraspNet（抓取数据集）：<a target="_blank" rel="noopener" href="https://github.com/PKU-EPIC/DexGraspNet">https://github.com/PKU-EPIC/DexGraspNet</a></li>
+<li>DexMV（视频到演示）：<a target="_blank" rel="noopener" href="https://github.com/yzqin/dexmv-sim">https://github.com/yzqin/dexmv-sim</a></li>
+<li>Isaac Lab（新一代框架）：<a target="_blank" rel="noopener" href="https://github.com/isaac-sim/IsaacLab">https://github.com/isaac-sim/IsaacLab</a></li>
+<li>Shadow Hand 官方仿真文档：<a target="_blank" rel="noopener" href="https://shadowrobot.com/simulating-the-shadow-hand/">https://shadowrobot.com/simulating-the-shadow-hand/</a></li>
+<li>LEAP Hand（低成本平台）：<a target="_blank" rel="noopener" href="https://github.com/leap-hand">https://github.com/leap-hand</a></li>
+</ul>
+<p><strong>Sharpa 生态</strong>（15 仓库）：</p>
+<ul>
+<li>Sharpa RL Lab（Isaac Lab 训练环境）：<a target="_blank" rel="noopener" href="https://github.com/sharpa-robotics/sharpa-rl-lab">https://github.com/sharpa-robotics/sharpa-rl-lab</a></li>
+<li>SharpaWave 固件：<a target="_blank" rel="noopener" href="https://github.com/sharpa-robotics/sharpa-wave-firmware">https://github.com/sharpa-robotics/sharpa-wave-firmware</a></li>
+<li>SharpaWave SDK（ROS2）：<a target="_blank" rel="noopener" href="https://github.com/sharpa-robotics/sharpa-wave-sdk">https://github.com/sharpa-robotics/sharpa-wave-sdk</a></li>
+<li>Sharpa Tacmap（触觉 Sim-to-Real）：<a target="_blank" rel="noopener" href="https://github.com/sharpa-robotics/sharpa-tacmap">https://github.com/sharpa-robotics/sharpa-tacmap</a></li>
+<li>全部仓库：<a target="_blank" rel="noopener" href="https://github.com/sharpa-robotics">https://github.com/sharpa-robotics</a></li>
+<li>研究博客（13 篇）：<a target="_blank" rel="noopener" href="https://www.sharpa.com/blogs/research">https://www.sharpa.com/blogs/research</a></li>
+</ul>
+<p><strong>Wuji 舞肌生态</strong>（27 仓库精选）：</p>
+<ul>
+<li>wuji-mjlab（手内翻转 RL，⭐200）：<a target="_blank" rel="noopener" href="https://github.com/wuji-technology/wuji-mjlab">https://github.com/wuji-technology/wuji-mjlab</a></li>
+<li>wujihandpy（Python SDK，⭐39）：<a target="_blank" rel="noopener" href="https://github.com/wuji-technology/wujihandpy">https://github.com/wuji-technology/wujihandpy</a></li>
+<li>wuji-retargeting（视觉重定向，⭐79）：<a target="_blank" rel="noopener" href="https://github.com/wuji-technology/wuji-retargeting">https://github.com/wuji-technology/wuji-retargeting</a></li>
+<li>wuji-hand-description（URDF&#x2F;MJCF&#x2F;MJX&#x2F;USD，⭐29）：<a target="_blank" rel="noopener" href="https://github.com/wuji-technology/wuji-hand-description">https://github.com/wuji-technology/wuji-hand-description</a></li>
+<li>wuji-hand-teleop（遥操作，⭐38）：<a target="_blank" rel="noopener" href="https://github.com/wuji-technology/wuji-hand-teleop">https://github.com/wuji-technology/wuji-hand-teleop</a></li>
+<li>wujihandros2（ROS2 驱动，⭐16）：<a target="_blank" rel="noopener" href="https://github.com/wuji-technology/wujihandros2">https://github.com/wuji-technology/wujihandros2</a></li>
+<li>isaaclab-sim（Isaac Sim 接口，⭐15）：<a target="_blank" rel="noopener" href="https://github.com/wuji-technology/isaaclab-sim">https://github.com/wuji-technology/isaaclab-sim</a></li>
+<li>全部仓库：<a target="_blank" rel="noopener" href="https://github.com/wuji-technology">https://github.com/wuji-technology</a></li>
+<li>官方文档（含 RL 训练指南）：<a target="_blank" rel="noopener" href="https://docs.wuji.tech/">https://docs.wuji.tech</a></li>
+</ul>
+<h3 id="5-3-本站相关文章"><a href="#5-3-本站相关文章" class="headerlink" title="5.3 本站相关文章"></a>5.3 本站相关文章</h3><ul>
+<li><a href="/BlogNotes/2026/04/24/%E7%81%B5%E5%B7%A7%E6%89%8B%E8%AE%BE%E8%AE%A1%E6%80%BB%E7%BB%93/">灵巧手设计总结</a></li>
+<li><a href="/BlogNotes/2026/08/30/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%B8%B8%E7%94%A8%E4%BC%A0%E6%84%9F%E5%99%A8/">机器人常用传感器（编码器&#x2F;IMU&#x2F;力触觉）</a></li>
+<li><a href="/BlogNotes/2026/08/30/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%85%B3%E8%8A%82%E7%94%B5%E6%9C%BA/">机器人关节电机（FOC&#x2F;减速器&#x2F;架构）</a></li>
+<li><a href="/BlogNotes/2026/04/28/ViTacFormer-Learning-Cross-Modal-Representation-for-Visuo-Tactile-Dexterous-Manipulation/">ViTacFormer 精读（SharpaWave 灵巧手 + 触觉）</a></li>
+<li><a href="/BlogNotes/2026/09/01/Being_H%E7%B3%BB%E5%88%97%E8%AE%BA%E6%96%87%E8%A7%A3%E6%9E%90/">Being_H 系列解析（人类视频 → 灵巧操作）</a></li>
+<li><a href="/BlogNotes/2026/09/01/PI%E7%B3%BB%E5%88%97%E8%AE%BA%E6%96%87%E8%A7%A3%E6%9E%90/">PI 系列论文解析（流匹配 VLA）</a></li>
+<li><a href="/BlogNotes/2026/09/02/ACT%E7%90%86%E8%AE%BA%E4%B8%8E%E8%A1%8D%E7%94%9FVLA%E6%A8%A1%E5%9E%8B%E8%A7%A3%E6%9E%90/">ACT 理论与衍生 VLA 模型解析</a></li>
+<li><a href="/BlogNotes/2026/09/02/DiffusionPolicy%E7%90%86%E8%AE%BA%E4%B8%8E%E8%A1%8D%E7%94%9FVLA%E6%A8%A1%E5%9E%8B%E8%A7%A3%E6%9E%90/">Diffusion Policy 理论与衍生 VLA 模型解析</a></li>
+</ul>
+<blockquote>
+<p>本文论文编号、仓库地址（GitHub 星数截至 2026-09-02）、任务列表与性能数字均经联网核实。各仓库具体任务名与参数以最新版为准。Wuji 舞肌的信息来自 <a target="_blank" rel="noopener" href="https://wuji.tech/">wuji.tech</a>、<a target="_blank" rel="noopener" href="https://docs.wuji.tech/">docs.wuji.tech</a> 及 <a target="_blank" rel="noopener" href="https://github.com/wuji-technology">github.com&#x2F;wuji-technology</a>。</p>
+</blockquote>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/BlogNotes/about" rel="external nofollow noreferrer">Jianbo.Yuan</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://jianbo-yuan.github.io/BlogNotes/BlogNotes/2026/09/02/%E4%BA%94%E6%8C%87%E7%81%B5%E5%B7%A7%E6%89%8B%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E5%BC%80%E6%BA%90%E5%B7%A5%E7%A8%8B%E8%A7%A3%E6%9E%90/">https://jianbo-yuan.github.io/BlogNotes/BlogNotes/2026/09/02/%E4%BA%94%E6%8C%87%E7%81%B5%E5%B7%A7%E6%89%8B%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E5%BC%80%E6%BA%90%E5%B7%A5%E7%A8%8B%E8%A7%A3%E6%9E%90/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/BlogNotes/about" target="_blank">Jianbo.Yuan</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/BlogNotes/tags/%E7%81%B5%E5%B7%A7%E6%89%8B/">
+                                    <span class="chip bg-color">灵巧手</span>
+                                </a>
+                            
+                                <a href="/BlogNotes/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/">
+                                    <span class="chip bg-color">强化学习</span>
+                                </a>
+                            
+                                <a href="/BlogNotes/tags/PPO/">
+                                    <span class="chip bg-color">PPO</span>
+                                </a>
+                            
+                                <a href="/BlogNotes/tags/%E5%9F%9F%E9%9A%8F%E6%9C%BA%E5%8C%96/">
+                                    <span class="chip bg-color">域随机化</span>
+                                </a>
+                            
+                                <a href="/BlogNotes/tags/Sim-to-Real/">
+                                    <span class="chip bg-color">Sim-to-Real</span>
+                                </a>
+                            
+                                <a href="/BlogNotes/tags/Shadow-Hand/">
+                                    <span class="chip bg-color">Shadow Hand</span>
+                                </a>
+                            
+                                <a href="/BlogNotes/tags/Sharpa-Hand/">
+                                    <span class="chip bg-color">Sharpa Hand</span>
+                                </a>
+                            
+                                <a href="/BlogNotes/tags/Wuji-Hand/">
+                                    <span class="chip bg-color">Wuji Hand</span>
+                                </a>
+                            
+                                <a href="/BlogNotes/tags/Isaac-Gym/">
+                                    <span class="chip bg-color">Isaac Gym</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/BlogNotes/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/BlogNotes/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/BlogNotes/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/BlogNotes/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/BlogNotes/2026/09/02/SharpaRLLab%E5%B7%A5%E7%A8%8B%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/BlogNotes/medias/featureimages/0.jpg" class="responsive-img" alt="Sharpa RL Lab工程深度解析">
+                        
+                        <span class="card-title">Sharpa RL Lab工程深度解析</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2026-09-02
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/BlogNotes/categories/%E8%AE%BA%E6%96%87%E7%B2%BE%E5%BA%A6%E4%B8%8E%E5%88%86%E6%9E%90/" class="post-category">
+                                    论文精度与分析
+                                </a>
+                            
+                            <a href="/BlogNotes/categories/%E8%AE%BA%E6%96%87%E7%B2%BE%E5%BA%A6%E4%B8%8E%E5%88%86%E6%9E%90/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    强化学习
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/BlogNotes/tags/Sharpa/">
+                        <span class="chip bg-color">Sharpa</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/SharpaWave/">
+                        <span class="chip bg-color">SharpaWave</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/%E7%81%B5%E5%B7%A7%E6%89%8B/">
+                        <span class="chip bg-color">灵巧手</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">强化学习</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/PPO/">
+                        <span class="chip bg-color">PPO</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/%E5%9F%9F%E9%9A%8F%E6%9C%BA%E5%8C%96/">
+                        <span class="chip bg-color">域随机化</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/Isaac-Lab/">
+                        <span class="chip bg-color">Isaac Lab</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/Sim-to-Real/">
+                        <span class="chip bg-color">Sim-to-Real</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/BlogNotes/2026/09/02/DiffusionPolicy%E7%90%86%E8%AE%BA%E4%B8%8E%E8%A1%8D%E7%94%9FVLA%E6%A8%A1%E5%9E%8B%E8%A7%A3%E6%9E%90/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/BlogNotes/medias/featureimages/11.jpg" class="responsive-img" alt="Diffusion Policy理论与衍生VLA模型解析">
+                        
+                        <span class="card-title">Diffusion Policy理论与衍生VLA模型解析</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-09-02
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/BlogNotes/categories/%E8%AE%BA%E6%96%87%E7%B2%BE%E5%BA%A6%E4%B8%8E%E5%88%86%E6%9E%90/" class="post-category">
+                                    论文精度与分析
+                                </a>
+                            
+                            <a href="/BlogNotes/categories/%E8%AE%BA%E6%96%87%E7%B2%BE%E5%BA%A6%E4%B8%8E%E5%88%86%E6%9E%90/%E6%A8%A1%E4%BB%BF%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    模仿学习
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/BlogNotes/tags/VLA/">
+                        <span class="chip bg-color">VLA</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/">
+                        <span class="chip bg-color">扩散模型</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/Diffusion-Policy/">
+                        <span class="chip bg-color">Diffusion Policy</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/%E6%A8%A1%E4%BB%BF%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">模仿学习</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/DDIM/">
+                        <span class="chip bg-color">DDIM</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/3D%E7%AD%96%E7%95%A5/">
+                        <span class="chip bg-color">3D策略</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/BlogNotes/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/BlogNotes/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/BlogNotes/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/BlogNotes/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/BlogNotes/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        },
+        "HTML-CSS": {
+            linebreaks: {
+                automatic: true,
+                width: "container"
+            }
+        },
+        SVG: {
+            linebreaks: {
+                automatic: true,
+                width: "container"
+            }
+        }
+    });
+</script>
+<script>
+    (function () {
+        if (window.MathJax) return;
+
+        var sources = [
+            "https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML",
+            "https://unpkg.com/mathjax@2.7.9/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML",
+            "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+        ];
+
+        function loadMathJax(index) {
+            if (index >= sources.length) {
+                console.error("MathJax failed to load from all configured CDNs.");
+                return;
+            }
+
+            var script = document.createElement("script");
+            script.src = sources[index];
+            script.async = true;
+            script.onerror = function () {
+                loadMathJax(index + 1);
+            };
+            document.head.appendChild(script);
+        }
+
+        loadMathJax(0);
+    })();
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/BlogNotes/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.3'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/BlogNotes/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2026</span>
+            
+            <span id="year">2026</span>
+            <a href="/BlogNotes/about" target="_blank">Jianbo.Yuan</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:jianbo.yuan@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=335943408" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 335943408" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+    <a href="https://www.zhihu.com/people/Simple" class="tooltipped" target="_blank" data-tooltip="关注我的知乎: https://www.zhihu.com/people/Simple" data-position="top" data-delay="50">
+        <i class="fab fa-zhihu1">知</i>
+    </a>
+
+
+
+    <a href="/BlogNotes/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/BlogNotes/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/BlogNotes/libs/materialize/materialize.min.js"></script>
+    <script src="/BlogNotes/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/BlogNotes/libs/aos/aos.js"></script>
+    <script src="/BlogNotes/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/BlogNotes/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/BlogNotes/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/BlogNotes/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/BlogNotes/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/BlogNotes/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

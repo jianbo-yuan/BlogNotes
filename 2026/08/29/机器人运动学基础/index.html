@@ -1,0 +1,1555 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="机器人运动学基础, Jianbo.Yuan">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>机器人运动学基础 | Jianbo.Yuan</title>
+    <link rel="icon" type="image/png" href="/BlogNotes/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/css/my.css">
+
+    <script src="/BlogNotes/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/BlogNotes/" class="waves-effect waves-light">
+                    
+                    <img src="/BlogNotes/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Jianbo.Yuan</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/BlogNotes/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Jianbo.Yuan</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/BlogNotes/medias/featureimages/0.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">机器人运动学基础</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/BlogNotes/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/BlogNotes/categories/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%90%86%E8%AE%BA%E4%B8%8E%E6%8A%80%E6%9C%AF/" class="post-category">
+                                机器人理论与技术
+                            </a>
+                        
+                            <a href="/BlogNotes/categories/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%90%86%E8%AE%BA%E4%B8%8E%E6%8A%80%E6%9C%AF/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%AD%A6%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/" class="post-category">
+                                机器人学理论基础
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2026-08-29
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>串联机械臂的运动学回答两个基本问题：</p>
+<ul>
+<li><strong>正向运动学（Forward Kinematics, FK）</strong>：已知各关节变量 <span class="math-inline">\(\boldsymbol{\theta}\)</span>，求末端执行器在基座标系下的位姿 <span class="math-inline">\(\mathbf{T}(\boldsymbol{\theta})\)</span>；</li>
+<li><strong>逆向运动学（Inverse Kinematics, IK）</strong>：已知期望的末端位姿 <span class="math-inline">\(\mathbf{T}^{\text{des}}\)</span>，反求一组关节变量 <span class="math-inline">\(\boldsymbol{\theta}\)</span> 使 <span class="math-inline">\(\mathbf{T}(\boldsymbol{\theta}) = \mathbf{T}^{\text{des}}\)</span>。</li>
+</ul>
+<p>FK 是单值映射，解唯一；IK 是非线性方程组求根，可能无解、有唯一解或多解，是运动学的核心难点。本文先建立连杆建模与正解推导，再分别给出解析法与数值迭代法的完整求解过程，并重点讨论数值法的参数意义与调参建议。</p>
+<h2 id="1-运动学建模基础"><a href="#1-运动学建模基础" class="headerlink" title="1. 运动学建模基础"></a>1. 运动学建模基础</h2><h3 id="1-1-连杆与关节的描述"><a href="#1-1-连杆与关节的描述" class="headerlink" title="1.1 连杆与关节的描述"></a>1.1 连杆与关节的描述</h3><p>串联机械臂由 <span class="math-inline">\(n\)</span> 个连杆（link）经 <span class="math-inline">\(n\)</span> 个单自由度关节（转动 joint 或移动 joint）依次串联而成。描述相邻连杆几何关系只需要 4 个参数，即 <strong>DH 参数</strong>（Denavit–Hartenberg）：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><span class="math-inline">\(a_i\)</span></td>
+<td>连杆长度：轴 <span class="math-inline">\(z_{i-1}\)</span> 与轴 <span class="math-inline">\(z_i\)</span> 的公垂线长度</td>
+</tr>
+<tr>
+<td><span class="math-inline">\(\alpha_i\)</span></td>
+<td>连杆扭转角：绕公垂线方向，<span class="math-inline">\(z_{i-1}\)</span> 转到 <span class="math-inline">\(z_i\)</span> 的角度</td>
+</tr>
+<tr>
+<td><span class="math-inline">\(d_i\)</span></td>
+<td>连杆偏距：沿 <span class="math-inline">\(z_{i-1}\)</span> 轴，<span class="math-inline">\(x_{i-1}\)</span> 到 <span class="math-inline">\(x_i\)</span> 的距离</td>
+</tr>
+<tr>
+<td><span class="math-inline">\(\theta_i\)</span></td>
+<td>关节角：绕 <span class="math-inline">\(z_{i-1}\)</span> 轴，<span class="math-inline">\(x_{i-1}\)</span> 转到 <span class="math-inline">\(x_i\)</span> 的角度</td>
+</tr>
+</tbody></table>
+<p>转动关节中 <span class="math-inline">\(\theta_i\)</span> 是关节变量，其余三个为固定结构参数；移动关节则相反，<span class="math-inline">\(d_i\)</span> 为变量。</p>
+<p>坐标系连链示意（俯视平面投影）：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">     z_&#123;i-1&#125;▲                ▲ z_i</span><br><span class="line">            │                │</span><br><span class="line">            │    ┌────────┐  │</span><br><span class="line">            │    │ 连杆 i │  │</span><br><span class="line">            │    └────────┘  │</span><br><span class="line">            │  ↕ α_i         │</span><br><span class="line">──x_&#123;i-1&#125;──●─────────────────●──x_i──►</span><br><span class="line">          O_&#123;i-1&#125;  ──a_i──►  O_i</span><br><span class="line">              (d_i 沿 z_&#123;i-1&#125; 计量)</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-2-齐次变换矩阵"><a href="#1-2-齐次变换矩阵" class="headerlink" title="1.2 齐次变换矩阵"></a>1.2 齐次变换矩阵</h3><p>将坐标系 <span class="math-inline">\(\{i\}\)</span> 相对 <span class="math-inline">\(\{i-1\}\)</span> 的旋转 <span class="math-inline">\(\mathbf{R} \in SO(3)\)</span> 与平移 <span class="math-inline">\(\mathbf{p} \in \mathbb{R}^3\)</span> 合并为 4×4 齐次变换矩阵：</p>
+<div class="math-block">\[
+\mathbf{T} = \begin{bmatrix} \mathbf{R} &amp; \mathbf{p} \\ \mathbf{0} &amp; 1 \end{bmatrix}, \qquad \mathbf{T}^{-1} = \begin{bmatrix} \mathbf{R}^{\top} &amp; -\mathbf{R}^{\top}\mathbf{p} \\ \mathbf{0} &amp; 1 \end{bmatrix}
+\]</div>
+<p>按标准 DH 约定，相邻坐标系变换由四次基本运动复合（绕 <span class="math-inline">\(z_{i-1}\)</span> 转 <span class="math-inline">\(\theta_i\)</span> → 沿 <span class="math-inline">\(z_{i-1}\)</span> 平移 <span class="math-inline">\(d_i\)</span> → 沿 <span class="math-inline">\(x_i\)</span> 平移 <span class="math-inline">\(a_i\)</span> → 绕 <span class="math-inline">\(x_i\)</span> 转 <span class="math-inline">\(\alpha_i\)</span>）：</p>
+<div class="math-block">\[
+{}^{i-1}\mathbf{T}_i = \text{Rot}(z,\theta_i)\,\text{Trans}(z,d_i)\,\text{Trans}(x,a_i)\,\text{Rot}(x,\alpha_i)
+\]</div>
+<p>展开为：</p>
+<div class="math-block">\[
+{}^{i-1}\mathbf{A}_i = \begin{bmatrix} \cos\theta_i &amp; -\sin\theta_i\cos\alpha_i &amp; \sin\theta_i\sin\alpha_i &amp; a_i\cos\theta_i \\ \sin\theta_i &amp; \cos\theta_i\cos\alpha_i &amp; -\cos\theta_i\sin\alpha_i &amp; a_i\sin\theta_i \\ 0 &amp; \sin\alpha_i &amp; \cos\alpha_i &amp; d_i \\ 0 &amp; 0 &amp; 0 &amp; 1 \end{bmatrix}
+\]</div>
+<h2 id="2-正向运动学：连乘求解"><a href="#2-正向运动学：连乘求解" class="headerlink" title="2. 正向运动学：连乘求解"></a>2. 正向运动学：连乘求解</h2><h3 id="2-1-一般公式"><a href="#2-1-一般公式" class="headerlink" title="2.1 一般公式"></a>2.1 一般公式</h3><p><span class="math-inline">\(n\)</span> 连杆机械臂的末端位姿为各相邻变换的连乘：</p>
+<div class="math-block">\[
+{}^{0}\mathbf{T}_n(\boldsymbol{\theta}) = {}^{0}\mathbf{A}_1\,{}^{1}\mathbf{A}_2 \cdots {}^{n-1}\mathbf{A}_n = \prod_{i=1}^{n}{}^{i-1}\mathbf{A}_i
+\]</div>
+<p>计算顺序就是”从基座一路乘到末端”，每个 <span class="math-inline">\(\mathbf{A}_i\)</span> 只含一个关节变量，因此 <span class="math-inline">\(\mathbf{T}\)</span> 的每个元素都是关于各 <span class="math-inline">\(\sin\theta_i,\cos\theta_i\)</span> 的多项式——这一结构正是解析逆解可行的代数基础。</p>
+<h3 id="2-2-平面-2R-机械臂推导（图示）"><a href="#2-2-平面-2R-机械臂推导（图示）" class="headerlink" title="2.2 平面 2R 机械臂推导（图示）"></a>2.2 平面 2R 机械臂推导（图示）</h3><p>以最典型的两连杆平面臂为例（<span class="math-inline">\(\alpha_i = 0\)</span>，纯转动关节）：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">y ▲    末端执行器 (x, y)</span><br><span class="line">  │        ●</span><br><span class="line">  │       /│ θ2(内角, 相对连杆2与连杆1延长线)</span><br><span class="line">  │   l2 / │</span><br><span class="line">  │     /  ▼</span><br><span class="line">  │    ●──────────●──────► x</span><br><span class="line">  │   /O₁ (肘)  θ1</span><br><span class="line">  │  / l1</span><br><span class="line">  │ /</span><br><span class="line">  ● O₀ (基座)</span><br></pre></td></tr></table></figure>
+
+<p>逐级计算：</p>
+<ol>
+<li>关节 1 转 <span class="math-inline">\(\theta_1\)</span>：肘部 <span class="math-inline">\(O_1\)</span> 位于 <span class="math-inline">\((l_1\cos\theta_1,\; l_1\sin\theta_1)\)</span>；</li>
+<li>关节 2 相对连杆 1 再转 <span class="math-inline">\(\theta_2\)</span>：末端方向角为 <span class="math-inline">\(\theta_1+\theta_2\)</span>。</li>
+</ol>
+<p>于是正解为：</p>
+<div class="math-block">\[
+\begin{cases} x = l_1\cos\theta_1 + l_2\cos(\theta_1+\theta_2) \\ y = l_1\sin\theta_1 + l_2\sin(\theta_1+\theta_2) \end{cases} \qquad \phi = \theta_1 + \theta_2
+\]</div>
+<p>写成齐次矩阵形式：</p>
+<div class="math-block">\[
+\mathbf{T}(\boldsymbol{\theta}) = \begin{bmatrix} \cos(\theta_1+\theta_2) &amp; -\sin(\theta_1+\theta_2) &amp; 0 &amp; x \\ \sin(\theta_1+\theta_2) &amp; \cos(\theta_1+\theta_2) &amp; 0 &amp; y \\ 0 &amp; 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; 1 \end{bmatrix}
+\]</div>
+<h2 id="3-逆向运动学"><a href="#3-逆向运动学" class="headerlink" title="3. 逆向运动学"></a>3. 逆向运动学</h2><h3 id="3-1-解的存在性与多解性"><a href="#3-1-解的存在性与多解性" class="headerlink" title="3.1 解的存在性与多解性"></a>3.1 解的存在性与多解性</h3><p>IK 本质上是解方程 <span class="math-inline">\(\mathbf{T}(\boldsymbol{\theta}) = \mathbf{T}^{\text{des}}\)</span>，共 6 个独立约束（3 位置 + 3 姿态）：</p>
+<ul>
+<li><strong>无解</strong>：目标点超出工作空间，或姿态不可达。例如 2R 臂中 <span class="math-inline">\(\sqrt{x^2+y^2} &gt; l_1+l_2\)</span> 或 <span class="math-inline">\(&lt; |l_1-l_2|\)</span>；</li>
+<li><strong>多解</strong>：<span class="math-inline">\(n\)</span> 关节一般最多有 <span class="math-inline">\(2^n\)</span> 组逆解域分支，实际受结构限制少于该值。2R 臂对可达点通常有”肘上 &#x2F; 肘下”两组解；一般 6 轴工业臂常有 4–8 组解；</li>
+<li><strong>无穷多解</strong>：冗余机械臂（<span class="math-inline">\(n&gt;6\)</span>）的零空间维数大于零。</li>
+</ul>
+<p>工程上通常在多解中选”与当前关节角最接近”的一组，避免大范围翻转。</p>
+<h3 id="3-2-解析法（封闭解）"><a href="#3-2-解析法（封闭解）" class="headerlink" title="3.2 解析法（封闭解）"></a>3.2 解析法（封闭解）</h3><h4 id="3-2-1-平面-2R-臂完整推导"><a href="#3-2-1-平面-2R-臂完整推导" class="headerlink" title="3.2.1 平面 2R 臂完整推导"></a>3.2.1 平面 2R 臂完整推导</h4><p><strong>第一步：解 <span class="math-inline">\(\theta_2\)</span>。</strong> 由 <span class="math-inline">\(x^2+y^2\)</span> 消去 <span class="math-inline">\(\theta_1\)</span>：</p>
+<div class="math-block">\[
+x^2 + y^2 = l_1^2 + l_2^2 + 2l_1l_2\cos\theta_2 \;\;\Rightarrow\;\; \cos\theta_2 = \frac{x^2+y^2-l_1^2-l_2^2}{2l_1l_2}
+\]</div>
+<p>若右端绝对值大于 1，则目标不可达（无解）。否则：</p>
+<div class="math-block">\[
+\theta_2 = \pm\arccos\!\left(\frac{x^2+y^2-l_1^2-l_2^2}{2l_1l_2}\right)
+\]</div>
+<p>正号对应”肘左”，负号对应”肘右”，两组解的分叉点。</p>
+<p><strong>第二步：解 <span class="math-inline">\(\theta_1\)</span>。</strong> 将正解展开并按 <span class="math-inline">\(\sin\theta_1\)</span>、<span class="math-inline">\(\cos\theta_1\)</span> 合并同类项，记：</p>
+<div class="math-block">\[
+k_1 = l_1 + l_2\cos\theta_2, \qquad k_2 = l_2\sin\theta_2
+\]</div>
+<p>则 <span class="math-inline">\(x = k_1\cos\theta_1 - k_2\sin\theta_1\)</span>，<span class="math-inline">\(y = k_1\sin\theta_1 + k_2\cos\theta_1\)</span>，用”齐次角”技巧即得：</p>
+<div class="math-block">\[
+\theta_1 = \operatorname{atan2}(y,\,x) - \operatorname{atan2}(k_2,\,k_1)
+\]</div>
+<p>这里<strong>必须用 <span class="math-inline">\(\operatorname{atan2}\)</span> 而非 <span class="math-inline">\(\arctan\)</span></strong>：<span class="math-inline">\(\operatorname{atan2}\)</span> 依据分子分母符号返回 <span class="math-inline">\((-\pi,\pi]\)</span> 的完整象限角，避免丢象限；这是所有解析 IK 的通用注意点。</p>
+<p><strong>几何验证：</strong> <span class="math-inline">\(\operatorname{atan2}(y,x)=\beta\)</span> 是基座指向目标的方位角，<span class="math-inline">\(\operatorname{atan2}(k_2,k_1)=\gamma\)</span> 是连杆 1 相对基座-目标连线的内偏角，<span class="math-inline">\(\theta_1 = \beta - \gamma\)</span> 正是”先对准、再内收”的几何构造。</p>
+<h4 id="3-2-2-一般-6-轴臂：Pieper-腕部分离法"><a href="#3-2-2-一般-6-轴臂：Pieper-腕部分离法" class="headerlink" title="3.2.2 一般 6 轴臂：Pieper 腕部分离法"></a>3.2.2 一般 6 轴臂：Pieper 腕部分离法</h4><p>绝大多数工业机械臂采用<strong>球形腕</strong>结构：末三轴交于一点（腕心）。此时 IK 可解耦为两个低维子问题：</p>
+<ol>
+<li><strong>位置子问题（前三关节）：</strong> 腕心位置不依赖腕部姿态，<span class="math-inline">\(\mathbf{p}_w = \mathbf{T}^{\text{des}}\,[0,0,d_6,1]^{\top}\)</span> 只由 <span class="math-inline">\(\theta_1,\theta_2,\theta_3\)</span> 决定，化为 3 元三角方程组（做法与 2R 推导同源：逐级用 <span class="math-inline">\(\sin^2+\cos^2=1\)</span> 消元）；</li>
+<li><strong>姿态子问题（后三关节）：</strong> 期望腕部旋转为 <span class="math-inline">\({}^{3}\mathbf{R}_{\text{des}} = ({}^{0}\mathbf{R}_{3})^{\top}\,{}^{0}\mathbf{R}_{\text{des}}\)</span>，将 ZYZ（或 ZYX）欧拉角分解逐一解出 <span class="math-inline">\(\theta_4,\theta_5,\theta_6\)</span>，其中 <span class="math-inline">\(\sin\theta_5=0\)</span>（腕伸直奇异）时 <span class="math-inline">\(\theta_4,\theta_6\)</span> 只能解出和式，需特殊分支处理。</li>
+</ol>
+<p><strong>封闭解存在条件（Pieper 判据）</strong>：满足下列任一条件的 6 轴串联臂存在封闭解——三相邻轴交于一点；三相邻轴平行；<span class="math-inline">\(a_1=a_2\)</span> 且 <span class="math-inline">\(\alpha_1=\alpha_2=\pm 90°\)</span> 的特殊几何。不满足时原则上无通用封闭解，需用数值法。</p>
+<p>解析法优点：快（微秒级）、一次得到全部解分支、无收敛性问题；缺点：对结构有要求，公式推导易错、不可移植。</p>
+<h3 id="3-3-数值迭代法"><a href="#3-3-数值迭代法" class="headerlink" title="3.3 数值迭代法"></a>3.3 数值迭代法</h3><p>通用做法：把 IK 视为非线性最小二乘&#x2F;求根问题，从初值 <span class="math-inline">\(\boldsymbol{\theta}_0\)</span> 出发迭代逼近。</p>
+<h4 id="3-3-1-雅可比与误差定义"><a href="#3-3-1-雅可比与误差定义" class="headerlink" title="3.3.1 雅可比与误差定义"></a>3.3.1 雅可比与误差定义</h4><p>末端微分运动与关节微分的关系由雅可比矩阵给出：</p>
+<div class="math-block">\[
+\begin{bmatrix} \dot{\mathbf{p}} \\ \boldsymbol{\omega} \end{bmatrix} = \mathbf{J}(\boldsymbol{\theta})\,\dot{\boldsymbol{\theta}}, \qquad \mathbf{J} \in \mathbb{R}^{6\times n}
+\]</div>
+<p>几何雅可比第 <span class="math-inline">\(i\)</span> 列（转动关节）为：</p>
+<div class="math-block">\[
+\mathbf{J}_{:,i} = \begin{bmatrix} \mathbf{z}_{i-1} \times (\mathbf{p}_e - \mathbf{p}_{i-1}) \\ \mathbf{z}_{i-1} \end{bmatrix}
+\]</div>
+<p>其中 <span class="math-inline">\(\mathbf{z}_{i-1}\)</span>、<span class="math-inline">\(\mathbf{p}_{i-1}\)</span> 是关节 <span class="math-inline">\(i\)</span> 轴向量和原点在基座系下的表示。</p>
+<p>第 <span class="math-inline">\(k\)</span> 步误差取位置误差与姿态误差的堆叠：</p>
+<div class="math-block">\[
+\mathbf{e}_k = \begin{bmatrix} \mathbf{p}_{\text{des}} - \mathbf{p}(\boldsymbol{\theta}_k) \\ \operatorname{log}\!\left(\mathbf{R}(\boldsymbol{\theta}_k)^{\top}\mathbf{R}_{\text{des}}\right)^{\vee} \end{bmatrix} \in \mathbb{R}^{6}
+\]</div>
+<p>姿态误差用相对旋转的对数映射（旋转矢量）表示，避免欧拉角奇异。</p>
+<h4 id="3-3-2-牛顿—伪逆迭代"><a href="#3-3-2-牛顿—伪逆迭代" class="headerlink" title="3.3.2 牛顿—伪逆迭代"></a>3.3.2 牛顿—伪逆迭代</h4><p>对 <span class="math-inline">\(\mathbf{e}(\boldsymbol{\theta})=\mathbf{0}\)</span> 一阶泰勒展开得 <span class="math-inline">\(\mathbf{J}\,\Delta\boldsymbol{\theta} \approx \mathbf{e}\)</span>：</p>
+<div class="math-block">\[
+\boldsymbol{\theta}_{k+1} = \boldsymbol{\theta}_k + \alpha\,\mathbf{J}^{+}\,\mathbf{e}_k
+\]</div>
+<p><span class="math-inline">\(\mathbf{J}^{+}\)</span> 为伪逆：方阵满秩时 <span class="math-inline">\(\mathbf{J}^{-1}\)</span>；瘦高矩阵（<span class="math-inline">\(n&lt;6\)</span>）用 <span class="math-inline">\(\mathbf{J}^{+}=(\mathbf{J}^{\top}\mathbf{J})^{-1}\mathbf{J}^{\top}\)</span>；扁宽矩阵（<span class="math-inline">\(n&gt;6\)</span>，冗余臂）用 <span class="math-inline">\(\mathbf{J}^{+}=\mathbf{J}^{\top}(\mathbf{J}\mathbf{J}^{\top})^{-1}\)</span>，此时解不唯一，伪逆给出最小范数增量。</p>
+<p><strong>致命弱点：</strong> 当机械臂接近奇异位形，<span class="math-inline">\(\mathbf{J}\)</span> 最小奇异值 <span class="math-inline">\(\sigma_{\min}\to 0\)</span>，<span class="math-inline">\(\mathbf{J}^{+}\)</span> 元素爆炸，产生巨大的关节跳变。</p>
+<h4 id="3-3-3-阻尼最小二乘（DLS-Levenberg–Marquardt）"><a href="#3-3-3-阻尼最小二乘（DLS-Levenberg–Marquardt）" class="headerlink" title="3.3.3 阻尼最小二乘（DLS &#x2F; Levenberg–Marquardt）"></a>3.3.3 阻尼最小二乘（DLS &#x2F; Levenberg–Marquardt）</h4><p>给伪逆加阻尼项，等价于求解带正则的最小二乘：</p>
+<div class="math-block">\[
+\Delta\boldsymbol{\theta} = \arg\min_{\Delta\boldsymbol{\theta}} \left\| \mathbf{J}\Delta\boldsymbol{\theta} - \mathbf{e} \right\|^2 + \lambda^2 \left\| \Delta\boldsymbol{\theta} \right\|^2 \;\;\Rightarrow\;\; \Delta\boldsymbol{\theta} = \mathbf{J}^{\top}\left(\mathbf{J}\mathbf{J}^{\top} + \lambda^2\mathbf{I}\right)^{-1}\mathbf{e}
+\]</div>
+<p>阻尼项压制了靠近奇异时的高增益，代价是收敛终点略”软”（<span class="math-inline">\(\lambda\)</span> 越大残差越大），是工程中最常用的默认方案。</p>
+<h4 id="3-3-4-迭代流程"><a href="#3-3-4-迭代流程" class="headerlink" title="3.3.4 迭代流程"></a>3.3.4 迭代流程</h4><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">输入: 期望位姿 T_des, 初值 θ0, 参数 (λ, α, εp, εω, k_max, 关节限位)</span><br><span class="line">─────────────────────────────────────────────────────</span><br><span class="line"> 1. θ ← θ0</span><br><span class="line"> 2. loop  k = 0, 1, ..., k_max-1:</span><br><span class="line"> 3.   正解计算 T(θ), 得 p(θ), R(θ)</span><br><span class="line"> 4.   e ← [p_des - p(θ); log(R(θ)ᵀ R_des)∨]</span><br><span class="line"> 5.   若 ‖e_p‖ &lt; εp 且 ‖e_ω‖ &lt; εω → 收敛, 返回 θ</span><br><span class="line"> 6.   J ← 雅可比(θ)</span><br><span class="line"> 7.   Δθ ← Jᵀ(JJᵀ + λ²I)⁻¹ e          # DLS 步</span><br><span class="line"> 8.   θ ← θ + α·Δθ</span><br><span class="line"> 9.   θ ← clamp(θ, θ_min, θ_max)      # 关节限位投影</span><br><span class="line">10. 若未收敛 → 失败: 换初值重试 / 上报</span><br><span class="line">─────────────────────────────────────────────────────</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-3-5-参数详解与调参建议"><a href="#3-3-5-参数详解与调参建议" class="headerlink" title="3.3.5 参数详解与调参建议"></a>3.3.5 参数详解与调参建议</h4><p>数值法的成败几乎完全取决于参数选择，逐一说明：</p>
+<p><strong>（1）初值 <span class="math-inline">\(\boldsymbol{\theta}_0\)</span></strong></p>
+<ul>
+<li><strong>意义</strong>：牛顿类方法只有局部收敛域（大约以解为中心、半径受奇异位形限制的吸引域）。初值决定收敛到<strong>哪个解分支</strong>以及<strong>是否收敛</strong>。</li>
+<li><strong>建议</strong>：<ul>
+<li>有上一时刻解时，用<strong>上一帧关节角</strong>作初值（轨迹跟踪场景天然连续，通常 1–3 步收敛）；</li>
+<li>无先验时用”折刀位”（各关节居中）作默认初值，远离边界奇异；</li>
+<li>收敛失败时<strong>多起点重启</strong>：在关节限位内均匀撒 5–10 个初值逐一尝试（随机重启）；</li>
+<li>若结构满足封闭解条件，可先用解析法求粗解再数值精修（混合法），兼顾速度与鲁棒性。</li>
+</ul>
+</li>
+</ul>
+<p><strong>（2）阻尼系数 <span class="math-inline">\(\lambda\)</span></strong></p>
+<ul>
+<li><strong>意义</strong>：奇异附近的”减震器”。<span class="math-inline">\(\lambda\)</span> 大 → 步长稳、残差大、收敛慢；<span class="math-inline">\(\lambda\)</span> 小 → 精度高、但奇异附近关节速度爆炸。它以”牺牲末端精度换取关节平稳”的方式正则化 ill-conditioned 的 <span class="math-inline">\(\mathbf{J}\)</span>。</li>
+<li><strong>建议</strong>：<ul>
+<li>固定值可从 <span class="math-inline">\(\lambda = 0.01 \sim 0.1\)</span>（SI 单位，位置米&#x2F;姿态弧度混合量纲）起步；</li>
+<li>更好的做法是<strong>误差自适应</strong>：<span class="math-inline">\(\lambda^2 = \lambda_0^2\,\|\mathbf{e}\|^2\)</span>——误差大时强阻尼保稳定，接近解时自动减弱保精度；</li>
+<li>或按<strong>奇异值自适应</strong>（Wampa&#x2F;Chan-Vey 类策略）：<span class="math-inline">\(\sigma_{\min} &gt; \varepsilon_\sigma\)</span> 时用纯伪逆，进入阈值后 <span class="math-inline">\(\lambda^2 = (1-(\sigma_{\min}/\varepsilon_\sigma)^2)\lambda_{\max}^2\)</span>，平滑过渡；</li>
+<li>注意 <span class="math-inline">\(\lambda\)</span> 与误差量纲耦合：若位置误差以毫米计，<span class="math-inline">\(\lambda\)</span> 需同步缩放，建议先统一到米&#x2F;弧度。</li>
+</ul>
+</li>
+</ul>
+<p><strong>（3）步长因子 <span class="math-inline">\(\alpha\)</span></strong></p>
+<ul>
+<li><strong>意义</strong>：牛顿增量的人为缩放，防止单步跨过收敛域引起振荡（尤其目标在可达边界附近时）。</li>
+<li><strong>建议</strong>：默认 <span class="math-inline">\(\alpha = 1\)</span>；若观察到关节角来回振荡，退到 <span class="math-inline">\(0.3 \sim 0.5\)</span>；也可以做简单线搜索——若 <span class="math-inline">\(\|\mathbf{e}(\boldsymbol{\theta}+\Delta\boldsymbol{\theta})\| &gt; \|\mathbf{e}(\boldsymbol{\theta})\|\)</span> 则 α 减半重试。</li>
+</ul>
+<p><strong>（4）收敛阈值 <span class="math-inline">\(\varepsilon_p, \varepsilon_{\omega}\)</span></strong></p>
+<ul>
+<li><strong>意义</strong>：停止准则，决定”多准才算解”。过松导致轨迹抖动，过紧则浪费迭代甚至永远不达标（残差下限由 <span class="math-inline">\(\lambda\)</span> 决定，约 <span class="math-inline">\(\varepsilon_{\min} \sim \lambda\|\Delta\boldsymbol{\theta}\|\)</span> 量级）。</li>
+<li><strong>建议</strong>：仿真&#x2F;离线规划 <span class="math-inline">\(\varepsilon_p = 10^{-6}\)</span> m、<span class="math-inline">\(\varepsilon_{\omega} = 10^{-6}\)</span> rad；实时控制（周期 1 ms）可放宽到 <span class="math-inline">\(10^{-4}\)</span> m &#x2F; <span class="math-inline">\(10^{-4}\)</span> rad；<strong>阈值必须与传感器精度匹配</strong>，低于编码器&#x2F;标定精度的阈值没有意义。</li>
+</ul>
+<p><strong>（5）最大迭代次数 <span class="math-inline">\(k_{\max}\)</span></strong></p>
+<ul>
+<li><strong>意义</strong>：失败兜底，防止死循环占用实时周期。</li>
+<li><strong>建议</strong>：离线 100–200 次；实时控制取每周期预算能承受的 5–20 次，配合”上一帧解作初值”策略足够。</li>
+</ul>
+<p><strong>（6）关节限位与奇异阈值</strong></p>
+<ul>
+<li><strong>关节限位</strong>：每步迭代后 clamp 到 <span class="math-inline">\([\theta_{i,\min},\theta_{i,\max}]\)</span>。目标只在限位可达空间内才有解，clamp 后应重算误差（目标可能实际不可达，表现为残差停在非零平台）；</li>
+<li><strong>奇异值截断阈值</strong>：做 SVD 求解时，把 <span class="math-inline">\(\sigma_i &lt; \varepsilon_\sigma\,\sigma_{\max}\)</span>（<span class="math-inline">\(\varepsilon_\sigma \approx 0.01 \sim 0.05\)</span>）的分量剔除，等价于”在奇异方向拒绝产生大关节运动”，与 <span class="math-inline">\(\lambda\)</span> 二选一或叠加使用。</li>
+</ul>
+<p><strong>快速参考表：</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>作用</th>
+<th>推荐起点</th>
+<th>调整方向</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><span class="math-inline">\(\boldsymbol{\theta}_0\)</span></td>
+<td>选择解分支&#x2F;决定收敛</td>
+<td>上一帧解或折刀位</td>
+<td>失败→多起点重启</td>
+</tr>
+<tr>
+<td><span class="math-inline">\(\lambda\)</span></td>
+<td>奇异鲁棒性 vs 精度</td>
+<td>0.01–0.1 或自适应</td>
+<td>震荡→增大；残差大→减小</td>
+</tr>
+<tr>
+<td><span class="math-inline">\(\alpha\)</span></td>
+<td>单步步长</td>
+<td>1.0</td>
+<td>振荡→0.3–0.5</td>
+</tr>
+<tr>
+<td><span class="math-inline">\(\varepsilon_p,\varepsilon_{\omega}\)</span></td>
+<td>收敛判定</td>
+<td>1e-6–1e-4 (m&#x2F;rad)</td>
+<td>实时放宽、离线收紧</td>
+</tr>
+<tr>
+<td><span class="math-inline">\(k_{\max}\)</span></td>
+<td>失败兜底</td>
+<td>离线 100–200，实时 5–20</td>
+<td>按周期预算</td>
+</tr>
+<tr>
+<td><span class="math-inline">\(\varepsilon_\sigma\)</span></td>
+<td>奇异截断</td>
+<td>0.01–0.05 × <span class="math-inline">\(\sigma_{\max}\)</span></td>
+<td>与 <span class="math-inline">\(\lambda\)</span> 配合</td>
+</tr>
+</tbody></table>
+<h4 id="3-3-6-方法对比与选型"><a href="#3-3-6-方法对比与选型" class="headerlink" title="3.3.6 方法对比与选型"></a>3.3.6 方法对比与选型</h4><table>
+<thead>
+<tr>
+<th>维度</th>
+<th>解析法</th>
+<th>数值迭代法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>适用结构</td>
+<td>需满足 Pieper 判据</td>
+<td>任意串联结构（含冗余）</td>
+</tr>
+<tr>
+<td>计算速度</td>
+<td>极快（µs 级）</td>
+<td>慢（数十次正解迭代）</td>
+</tr>
+<tr>
+<td>多解信息</td>
+<td>一次给出全部分支</td>
+<td>只收敛到初值附近的单个解</td>
+</tr>
+<tr>
+<td>鲁棒性</td>
+<td>无收敛问题；奇异处需特判</td>
+<td>依赖初值与参数；DLS 可平滑穿越奇异</td>
+</tr>
+<tr>
+<td>实现成本</td>
+<td>推导复杂、不可移植</td>
+<td>通用框架、可复用</td>
+</tr>
+</tbody></table>
+<p>工程惯例：<strong>优先解析（结构允许时），数值兜底；实时轨迹跟踪用”上一帧解 + DLS 小步迭代”</strong>，教学与研究平台则普遍用数值法以获得通用性。</p>
+<h2 id="4-小结"><a href="#4-小结" class="headerlink" title="4. 小结"></a>4. 小结</h2><ul>
+<li>FK 是 <span class="math-inline">\(\boldsymbol{\theta} \mapsto \mathbf{T}\)</span> 的单值多项式映射，由 DH 相邻变换连乘直接得到；</li>
+<li>IK 是非线性求根：解析法依赖结构（球形腕 + Pieper 判据），核心技巧是消元 + <span class="math-inline">\(\operatorname{atan2}\)</span>；数值法以雅可比为核心，DLS 加阻尼换取奇异鲁棒性；</li>
+<li>数值法调参口诀：<strong>初值决定成败，阻尼决定稳定，阈值决定精度，迭代上限决定兜底</strong>——四者按上文表格逐项排查即可覆盖绝大多数收敛问题。</li>
+</ul>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/BlogNotes/about" rel="external nofollow noreferrer">Jianbo.Yuan</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://jianbo-yuan.github.io/BlogNotes/BlogNotes/2026/08/29/%E6%9C%BA%E5%99%A8%E4%BA%BA%E8%BF%90%E5%8A%A8%E5%AD%A6%E5%9F%BA%E7%A1%80/">https://jianbo-yuan.github.io/BlogNotes/BlogNotes/2026/08/29/%E6%9C%BA%E5%99%A8%E4%BA%BA%E8%BF%90%E5%8A%A8%E5%AD%A6%E5%9F%BA%E7%A1%80/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/BlogNotes/about" target="_blank">Jianbo.Yuan</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/BlogNotes/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/BlogNotes/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/BlogNotes/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/BlogNotes/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/BlogNotes/tutorials/unison-local-remote-code-sync/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/BlogNotes/medias/featureimages/9.jpg" class="responsive-img" alt="通过Unison实现本地与远程服务器的代码同步">
+                        
+                        <span class="card-title">通过Unison实现本地与远程服务器的代码同步</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            使用 Unison 在本地 Windows 与远程 Linux 服务器之间建立双向代码同步：原理、安装、SSH 免密、profile 配置模板、日常使用与常见踩坑。
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2026-08-30
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/BlogNotes/categories/%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7/" class="post-category">
+                                    科研工具
+                                </a>
+                            
+                            <a href="/BlogNotes/categories/%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7/%E7%BC%96%E7%A8%8B%E7%B1%BB/" class="post-category">
+                                    编程类
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/BlogNotes/tags/Unison/">
+                        <span class="chip bg-color">Unison</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/%E6%96%87%E4%BB%B6%E5%90%8C%E6%AD%A5/">
+                        <span class="chip bg-color">文件同步</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/SSH/">
+                        <span class="chip bg-color">SSH</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/%E8%BF%9C%E7%A8%8B%E5%BC%80%E5%8F%91/">
+                        <span class="chip bg-color">远程开发</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/Windows/">
+                        <span class="chip bg-color">Windows</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/BlogNotes/2026/04/28/ViTacFormer-Learning-Cross-Modal-Representation-for-Visuo-Tactile-Dexterous-Manipulation/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/BlogNotes/medias/featureimages/13.jpg" class="responsive-img" alt="ViTacFormer: Learning Cross-Modal Representation for Visuo-Tactile Dexterous Manipulation">
+                        
+                        <span class="card-title">ViTacFormer: Learning Cross-Modal Representation for Visuo-Tactile Dexterous Manipulation</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-04-28
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/BlogNotes/categories/%E8%AE%BA%E6%96%87%E7%B2%BE%E5%BA%A6%E4%B8%8E%E5%88%86%E6%9E%90/" class="post-category">
+                                    论文精度与分析
+                                </a>
+                            
+                            <a href="/BlogNotes/categories/%E8%AE%BA%E6%96%87%E7%B2%BE%E5%BA%A6%E4%B8%8E%E5%88%86%E6%9E%90/%E6%A8%A1%E4%BB%BF%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    模仿学习
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/BlogNotes/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/BlogNotes/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/BlogNotes/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/BlogNotes/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/BlogNotes/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        },
+        "HTML-CSS": {
+            linebreaks: {
+                automatic: true,
+                width: "container"
+            }
+        },
+        SVG: {
+            linebreaks: {
+                automatic: true,
+                width: "container"
+            }
+        }
+    });
+</script>
+<script>
+    (function () {
+        if (window.MathJax) return;
+
+        var sources = [
+            "https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML",
+            "https://unpkg.com/mathjax@2.7.9/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML",
+            "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+        ];
+
+        function loadMathJax(index) {
+            if (index >= sources.length) {
+                console.error("MathJax failed to load from all configured CDNs.");
+                return;
+            }
+
+            var script = document.createElement("script");
+            script.src = sources[index];
+            script.async = true;
+            script.onerror = function () {
+                loadMathJax(index + 1);
+            };
+            document.head.appendChild(script);
+        }
+
+        loadMathJax(0);
+    })();
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/BlogNotes/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.3'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/BlogNotes/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2026</span>
+            
+            <span id="year">2026</span>
+            <a href="/BlogNotes/about" target="_blank">Jianbo.Yuan</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:jianbo.yuan@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=335943408" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 335943408" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+    <a href="https://www.zhihu.com/people/Simple" class="tooltipped" target="_blank" data-tooltip="关注我的知乎: https://www.zhihu.com/people/Simple" data-position="top" data-delay="50">
+        <i class="fab fa-zhihu1">知</i>
+    </a>
+
+
+
+    <a href="/BlogNotes/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/BlogNotes/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/BlogNotes/libs/materialize/materialize.min.js"></script>
+    <script src="/BlogNotes/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/BlogNotes/libs/aos/aos.js"></script>
+    <script src="/BlogNotes/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/BlogNotes/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/BlogNotes/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/BlogNotes/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/BlogNotes/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/BlogNotes/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

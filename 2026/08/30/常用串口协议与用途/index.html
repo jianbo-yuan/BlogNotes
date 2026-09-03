@@ -1,0 +1,1797 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="常用串口协议与用途, Jianbo.Yuan">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>常用串口协议与用途 | Jianbo.Yuan</title>
+    <link rel="icon" type="image/png" href="/BlogNotes/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/css/my.css">
+
+    <script src="/BlogNotes/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/BlogNotes/" class="waves-effect waves-light">
+                    
+                    <img src="/BlogNotes/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Jianbo.Yuan</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/BlogNotes/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Jianbo.Yuan</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/BlogNotes/medias/featureimages/18.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">常用串口协议与用途</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/BlogNotes/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/BlogNotes/tags/%E4%B8%B2%E5%8F%A3/">
+                                <span class="chip bg-color">串口</span>
+                            </a>
+                        
+                            <a href="/BlogNotes/tags/UART/">
+                                <span class="chip bg-color">UART</span>
+                            </a>
+                        
+                            <a href="/BlogNotes/tags/RS-232/">
+                                <span class="chip bg-color">RS-232</span>
+                            </a>
+                        
+                            <a href="/BlogNotes/tags/RS-485/">
+                                <span class="chip bg-color">RS-485</span>
+                            </a>
+                        
+                            <a href="/BlogNotes/tags/USB/">
+                                <span class="chip bg-color">USB</span>
+                            </a>
+                        
+                            <a href="/BlogNotes/tags/Modbus/">
+                                <span class="chip bg-color">Modbus</span>
+                            </a>
+                        
+                            <a href="/BlogNotes/tags/I2C/">
+                                <span class="chip bg-color">I2C</span>
+                            </a>
+                        
+                            <a href="/BlogNotes/tags/SPI/">
+                                <span class="chip bg-color">SPI</span>
+                            </a>
+                        
+                            <a href="/BlogNotes/tags/CAN/">
+                                <span class="chip bg-color">CAN</span>
+                            </a>
+                        
+                            <a href="/BlogNotes/tags/CAN-FD/">
+                                <span class="chip bg-color">CAN-FD</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/BlogNotes/categories/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%90%86%E8%AE%BA%E4%B8%8E%E6%8A%80%E6%9C%AF/" class="post-category">
+                                机器人理论与技术
+                            </a>
+                        
+                            <a href="/BlogNotes/categories/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%90%86%E8%AE%BA%E4%B8%8E%E6%8A%80%E6%9C%AF/%E6%9C%BA%E5%99%A8%E4%BA%BA%E9%80%9A%E8%AE%AF%E7%B3%BB%E7%BB%9F/" class="post-category">
+                                机器人通讯系统
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2026-08-30
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>机器人的每一块电路板之间都在”说话”：主控对电机驱动器说”出 3.5 N·m”，IMU 对主控说”我转了 2°”，摄像头说”这一帧图像给你”，夹爪控制器说”我夹住了”。这些对话走的都是<strong>串行通讯协议</strong>。本文覆盖机器人中最常用的九种：<strong>UART、RS-232、RS-485、Modbus RTU、USB、I2C、SPI、CAN、CAN-FD</strong>（外加简短的 1-Wire）——每种讲清电气层、协议层、在机器人里的典型用途，并给出 Python demo（帧构造&#x2F;解析类代码纯 Python 可跑，已实测；硬件读写类标注了所需库与硬件）。</p>
+<h2 id="1-协议全景：一张表先建立坐标"><a href="#1-协议全景：一张表先建立坐标" class="headerlink" title="1. 协议全景：一张表先建立坐标"></a>1. 协议全景：一张表先建立坐标</h2><p>选协议本质是在四个维度做取舍：<strong>距离、速率、节点数、实时性</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>协议</th>
+<th>线数</th>
+<th>典型速率</th>
+<th>距离</th>
+<th>拓扑</th>
+<th>机器人用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>UART (TTL)</td>
+<td>2 (TX&#x2F;RX)</td>
+<td>9.6k~3M bps</td>
+<td>&lt;1 m 板内</td>
+<td>点对点</td>
+<td>调试口、GPS、数传、模块间通讯</td>
+</tr>
+<tr>
+<td>RS-232</td>
+<td>2~9 (DB9)</td>
+<td>≤115.2 kbps</td>
+<td>~15 m</td>
+<td>点对点</td>
+<td>老式设备、力传感器、工控台</td>
+</tr>
+<tr>
+<td>RS-485</td>
+<td>2 (差分)</td>
+<td>10M bps@12m &#x2F; 100k@1200m</td>
+<td>最长 1.2 km</td>
+<td>多点总线（32~256 节点）</td>
+<td>Modbus RTU、传感器总线</td>
+</tr>
+<tr>
+<td>Modbus RTU</td>
+<td>(承载于 RS-485)</td>
+<td>—</td>
+<td>—</td>
+<td>主从问答</td>
+<td>变频器、PLC、智能传感器</td>
+</tr>
+<tr>
+<td>USB</td>
+<td>4 (差分对+电源)</td>
+<td>12M &#x2F; 480M &#x2F; 5G+ bps</td>
+<td>≤5 m（可级联）</td>
+<td>分层星型（主机-设备）</td>
+<td>摄像头、调试器、传感器、虚拟串口</td>
+</tr>
+<tr>
+<td>I2C</td>
+<td>2 (SCL&#x2F;SDA)</td>
+<td>100k~3.4M Hz</td>
+<td>板内 &lt;30 cm</td>
+<td>一主多从（7 位地址）</td>
+<td>IMU、编码器芯片、OLED、EEPROM</td>
+</tr>
+<tr>
+<td>SPI</td>
+<td>4+ (MOSI&#x2F;MISO&#x2F;SCK&#x2F;CS)</td>
+<td>1~50+ MHz</td>
+<td>板内</td>
+<td>一主多从（片选）</td>
+<td>高速 ADC&#x2F;DAC、SD 卡、屏幕</td>
+</tr>
+<tr>
+<td>CAN</td>
+<td>2 (差分)</td>
+<td>1M bps@40m</td>
+<td>≤40 m@1M</td>
+<td>多主总线</td>
+<td>电机驱动器、整机内部总线、BMS</td>
+</tr>
+<tr>
+<td>CAN-FD</td>
+<td>2 (差分)</td>
+<td>仲裁 1M + 数据段 5~8M</td>
+<td>同 CAN</td>
+<td>多主总线</td>
+<td>新一代驱动器、人形机器人关节总线</td>
+</tr>
+<tr>
+<td>1-Wire</td>
+<td>1 (数据+寄生电源)</td>
+<td>~16 kbps</td>
+<td>~100 m</td>
+<td>一主多从（64 位 ROM ID）</td>
+<td>DS18B20 温度监测（电机&#x2F;电池）</td>
+</tr>
+</tbody></table>
+<p>两条分界线先记住：</p>
+<ul>
+<li><strong>板内 vs 板间</strong>：I2C&#x2F;SPI 是芯片间总线（厘米级），UART&#x2F;RS-232&#x2F;RS-485&#x2F;USB&#x2F;CAN 是板间总线</li>
+<li><strong>实时总线的天花板</strong>：CAN&#x2F;CAN-FD 之上是工业以太网（EtherCAT），见<a href="/BlogNotes/2026/08/30/Ether%20CAT%E5%8D%8F%E8%AE%AE%E5%8E%9F%E7%90%86%E4%B8%8E%E4%BD%BF%E7%94%A8/">下一篇</a></li>
+</ul>
+<h2 id="2-UART：一切串口的起点"><a href="#2-UART：一切串口的起点" class="headerlink" title="2. UART：一切串口的起点"></a>2. UART：一切串口的起点</h2><p>UART 是<strong>异步</strong>串行收发器：没有时钟线，双方<strong>约定波特率</strong>各自计时。</p>
+<p><strong>帧格式</strong>（每个字节一帧）：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">空闲  ──┐ 起始位      数据位 LSB first        奇偶校验  停止位</span><br><span class="line">       ▼▼       ▼▼▼▼▼▼▼▼                     ▼        ▲</span><br><span class="line">───────┐__________┬──────────────────────┬──────────────┐────────</span><br><span class="line">  1    │    0     │ D0 D1 D2 D3 D4 D5 D6 │  D7  P  (可) │   1</span><br><span class="line">       └──────────┴──────────────────────┴──────────────┘</span><br><span class="line">        1 bit              5~8 bit          0/1 bit    1~2 bit</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>常见配置写作 <code>115200 8N1</code>：波特率 115200、8 数据位、无校验、1 停止位</li>
+<li><strong>收发双方波特率误差超过 ~2% 就会错位</strong>——乱码（如收到 <code>0xFF</code>、<code>0x00</code> 连发）九成是波特率&#x2F;地线问题</li>
+<li>TTL 电平（3.3V&#x2F;5V）不能直连 RS-232&#x2F;RS-485 设备，需电平转换芯片</li>
+</ul>
+<p><strong>机器人用途</strong>：调试终端、GPS（NMEA-0183 文本协议）、蓝牙&#x2F;数传模块、与简单执行器（夹爪、升降模块）通讯。</p>
+<h3 id="2-1-Python-demo：自定义二进制帧的封装与解析（可运行，实测）"><a href="#2-1-Python-demo：自定义二进制帧的封装与解析（可运行，实测）" class="headerlink" title="2.1 Python demo：自定义二进制帧的封装与解析（可运行，实测）"></a>2.1 Python demo：自定义二进制帧的封装与解析（可运行，实测）</h3><p>板间 UART 通讯不能裸发 float——要自定义帧：<code>帧头 + 命令 + 长度 + 负载 + 校验和</code>。这套打包&#x2F;解包代码纯 Python 可跑（实测往返一致）：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> struct</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">frame_pack</span>(<span class="params">cmd: <span class="built_in">int</span>, payload: <span class="built_in">bytes</span></span>) -&gt; <span class="built_in">bytes</span>:</span><br><span class="line">    <span class="string">&quot;&quot;&quot;帧头 0xAA | 命令 | 长度 | 负载 | 校验和(负载和 mod 256)&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> struct.pack(<span class="string">&quot;&lt;BBB&quot;</span>, <span class="number">0xAA</span>, cmd, <span class="built_in">len</span>(payload)) + payload + <span class="built_in">bytes</span>([<span class="built_in">sum</span>(payload) &amp; <span class="number">0xFF</span>])</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">frame_unpack</span>(<span class="params">buf: <span class="built_in">bytes</span></span>):</span><br><span class="line">    <span class="keyword">assert</span> buf[<span class="number">0</span>] == <span class="number">0xAA</span>, <span class="string">&quot;帧头错误&quot;</span></span><br><span class="line">    cmd, n = buf[<span class="number">1</span>], buf[<span class="number">2</span>]</span><br><span class="line">    payload, chk = buf[<span class="number">3</span>:<span class="number">3</span>+n], buf[<span class="number">3</span>+n]</span><br><span class="line">    <span class="keyword">assert</span> <span class="built_in">sum</span>(payload) &amp; <span class="number">0xFF</span> == chk, <span class="string">&quot;校验和错误&quot;</span></span><br><span class="line">    <span class="keyword">return</span> cmd, payload</span><br><span class="line"></span><br><span class="line">f = frame_pack(<span class="number">0x01</span>, struct.pack(<span class="string">&quot;&lt;ff&quot;</span>, <span class="number">1.25</span>, -<span class="number">0.5</span>))   <span class="comment"># 命令 0x01 = 力矩+速度指令</span></span><br><span class="line">cmd, payload = frame_unpack(f)</span><br><span class="line">torque, vel = struct.unpack(<span class="string">&quot;&lt;ff&quot;</span>, payload)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;f.<span class="built_in">hex</span>().upper()&#125;</span> → cmd=0x<span class="subst">&#123;cmd:02X&#125;</span>, torque=<span class="subst">&#123;torque&#125;</span>, vel=<span class="subst">&#123;vel&#125;</span>&quot;</span>)</span><br><span class="line"><span class="comment"># 实测输出: AA01080000A03F000000BF9E → cmd=0x01, torque=1.25, vel=-0.5</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2-真实硬件读写（需-pyserial-串口）"><a href="#2-2-真实硬件读写（需-pyserial-串口）" class="headerlink" title="2.2 真实硬件读写（需 pyserial + 串口）"></a>2.2 真实硬件读写（需 <code>pyserial</code> + 串口）</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> serial</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> serial.Serial(<span class="string">&quot;COM5&quot;</span>, <span class="number">115200</span>, timeout=<span class="number">0.1</span>) <span class="keyword">as</span> ser:   <span class="comment"># Linux: &quot;/dev/ttyUSB0&quot;</span></span><br><span class="line">    ser.write(frame_pack(<span class="number">0x01</span>, struct.pack(<span class="string">&quot;&lt;ff&quot;</span>, <span class="number">1.25</span>, -<span class="number">0.5</span>)))</span><br><span class="line">    buf = ser.read(<span class="number">64</span>)                                     <span class="comment"># 按帧头同步再解析</span></span><br><span class="line">    <span class="keyword">if</span> buf.startswith(<span class="string">b&quot;\xAA&quot;</span>):</span><br><span class="line">        cmd, payload = frame_unpack(buf)</span><br></pre></td></tr></table></figure>
+
+<p>工程习惯：<strong>读线程按帧头扫描同步</strong>（丢弃半个帧），写端把小端字节序、<code>struct</code> 格式写进协议文档——两端语言不同（Python 主控 ↔ C 单片机）时这是唯一的共同语言。</p>
+<h2 id="3-RS-232：经典的单端点对点"><a href="#3-RS-232：经典的单端点对点" class="headerlink" title="3. RS-232：经典的单端点对点"></a>3. RS-232：经典的单端点对点</h2><p>UART 的 TTL 电平抗干扰差、距离短。<strong>RS-232 定义的是电气层</strong>（电平怎么表示 0&#x2F;1，不改变帧协议），经典接口是 DB9：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">DB9 母头（俯视）          关键引脚：</span><br><span class="line"> ┌───────────────┐        2  RD   接收数据</span><br><span class="line"> │ 5 4 3 2 1     │        3  TD   发送数据</span><br><span class="line"> │  □ □ □ □ □    │        5  GND  信号地（必须共！）</span><br><span class="line"> │   9 8 7 6     │        7  RTS ┐ 硬件流控</span><br><span class="line"> │   □ □ □ □     │        8  CTS ┘ （不用可悬空）</span><br><span class="line"> └───┘ └───┘     │        其余 DTR/DSR/DCD/RI 调制解调器时代遗产</span><br></pre></td></tr></table></figure>
+
+<p>要点：</p>
+<ul>
+<li><strong>负逻辑电平</strong>：−3<del>−15 V 表示逻辑 1（空闲态），+3</del>+15 V 表示逻辑 0——与 TTL 相反且高得多，直连必烧</li>
+<li>距离 ~15 m @ 115.2 kbps，点对点，无总线能力</li>
+<li><strong>硬件流控 RTS&#x2F;CTS</strong>：高速大数据量时防接收端缓冲溢出；软件流控（XON&#x2F;XOFF）会污染二进制数据，机器人通讯别用</li>
+<li><strong>Null-modem 线</strong>：两个 DTE（如 PC 对 PC、PC 对传感器）直连要把 2&#x2F;3 交叉——“接线对了就是不通”的第一嫌疑人</li>
+</ul>
+<p><strong>机器人用途</strong>：实验室老设备、部分六维力传感器（ATI 老型号）、GPS 接收机、工控机调试口。新设计已逐渐被 USB&#x2F;以太网取代，但会读它 &#x3D; 能接手一半的存量设备。</p>
+<h2 id="4-RS-485：差分总线，工业长距离主力"><a href="#4-RS-485：差分总线，工业长距离主力" class="headerlink" title="4. RS-485：差分总线，工业长距离主力"></a>4. RS-485：差分总线，工业长距离主力</h2><p>RS-485 同样只是电气层，但换成<strong>差分传输</strong>（A&#x2F;B 两线电压差编码），质变随之而来：</p>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>抗干扰</td>
+<td>差分对共模抑制，共模容限 −7~+12 V，可过电机旁边</td>
+</tr>
+<tr>
+<td>距离&#x2F;速率折算</td>
+<td>10 Mbps@12 m ↔ 100 kbps@1200 m，机械臂到控制柜绰绰有余</td>
+</tr>
+<tr>
+<td>多点总线</td>
+<td>经典收发器 32 个单位负载，1&#x2F;8 负载芯片（如 SP3485）可挂 256 节点</td>
+</tr>
+<tr>
+<td>半双工</td>
+<td>一对线分时收发（四线全双工版本存在但少）；<strong>谁说话由协议层决定</strong></td>
+</tr>
+<tr>
+<td>终端电阻</td>
+<td>首尾两端各 1 个 120Ω；长线还要偏置电阻保证空闲电平确定</td>
+</tr>
+</tbody></table>
+<p><strong>关键工程点——收发方向控制</strong>：半双工收发器有 DE（驱动使能）&#x2F;RE（接收使能）引脚，两种做法：</p>
+<ol>
+<li>MCU 用一根 GPIO&#x2F;RTS 控制：发送前置 DE、发完立刻切回——<strong>切换时机晚了自己吃掉从站应答的第一字节</strong>（Modbus 排障经典）</li>
+<li>自动收发模块（硬件自收发）：省一根线，但切换延迟由 RC 决定，高速时慎用</li>
+</ol>
+<h3 id="4-1-Python-demo（需硬件：RS-485-适配器-pyserial）"><a href="#4-1-Python-demo（需硬件：RS-485-适配器-pyserial）" class="headerlink" title="4.1 Python demo（需硬件：RS-485 适配器 + pyserial）"></a>4.1 Python demo（需硬件：RS-485 适配器 + <code>pyserial</code>）</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> serial</span><br><span class="line"><span class="keyword">from</span> serial <span class="keyword">import</span> rs485</span><br><span class="line"></span><br><span class="line">ser = serial.Serial(<span class="string">&quot;/dev/ttyUSB0&quot;</span>, <span class="number">115200</span>)          <span class="comment"># USB-RS485 适配器</span></span><br><span class="line"><span class="comment"># Linux 上可启用 485 方向控制（Windows 多数适配器硬件自动收发）</span></span><br><span class="line">ser.rs485_mode = rs485.RS485Settings(rts_level_for_tx=<span class="literal">True</span>,</span><br><span class="line">                                     rts_level_for_rx=<span class="literal">False</span>,</span><br><span class="line">                                     delay_before_tx=<span class="number">0.001</span>)</span><br><span class="line">ser.write(<span class="string">b&quot;\x01\x03\x00\x00\x00\x0A\xC5\xCD&quot;</span>)       <span class="comment"># 发一条 Modbus 请求（见下节）</span></span><br><span class="line"><span class="built_in">print</span>(ser.read(<span class="number">64</span>).<span class="built_in">hex</span>().upper())</span><br></pre></td></tr></table></figure>
+
+<p><strong>机器人用途</strong>：机械臂本体到控制柜的长距离指令线、多传感器总线（温度&#x2F;压力&#x2F;倾角变送器几乎都说 Modbus RTU over RS-485）、AGV 与充电桩对话。</p>
+<h2 id="5-Modbus-RTU：RS-485-上的事实标准"><a href="#5-Modbus-RTU：RS-485-上的事实标准" class="headerlink" title="5. Modbus RTU：RS-485 上的事实标准"></a>5. Modbus RTU：RS-485 上的事实标准</h2><p>Modbus 是主从问答协议：主站发请求帧，指定从站地址 + 功能码 + 数据，从站应答。机器人里大量传感器&#x2F;变频器&#x2F;PLC 都说 Modbus RTU。</p>
+<p><strong>帧结构</strong>（读保持寄存器为例）：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">请求:  [从站地址 1B][功能码 0x03][起始寄存器 2B][寄存器数量 2B][CRC16 2B(低在前)]</span><br><span class="line">响应:  [从站地址 1B][功能码 0x03][字节数 1B][数据 N B][CRC16 2B]</span><br></pre></td></tr></table></figure>
+
+<p>常用功能码：<code>0x03</code> 读保持寄存器、<code>0x06</code> 写单寄存器、<code>0x10</code> 写多寄存器、<code>0x02/0x01</code> 读开关量。<strong>CRC-16&#x2F;Modbus</strong>：多项式 0xA001（反射）、初值 0xFFFF、低字节在前发送。</p>
+<h3 id="5-1-Python-demo：CRC16-帧构造-解析（可运行，实测含标准校验向量）"><a href="#5-1-Python-demo：CRC16-帧构造-解析（可运行，实测含标准校验向量）" class="headerlink" title="5.1 Python demo：CRC16 + 帧构造&#x2F;解析（可运行，实测含标准校验向量）"></a>5.1 Python demo：CRC16 + 帧构造&#x2F;解析（可运行，实测含标准校验向量）</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> struct</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">crc16_modbus</span>(<span class="params">data: <span class="built_in">bytes</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">    crc = <span class="number">0xFFFF</span></span><br><span class="line">    <span class="keyword">for</span> byte <span class="keyword">in</span> data:</span><br><span class="line">        crc ^= byte</span><br><span class="line">        <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">8</span>):</span><br><span class="line">            crc = (crc &gt;&gt; <span class="number">1</span>) ^ <span class="number">0xA001</span> <span class="keyword">if</span> crc &amp; <span class="number">1</span> <span class="keyword">else</span> crc &gt;&gt; <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> crc</span><br><span class="line"></span><br><span class="line"><span class="keyword">assert</span> crc16_modbus(<span class="string">b&quot;123456789&quot;</span>) == <span class="number">0x4B37</span>        <span class="comment"># 标准校验向量</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">modbus_read_holding</span>(<span class="params">slave, start, count</span>):</span><br><span class="line">    body = struct.pack(<span class="string">&quot;&gt;BBHH&quot;</span>, slave, <span class="number">0x03</span>, start, count)   <span class="comment"># 寄存器号大端</span></span><br><span class="line">    <span class="keyword">return</span> body + struct.pack(<span class="string">&quot;&lt;H&quot;</span>, crc16_modbus(body))      <span class="comment"># CRC 小端</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">modbus_parse</span>(<span class="params">frame</span>):</span><br><span class="line">    <span class="keyword">if</span> crc16_modbus(frame[:-<span class="number">2</span>]) != struct.unpack(<span class="string">&quot;&lt;H&quot;</span>, frame[-<span class="number">2</span>:])[<span class="number">0</span>]:</span><br><span class="line">        <span class="keyword">raise</span> ValueError(<span class="string">&quot;CRC 错误&quot;</span>)</span><br><span class="line">    <span class="keyword">if</span> frame[<span class="number">1</span>] &amp; <span class="number">0x80</span>:</span><br><span class="line">        <span class="keyword">raise</span> ValueError(<span class="string">f&quot;异常响应, code=0x<span class="subst">&#123;frame[<span class="number">2</span>]:02X&#125;</span>&quot;</span>)</span><br><span class="line">    n = frame[<span class="number">2</span>]</span><br><span class="line">    <span class="keyword">return</span> frame[<span class="number">0</span>], struct.unpack(<span class="string">f&quot;&gt;<span class="subst">&#123;n//<span class="number">2</span>&#125;</span>H&quot;</span>, frame[<span class="number">3</span>:<span class="number">3</span>+n])</span><br><span class="line"></span><br><span class="line">req = modbus_read_holding(<span class="number">1</span>, <span class="number">0</span>, <span class="number">10</span>)</span><br><span class="line"><span class="built_in">print</span>(req.<span class="built_in">hex</span>().upper())</span><br><span class="line"><span class="comment"># 实测输出: 01030000000AC5CD  ← 从站1 读 0 号起 10 个保持寄存器（教科书级标准帧）</span></span><br><span class="line"></span><br><span class="line">resp = <span class="built_in">bytes</span>.fromhex(<span class="string">&quot;010302220B&quot;</span>)</span><br><span class="line">resp += struct.pack(<span class="string">&quot;&lt;H&quot;</span>, crc16_modbus(resp))</span><br><span class="line"><span class="built_in">print</span>(modbus_parse(resp))</span><br><span class="line"><span class="comment"># 实测输出: (1, (8715,))  ← 从站1 返回 1 个寄存器, 值 0x220B = 8715</span></span><br></pre></td></tr></table></figure>
+
+<p>写真实设备用 <code>pymodbus</code> 库（<code>pip install pymodbus</code>），底层帧与上面手写的完全一致。踩坑：Modbus 寄存器<strong>大端</strong>、CRC <strong>小端</strong>；3.5 字符时间的帧间隔要求意味着别把两帧连着灌。</p>
+<h2 id="6-USB：即插即用的板间高速通道"><a href="#6-USB：即插即用的板间高速通道" class="headerlink" title="6. USB：即插即用的板间高速通道"></a>6. USB：即插即用的板间高速通道</h2><p>USB 不是”串口”，但它是<strong>机器人上使用频率最高的板间接口</strong>——摄像头、调试器、传感器模块全靠它，且它经常以”虚拟串口”形态伪装成 UART。</p>
+<p><strong>架构</strong>：分层星型拓扑（主机-设备，最多 5 层 hub），主机轮询调度，设备无主动权。速度档位直接决定用途：</p>
+<table>
+<thead>
+<tr>
+<th>档位</th>
+<th>速率</th>
+<th>机器人用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Full Speed</td>
+<td>12 Mbps</td>
+<td>虚拟串口（CDC-ACM）、HID 键鼠</td>
+</tr>
+<tr>
+<td>High Speed</td>
+<td>480 Mbps</td>
+<td><strong>相机（UVC）</strong>、USB-UART 桥、数据采集卡</td>
+</tr>
+<tr>
+<td>SuperSpeed</td>
+<td>5~20 Gbps</td>
+<td>高帧率相机、USB SSD</td>
+</tr>
+</tbody></table>
+<p>与机器人最相关的三类设备形态：</p>
+<ol>
+<li><strong>CDC-ACM &#x2F; USB-UART 桥（FTDI、CP210x、CH340）</strong>：插上就出现 <code>/dev/ttyACM0</code> 或 <code>/dev/ttyUSB0</code>（Windows 是 COMx）——<strong>上层按纯 UART 编程</strong>（本文 2.2 节代码直接可用），这是”USB 伪装成串口”的最常见形态</li>
+<li><strong>UVC 相机</strong>：标准视频类，OpenCV <code>cv2.VideoCapture(0)</code> 直接打开</li>
+<li><strong>专用 USB 外设</strong>（力传感器、雷达）：厂商 SDK 走 libusb 批量传输</li>
+</ol>
+<h3 id="6-1-Python-demo（需硬件）"><a href="#6-1-Python-demo（需硬件）" class="headerlink" title="6.1 Python demo（需硬件）"></a>6.1 Python demo（需硬件）</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 形态一：USB 虚拟串口 —— 与 2.2 节完全相同</span></span><br><span class="line"><span class="keyword">import</span> serial</span><br><span class="line">ser = serial.Serial(<span class="string">&quot;/dev/ttyACM0&quot;</span>, <span class="number">115200</span>)      <span class="comment"># CDC 设备</span></span><br><span class="line">ser2 = serial.Serial(<span class="string">&quot;/dev/ttyUSB0&quot;</span>, <span class="number">115200</span>)     <span class="comment"># FTDI/CH340 桥</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 形态二：按 VID/PID 定位原始 USB 设备（pyusb, 需 libusb 后端）</span></span><br><span class="line"><span class="keyword">import</span> usb.core</span><br><span class="line">dev = usb.core.find(idVendor=<span class="number">0x0483</span>, idProduct=<span class="number">0x5740</span>)    <span class="comment"># 例: ST 虚拟串口</span></span><br><span class="line"><span class="keyword">if</span> dev <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">    <span class="keyword">raise</span> RuntimeError(<span class="string">&quot;设备未找到&quot;</span>)</span><br><span class="line">dev.set_configuration()</span><br><span class="line">data = dev.read(<span class="number">0x81</span>, <span class="number">64</span>, timeout=<span class="number">100</span>)                    <span class="comment"># 读端点 0x81, 64 字节</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>USB 工程三条铁律</strong>：</p>
+<ul>
+<li><strong>设备名漂移</strong>：<code>ttyUSB0</code> 会在重新插拔后变成 <code>ttyUSB1</code>。按序列号固定：Linux 写 udev 规则 <code>SUBSYSTEM==&quot;tty&quot;, ATTRS{idSerial}==&quot;A50285BI&quot;, SYMLINK+=&quot;myimu&quot;</code>，之后永远用 <code>/dev/myimu</code></li>
+<li><strong>带宽共享</strong>：同一 USB2 root hub 上两个 480Mbps 相机互相挤兑——多相机分开插不同 root（<code>lsusb -t</code> 看树）</li>
+<li><strong>延迟下限</strong>：USB 主机调度以 1ms 帧为单位（HS 用微帧 125µs），<strong>别指望 USB 做硬实时控制环</strong>——它是数据通道，不是控制总线</li>
+</ul>
+<h2 id="7-I2C：两线传感器总线"><a href="#7-I2C：两线传感器总线" class="headerlink" title="7. I2C：两线传感器总线"></a>7. I2C：两线传感器总线</h2><p>一根时钟 SCL + 一根数据 SDA，<strong>开漏输出 + 上拉电阻</strong>，线与逻辑天然支持多从站仲裁。</p>
+<p><strong>传输流程</strong>：起始条件（SCL 高时 SDA 下拉）→ 7 位从站地址 + 读写位 → 从站 ACK → 寄存器地址 → 数据……→ 停止条件。所有从件都在同一条线上听自己的地址。</p>
+<p>关键概念：</p>
+<ul>
+<li><strong>地址冲突</strong>：两个器件地址撞了（常见 0x68 IMU 之争）要么改地址引脚，要么换总线</li>
+<li><strong>时钟拉伸（clock stretching）</strong>：从件忙时拉住 SCL 让主站等——慢速 EEPROM 页写入时靠它</li>
+<li><strong>上拉电阻</strong>：2.2k~10k，总线越长&#x2F;速率越高取越小；<strong>忘加上拉是 I2C 排障第一名</strong></li>
+<li>速率档位：标准 100kHz &#x2F; 快速 400kHz &#x2F; 快速+ 1MHz &#x2F; 高速 3.4MHz——<strong>速率越高，可走的线越短</strong></li>
+</ul>
+<p><strong>机器人用途</strong>：MPU6050&#x2F;BNO055 IMU、AS5600 磁编码器、OLED 小屏、EEPROM、ToF 测距（VL53L0X）、PCA9685 舵机驱动板——“读一两个寄存器”型低速器件全是 I2C。</p>
+<h3 id="7-1-Python-demo（需硬件：树莓派-smbus2）"><a href="#7-1-Python-demo（需硬件：树莓派-smbus2）" class="headerlink" title="7.1 Python demo（需硬件：树莓派 + smbus2）"></a>7.1 Python demo（需硬件：树莓派 + <code>smbus2</code>）</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> smbus2</span><br><span class="line"></span><br><span class="line">bus = smbus2.SMBus(<span class="number">1</span>)                    <span class="comment"># 树莓派 /dev/i2c-1</span></span><br><span class="line">MPU6050_ADDR = <span class="number">0x68</span></span><br><span class="line">WHO_AM_I, PWR_MGMT_1, ACCEL_XOUT = <span class="number">0x75</span>, <span class="number">0x6B</span>, <span class="number">0x3B</span></span><br><span class="line"></span><br><span class="line">bus.write_byte_data(MPU6050_ADDR, PWR_MGMT_1, <span class="number">0x00</span>)     <span class="comment"># 唤醒</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">hex</span>(bus.read_byte_data(MPU6050_ADDR, WHO_AM_I)))  <span class="comment"># 期望 0x68</span></span><br><span class="line"></span><br><span class="line">raw = bus.read_i2c_block_data(MPU6050_ADDR, ACCEL_XOUT, <span class="number">14</span>)  <span class="comment"># 14 字节连读</span></span><br><span class="line">ax, ay, az = struct.unpack(<span class="string">&quot;&gt;hhh&quot;</span>, <span class="built_in">bytes</span>(raw[<span class="number">0</span>:<span class="number">6</span>]))     <span class="comment"># 加速度原始值, 大端</span></span><br></pre></td></tr></table></figure>
+
+<p>扫总线上有哪些器件：命令行 <code>i2cdetect -y 1</code>（地址矩阵一眼看清，排查地址冲突神器）。</p>
+<h2 id="8-SPI：高速四线"><a href="#8-SPI：高速四线" class="headerlink" title="8. SPI：高速四线"></a>8. SPI：高速四线</h2><p>为速度而生：<strong>全双工</strong>、带时钟线、每挂一个器件加一根片选 CS：</p>
+<table>
+<thead>
+<tr>
+<th>信号</th>
+<th>方向</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SCK</td>
+<td>主→从</td>
+<td>时钟（速率可达几十 MHz）</td>
+</tr>
+<tr>
+<td>MOSI</td>
+<td>主→从</td>
+<td>主出从入数据</td>
+</tr>
+<tr>
+<td>MISO</td>
+<td>从→主</td>
+<td>从出主入数据</td>
+</tr>
+<tr>
+<td>CS&#x2F;NSS</td>
+<td>主→从</td>
+<td>低有效，选中谁谁应答</td>
+</tr>
+</tbody></table>
+<p>两个参数决定时序模式：<strong>CPOL</strong>（空闲时钟电平）× <strong>CPHA</strong>（第几个边沿采样）&#x3D; 模式 0~3。器件手册写明支持哪种，主从配错读到的是移位错乱的鬼数据。</p>
+<p><strong>机器人用途</strong>：高带宽 ADC&#x2F;DAC（力&#x2F;触觉采样）、SD 卡、SPI-Flash、TFT 屏、高速 IMU（如 ICM-42688 以 SPI 跑 8kHz+ 用于飞控&#x2F;平衡控制）。</p>
+<h3 id="8-1-Python-demo（需硬件：树莓派-spidev）"><a href="#8-1-Python-demo（需硬件：树莓派-spidev）" class="headerlink" title="8.1 Python demo（需硬件：树莓派 + spidev）"></a>8.1 Python demo（需硬件：树莓派 + <code>spidev</code>）</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> spidev</span><br><span class="line"></span><br><span class="line">spi = spidev.SpiDev()</span><br><span class="line">spi.<span class="built_in">open</span>(<span class="number">0</span>, <span class="number">0</span>)                 <span class="comment"># 总线 0, 片选 0</span></span><br><span class="line">spi.max_speed_hz = <span class="number">1_000_000</span></span><br><span class="line">spi.mode = <span class="number">0b00</span>                <span class="comment"># CPOL=0, CPHA=0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">read_reg</span>(<span class="params">reg</span>):             <span class="comment"># 常见约定: 首字节 bit7=读写, bit6=地址自增</span></span><br><span class="line">    <span class="keyword">return</span> spi.xfer2([(reg &lt;&lt; <span class="number">1</span>) | <span class="number">0x80</span>, <span class="number">0x00</span>])[<span class="number">1</span>]     <span class="comment"># 返回同时收到的一字节</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">write_reg</span>(<span class="params">reg, val</span>):</span><br><span class="line">    spi.xfer2([(reg &lt;&lt; <span class="number">1</span>) &amp; <span class="number">0x7F</span>, val])</span><br></pre></td></tr></table></figure>
+
+<p><code>xfer2</code> 一次事务自动拉低&#x2F;释放 CS——SPI 的”事务”语义靠 CS 包裹，拆开读写就不是原子事务了。</p>
+<h2 id="9-CAN：机器人内部总线之王"><a href="#9-CAN：机器人内部总线之王" class="headerlink" title="9. CAN：机器人内部总线之王"></a>9. CAN：机器人内部总线之王</h2><p>CAN 把 RS-485 的差分物理层 + 一套<strong>多主仲裁、错误 confinement、短帧</strong>协议打包，成为电机驱动器与整车的事实标准（无人机、平衡车、DexHand 类灵巧手的指间总线常见 CAN）。</p>
+<p>核心机制三件套：</p>
+<ol>
+<li><strong>标识符仲裁（CSMA&#x2F;CD 无损）</strong>：帧 ID 同时是优先级。多个节点同时发，逐位比较，发 0 者胜（显性位）；仲裁失败的自动退让不损坏总线——<strong>ID 越小优先级越高</strong></li>
+<li><strong>短帧</strong>：标准帧 11 位 ID + 0~8 字节数据（DLC），1Mbps 下单帧 ~100 µs，最坏延迟有界——实时性的来源</li>
+<li><strong>五级错误管理</strong>：CRC&#x2F;ACK&#x2F;位错误检测，故障节点自动”离线”不拖死总线</li>
+</ol>
+<p><strong>机器人典型用法</strong>：每个驱动器一个 ID，控制帧（目标位置&#x2F;力矩）+ 反馈帧（实际位置&#x2F;温度），ODrive、MIT Cheetah 风格的迷你驱动器都是 CAN 设备。</p>
+<h3 id="9-1-Python-demo（需硬件：CAN-适配器-python-can）"><a href="#9-1-Python-demo（需硬件：CAN-适配器-python-can）" class="headerlink" title="9.1 Python demo（需硬件：CAN 适配器 + python-can）"></a>9.1 Python demo（需硬件：CAN 适配器 + <code>python-can</code>）</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> can, struct</span><br><span class="line"></span><br><span class="line">bus = can.interface.Bus(channel=<span class="string">&quot;can0&quot;</span>, bustype=<span class="string">&quot;socketcan&quot;</span>)  <span class="comment"># Windows+PCAN: bustype=&quot;pcan&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 发送电机指令帧: ID=0x201, 8 字节: 位置(int16, 0.01rad) + 速度(int16) + kp/kd(int16) + 前馈(int16)</span></span><br><span class="line">data = struct.pack(<span class="string">&quot;&lt;hhhh&quot;</span>, <span class="number">100</span>, <span class="number">50</span>, <span class="number">300</span>, <span class="number">800</span>)   <span class="comment"># 1.00rad, 0.50rad/s, kp=300, kd=800(量程按厂商)</span></span><br><span class="line">msg = can.Message(arbitration_id=<span class="number">0x201</span>, data=data, is_extended_id=<span class="literal">False</span>)</span><br><span class="line">bus.send(msg)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> m <span class="keyword">in</span> bus:                                     <span class="comment"># 收反馈帧</span></span><br><span class="line">    <span class="keyword">if</span> m.arbitration_id == <span class="number">0x301</span>:</span><br><span class="line">        pos, vel, cur = struct.unpack(<span class="string">&quot;&lt;hhh&quot;</span>, <span class="built_in">bytes</span>(m.data)[:<span class="number">6</span>])</span><br></pre></td></tr></table></figure>
+
+<h2 id="10-CAN-FD：CAN-的带宽扩容版"><a href="#10-CAN-FD：CAN-的带宽扩容版" class="headerlink" title="10. CAN-FD：CAN 的带宽扩容版"></a>10. CAN-FD：CAN 的带宽扩容版</h2><p>经典 CAN 的 8 字节载荷在复杂驱动器上捉襟见肘——“位置+速度+kp+kd+前馈力矩+使能+温度限幅”一帧装不下，只能拆两帧发还破坏原子性。**CAN-FD（Flexible Data-rate）**三个改动解决它：</p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>经典 CAN</th>
+<th>CAN-FD</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>载荷</td>
+<td>≤ 8 字节</td>
+<td><strong>≤ 64 字节</strong></td>
+</tr>
+<tr>
+<td>速率</td>
+<td>全帧统一 ≤ 1 Mbps</td>
+<td><strong>双速</strong>：仲裁段 ≤1 Mbps，数据段切到 5~8 Mbps（BRS 位标识切换）</td>
+</tr>
+<tr>
+<td>CRC</td>
+<td>15 位</td>
+<td>17&#x2F;21 位（更长帧要更强校验）</td>
+</tr>
+<tr>
+<td>帧间隔</td>
+<td>3 位 IFS</td>
+<td>更长的 CRC&#x2F;EOF 序列</td>
+</tr>
+</tbody></table>
+<p>双速的巧思：仲裁阶段必须慢（节点间逐位比较要等传播延迟），但一旦仲裁完成、总线上只剩一个发送者，<strong>数据段立刻加速</strong>——既保住 CAN 的确定性仲裁，又把吞吐提了数倍。</p>
+<p><strong>机器人为什么爱它</strong>：</p>
+<ul>
+<li>MIT-Cheetah 风格全状态指令帧（5×float32 &#x3D; 20 字节）+ 反馈帧（位置&#x2F;速度&#x2F;力矩&#x2F;温度&#x2F;错误码）一帧一个，<strong>原子且高频</strong>（1kHz 指令下发不再是带宽瓶颈）</li>
+<li><strong>固件升级走总线</strong>：64 字节块 + 高数据速率，几十个关节的固件 OTA 从”半小时”变”几分钟”</li>
+<li>一帧带回完整诊断信息（版本号+错误码+温度），运维体验质变</li>
+</ul>
+<p><strong>兼容性铁律</strong>：经典 CAN 控制器收到 FD 帧会报格式错误——<strong>总线上要么全是 FD，要么全是经典</strong>，混布是事故（新驱动器默认 FD、老主控是经典 CAN，这个坑天天有人踩）；收发器也必须选 FD 型（数据段边沿更快，普通收发器振铃）。</p>
+<h3 id="10-1-Python-demo（需硬件：FD-适配器-python-can）"><a href="#10-1-Python-demo（需硬件：FD-适配器-python-can）" class="headerlink" title="10.1 Python demo（需硬件：FD 适配器 + python-can）"></a>10.1 Python demo（需硬件：FD 适配器 + <code>python-can</code>）</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> can, struct</span><br><span class="line"></span><br><span class="line">bus = can.interface.Bus(channel=<span class="string">&quot;can0&quot;</span>, bustype=<span class="string">&quot;socketcan&quot;</span>, fd=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 全状态指令帧: ID=0x201, 24 字节 (经典 CAN 装不下, FD 的存在理由)</span></span><br><span class="line">payload = struct.pack(<span class="string">&quot;&lt;5f&quot;</span>, <span class="number">1.0</span>, -<span class="number">0.5</span>, <span class="number">60.0</span>, <span class="number">1.5</span>, <span class="number">2.5</span>)   <span class="comment"># pos, vel, kp, kd, tau_ff</span></span><br><span class="line">msg = can.Message(arbitration_id=<span class="number">0x201</span>,</span><br><span class="line">                  is_extended_id=<span class="literal">False</span>,</span><br><span class="line">                  is_fd=<span class="literal">True</span>,                <span class="comment"># FD 帧</span></span><br><span class="line">                  bitrate_switch=<span class="literal">True</span>,       <span class="comment"># 数据段用高速率 (BRS)</span></span><br><span class="line">                  data=payload)</span><br><span class="line">bus.send(msg)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> m <span class="keyword">in</span> bus:</span><br><span class="line">    <span class="keyword">if</span> m.is_fd <span class="keyword">and</span> m.arbitration_id == <span class="number">0x301</span>:</span><br><span class="line">        pos, vel, tau, temp, err = struct.unpack(<span class="string">&quot;&lt;5f&quot;</span>, <span class="built_in">bytes</span>(m.data))</span><br></pre></td></tr></table></figure>
+
+<p>顺带一提更远的一步：<strong>CAN XL</strong>（10+ Mbps，汽车下一代）已在路上，机器人暂时用不到，知道名字即可。</p>
+<h2 id="11-1-Wire：单线温度监测（简短）"><a href="#11-1-Wire：单线温度监测（简短）" class="headerlink" title="11. 1-Wire：单线温度监测（简短）"></a>11. 1-Wire：单线温度监测（简短）</h2><p>一根数据线（寄生供电从数据线取电）+ 一条地线，速率仅 ~16 kbps，但<strong>每个芯片出厂带全球唯一 64 位 ROM ID</strong>，一主多从免地址冲突。机器人里几乎只有一个用途：<strong>DS18B20 温度传感器</strong>贴电机&#x2F;电池测温。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 树莓派: 设备树开启 w1-gpio 后, 每个传感器出现为一个目录</span></span><br><span class="line"><span class="comment"># /sys/bus/w1/devices/28-0123456789AB/w1_slave 中读一行 &quot;t=25312&quot; 即 25.312°C</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;/sys/bus/w1/devices/28-0123456789AB/w1_slave&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> f:</span><br><span class="line">        <span class="keyword">if</span> <span class="string">&quot;t=&quot;</span> <span class="keyword">in</span> line:</span><br><span class="line">            <span class="built_in">print</span>(<span class="built_in">float</span>(line.strip()[-<span class="number">5</span>:]) / <span class="number">1000.0</span>, <span class="string">&quot;°C&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="12-选型与踩坑速查"><a href="#12-选型与踩坑速查" class="headerlink" title="12. 选型与踩坑速查"></a>12. 选型与踩坑速查</h2><p><strong>选型决策树</strong>：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">同一块板上的芯片?            → I2C(慢、管脚省) / SPI(快、全双工)</span><br><span class="line">板间点对点、几百字节/s        → UART TTL(&lt;1m) / RS-232(15m、老设备)</span><br><span class="line">板间多点总线、几十米~公里     → RS-485+Modbus(主从问答)</span><br><span class="line">即插即用、相机/调试器/传感器  → USB(数据通道, 非实时)</span><br><span class="line">电机驱动器、需要确定延迟      → CAN(8字节) / CAN-FD(64字节, 全体节点必须一致)</span><br><span class="line">多轴高带宽微秒级同步          → EtherCAT（见下一篇）</span><br></pre></td></tr></table></figure>
+
+<p><strong>踩坑 Top8</strong>（每条都是真实事故）：</p>
+<ol>
+<li><strong>共地</strong>：UART&#x2F;单端信号两板不共地 &#x3D; 随机乱码。先接 GND 再接信号</li>
+<li><strong>波特率&#x2F;速率&#x2F;模式三对齐</strong>：UART 波特率、SPI 模式、CAN 位速率——主从不一致症状全是”收到鬼数据”</li>
+<li><strong>RS-485 收发使能</strong>：半双工，发送完要立刻切回接收，否则自己吃掉从站应答；首尾终端电阻各一个（不是每个节点都加）</li>
+<li><strong>Null-modem</strong>：两个 RS-232 DTE 直连要 2&#x2F;3 交叉</li>
+<li><strong>I2C 忘上拉 &#x2F; 地址冲突</strong>：<code>i2cdetect</code> 一扫便知</li>
+<li><strong>USB 设备名漂移</strong>：udev 按序列号绑定，别让 ttyUSB0&#x2F;1 赌运气；USB 不是实时总线，控制环别走它</li>
+<li><strong>CAN 终端电阻</strong>：首尾各 120Ω，大电流电机启停时的鬼帧九成是它；<strong>CAN 与 CAN-FD 不可混布</strong></li>
+<li><strong>线束分类走线</strong>：电机动力线与信号线分开扎束、差分线用双绞——EMI 是”偶发诡异 bug”的最大来源</li>
+</ol>
+<h2 id="13-总结"><a href="#13-总结" class="headerlink" title="13. 总结"></a>13. 总结</h2><p>一张卡片带走：</p>
+<table>
+<thead>
+<tr>
+<th>协议</th>
+<th>一句话</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>UART</td>
+<td>异步点对点，约定波特率，自定义帧 + 校验和</td>
+</tr>
+<tr>
+<td>RS-232</td>
+<td>单端 ±12V 点对点，负逻辑，老设备接口</td>
+</tr>
+<tr>
+<td>RS-485</td>
+<td>差分电气层，公里级距离，多点半双工总线</td>
+</tr>
+<tr>
+<td>Modbus RTU</td>
+<td>RS-485 上的主从问答，CRC16 是身份证</td>
+</tr>
+<tr>
+<td>USB</td>
+<td>即插即用分层星型；虚拟串口是它最常见的伪装；数据通道非实时</td>
+</tr>
+<tr>
+<td>I2C</td>
+<td>两线一主多从，7 位地址，传感器默认选择</td>
+</tr>
+<tr>
+<td>SPI</td>
+<td>四线全双工高速，CPOL&#x2F;CPHA 定时序，事务靠 CS</td>
+</tr>
+<tr>
+<td>CAN</td>
+<td>差分多主、ID 即优先级、短帧有界延迟，驱动器标准</td>
+</tr>
+<tr>
+<td>CAN-FD</td>
+<td>64 字节 + 双速（仲裁 1M&#x2F;数据 5M+），全状态指令帧与固件 OTA 的载体</td>
+</tr>
+<tr>
+<td>1-Wire</td>
+<td>单线寄生供电，64 位唯一 ID，DS18B20 测温专用</td>
+</tr>
+</tbody></table>
+<p>所有协议的调试方法论是同一个：<strong>示波器&#x2F;逻辑分析仪看物理层 → 十六进制打印看帧层 → 按协议文档逐字段对</strong>。帧构造&#x2F;解析的 Python 代码（本文 2.1&#x2F;5.1 节）可以脱离硬件先写好、用向量测好，等硬件到位直接对接——这也是机器人驱动开发里”软硬并行”的标准做法。需要微秒级同步与更高带宽时，进入<a href="/BlogNotes/2026/08/30/Ether%20CAT%E5%8D%8F%E8%AE%AE%E5%8E%9F%E7%90%86%E4%B8%8E%E4%BD%BF%E7%94%A8/">EtherCAT 的世界</a>。</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/BlogNotes/about" rel="external nofollow noreferrer">Jianbo.Yuan</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://jianbo-yuan.github.io/BlogNotes/BlogNotes/2026/08/30/%E5%B8%B8%E7%94%A8%E4%B8%B2%E5%8F%A3%E5%8D%8F%E8%AE%AE%E4%B8%8E%E7%94%A8%E9%80%94/">https://jianbo-yuan.github.io/BlogNotes/BlogNotes/2026/08/30/%E5%B8%B8%E7%94%A8%E4%B8%B2%E5%8F%A3%E5%8D%8F%E8%AE%AE%E4%B8%8E%E7%94%A8%E9%80%94/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/BlogNotes/about" target="_blank">Jianbo.Yuan</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/BlogNotes/tags/%E4%B8%B2%E5%8F%A3/">
+                                    <span class="chip bg-color">串口</span>
+                                </a>
+                            
+                                <a href="/BlogNotes/tags/UART/">
+                                    <span class="chip bg-color">UART</span>
+                                </a>
+                            
+                                <a href="/BlogNotes/tags/RS-232/">
+                                    <span class="chip bg-color">RS-232</span>
+                                </a>
+                            
+                                <a href="/BlogNotes/tags/RS-485/">
+                                    <span class="chip bg-color">RS-485</span>
+                                </a>
+                            
+                                <a href="/BlogNotes/tags/USB/">
+                                    <span class="chip bg-color">USB</span>
+                                </a>
+                            
+                                <a href="/BlogNotes/tags/Modbus/">
+                                    <span class="chip bg-color">Modbus</span>
+                                </a>
+                            
+                                <a href="/BlogNotes/tags/I2C/">
+                                    <span class="chip bg-color">I2C</span>
+                                </a>
+                            
+                                <a href="/BlogNotes/tags/SPI/">
+                                    <span class="chip bg-color">SPI</span>
+                                </a>
+                            
+                                <a href="/BlogNotes/tags/CAN/">
+                                    <span class="chip bg-color">CAN</span>
+                                </a>
+                            
+                                <a href="/BlogNotes/tags/CAN-FD/">
+                                    <span class="chip bg-color">CAN-FD</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/BlogNotes/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/BlogNotes/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/BlogNotes/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/BlogNotes/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/BlogNotes/2026/08/30/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%B8%B8%E7%94%A8%E4%BC%A0%E6%84%9F%E5%99%A8/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/BlogNotes/medias/featureimages/19.jpg" class="responsive-img" alt="机器人常用传感器">
+                        
+                        <span class="card-title">机器人常用传感器</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2026-08-30
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/BlogNotes/categories/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%90%86%E8%AE%BA%E4%B8%8E%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    机器人理论与技术
+                                </a>
+                            
+                            <a href="/BlogNotes/categories/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%90%86%E8%AE%BA%E4%B8%8E%E6%8A%80%E6%9C%AF/%E6%9C%BA%E5%99%A8%E4%BA%BA%E9%9B%B6%E9%83%A8%E4%BB%B6/" class="post-category">
+                                    机器人零部件
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/BlogNotes/tags/%E4%BC%A0%E6%84%9F%E5%99%A8/">
+                        <span class="chip bg-color">传感器</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/%E7%BC%96%E7%A0%81%E5%99%A8/">
+                        <span class="chip bg-color">编码器</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/IMU/">
+                        <span class="chip bg-color">IMU</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/%E5%8A%9B%E4%BC%A0%E6%84%9F%E5%99%A8/">
+                        <span class="chip bg-color">力传感器</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/%E8%A7%86%E8%A7%89%E4%BC%A0%E6%84%9F%E5%99%A8/">
+                        <span class="chip bg-color">视觉传感器</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/%E6%BF%80%E5%85%89%E9%9B%B7%E8%BE%BE/">
+                        <span class="chip bg-color">激光雷达</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/BlogNotes/2026/08/30/Ether%20CAT%E5%8D%8F%E8%AE%AE%E5%8E%9F%E7%90%86%E4%B8%8E%E4%BD%BF%E7%94%A8/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/BlogNotes/medias/featureimages/7.jpg" class="responsive-img" alt="EtherCAT 协议原理与使用">
+                        
+                        <span class="card-title">EtherCAT 协议原理与使用</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-08-30
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/BlogNotes/categories/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%90%86%E8%AE%BA%E4%B8%8E%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    机器人理论与技术
+                                </a>
+                            
+                            <a href="/BlogNotes/categories/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%90%86%E8%AE%BA%E4%B8%8E%E6%8A%80%E6%9C%AF/%E6%9C%BA%E5%99%A8%E4%BA%BA%E9%80%9A%E8%AE%AF%E7%B3%BB%E7%BB%9F/" class="post-category">
+                                    机器人通讯系统
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/BlogNotes/tags/EtherCAT/">
+                        <span class="chip bg-color">EtherCAT</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/%E5%B7%A5%E4%B8%9A%E4%BB%A5%E5%A4%AA%E7%BD%91/">
+                        <span class="chip bg-color">工业以太网</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/SOEM/">
+                        <span class="chip bg-color">SOEM</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/IgH/">
+                        <span class="chip bg-color">IgH</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/PREEMPT-RT/">
+                        <span class="chip bg-color">PREEMPT_RT</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/%E5%AE%9E%E6%97%B6%E5%86%85%E6%A0%B8/">
+                        <span class="chip bg-color">实时内核</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/EoE/">
+                        <span class="chip bg-color">EoE</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/FoE/">
+                        <span class="chip bg-color">FoE</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E6%97%B6%E9%92%9F/">
+                        <span class="chip bg-color">分布式时钟</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/%E5%AE%9E%E6%97%B6%E9%80%9A%E8%AE%AF/">
+                        <span class="chip bg-color">实时通讯</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/BlogNotes/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/BlogNotes/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/BlogNotes/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/BlogNotes/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/BlogNotes/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        },
+        "HTML-CSS": {
+            linebreaks: {
+                automatic: true,
+                width: "container"
+            }
+        },
+        SVG: {
+            linebreaks: {
+                automatic: true,
+                width: "container"
+            }
+        }
+    });
+</script>
+<script>
+    (function () {
+        if (window.MathJax) return;
+
+        var sources = [
+            "https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML",
+            "https://unpkg.com/mathjax@2.7.9/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML",
+            "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+        ];
+
+        function loadMathJax(index) {
+            if (index >= sources.length) {
+                console.error("MathJax failed to load from all configured CDNs.");
+                return;
+            }
+
+            var script = document.createElement("script");
+            script.src = sources[index];
+            script.async = true;
+            script.onerror = function () {
+                loadMathJax(index + 1);
+            };
+            document.head.appendChild(script);
+        }
+
+        loadMathJax(0);
+    })();
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/BlogNotes/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.3'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/BlogNotes/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2026</span>
+            
+            <span id="year">2026</span>
+            <a href="/BlogNotes/about" target="_blank">Jianbo.Yuan</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:jianbo.yuan@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=335943408" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 335943408" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+    <a href="https://www.zhihu.com/people/Simple" class="tooltipped" target="_blank" data-tooltip="关注我的知乎: https://www.zhihu.com/people/Simple" data-position="top" data-delay="50">
+        <i class="fab fa-zhihu1">知</i>
+    </a>
+
+
+
+    <a href="/BlogNotes/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/BlogNotes/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/BlogNotes/libs/materialize/materialize.min.js"></script>
+    <script src="/BlogNotes/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/BlogNotes/libs/aos/aos.js"></script>
+    <script src="/BlogNotes/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/BlogNotes/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/BlogNotes/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/BlogNotes/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/BlogNotes/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/BlogNotes/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

@@ -1,0 +1,1639 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Git工具详细使用教程, Jianbo.Yuan">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Git工具详细使用教程 | Jianbo.Yuan</title>
+    <link rel="icon" type="image/png" href="/BlogNotes/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/css/my.css">
+
+    <script src="/BlogNotes/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/BlogNotes/" class="waves-effect waves-light">
+                    
+                    <img src="/BlogNotes/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Jianbo.Yuan</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/BlogNotes/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Jianbo.Yuan</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/BlogNotes/medias/featureimages/9.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Git工具详细使用教程</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/BlogNotes/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/BlogNotes/tags/Git/">
+                                <span class="chip bg-color">Git</span>
+                            </a>
+                        
+                            <a href="/BlogNotes/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/">
+                                <span class="chip bg-color">版本控制</span>
+                            </a>
+                        
+                            <a href="/BlogNotes/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C/">
+                                <span class="chip bg-color">命令行</span>
+                            </a>
+                        
+                            <a href="/BlogNotes/tags/%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7/">
+                                <span class="chip bg-color">科研工具</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/BlogNotes/categories/%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7/" class="post-category">
+                                科研工具
+                            </a>
+                        
+                            <a href="/BlogNotes/categories/%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7/%E7%BC%96%E7%A8%8B%E7%B1%BB/" class="post-category">
+                                编程类
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2026-08-30
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="1-Git-解决什么问题"><a href="#1-Git-解决什么问题" class="headerlink" title="1. Git 解决什么问题"></a>1. Git 解决什么问题</h2><p>写代码（或论文、博客）时最原始的版本管理是这样的：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">论文v1.doc</span><br><span class="line">论文v2.doc</span><br><span class="line">论文v2_final.doc</span><br><span class="line">论文v2_final_真的final.doc</span><br></pre></td></tr></table></figure>
+
+<p>Git 做的事情是把”每次保存时的完整状态”变成一条<strong>提交链</strong>，每个提交（commit）记录：改了什么、为什么改、谁改的、何时改的，并且几乎不占额外空间（只存差异）。由此你获得三种能力：</p>
+<ul>
+<li><strong>时间旅行</strong>：任意两个版本之间自由切换、对比</li>
+<li><strong>平行宇宙</strong>：分支（branch）让你同时维护多条开发线互不干扰</li>
+<li><strong>协作与备份</strong>：远程仓库实现多人协作和多机同步</li>
+</ul>
+<p>和”网盘同步”（如 Unison，见<a href="/BlogNotes/tutorials/unison-local-remote-code-sync/">Unison 同步教程</a>）的本质区别：Unison 镜像的是<strong>当前这一刻</strong>的两端状态，Git 保存的是<strong>全部历史</strong>。两者配合使用：Unison 管分钟级的”改完立刻能跑”，Git 管小时级的”这是一个能用的版本”。</p>
+<h2 id="2-核心模型：三个区域"><a href="#2-核心模型：三个区域" class="headerlink" title="2. 核心模型：三个区域"></a>2. 核心模型：三个区域</h2><p>90% 的 Git 命令都可以用一张图解释。Git 把你的文件分为三个区域：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">┌────────────┐   git add    ┌────────────┐  git commit  ┌────────────┐  git push   ┌────────────┐</span><br><span class="line">│   工作区    │ ──────────→ │   暂存区    │ ──────────→ │   本地仓库   │ ──────────→ │   远程仓库   │</span><br><span class="line">│  (你正在编辑) │             │ (下次提交的清单)│            │  (提交历史)   │             │  (GitHub等)  │</span><br><span class="line">└────────────┘             └────────────┘             └────────────┘             └────────────┘</span><br><span class="line">       ↑ git restore              ↑ git restore            ↑ git reset               │</span><br><span class="line">       └── 撤销工作区改动 ──────────┘── 取消暂存 ─────────────┘── 回退提交 ──           │</span><br><span class="line">                                                                                    │</span><br><span class="line">       git fetch / git pull  ←──────────────────────────────────────────────────────┘</span><br></pre></td></tr></table></figure>
+
+<p>对应文件的三种状态：</p>
+<table>
+<thead>
+<tr>
+<th>状态</th>
+<th>含义</th>
+<th>所在区域</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Modified（已修改）</td>
+<td>改了，还没 <code>add</code></td>
+<td>工作区</td>
+</tr>
+<tr>
+<td>Staged（已暂存）</td>
+<td><code>add</code> 过，还没 <code>commit</code></td>
+<td>暂存区</td>
+</tr>
+<tr>
+<td>Committed（已提交）</td>
+<td><code>commit</code> 过，进了历史</td>
+<td>本地仓库</td>
+</tr>
+</tbody></table>
+<p>为什么要设计”暂存区”这个中间层？因为它让你能<strong>把一次大改动拆成多次有意义的提交</strong>：改了 5 个文件，其中 3 个是功能、2 个是格式化，分两次 <code>add</code> + <code>commit</code>，历史就干净可读。</p>
+<p><strong>记住这张图，后面所有命令都是在这几个区域之间搬运数据。</strong></p>
+<h2 id="3-安装与首次配置"><a href="#3-安装与首次配置" class="headerlink" title="3. 安装与首次配置"></a>3. 安装与首次配置</h2><h3 id="3-1-安装"><a href="#3-1-安装" class="headerlink" title="3.1 安装"></a>3.1 安装</h3><ul>
+<li>Windows：<a target="_blank" rel="noopener" href="https://git-scm.com/downloads">git-scm.com</a> 下载安装（自带 Git Bash，推荐全默认选项）；或 <code>winget install Git.Git</code></li>
+<li>Ubuntu：<code>sudo apt install git</code></li>
+<li>验证：<code>git --version</code>（建议 2.30 以上，本文的 <code>git restore</code>&#x2F;<code>git switch</code> 需要 2.23+）</li>
+</ul>
+<h3 id="3-2-必做的身份配置"><a href="#3-2-必做的身份配置" class="headerlink" title="3.2 必做的身份配置"></a>3.2 必做的身份配置</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;Your Name&quot;</span></span><br><span class="line">git config --global user.email <span class="string">&quot;you@example.com&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>这个邮箱要和 GitHub 账号绑定的邮箱一致，提交才会被正确计入贡献图。检查全部配置：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global --list</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-3-Windows-行尾配置（重要）"><a href="#3-3-Windows-行尾配置（重要）" class="headerlink" title="3.3 Windows 行尾配置（重要）"></a>3.3 Windows 行尾配置（重要）</h3><p>Windows（CRLF）和 Linux（LF）换行符不同，Git 默认会自动转换，配置不当会出现”明明没改，<code>git status</code> 却全是红”的灵异现象：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Windows 本地推荐：检出转 CRLF，提交转回 LF</span></span><br><span class="line">git config --global core.autocrlf <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Linux/Mac 服务器：提交转 LF，检出不动</span></span><br><span class="line">git config --global core.autocrlf input</span><br></pre></td></tr></table></figure>
+
+<p>更彻底的做法是项目里放 <code>.gitattributes</code> 统一声明（见 9.2 节），特别是配合 Unison 这类双向同步工具时强烈建议。</p>
+<h3 id="3-4-几个提升幸福感的配置"><a href="#3-4-几个提升幸福感的配置" class="headerlink" title="3.4 几个提升幸福感的配置"></a>3.4 几个提升幸福感的配置</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 默认分支叫 main 而不是 master</span></span><br><span class="line">git config --global init.defaultBranch main</span><br><span class="line"></span><br><span class="line"><span class="comment"># push 时只推当前分支（避免推出一堆上行分支）</span></span><br><span class="line">git config --global push.default simple</span><br><span class="line"></span><br><span class="line"><span class="comment"># pull 时若可快进则快进，否则产生 merge commit（新版本默认值，老版本建议显式设）</span></span><br><span class="line">git config --global pull.rebase <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 彩色输出</span></span><br><span class="line">git config --global color.ui auto</span><br><span class="line"></span><br><span class="line"><span class="comment"># 常用别名（可选）</span></span><br><span class="line">git config --global alias.st <span class="string">&quot;status -sb&quot;</span></span><br><span class="line">git config --global alias.lg <span class="string">&quot;log --oneline --graph --all&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>配完后 <code>git st</code> 和 <code>git lg</code> 就是你的两个高频命令。</p>
+<h2 id="4-基础操作：一个人用-Git-的日常"><a href="#4-基础操作：一个人用-Git-的日常" class="headerlink" title="4. 基础操作：一个人用 Git 的日常"></a>4. 基础操作：一个人用 Git 的日常</h2><h3 id="4-1-从零开始两种方式"><a href="#4-1-从零开始两种方式" class="headerlink" title="4.1 从零开始两种方式"></a>4.1 从零开始两种方式</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 方式一：本地已有代码，初始化为仓库</span></span><br><span class="line"><span class="built_in">cd</span> myproject</span><br><span class="line">git init</span><br><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">&quot;init: 项目初始提交&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 方式二：从远程克隆（替换 init 之后的全部步骤）</span></span><br><span class="line">git <span class="built_in">clone</span> git@github.com:yourname/myproject.git</span><br><span class="line"><span class="built_in">cd</span> myproject</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-2-高频五连（每天重复几十次）"><a href="#4-2-高频五连（每天重复几十次）" class="headerlink" title="4.2 高频五连（每天重复几十次）"></a>4.2 高频五连（每天重复几十次）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git status            <span class="comment"># 看当前状态：哪些文件改了/暂存了/未跟踪</span></span><br><span class="line">git diff              <span class="comment"># 看工作区改动（未暂存的部分）</span></span><br><span class="line">git diff --staged     <span class="comment"># 看已暂存、即将进入下次提交的部分</span></span><br><span class="line">git add &lt;文件或目录&gt;     <span class="comment"># 加入暂存区；git add . 是全部</span></span><br><span class="line">git commit -m <span class="string">&quot;信息&quot;</span>    <span class="comment"># 提交</span></span><br></pre></td></tr></table></figure>
+
+<p><code>git status</code> 的输出本身就是一份操作指引，认真读它的提示，Git 会告诉你下一步该干什么。</p>
+<h3 id="4-3-提交信息怎么写"><a href="#4-3-提交信息怎么写" class="headerlink" title="4.3 提交信息怎么写"></a>4.3 提交信息怎么写</h3><p>一条提交信息 &#x3D; 一个”为什么”。建议格式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;类型&gt;: &lt;做了什么&gt;</span><br><span class="line"></span><br><span class="line">feat: 新功能        fix: 修 bug        docs: 文档</span><br><span class="line">refactor: 重构      exp: 实验调整       data: 数据/配置</span><br><span class="line">test: 测试          chore: 杂务</span><br></pre></td></tr></table></figure>
+
+<p>例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">feat: 训练脚本支持 cosine lr schedule</span><br><span class="line">fix: 修复了 batch_size=1 时 BN 层报错</span><br><span class="line">exp: baseline 换 adamw，lr 3e-4</span><br></pre></td></tr></table></figure>
+
+<p>反例是 <code>update</code>、<code>修改</code>、<code>fix bug</code>——三个月后 <code>git log</code> 里一排 update，等于没写。</p>
+<h3 id="4-4-查看历史"><a href="#4-4-查看历史" class="headerlink" title="4.4 查看历史"></a>4.4 查看历史</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span> --oneline           <span class="comment"># 每条提交一行，最常用</span></span><br><span class="line">git <span class="built_in">log</span> -p &lt;文件&gt;            <span class="comment"># 这个文件每次提交改了什么（谁删的这行代码？）</span></span><br><span class="line">git <span class="built_in">log</span> --oneline --graph --all   <span class="comment"># 图形化看分支结构（配了别名就是 git lg）</span></span><br><span class="line">git show &lt;<span class="built_in">hash</span>&gt;              <span class="comment"># 看某次提交的完整改动</span></span><br><span class="line">git blame &lt;文件&gt;              <span class="comment"># 逐行显示每行最后由谁在哪个提交修改</span></span><br></pre></td></tr></table></figure>
+
+<p><code>git blame</code> 名字不雅但极其好用——定位”这行为什么是这么写的”。</p>
+<h2 id="5-分支：平行宇宙"><a href="#5-分支：平行宇宙" class="headerlink" title="5. 分支：平行宇宙"></a>5. 分支：平行宇宙</h2><p>分支是指向某个提交的<strong>可移动指针</strong>。创建分支几乎零成本（只建一个 41 字节的文件），这是 Git 相对老一代版本控制系统最大的优势。</p>
+<h3 id="5-1-基本操作"><a href="#5-1-基本操作" class="headerlink" title="5.1 基本操作"></a>5.1 基本操作</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git branch                    <span class="comment"># 列出本地分支，* 是当前分支</span></span><br><span class="line">git branch dev                <span class="comment"># 创建 dev 分支</span></span><br><span class="line">git switch dev                <span class="comment"># 切换到 dev（新命令）</span></span><br><span class="line">git switch -c dev             <span class="comment"># 创建并切换（等价于老命令 git checkout -b dev）</span></span><br><span class="line">git switch -                  <span class="comment"># 切回上一个分支（像 cd - 一样好用）</span></span><br><span class="line">git branch -d dev             <span class="comment"># 删除已合并的分支</span></span><br><span class="line">git branch -D dev             <span class="comment"># 强制删除（未合并也删，慎用）</span></span><br><span class="line">git merge dev                 <span class="comment"># 把 dev 合并进当前分支</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="5-2-合并的两种形态"><a href="#5-2-合并的两种形态" class="headerlink" title="5.2 合并的两种形态"></a>5.2 合并的两种形态</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 场景：main 在分叉后没有新提交 → fast-forward（直接把指针挪过去，历史是一条直线）</span></span><br><span class="line">main: A---B---C---D---E   ← dev 的提交直接接上，没有分叉</span><br><span class="line"></span><br><span class="line"><span class="comment"># 场景：两边都有新提交 → 三方合并，产生一个 merge commit</span></span><br><span class="line">main: A---B---F---M       ← M 是 merge commit，有两个父提交</span><br><span class="line">            \   /</span><br><span class="line">dev:         C---E</span><br></pre></td></tr></table></figure>
+
+<p>想保持历史线性，可以在合并时压平：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git merge --squash dev    <span class="comment"># 把 dev 的全部改动压成暂存区里的一次改动，再自己 commit</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="5-3-什么时候该开分支"><a href="#5-3-什么时候该开分支" class="headerlink" title="5.3 什么时候该开分支"></a>5.3 什么时候该开分支</h3><p>科研代码的实用分支策略（够用就好，不用学企业的 Git Flow）：</p>
+<ul>
+<li><code>main</code>：<strong>永远可运行</strong>。能跑通 baseline 的代码、能出图的实验，才合进来</li>
+<li><code>exp/描述</code>：每个实验方向一个分支，如 <code>exp/adamw-lr</code>、<code>exp/diffusion-policy</code>。实验失败就直接扔掉，main 不受污染</li>
+<li>临时救火&#x2F;大重构：<code>fix/xxx</code>、<code>refactor/xxx</code></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git switch -c exp/diffusion-policy   <span class="comment"># 开新实验线</span></span><br><span class="line"><span class="comment"># ...改代码、跑实验、提交若干次...</span></span><br><span class="line">git switch main</span><br><span class="line">git merge exp/diffusion-policy       <span class="comment"># 实验成功，合回主线</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="6-远程仓库：多机与协作"><a href="#6-远程仓库：多机与协作" class="headerlink" title="6. 远程仓库：多机与协作"></a>6. 远程仓库：多机与协作</h2><h3 id="6-1-远程的概念"><a href="#6-1-远程的概念" class="headerlink" title="6.1 远程的概念"></a>6.1 远程的概念</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git remote -v                          <span class="comment"># 查看已配置的远程</span></span><br><span class="line">git remote add origin &lt;url&gt;            <span class="comment"># 关联远程（init 后第一次）</span></span><br><span class="line">git remote set-url origin &lt;新url&gt;       <span class="comment"># 换地址（比如 https 换 ssh）</span></span><br></pre></td></tr></table></figure>
+
+<p>本地仓库和远程仓库是<strong>两份独立数据</strong>。<code>git push</code> 之前，GitHub 上什么都不知道；<code>git fetch</code> 之后，远程的新提交也只是下载到了本地的 <code>origin/main</code> 分支，还没碰你的 <code>main</code>。</p>
+<h3 id="6-2-fetch-pull-push"><a href="#6-2-fetch-pull-push" class="headerlink" title="6.2 fetch &#x2F; pull &#x2F; push"></a>6.2 fetch &#x2F; pull &#x2F; push</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git fetch origin        <span class="comment"># 只下载远程更新到 origin/main，不合并（安全，先看看再说）</span></span><br><span class="line">git switch main &amp;&amp; git merge origin/main   <span class="comment"># 确认后手动合并</span></span><br><span class="line">git pull                <span class="comment"># = fetch + merge 一步到位（日常够用）</span></span><br><span class="line">git push                <span class="comment"># 推送当前分支</span></span><br><span class="line">git push -u origin main <span class="comment"># 第一次推送，并建立追踪关系（之后直接 git push）</span></span><br><span class="line">git push -f             <span class="comment"># 强推覆盖远程历史 —— 除非 100% 确认，否则别用</span></span><br></pre></td></tr></table></figure>
+
+<p>推荐习惯：<strong>push 前先 <code>git pull</code></strong>，让冲突在自己机器上解决，而不是推到一半被拒绝。</p>
+<h3 id="6-3-HTTPS-还是-SSH"><a href="#6-3-HTTPS-还是-SSH" class="headerlink" title="6.3 HTTPS 还是 SSH"></a>6.3 HTTPS 还是 SSH</h3><table>
+<thead>
+<tr>
+<th></th>
+<th>HTTPS</th>
+<th>SSH</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>地址形如</td>
+<td><code>https://github.com/...</code></td>
+<td><code>git@github.com:...</code></td>
+</tr>
+<tr>
+<td>认证</td>
+<td>用户名 + token（GitHub 已不支持密码）</td>
+<td>密钥对，一次配置永久免密</td>
+</tr>
+<tr>
+<td>代理友好</td>
+<td>走 HTTP 代理，容易配</td>
+<td>需要单独配代理</td>
+</tr>
+</tbody></table>
+<p>科研机建议配 SSH：<code>ssh-keygen -t ed25519</code> 后把公钥贴到 GitHub → Settings → SSH keys，具体步骤与<a href="/BlogNotes/tutorials/unison-local-remote-code-sync/">Unison 教程</a>第4节完全相同。若所在网络访问 GitHub 不畅，SSH 还有”走 443 端口”的备选方案（<code>~/.ssh/config</code> 里加 <code>HostName ssh.github.com; Port 443</code>）。</p>
+<h2 id="7-撤销与回退：按场景查表"><a href="#7-撤销与回退：按场景查表" class="headerlink" title="7. 撤销与回退：按场景查表"></a>7. 撤销与回退：按场景查表</h2><p>撤销是 Git 最让人害怕的部分，怕的不是命令，是不知道哪条命令影响什么。<strong>按文件走到哪一步查下表</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>场景</th>
+<th>命令</th>
+<th>影响</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>改了，还没 <code>add</code>，想丢弃</td>
+<td><code>git restore &lt;文件&gt;</code></td>
+<td>丢工作区改动（<strong>找不回</strong>）</td>
+</tr>
+<tr>
+<td><code>add</code> 了，想取消暂存（改动保留）</td>
+<td><code>git restore --staged &lt;文件&gt;</code></td>
+<td>无损</td>
+</tr>
+<tr>
+<td><code>commit</code> 了，想改提交信息&#x2F;补文件</td>
+<td>补 <code>add</code> 后 <code>git commit --amend</code></td>
+<td>改写最后一次提交</td>
+</tr>
+<tr>
+<td><code>commit</code> 了，想整体回退（未推送）</td>
+<td><code>git reset --soft &lt;hash&gt;</code></td>
+<td>回退提交，改动留在暂存区（无损）</td>
+</tr>
+<tr>
+<td>同上，改动放回工作区</td>
+<td><code>git reset --mixed &lt;hash&gt;</code></td>
+<td>无损（默认）</td>
+</tr>
+<tr>
+<td>同上，彻底不要了</td>
+<td><code>git reset --hard &lt;hash&gt;</code></td>
+<td><strong>丢弃所有改动（找不回）</strong></td>
+</tr>
+<tr>
+<td>已推送到远程，要撤销某次提交</td>
+<td><code>git revert &lt;hash&gt;</code></td>
+<td>生成一个”反向提交”，历史安全</td>
+</tr>
+<tr>
+<td>删了分支&#x2F;坏了想找回</td>
+<td><code>git reflog</code></td>
+<td>见 8.4 节</td>
+</tr>
+<tr>
+<td>清理未跟踪的文件</td>
+<td><code>git clean -n</code>（预览）&#x2F; <code>git clean -fd</code>（真删）</td>
+<td><strong>删除未跟踪文件（找不回）</strong></td>
+</tr>
+</tbody></table>
+<p>三条铁律：</p>
+<ol>
+<li><strong>已推送的提交用 <code>revert</code>，不用 <code>reset</code></strong>。<code>reset</code> 是篡改历史，别人拉取会一团糟；<code>revert</code> 是新增一个抵消提交，历史只增不改</li>
+<li><code>reset --hard</code> 和 <code>clean -fd</code> 动手前先 <code>git status</code> 确认没有未保存的心血</li>
+<li>只要提交过，几乎没有真正丢失的代码（reflog 兜底，见 8.4）</li>
+</ol>
+<h2 id="8-进阶工具箱"><a href="#8-进阶工具箱" class="headerlink" title="8. 进阶工具箱"></a>8. 进阶工具箱</h2><h3 id="8-1-stash：临时存一下，回头再处理"><a href="#8-1-stash：临时存一下，回头再处理" class="headerlink" title="8.1 stash：临时存一下，回头再处理"></a>8.1 stash：临时存一下，回头再处理</h3><p>实验跑到一半，突然要切分支救火，但当前改动又不想提交成一个烂 commit：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git stash push -u -m <span class="string">&quot;训练中断时的半成品&quot;</span>   <span class="comment"># -u 连未跟踪文件一起存</span></span><br><span class="line">git switch main</span><br><span class="line"><span class="comment"># ...处理别的事...</span></span><br><span class="line">git switch dev</span><br><span class="line">git stash list                     <span class="comment"># 查看存了几份</span></span><br><span class="line">git stash pop                      <span class="comment"># 取回最近一份并从栈里删掉（apply 则保留备份）</span></span><br></pre></td></tr></table></figure>
+
+<p>stash 是栈结构，可以存多份；<code>pop</code> 有冲突时不会丢数据，会像 merge 一样让你解决。</p>
+<h3 id="8-2-cherry-pick：只摘一个提交"><a href="#8-2-cherry-pick：只摘一个提交" class="headerlink" title="8.2 cherry-pick：只摘一个提交"></a>8.2 cherry-pick：只摘一个提交</h3><p>别的分支上有一个提交正好是你要的，但不想合并整个分支：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git cherry-pick &lt;<span class="built_in">hash</span>&gt;        <span class="comment"># 把那次提交在当前分支重放一遍</span></span><br><span class="line">git cherry-pick A..B          <span class="comment"># 摘一段连续提交（不含 A，含 B）</span></span><br></pre></td></tr></table></figure>
+
+<p>典型场景：在 <code>exp</code> 分支修了一个通用 bug，想把它单独带回 <code>main</code>。</p>
+<h3 id="8-3-rebase：把分叉”嫁接”成直线"><a href="#8-3-rebase：把分叉”嫁接”成直线" class="headerlink" title="8.3 rebase：把分叉”嫁接”成直线"></a>8.3 rebase：把分叉”嫁接”成直线</h3><p><code>merge</code> 保留真实分叉历史，<code>rebase</code> 把你的提交摘下来接到目标分支末尾，历史变成一条直线，更干净：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在 dev 分支上，把 dev 的提交变基到 main 最新处</span></span><br><span class="line">git switch dev</span><br><span class="line">git fetch origin</span><br><span class="line">git rebase origin/main</span><br><span class="line"><span class="comment"># 如有冲突：改文件 → git add → git rebase --continue（放弃则 git rebase --abort）</span></span><br><span class="line">git push -f origin dev        <span class="comment"># rebase 改写了 dev 的历史，需强推（个人分支才可这样做）</span></span><br></pre></td></tr></table></figure>
+
+<p>原则：<strong>main 这类公共分支永远不要 rebase</strong>，只 rebase 自己的私有分支。日常二选一即可——怕麻烦就全用 merge，完全没问题。</p>
+<p>交互式 rebase 用来收拾自己分支上的烂历史（合并琐碎提交、改信息）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rebase -i HEAD~5    <span class="comment"># 编辑最近 5 次提交：pick/squash/reword/drop</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="8-4-reflog：后悔药的最大库存"><a href="#8-4-reflog：后悔药的最大库存" class="headerlink" title="8.4 reflog：后悔药的最大库存"></a>8.4 reflog：后悔药的最大库存</h3><p>Git 里<strong>所有 HEAD 移动过的位置都有记录</strong>（默认保留 90 天）。<code>reset --hard</code> 删掉的分支、rebase 搞砸前的状态，都能找回来：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git reflog</span><br><span class="line"><span class="comment"># 输出形如：</span></span><br><span class="line"><span class="comment"># a1b2c3d HEAD@&#123;0&#125;: reset: moving to HEAD~3</span></span><br><span class="line"><span class="comment"># e4f5a6b HEAD@&#123;1&#125;: commit: 训练脚本定型     ← 想回到这里</span></span><br><span class="line">git reset --hard e4f5a6b     <span class="comment"># 回到那个位置，代码全回来了</span></span><br></pre></td></tr></table></figure>
+
+<p>口诀：<strong>慌了就 reflog</strong>。</p>
+<h3 id="8-5-tag：给重要时刻拍快照"><a href="#8-5-tag：给重要时刻拍快照" class="headerlink" title="8.5 tag：给重要时刻拍快照"></a>8.5 tag：给重要时刻拍快照</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git tag v1.0                      <span class="comment"># 轻量标签</span></span><br><span class="line">git tag -a v1.0 -m <span class="string">&quot;baseline 复现成功&quot;</span>   <span class="comment"># 带说明的标签</span></span><br><span class="line">git push origin v1.0              <span class="comment"># 标签默认不随 push 走，要单独推</span></span><br><span class="line">git checkout v1.0                 <span class="comment"># 切到那个时刻看看（进入 detached HEAD）</span></span><br></pre></td></tr></table></figure>
+
+<p>科研场景特别有用：<code>exp-baseline</code>、<code>paper-v2-submit</code>——论文投稿那天打一个 tag，一年后审稿意见回来，一条命令回到投稿时的代码。</p>
+<h3 id="8-6-bisect：二分法找引入-bug-的提交"><a href="#8-6-bisect：二分法找引入-bug-的提交" class="headerlink" title="8.6 bisect：二分法找引入 bug 的提交"></a>8.6 bisect：二分法找引入 bug 的提交</h3><p>提交多了以后，”上周还好好的”变成破案现场。bisect 用二分法自动定位：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git bisect start</span><br><span class="line">git bisect bad            <span class="comment"># 当前提交是坏的</span></span><br><span class="line">git bisect good v1.0      <span class="comment"># 这个提交是好的</span></span><br><span class="line"><span class="comment"># Git 自动切到中间提交 → 你跑一下实验/测试</span></span><br><span class="line">git bisect good           <span class="comment"># 或 git bisect bad，每轮砍掉一半</span></span><br><span class="line"><span class="comment"># 若干轮后输出：xxx is the first bad commit</span></span><br><span class="line">git bisect reset          <span class="comment"># 结束，回到原来位置</span></span><br></pre></td></tr></table></figure>
+
+<p>配合可脚本化的验证命令可以全自动：<code>git bisect run python test_all.py</code>。</p>
+<h2 id="9-配置文件与忽略规则"><a href="#9-配置文件与忽略规则" class="headerlink" title="9. 配置文件与忽略规则"></a>9. 配置文件与忽略规则</h2><h3 id="9-1-gitignore"><a href="#9-1-gitignore" class="headerlink" title="9.1 .gitignore"></a>9.1 .gitignore</h3><p>放在仓库根目录，声明哪些文件<strong>不进入版本库</strong>。Python 项目模板：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"># 构建产物与缓存</span><br><span class="line">__pycache__/</span><br><span class="line">*.pyc</span><br><span class="line">build/</span><br><span class="line">dist/</span><br><span class="line">*.egg-info/</span><br><span class="line"></span><br><span class="line"># 虚拟环境</span><br><span class="line">.venv/</span><br><span class="line">venv/</span><br><span class="line"></span><br><span class="line"># IDE</span><br><span class="line">.idea/</span><br><span class="line">.vscode/</span><br><span class="line"></span><br><span class="line"># 数据与产物（大文件别进 git）</span><br><span class="line">data/</span><br><span class="line">outputs/</span><br><span class="line">*.pt</span><br><span class="line">*.ckpt</span><br><span class="line">*.log</span><br><span class="line"></span><br><span class="line"># 系统</span><br><span class="line">Thumbs.db</span><br><span class="line">.DS_Store</span><br></pre></td></tr></table></figure>
+
+<p>语法要点：</p>
+<ul>
+<li><code>dir/</code>：整个目录；<code>*.log</code>：通配；<code>/data</code>：只匹配根目录的 data（子目录同名的不影响）</li>
+<li><code>!filename</code>：例外规则（前面忽略了，单独捞回这一个）</li>
+<li><strong>只对未跟踪的文件生效</strong>：已被跟踪的文件要先用 <code>git rm --cached &lt;文件&gt;</code> 移出跟踪再进 ignore</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">rm</span> --cached settings_local.py   <span class="comment"># 从版本库移除但保留本地文件</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="9-2-gitattributes：统一行尾，跨平台必备"><a href="#9-2-gitattributes：统一行尾，跨平台必备" class="headerlink" title="9.2 .gitattributes：统一行尾，跨平台必备"></a>9.2 .gitattributes：统一行尾，跨平台必备</h3><p><code>.gitignore</code> 管”哪些文件不进来”，<code>.gitattributes</code> 管”进来的文件怎么规范化”。行尾统一声明：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">* text=auto eol=lf</span><br><span class="line">*.bat text eol=crlf</span><br><span class="line">*.png binary</span><br><span class="line">*.onnx binary</span><br></pre></td></tr></table></figure>
+
+<p>有了它，Windows&#x2F;Linux 混合开发 + Unison 双向同步的组合就不会出现满屏 CRLF&#x2F;LF 假冲突（详见 Unison 教程第8节）。</p>
+<h3 id="9-3-子模块-submodule（了解即可）"><a href="#9-3-子模块-submodule（了解即可）" class="headerlink" title="9.3 子模块 submodule（了解即可）"></a>9.3 子模块 submodule（了解即可）</h3><p>仓库里嵌套另一个仓库（比如引用别人的开源代码且要保持能拉更新）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git submodule add &lt;url&gt; third_party/xxx</span><br><span class="line">git <span class="built_in">clone</span> --recurse-submodules &lt;url&gt;   <span class="comment"># 克隆时带下子模块</span></span><br></pre></td></tr></table></figure>
+
+<p>用起来坑不少（每次 pull 后要 <code>git submodule update</code>），能用包管理器（pip、vcpkg）就用包管理器。</p>
+<h2 id="10-README-规范：仓库的门面"><a href="#10-README-规范：仓库的门面" class="headerlink" title="10. README 规范：仓库的门面"></a>10. README 规范：仓库的门面</h2><p>Git 管住代码”改没改”，README 说明代码”是什么、怎么跑”。它是仓库里唯一保证所有人——包括三个月后的你自己、接手项目的师弟师妹、想复现你结果的审稿人——都会打开看的文件。</p>
+<p>科研代码 README 的检验标准只有一条：<strong>换一台新机器、一个新人，只看 README 能不能把项目跑起来</strong>。</p>
+<h3 id="10-1-标准结构模板"><a href="#10-1-标准结构模板" class="headerlink" title="10.1 标准结构模板"></a>10.1 标准结构模板</h3><p>以下是一个科研项目的完整模板（含论文复现场景），照抄结构、替换内容即可：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># DexHand-Policy：灵巧手抓取策略训练与评测</span></span><br><span class="line"></span><br><span class="line">基于扩散策略的五指灵巧手抓取训练框架。（论文链接 / 演示 GIF 放这里）</span><br><span class="line"></span><br><span class="line"><span class="section">## 环境要求</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> Python 3.10，PyTorch 2.3，CUDA 12.1</span><br><span class="line"><span class="bullet">-</span> 硬件：单卡 RTX 4090（24GB）可跑 baseline；评测需配备 DexHand021 实机</span><br><span class="line"></span><br><span class="line"><span class="section">## 安装</span></span><br><span class="line"></span><br><span class="line"><span class="code">```bash</span></span><br><span class="line"><span class="code">conda create -n dex python=3.10 -y</span></span><br><span class="line"><span class="code">conda activate dex</span></span><br><span class="line"><span class="code">pip install -r requirements.txt</span></span><br><span class="line"><span class="code">```</span></span><br><span class="line"></span><br><span class="line"><span class="section">## 快速开始</span></span><br><span class="line"></span><br><span class="line"><span class="code">```bash</span></span><br><span class="line"><span class="code"># 1. 下载预训练权重并放到 ckpts/ 下</span></span><br><span class="line"><span class="code">bash scripts/download_ckpt.sh</span></span><br><span class="line"><span class="code"># 2. 单条命令推理（期望输出：终端打印抓取成功率，约 0.82）</span></span><br><span class="line"><span class="code">python demo.py --hand dexhand021 --ckpt ckpts/baseline.pt</span></span><br><span class="line"><span class="code">```</span></span><br><span class="line"></span><br><span class="line"><span class="section">## 数据与权重</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> 训练数据：[下载链接]（约 12GB），解压到 <span class="code">`data/`</span>，目录结构见下</span><br><span class="line"><span class="bullet">-</span> 预训练权重：[下载链接]</span><br><span class="line"></span><br><span class="line"><span class="section">## 目录结构</span></span><br><span class="line"></span><br><span class="line"><span class="code">```text</span></span><br><span class="line"><span class="code">.</span></span><br><span class="line"><span class="code">├── configs/        # 实验配置（yaml，一个实验一个文件）</span></span><br><span class="line"><span class="code">├── scripts/        # 下载、训练、评测的入口脚本</span></span><br><span class="line"><span class="code">├── src/            # 核心代码</span></span><br><span class="line"><span class="code">├── data/           # 数据集（已 gitignore，不进库）</span></span><br><span class="line"><span class="code">├── ckpts/          # 权重（已 gitignore）</span></span><br><span class="line"><span class="code">└── docs/           # 补充文档</span></span><br><span class="line"><span class="code">```</span></span><br><span class="line"></span><br><span class="line"><span class="section">## 复现实验</span></span><br><span class="line"></span><br><span class="line">| 实验 | 命令 | 期望指标 |</span><br><span class="line">| --- | --- | --- |</span><br><span class="line">| Table 1 baseline | <span class="code">`bash scripts/train.sh configs/base.yaml`</span> | SR 0.82 |</span><br><span class="line">| 消融：无触觉 | <span class="code">`bash scripts/train.sh configs/no_touch.yaml`</span> | SR 0.74 |</span><br><span class="line"></span><br><span class="line"><span class="section">## 引用</span></span><br><span class="line"></span><br><span class="line"><span class="code">```bibtex</span></span><br><span class="line"><span class="code">@article&#123;yourpaper2026,</span></span><br><span class="line"><span class="code">  title=&#123;...&#125;,</span></span><br><span class="line"><span class="code">  author=&#123;...&#125;,</span></span><br><span class="line"><span class="code">  journal=&#123;...&#125;,</span></span><br><span class="line"><span class="code">  year=&#123;2026&#125;</span></span><br><span class="line"><span class="code">&#125;</span></span><br><span class="line"><span class="code">```</span></span><br><span class="line"></span><br><span class="line"><span class="section">## License</span></span><br><span class="line"></span><br><span class="line">MIT</span><br></pre></td></tr></table></figure>
+
+<h3 id="10-2-写作六原则"><a href="#10-2-写作六原则" class="headerlink" title="10.2 写作六原则"></a>10.2 写作六原则</h3><ol>
+<li><strong>命令必须逐条可复制执行</strong>。不写”安装相关依赖”，写 <code>pip install -r requirements.txt</code>；不写”修改配置文件”，直接给出要改的行和示例值</li>
+<li><strong>版本写具体</strong>。”Python 3.10”而不是”Python3”，”CUDA 12.1”而不是”配好 CUDA”——版本差一位往往正是跑不通的根源</li>
+<li><strong>硬件门槛明示</strong>。显存（”24GB 可跑 baseline，13GB 只能跑小号消融”）、是否需要实机&#x2F;特定驱动&#x2F;特定操作系统</li>
+<li><strong>给出期望输出</strong>。跑成功应该看到什么（终端打印 SR 0.82、生成 <code>outputs/</code> 目录），让使用者能自行判断成败，而不是对着无报错的卡死界面猜</li>
+<li><strong>README 与代码同生命周期</strong>。改了运行方式不同步改 README，等于文档造假。把”README 是否需要更新”列进每次提交前的检查（见 10.3）</li>
+<li><strong>别把 README 当公告板</strong>。TODO、失败实验记录、私人笔记放 <code>docs/</code> 或 issue，README 只保留”新人 5 分钟能跑起来”所需的最小集合</li>
+</ol>
+<p>关于 <code>requirements.txt</code> 的一个细节：<strong>手写关键依赖</strong>（torch、numpy 等及版本号）比 <code>pip freeze</code> 全量导出更友好——全量导出会把本地环境几百个间接依赖全部锁死，换平台、换 Python 小版本经常装不上。</p>
+<h3 id="10-3-提交前检查清单"><a href="#10-3-提交前检查清单" class="headerlink" title="10.3 提交前检查清单"></a>10.3 提交前检查清单</h3><p>每次 <code>git commit</code> 前（至少每次 push 前）过一遍：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">□ 新增了依赖      → requirements.txt / environment.yml 是否同步更新</span><br><span class="line">□ 改了入口命令或参数 → README&quot;快速开始 / 复现实验&quot;是否同步更新</span><br><span class="line">□ 新增数据或权重   → 下载链接是否有效、放置路径是否写清</span><br><span class="line">□ 准备开源        → LICENSE、引用格式、作者信息是否就位</span><br><span class="line">□ 敏感与冗余文件   → 数据集、密钥、.env、临时脚本没有被 git add 进去</span><br></pre></td></tr></table></figure>
+
+<p>这份清单配合 <code>.gitignore</code>（9.1 节）一起用：ignore 挡住”不该进的”，README 写清”怎么用起来的”。</p>
+<h2 id="11-多人协作简流程"><a href="#11-多人协作简流程" class="headerlink" title="11. 多人协作简流程"></a>11. 多人协作简流程</h2><p>实验室两人以上合写代码时，最简可行的协作模式（GitHub 标准流）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. fork 或直接 clone 共享仓库，开功能分支</span></span><br><span class="line">git switch -c feat/hand-eye-calib</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 开发、提交</span></span><br><span class="line">git add . &amp;&amp; git commit -m <span class="string">&quot;feat: 手眼标定脚本&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 推分支、发 Pull Request</span></span><br><span class="line">git push -u origin feat/hand-eye-calib</span><br><span class="line"><span class="comment"># 在 GitHub 网页上发起 PR，请合作者 review</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 4. 有修改意见：本地继续改、提交，直接 push 就会自动更新 PR</span></span><br><span class="line"><span class="comment"># 5. 合并后清理</span></span><br><span class="line">git switch main &amp;&amp; git pull</span><br><span class="line">git branch -d feat/hand-eye-calib</span><br><span class="line">git push origin --delete feat/hand-eye-calib   <span class="comment"># 删远程分支（可选）</span></span><br></pre></td></tr></table></figure>
+
+<p>两个人直接在 main 上你推我拉也完全可行（小团队、强沟通），PR 流程的价值在审查和留痕。</p>
+<h2 id="12-常见报错速查"><a href="#12-常见报错速查" class="headerlink" title="12. 常见报错速查"></a>12. 常见报错速查</h2><table>
+<thead>
+<tr>
+<th>报错&#x2F;现象</th>
+<th>原因与解法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>rejected - non-fast-forward</code></td>
+<td>远程有你没有的提交。先 <code>git pull</code> 再 push</td>
+</tr>
+<tr>
+<td><code>fatal: not a git repository</code></td>
+<td>当前目录不是仓库。<code>cd</code> 到项目根目录，或忘了 <code>git init</code>&#x2F;<code>clone</code></td>
+</tr>
+<tr>
+<td><code>Permission denied (publickey)</code></td>
+<td>SSH 密钥未配置或未加入 GitHub。见 6.3 节</td>
+</tr>
+<tr>
+<td><code>Authentication failed</code>（HTTPS）</td>
+<td>GitHub 不再支持密码，改用 Personal Access Token 或换 SSH</td>
+</tr>
+<tr>
+<td>合并时 <code>CONFLICT</code></td>
+<td>见下方冲突解决流程</td>
+</tr>
+<tr>
+<td><code>detached HEAD</code> 警告</td>
+<td>checkout 了提交&#x2F;标签而非分支。要保存改动就 <code>git switch -c 新分支名</code></td>
+</tr>
+<tr>
+<td><code>Another git process seems to be running</code></td>
+<td>上次操作崩溃留下了锁文件。确认没有 git 进程后删 <code>.git/index.lock</code></td>
+</tr>
+<tr>
+<td>Windows 下文件全显示被修改</td>
+<td>行尾问题。见 3.3 与 9.2 节</td>
+</tr>
+</tbody></table>
+<h2 id="13-总结：把命令串成肌肉记忆"><a href="#13-总结：把命令串成肌肉记忆" class="headerlink" title="13. 总结：把命令串成肌肉记忆"></a>13. 总结：把命令串成肌肉记忆</h2><p>单人科研日常，其实就这一条循环：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">git switch -c exp/新想法     <span class="comment"># 开分支</span></span><br><span class="line"><span class="comment"># ...写代码、跑实验...</span></span><br><span class="line">git st                      <span class="comment"># 看改了什么（status -sb 别名）</span></span><br><span class="line">git add -p                  <span class="comment"># 逐块确认暂存（-p 会逐段问你，强烈推荐）</span></span><br><span class="line">git commit -m <span class="string">&quot;exp: 描述&quot;</span></span><br><span class="line"><span class="comment"># ...满意了...</span></span><br><span class="line">git switch main &amp;&amp; git merge exp/新想法</span><br><span class="line">git tag exp/想法-结论</span><br><span class="line">git push &amp;&amp; git push --tags</span><br></pre></td></tr></table></figure>
+
+<p>出问题时回到那张三区域图问自己：<strong>改动现在在哪个区域？我要把它移到哪，还是丢弃？</strong>——所有命令不过是区域之间的搬运工。真正救命的三个命令记住即可：<code>git status</code>（我在哪）、<code>git reflog</code>（我去过哪）、<code>git log -p</code>（这里发生过什么）。</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/BlogNotes/about" rel="external nofollow noreferrer">Jianbo.Yuan</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://jianbo-yuan.github.io/BlogNotes/BlogNotes/tutorials/git-detailed-usage/">https://jianbo-yuan.github.io/BlogNotes/BlogNotes/tutorials/git-detailed-usage/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/BlogNotes/about" target="_blank">Jianbo.Yuan</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/BlogNotes/tags/Git/">
+                                    <span class="chip bg-color">Git</span>
+                                </a>
+                            
+                                <a href="/BlogNotes/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/">
+                                    <span class="chip bg-color">版本控制</span>
+                                </a>
+                            
+                                <a href="/BlogNotes/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C/">
+                                    <span class="chip bg-color">命令行</span>
+                                </a>
+                            
+                                <a href="/BlogNotes/tags/%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7/">
+                                    <span class="chip bg-color">科研工具</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/BlogNotes/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/BlogNotes/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/BlogNotes/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/BlogNotes/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/BlogNotes/tutorials/python-project-code-style/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/BlogNotes/medias/featureimages/2.jpg" class="responsive-img" alt="Python工程编程规范">
+                        
+                        <span class="card-title">Python工程编程规范</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            面向科研与工程落地的 Python 项目规范：工程结构、命名、格式化工具链、类型注解、docstring、配置与路径管理、日志异常、测试，以及实验代码可复现的专项要求。
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2026-08-30
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/BlogNotes/categories/%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7/" class="post-category">
+                                    科研工具
+                                </a>
+                            
+                            <a href="/BlogNotes/categories/%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7/%E7%BC%96%E7%A8%8B%E7%B1%BB/" class="post-category">
+                                    编程类
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/BlogNotes/tags/%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83/">
+                        <span class="chip bg-color">编程规范</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/Python/">
+                        <span class="chip bg-color">Python</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5/">
+                        <span class="chip bg-color">工程实践</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/Lint/">
+                        <span class="chip bg-color">Lint</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/BlogNotes/tutorials/unison-local-remote-code-sync/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/BlogNotes/medias/featureimages/9.jpg" class="responsive-img" alt="通过Unison实现本地与远程服务器的代码同步">
+                        
+                        <span class="card-title">通过Unison实现本地与远程服务器的代码同步</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            使用 Unison 在本地 Windows 与远程 Linux 服务器之间建立双向代码同步：原理、安装、SSH 免密、profile 配置模板、日常使用与常见踩坑。
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-08-30
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/BlogNotes/categories/%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7/" class="post-category">
+                                    科研工具
+                                </a>
+                            
+                            <a href="/BlogNotes/categories/%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7/%E7%BC%96%E7%A8%8B%E7%B1%BB/" class="post-category">
+                                    编程类
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/BlogNotes/tags/Unison/">
+                        <span class="chip bg-color">Unison</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/%E6%96%87%E4%BB%B6%E5%90%8C%E6%AD%A5/">
+                        <span class="chip bg-color">文件同步</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/SSH/">
+                        <span class="chip bg-color">SSH</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/%E8%BF%9C%E7%A8%8B%E5%BC%80%E5%8F%91/">
+                        <span class="chip bg-color">远程开发</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/Windows/">
+                        <span class="chip bg-color">Windows</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/BlogNotes/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/BlogNotes/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/BlogNotes/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/BlogNotes/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/BlogNotes/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        },
+        "HTML-CSS": {
+            linebreaks: {
+                automatic: true,
+                width: "container"
+            }
+        },
+        SVG: {
+            linebreaks: {
+                automatic: true,
+                width: "container"
+            }
+        }
+    });
+</script>
+<script>
+    (function () {
+        if (window.MathJax) return;
+
+        var sources = [
+            "https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML",
+            "https://unpkg.com/mathjax@2.7.9/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML",
+            "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+        ];
+
+        function loadMathJax(index) {
+            if (index >= sources.length) {
+                console.error("MathJax failed to load from all configured CDNs.");
+                return;
+            }
+
+            var script = document.createElement("script");
+            script.src = sources[index];
+            script.async = true;
+            script.onerror = function () {
+                loadMathJax(index + 1);
+            };
+            document.head.appendChild(script);
+        }
+
+        loadMathJax(0);
+    })();
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/BlogNotes/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.3'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/BlogNotes/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2026</span>
+            
+            <span id="year">2026</span>
+            <a href="/BlogNotes/about" target="_blank">Jianbo.Yuan</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:jianbo.yuan@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=335943408" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 335943408" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+    <a href="https://www.zhihu.com/people/Simple" class="tooltipped" target="_blank" data-tooltip="关注我的知乎: https://www.zhihu.com/people/Simple" data-position="top" data-delay="50">
+        <i class="fab fa-zhihu1">知</i>
+    </a>
+
+
+
+    <a href="/BlogNotes/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/BlogNotes/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/BlogNotes/libs/materialize/materialize.min.js"></script>
+    <script src="/BlogNotes/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/BlogNotes/libs/aos/aos.js"></script>
+    <script src="/BlogNotes/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/BlogNotes/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/BlogNotes/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/BlogNotes/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/BlogNotes/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/BlogNotes/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

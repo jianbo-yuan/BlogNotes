@@ -1,0 +1,1791 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="机器人力位混合控制算法, Jianbo.Yuan">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>机器人力位混合控制算法 | Jianbo.Yuan</title>
+    <link rel="icon" type="image/png" href="/BlogNotes/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/css/my.css">
+
+    <script src="/BlogNotes/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/BlogNotes/" class="waves-effect waves-light">
+                    
+                    <img src="/BlogNotes/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Jianbo.Yuan</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/BlogNotes/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Jianbo.Yuan</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/BlogNotes/medias/featureimages/20.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">机器人力位混合控制算法</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/BlogNotes/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/BlogNotes/tags/%E5%8A%9B%E4%BD%8D%E6%B7%B7%E5%90%88%E6%8E%A7%E5%88%B6/">
+                                <span class="chip bg-color">力位混合控制</span>
+                            </a>
+                        
+                            <a href="/BlogNotes/tags/%E9%98%BB%E6%8A%97%E6%8E%A7%E5%88%B6/">
+                                <span class="chip bg-color">阻抗控制</span>
+                            </a>
+                        
+                            <a href="/BlogNotes/tags/%E5%AF%BC%E7%BA%B3%E6%8E%A7%E5%88%B6/">
+                                <span class="chip bg-color">导纳控制</span>
+                            </a>
+                        
+                            <a href="/BlogNotes/tags/%E6%93%8D%E4%BD%9C%E7%A9%BA%E9%97%B4/">
+                                <span class="chip bg-color">操作空间</span>
+                            </a>
+                        
+                            <a href="/BlogNotes/tags/%E6%9D%8E%E9%9B%85%E6%99%AE%E8%AF%BA%E5%A4%AB%E7%A8%B3%E5%AE%9A%E6%80%A7/">
+                                <span class="chip bg-color">李雅普诺夫稳定性</span>
+                            </a>
+                        
+                            <a href="/BlogNotes/tags/%E5%8A%9B%E6%8E%A7%E5%88%B6/">
+                                <span class="chip bg-color">力控制</span>
+                            </a>
+                        
+                            <a href="/BlogNotes/tags/%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%8E%A7%E5%88%B6/">
+                                <span class="chip bg-color">机器人控制</span>
+                            </a>
+                        
+                            <a href="/BlogNotes/tags/Python%E4%BB%BF%E7%9C%9F/">
+                                <span class="chip bg-color">Python仿真</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/BlogNotes/categories/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%90%86%E8%AE%BA%E4%B8%8E%E6%8A%80%E6%9C%AF/" class="post-category">
+                                机器人理论与技术
+                            </a>
+                        
+                            <a href="/BlogNotes/categories/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%90%86%E8%AE%BA%E4%B8%8E%E6%8A%80%E6%9C%AF/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%AD%A6%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/" class="post-category">
+                                机器人学理论基础
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2026-08-30
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>位置控制把”走哪条轨迹”做到极致，但一碰上<strong>接触任务</strong>就露出短板：往桌面上写字，笔尖多走 0.1mm，要么笔悬空、要么戳穿纸——位置误差在接触方向上被环境放大成巨大的接触力。接触任务的正确提法是：<strong>沿约束面的法向控力、沿切向控位置</strong>。力位混合控制（hybrid force&#x2F;position control）就是把任务空间的 6 个自由度切成两半、分别用力环和位置环去管的控制框架。</p>
+<p>本文是”理论 + 实现”的完整版：先沿”约束建模 → 力&#x2F;运动对偶 → 经典混合控制 → 操作空间动力学前馈 → 阻抗&#x2F;导纳 → 稳定性”的主线把理论推透，再给出<strong>五个控制模型的完整数学推导与实测可运行的 Python 实现</strong>（PD + 重力补偿、计算力矩、阻抗、导纳、力位混合），全部代码只依赖 <code>numpy</code>，文中数值全部来自真实运行。衔接<a href="/BlogNotes/2026/08/29/%E6%9C%BA%E5%99%A8%E4%BA%BA%E8%BF%90%E5%8A%A8%E5%AD%A6%E5%9F%BA%E7%A1%80/">运动学基础</a>（雅可比）与<a href="/BlogNotes/2026/08/30/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80/">动力学基础</a>（<span class="math-inline">\(\mathbf{M}, \mathbf{C}, \boldsymbol{g}\)</span> 与 <span class="math-inline">\(\boldsymbol{\tau} = \mathbf{J}^{\top}\boldsymbol{F}\)</span> 的对偶）。</p>
+<h2 id="1-接触任务为什么位置控制会失败"><a href="#1-接触任务为什么位置控制会失败" class="headerlink" title="1. 接触任务为什么位置控制会失败"></a>1. 接触任务为什么位置控制会失败</h2><p>三个典型场景：</p>
+<table>
+<thead>
+<tr>
+<th>任务</th>
+<th>位置控制的问题</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>恒力打磨</td>
+<td>法向位置误差 ±0.05mm，刚度 10⁵ N&#x2F;m 的表面 → 法向力波动 ±50N，工件烧糊或飞出</td>
+</tr>
+<tr>
+<td>轴孔装配（peg-in-hole）</td>
+<td>任何微小姿态误差都变成卡死与巨大侧向力，无从”顺从”</td>
+</tr>
+<tr>
+<td>抓握易碎品</td>
+<td>指端位置定的太”死”，工件尺寸误差直接转化为捏碎力</td>
+</tr>
+</tbody></table>
+<p>共同本质：<strong>环境构成了约束，约束方向上位置不可独立规划</strong>——机器人决定不了沿法向走多远（表面说了算），只能决定压多大力。反过来，切向方向上力不可独立规划（无摩擦理想表面不提供切向支撑），只能规划速度。于是一个接触任务天然分解成两组正交的自由度：一半控力、一半控位置。</p>
+<h2 id="2-公共仿真平台：2R-臂与刚性墙"><a href="#2-公共仿真平台：2R-臂与刚性墙" class="headerlink" title="2. 公共仿真平台：2R 臂与刚性墙"></a>2. 公共仿真平台：2R 臂与刚性墙</h2><p>本文所有实现共用一个仿真平台：二连杆平面臂（<a href="/BlogNotes/2026/08/30/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80/">动力学基础</a>第6节手推过的闭式动力学）+ 一堵刚性墙。五个控制模型按”需要多少模型信息”递进，先看实测结果总表（后文逐个推导）：</p>
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th>需要的模型信息</th>
+<th>用力传感器</th>
+<th>本文实测结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>① PD + 重力补偿</td>
+<td>仅 <span class="math-inline">\(\boldsymbol{g}(\boldsymbol{q})\)</span></td>
+<td>否</td>
+<td>定点误差 <span class="math-inline">\(1.1\times10^{-14}\)</span> rad</td>
+</tr>
+<tr>
+<td>② 计算力矩（反馈线性化）</td>
+<td>全模型 <span class="math-inline">\(\mathbf{M}, \mathbf{C}, \boldsymbol{g}\)</span></td>
+<td>否</td>
+<td>正弦跟踪 <span class="math-inline">\(2.3\times10^{-4}\)</span> rad；+20% 惯量误差仍 <span class="math-inline">\(6.0\times10^{-4}\)</span></td>
+</tr>
+<tr>
+<td>③ 阻抗控制</td>
+<td>全模型 + 末端外力</td>
+<td>是</td>
+<td>稳态接触力 <strong>31.50 N &#x2F; 275.9 N，与理论逐位一致</strong></td>
+</tr>
+<tr>
+<td>④ 导纳控制</td>
+<td>内环只需位置模型</td>
+<td>是</td>
+<td>接触力 37.1 N，纯位置基线 683 N（<strong>降 18 倍</strong>）</td>
+</tr>
+<tr>
+<td>⑤ 力位混合</td>
+<td>全模型 + 外力 + 约束几何</td>
+<td>是</td>
+<td>法向恒力 <strong>10.00 ± 0.01 N</strong>；去掉阻尼项退化为 ±3.25 N</td>
+</tr>
+</tbody></table>
+<h3 id="2-1-被控对象：二连杆平面臂"><a href="#2-1-被控对象：二连杆平面臂" class="headerlink" title="2.1 被控对象：二连杆平面臂"></a>2.1 被控对象：二连杆平面臂</h3><p>匀质细杆参数：<span class="math-inline">\(m_1=1.5,\ m_2=1.0\)</span> kg，<span class="math-inline">\(l_1=0.35,\ l_2=0.30\)</span> m：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">m1, m2 = <span class="number">1.5</span>, <span class="number">1.0</span></span><br><span class="line">l1, l2 = <span class="number">0.35</span>, <span class="number">0.30</span></span><br><span class="line">lc1, lc2 = l1/<span class="number">2</span>, l2/<span class="number">2</span></span><br><span class="line">I1, I2 = m1*l1**<span class="number">2</span>/<span class="number">12</span>, m2*l2**<span class="number">2</span>/<span class="number">12</span></span><br><span class="line">G = <span class="number">9.81</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">M</span>(<span class="params">q</span>):                                  <span class="comment"># 质量矩阵 M(q)</span></span><br><span class="line">    c2 = np.cos(q[<span class="number">1</span>])</span><br><span class="line">    m11 = m1*lc1**<span class="number">2</span> + I1 + m2*(l1**<span class="number">2</span> + lc2**<span class="number">2</span> + <span class="number">2</span>*l1*lc2*c2) + I2</span><br><span class="line">    m12 = m2*(lc2**<span class="number">2</span> + l1*lc2*c2) + I2</span><br><span class="line">    m22 = m2*lc2**<span class="number">2</span> + I2</span><br><span class="line">    <span class="keyword">return</span> np.array([[m11, m12], [m12, m22]])</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">Cv</span>(<span class="params">q, v</span>):                              <span class="comment"># 科氏/离心项 C(q,v)v</span></span><br><span class="line">    s2 = np.sin(q[<span class="number">1</span>]); h = -m2*l1*lc2*s2</span><br><span class="line">    <span class="keyword">return</span> np.array([h*(<span class="number">2</span>*v[<span class="number">0</span>]*v[<span class="number">1</span>] + v[<span class="number">1</span>]**<span class="number">2</span>), -h*v[<span class="number">0</span>]**<span class="number">2</span>])</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">grav</span>(<span class="params">q</span>):                               <span class="comment"># 重力项 g(q)</span></span><br><span class="line">    c1, c12 = np.cos(q[<span class="number">0</span>]), np.cos(q[<span class="number">0</span>]+q[<span class="number">1</span>])</span><br><span class="line">    <span class="keyword">return</span> np.array([(m1*lc1 + m2*l1)*G*c1 + m2*lc2*G*c12,</span><br><span class="line">                     m2*lc2*G*c12])</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">fk</span>(<span class="params">q</span>):                                 <span class="comment"># 正运动学 → 末端 (x, y)</span></span><br><span class="line">    c1, s1 = np.cos(q[<span class="number">0</span>]), np.sin(q[<span class="number">0</span>])</span><br><span class="line">    c12, s12 = np.cos(q[<span class="number">0</span>]+q[<span class="number">1</span>]), np.sin(q[<span class="number">0</span>]+q[<span class="number">1</span>])</span><br><span class="line">    <span class="keyword">return</span> np.array([l1*c1 + l2*c12, l1*s1 + l2*s12])</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">jac</span>(<span class="params">q</span>):                                <span class="comment"># 雅可比 J(q)：v = J q̇</span></span><br><span class="line">    s1, s12 = np.sin(q[<span class="number">0</span>]), np.sin(q[<span class="number">0</span>]+q[<span class="number">1</span>])</span><br><span class="line">    c1, c12 = np.cos(q[<span class="number">0</span>]), np.cos(q[<span class="number">0</span>]+q[<span class="number">1</span>])</span><br><span class="line">    <span class="keyword">return</span> np.array([[-l1*s1 - l2*s12, -l2*s12],</span><br><span class="line">                     [ l1*c1 + l2*c12,  l2*c12]])</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2-仿真器与接触环境"><a href="#2-2-仿真器与接触环境" class="headerlink" title="2.2 仿真器与接触环境"></a>2.2 仿真器与接触环境</h3><p>物理仿真用半隐式欧拉（先速度后位置，见<a href="/BlogNotes/2026/08/30/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80/">动力学基础</a> 8.2 节）。接触环境是一堵<strong>刚度 <span class="math-inline">\(K_w = 5\times10^4\)</span> N&#x2F;m 的刚性墙</strong>：表面在 <span class="math-inline">\(y_w = 0.30\)</span> m，末端侵入（<span class="math-inline">\(y &lt; y_w\)</span>）时产生向上的法向弹力——同时它就是”理想六维力传感器”的读数来源：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">step</span>(<span class="params">q, v, tau, tau_ext, dt</span>):          <span class="comment"># 半隐式欧拉一步</span></span><br><span class="line">    a = np.linalg.solve(M(q), tau + tau_ext - Cv(q, v) - grav(q))</span><br><span class="line">    v = v + dt*a</span><br><span class="line">    q = q + dt*v</span><br><span class="line">    <span class="keyword">return</span> q, v</span><br><span class="line"></span><br><span class="line">KW, YW = <span class="number">5.0e4</span>, <span class="number">0.30</span>                        <span class="comment"># 墙刚度 / 墙面位置</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">wall</span>(<span class="params">q</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;返回：末端处外力 F_ext（=理想 F/T 传感器读数）、等效关节力矩 JᵀF&quot;&quot;&quot;</span></span><br><span class="line">    pen = <span class="built_in">max</span>(<span class="number">0.0</span>, YW - fk(q)[<span class="number">1</span>])           <span class="comment"># 侵入深度</span></span><br><span class="line">    F = np.array([<span class="number">0.0</span>, KW * pen])           <span class="comment"># 法向 +y 弹力</span></span><br><span class="line">    <span class="keyword">return</span> F, jac(q).T @ F</span><br><span class="line"></span><br><span class="line">DT = <span class="number">0.0005</span>                                 <span class="comment"># 2 kHz 仿真步长</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="3-前置控制器①：PD-重力补偿——最简单的渐近稳定"><a href="#3-前置控制器①：PD-重力补偿——最简单的渐近稳定" class="headerlink" title="3. 前置控制器①：PD + 重力补偿——最简单的渐近稳定"></a>3. 前置控制器①：PD + 重力补偿——最简单的渐近稳定</h2><h3 id="3-1-推导"><a href="#3-1-推导" class="headerlink" title="3.1 推导"></a>3.1 推导</h3><p>取关节空间控制律（<span class="math-inline">\(\boldsymbol{e} = \boldsymbol{q}_d - \boldsymbol{q}\)</span>）：</p>
+<div class="math-block">\[
+\boldsymbol{\tau} = \mathbf{K}_p\boldsymbol{e} - \mathbf{K}_d\dot{\boldsymbol{q}} + \boldsymbol{g}(\boldsymbol{q})
+\]</div>
+<p>代入动力学 <span class="math-inline">\(\mathbf{M}\ddot{\boldsymbol{q}} + \mathbf{C}\dot{\boldsymbol{q}} + \boldsymbol{g} = \boldsymbol{\tau}\)</span>，重力项精确抵消：</p>
+<div class="math-block">\[
+\mathbf{M}(\boldsymbol{q})\ddot{\boldsymbol{q}} + \mathbf{C}(\boldsymbol{q},\dot{\boldsymbol{q}})\dot{\boldsymbol{q}} = \mathbf{K}_p\boldsymbol{e} - \mathbf{K}_d\dot{\boldsymbol{q}}
+\]</div>
+<p><strong>李雅普诺夫证明全局渐近稳定</strong>。取能量型候选函数（动能 + “弹簧”势能）：</p>
+<div class="math-block">\[
+V = \tfrac{1}{2}\dot{\boldsymbol{q}}^{\top}\mathbf{M}\dot{\boldsymbol{q}} + \tfrac{1}{2}\boldsymbol{e}^{\top}\mathbf{K}_p\boldsymbol{e}
+\]</div>
+<p>沿轨迹求导（注意 <span class="math-inline">\(\dot{\boldsymbol{e}} = -\dot{\boldsymbol{q}}\)</span>）：</p>
+<div class="math-block">\[
+\dot{V} = \dot{\boldsymbol{q}}^{\top}\!\left(\mathbf{M}\ddot{\boldsymbol{q}} + \tfrac{1}{2}\dot{\mathbf{M}}\dot{\boldsymbol{q}}\right) - \dot{\boldsymbol{q}}^{\top}\mathbf{K}_p\boldsymbol{e}
+\]</div>
+<p>代入闭环的 <span class="math-inline">\(\mathbf{M}\ddot{\boldsymbol{q}}\)</span>：</p>
+<div class="math-block">\[
+\dot{V} = \dot{\boldsymbol{q}}^{\top}\!\left(\mathbf{K}_p\boldsymbol{e} - \mathbf{K}_d\dot{\boldsymbol{q}} - \mathbf{C}\dot{\boldsymbol{q}} + \tfrac{1}{2}\dot{\mathbf{M}}\dot{\boldsymbol{q}}\right) - \dot{\boldsymbol{q}}^{\top}\mathbf{K}_p\boldsymbol{e} = -\dot{\boldsymbol{q}}^{\top}\mathbf{K}_d\dot{\boldsymbol{q}} + \dot{\boldsymbol{q}}^{\top}\underbrace{\left(\tfrac{1}{2}\dot{\mathbf{M}} - \mathbf{C}\right)}_{\text{反对称！}}\dot{\boldsymbol{q}}
+\]</div>
+<p>用到<a href="/BlogNotes/2026/08/30/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80/">动力学基础</a>第9节的<strong>反对称性质</strong> <span class="math-inline">\(\left(\tfrac{1}{2}\dot{\mathbf{M}} - \mathbf{C}\right)^{\top} = -\left(\tfrac{1}{2}\dot{\mathbf{M}} - \mathbf{C}\right)\)</span>：二次型 <span class="math-inline">\(\dot{\boldsymbol{q}}^{\top}(\cdot)\dot{\boldsymbol{q}} = 0\)</span> 恒成立，于是：</p>
+<div class="math-block">\[
+\boxed{\dot{V} = -\dot{\boldsymbol{q}}^{\top}\mathbf{K}_d\dot{\boldsymbol{q}} \le 0}
+\]</div>
+<p><span class="math-inline">\(\dot V = 0 \Rightarrow \dot{\boldsymbol{q}} = 0\)</span>，由 LaSalle 不变性原理，最大不变集上闭环退化为 <span class="math-inline">\(\mathbf{K}_p\boldsymbol{e} = 0 \Rightarrow \boldsymbol{e} = 0\)</span>——<strong>全局渐近收敛到目标点</strong>。这条证明是机器人控制的”Hello World”：反对称性正是为它而存在。</p>
+<h3 id="3-2-代码与实测"><a href="#3-2-代码与实测" class="headerlink" title="3.2 代码与实测"></a>3.2 代码与实测</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">demo_pd_gravity</span>():</span><br><span class="line">    Kp, Kd = np.diag([<span class="number">200.0</span>, <span class="number">100.0</span>]), np.diag([<span class="number">20.0</span>, <span class="number">12.0</span>])</span><br><span class="line">    qd = np.array([<span class="number">0.6</span>, -<span class="number">0.2</span>])                       <span class="comment"># 目标关节角</span></span><br><span class="line">    q, v = np.array([<span class="number">0.1</span>, -<span class="number">1.0</span>]), np.zeros(<span class="number">2</span>)</span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">12000</span>):                           <span class="comment"># 6 s</span></span><br><span class="line">        tau = Kp @ (qd - q) - Kd @ v + grav(q)</span><br><span class="line">        q, v = step(q, v, tau, np.zeros(<span class="number">2</span>), DT)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;PD+重力补偿 定点误差: <span class="subst">&#123;np.<span class="built_in">abs</span>(qd - q).<span class="built_in">max</span>():<span class="number">.2</span>e&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line">demo_pd_gravity()   <span class="comment"># 实测: 定点误差 1.11e-14（收敛到机器精度）</span></span><br></pre></td></tr></table></figure>
+
+<p>注意若<strong>去掉重力补偿</strong>项，稳态误差 <span class="math-inline">\(\boldsymbol{e}_\infty = \mathbf{K}_p^{-1}\boldsymbol{g}(\boldsymbol{q})\)</span>（力平衡残留）——这就是”为什么关节 PD 必须配重力前馈”的定量答案。</p>
+<h2 id="4-前置控制器②：计算力矩控制——反馈线性化"><a href="#4-前置控制器②：计算力矩控制——反馈线性化" class="headerlink" title="4. 前置控制器②：计算力矩控制——反馈线性化"></a>4. 前置控制器②：计算力矩控制——反馈线性化</h2><h3 id="4-1-推导"><a href="#4-1-推导" class="headerlink" title="4.1 推导"></a>4.1 推导</h3><p>PD 的问题：闭环仍是<strong>耦合非线性系统</strong>（<span class="math-inline">\(\mathbf{M}(\boldsymbol{q})\)</span>、<span class="math-inline">\(\mathbf{C}\)</span> 在环内），增益没有统一物理意义。计算力矩控制用模型把非线性<strong>在环内抵消掉</strong>：</p>
+<div class="math-block">\[
+\boldsymbol{\tau} = \mathbf{M}(\boldsymbol{q})\big(\ddot{\boldsymbol{q}}_d + \mathbf{K}_d\dot{\boldsymbol{e}} + \mathbf{K}_p\boldsymbol{e}\big) + \mathbf{C}\dot{\boldsymbol{q}} + \boldsymbol{g}
+\]</div>
+<p>代入动力学，<span class="math-inline">\(\mathbf{M}\)</span> 可逆、<span class="math-inline">\(\mathbf{C}, \boldsymbol{g}\)</span> 精确对消：</p>
+<div class="math-block">\[
+\ddot{\boldsymbol{q}} = \ddot{\boldsymbol{q}}_d + \mathbf{K}_d\dot{\boldsymbol{e}} + \mathbf{K}_p\boldsymbol{e} \;\;\Longrightarrow\;\; \boxed{\;\ddot{\boldsymbol{e}} + \mathbf{K}_d\dot{\boldsymbol{e}} + \mathbf{K}_p\boldsymbol{e} = 0\;}
+\]</div>
+<p>每个关节的误差动态是<strong>独立的线性二阶系统</strong>——这就是反馈线性化。增益直接按二阶系统标准形式配极点：<span class="math-inline">\(\mathbf{K}_p = \omega_n^2\mathbf{I},\ \mathbf{K}_d = 2\zeta\omega_n\mathbf{I}\)</span>（<span class="math-inline">\(\zeta\)</span> 常取 0.9~1）。</p>
+<p><strong>模型失配分析</strong>（实际必然失配）。设估计 <span class="math-inline">\(\hat{\mathbf{M}} = (1+\delta)\mathbf{M}\)</span>：</p>
+<div class="math-block">\[
+\ddot{\boldsymbol{e}} + (1+\delta)\mathbf{K}_d\dot{\boldsymbol{e}} + (1+\delta)\mathbf{K}_p\boldsymbol{e} = -\delta\,\ddot{\boldsymbol{q}}_d
+\]</div>
+<p>失配后误差动态<strong>仍是线性系统</strong>，只是增益缩放、多了有界激励项——误差有界、量级 <span class="math-inline">\(\propto \delta\|\ddot{\boldsymbol{q}}_d\|/\omega_n^2\)</span>，残差由外环 PID 或自适应律兜底。</p>
+<h3 id="4-2-代码与实测"><a href="#4-2-代码与实测" class="headerlink" title="4.2 代码与实测"></a>4.2 代码与实测</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">demo_computed_torque</span>(<span class="params">delta=<span class="number">0.0</span>, T=<span class="number">4.0</span></span>):</span><br><span class="line">    wn, zeta = <span class="number">15.0</span>, <span class="number">0.9</span>                             <span class="comment"># ωn=15, ζ=0.9</span></span><br><span class="line">    Kp, Kd = np.diag([wn**<span class="number">2</span>]*<span class="number">2</span>), np.diag([<span class="number">2</span>*zeta*wn]*<span class="number">2</span>)</span><br><span class="line">    q, v = np.array([<span class="number">0.5</span>, -<span class="number">0.2</span>]), np.zeros(<span class="number">2</span>)</span><br><span class="line">    err = []</span><br><span class="line">    <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">int</span>(T/DT)):</span><br><span class="line">        t = k * DT</span><br><span class="line">        qd  = np.array([<span class="number">0.5</span> + <span class="number">0.3</span>*np.sin(<span class="number">1.5</span>*t), -<span class="number">0.2</span> + <span class="number">0.2</span>*np.cos(<span class="number">1.5</span>*t)])</span><br><span class="line">        vd  = np.array([<span class="number">0.3</span>*<span class="number">1.5</span>*np.cos(<span class="number">1.5</span>*t), -<span class="number">0.2</span>*<span class="number">1.5</span>*np.sin(<span class="number">1.5</span>*t)])</span><br><span class="line">        qdd = np.array([-<span class="number">0.3</span>*<span class="number">1.5</span>**<span class="number">2</span>*np.sin(<span class="number">1.5</span>*t), -<span class="number">0.2</span>*<span class="number">1.5</span>**<span class="number">2</span>*np.cos(<span class="number">1.5</span>*t)])</span><br><span class="line">        tau = (<span class="number">1</span>+delta)*M(q) @ (qdd + Kd @ (vd - v) + Kp @ (qd - q)) \</span><br><span class="line">              + Cv(q, v) + grav(q)</span><br><span class="line">        q, v = step(q, v, tau, np.zeros(<span class="number">2</span>), DT)</span><br><span class="line">        <span class="keyword">if</span> t &gt; <span class="number">2.0</span>: err.append(np.<span class="built_in">abs</span>(qd - q).<span class="built_in">max</span>())</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;计算力矩 (δ=<span class="subst">&#123;delta:+<span class="number">.0</span>%&#125;</span>) 跟踪误差: <span class="subst">&#123;<span class="built_in">max</span>(err):<span class="number">.2</span>e&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line">demo_computed_torque(<span class="number">0.0</span>)   <span class="comment"># 实测: 2.29e-04 rad</span></span><br><span class="line">demo_computed_torque(<span class="number">0.2</span>)   <span class="comment"># 实测: 5.99e-04 rad（失配×2.6，不发散）</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="5-约束建模：自然约束与人工约束"><a href="#5-约束建模：自然约束与人工约束" class="headerlink" title="5. 约束建模：自然约束与人工约束"></a>5. 约束建模：自然约束与人工约束</h2><p>Mason（1981）的表述把接触任务形式化。为任务选一个<strong>约束坐标系 {C}</strong>（通常：<span class="math-inline">\(z_c\)</span> 沿表面法向，<span class="math-inline">\(x_c, y_c\)</span> 沿切向），把末端速度 <span class="math-inline">\(\boldsymbol{v} = [\dot{x}, \dot{y}, \dot{z}, \omega_x, \omega_y, \omega_z]^{\top}\)</span> 与力旋量 <span class="math-inline">\(\boldsymbol{F} = [f_x, f_y, f_z, n_x, n_y, n_z]^{\top}\)</span> 排成 6 维：</p>
+<ul>
+<li><strong>自然约束（natural constraints）</strong>：环境几何强加的、机器人不可违背的关系。对理想刚性光滑平面（<span class="math-inline">\(z\)</span> 法向）：</li>
+</ul>
+<div class="math-block">\[
+\dot{z} = 0,\quad \omega_x = 0,\quad \omega_y = 0 \qquad\text{（运动学：贴面则不能法向移动、不能翘转）}
+\]</div>
+<div class="math-block">\[
+f_x = 0,\quad f_y = 0,\quad n_z = 0 \qquad\text{（力学：光滑面不提供切向力与绕法向力矩）}
+\]</div>
+<ul>
+<li><strong>人工约束（artificial constraints）</strong>：设计者<strong>选择</strong>去控制的量——恰好是自然约束的对偶补集：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>方向</th>
+<th>自然约束（环境定）</th>
+<th>人工约束（我们控）</th>
+<th>控什么</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><span class="math-inline">\(x, y\)</span>（切向）</td>
+<td><span class="math-inline">\(f_x = f_y = 0\)</span></td>
+<td><span class="math-inline">\(\dot{x}_d, \dot{y}_d\)</span></td>
+<td><strong>速度&#x2F;位置</strong></td>
+</tr>
+<tr>
+<td><span class="math-inline">\(z\)</span>（法向）</td>
+<td><span class="math-inline">\(\dot{z} = 0\)</span></td>
+<td><span class="math-inline">\(f_{z,d}\)</span></td>
+<td><strong>力</strong></td>
+</tr>
+<tr>
+<td><span class="math-inline">\(\omega_z\)</span></td>
+<td><span class="math-inline">\(n_z = 0\)</span></td>
+<td><span class="math-inline">\(\omega_{z,d}\)</span></td>
+<td>速度</td>
+</tr>
+<tr>
+<td><span class="math-inline">\(\omega_x, \omega_y\)</span></td>
+<td><span class="math-inline">\(\dot\omega_x = \dot\omega_y = 0\)</span></td>
+<td><span class="math-inline">\(n_{x,d}, n_{y,d}\)</span></td>
+<td>力矩</td>
+</tr>
+</tbody></table>
+<p>6 个自由度被严格二分，每组 3 个。写成矩阵就是<strong>选择矩阵</strong>：</p>
+<div class="math-block">\[
+\mathbf{S} = \mathrm{diag}(\sigma_1, \dots, \sigma_6), \quad \sigma_i \in \{0, 1\} \qquad \mathbf{S}\text{ 选位置方向}，\ \mathbf{I}-\mathbf{S}\text{ 选力方向}
+\]</div>
+<p>上例中 <span class="math-inline">\(\mathbf{S} = \mathrm{diag}(1,1,0,1,0,0)\)</span>。注意自然约束与人工约束<strong>逐项互补</strong>——不可在同一个方向既控位置又控力（那是阻抗控制的思路，见第9节）。</p>
+<h2 id="6-力与运动的对偶：雅可比把两个世界连起来"><a href="#6-力与运动的对偶：雅可比把两个世界连起来" class="headerlink" title="6. 力与运动的对偶：雅可比把两个世界连起来"></a>6. 力与运动的对偶：雅可比把两个世界连起来</h2><p>任务空间与关节空间通过雅可比 <span class="math-inline">\(\mathbf{J}(\boldsymbol{q}) \in \mathbb{R}^{6\times n}\)</span> 互映，且<strong>速度映射与力映射互为转置</strong>：</p>
+<div class="math-block">\[
+\text{速度：}\ \boldsymbol{v} = \mathbf{J}\dot{\boldsymbol{q}} \qquad\Longleftrightarrow\qquad \text{力：}\ \boldsymbol{\tau} = \mathbf{J}^{\top}\boldsymbol{F}
+\]</div>
+<p>这条对偶（虚功原理）意味着：任务空间的 6 维力旋量指令，<strong>不需要”逆雅可比”</strong>，直接一次 <span class="math-inline">\(\mathbf{J}^{\top}\)</span> 乘法就落到关节力矩上——这是力控制比位置控制”便宜”的地方。奇异性的语义也随之翻转：<span class="math-inline">\(\mathbf{J}\)</span> 奇异 &#x3D; 末端某方向不可动 &#x3D; 该方向可以输出任意大力矩而关节力矩有限——力控反而在奇异附近友好。</p>
+<p>约束系 {C} 下的量要旋转过来：设 <span class="math-inline">\(\mathbf{R}_c\)</span> 为 {C} 相对末端系的姿态，构造 6 维旋转块阵</p>
+<div class="math-block">\[
+\mathbf{T}_c = \begin{bmatrix} \mathbf{R}_c &amp; \mathbf{0} \\ \mathbf{0} &amp; \mathbf{R}_c \end{bmatrix}, \qquad \mathbf{J}_c = \mathbf{T}_c\, \mathbf{J}, \qquad \boldsymbol{F}_c = \mathbf{T}_c\, \boldsymbol{F}
+\]</div>
+<p>选择矩阵永远作用在 <span class="math-inline">\(\mathbf{J}_c\)</span> 表达的约束系上——坐标系管理错乱是力控实现的头号 bug 源（见第13节）。</p>
+<h2 id="7-经典混合控制：Raibert–Craig-结构"><a href="#7-经典混合控制：Raibert–Craig-结构" class="headerlink" title="7. 经典混合控制：Raibert–Craig 结构"></a>7. 经典混合控制：Raibert–Craig 结构</h2><p>Raibert 与 Craig（1981）给出第一版完整结构：<strong>位置误差经 <span class="math-inline">\(\mathbf{S}\)</span> 投影进位置环，力误差经 <span class="math-inline">\(\mathbf{I}-\mathbf{S}\)</span> 投影进力环，两环输出在任务空间相加</strong>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">x_d ──►(+)── e_x ──► S ─────► [位置控制器 PD] ──┐</span><br><span class="line">       │−                                       │ (+)── F_cmd ──► τ=JᵀF ──► 机械臂 ──┬──► x</span><br><span class="line">F_d ──►(+)── e_f ──► I−S ──► [力控制器 PI] ────┘                                  │</span><br><span class="line">       │−                                      ▲                                   │</span><br><span class="line">       └────── F/T 传感器 ◄────────────────────┴──────── 测得接触力 F ◄────────────┘</span><br></pre></td></tr></table></figure>
+
+<p>控制律（任务空间 PD + PI 形式）：</p>
+<div class="math-block">\[
+\boldsymbol{F}_{\text{cmd}} = \underbrace{\mathbf{S}\left(\mathbf{K}_p\tilde{\mathbf{x}} + \mathbf{K}_d\dot{\tilde{\mathbf{x}}}\right)}_{\text{位置子空间}} + \underbrace{(\mathbf{I}-\mathbf{S})\left(\boldsymbol{F}_d + \mathbf{K}_{fp}\tilde{\boldsymbol{F}} + \mathbf{K}_{fi}\!\int\!\tilde{\boldsymbol{F}}\,dt - \mathbf{K}_{fv}\dot{\mathbf{x}}\right)}_{\text{力子空间}} + \underbrace{\hat{\boldsymbol{g}}_{\text{task}}}_{\text{重力补偿}}
+\]</div>
+<p>关节力矩 <span class="math-inline">\(\boldsymbol{\tau} = \mathbf{J}_c^{\top}\boldsymbol{F}_{\text{cmd}} + \boldsymbol{g}(\boldsymbol{q})\)</span>。三个工程要点：</p>
+<ul>
+<li><strong>力方向上的速度阻尼项 <span class="math-inline">\(-\mathbf{K}_{fv}\dot{\mathbf{x}}\)</span> 不可省</strong>：纯 PI 力环贴着刚性表面几乎必然振荡（见第12节），阻尼项就是力环的”稳定器”——第11节的实测将给出定量证明（去掉它力波动放大 325 倍）</li>
+<li>期望位置只在位置子空间有意义（<span class="math-inline">\(\mathbf{S}\)</span> 把法向位置误差滤掉——否则表面高度差会通过位置环灌进力环）</li>
+<li>力积分项要加<strong>抗饱和</strong>：接触丢失（<span class="math-inline">\(\tilde{\boldsymbol{F}}\)</span> 突变）时立即清零积分，否则重新接触瞬间是一记”锤击”</li>
+</ul>
+<p>Raibert–Craig 原始版本在关节空间做投影、忽略动力学耦合——当位置子空间大加速度运动时，惯性力会”漏”进力子空间污染接触力。修正它的自然路径就是把<a href="/BlogNotes/2026/08/30/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80/">动力学基础</a>里的 <span class="math-inline">\(\mathbf{M}, \mathbf{C}, \boldsymbol{g}\)</span> 前馈进来。</p>
+<h2 id="8-操作空间方法：动力学前馈的混合控制（Khatib-形式）"><a href="#8-操作空间方法：动力学前馈的混合控制（Khatib-形式）" class="headerlink" title="8. 操作空间方法：动力学前馈的混合控制（Khatib 形式）"></a>8. 操作空间方法：动力学前馈的混合控制（Khatib 形式）</h2><p>Khatib（1987）的操作空间（operational space）表述把混合控制升级为动力学一致版本。先在任务空间定义<strong>操作空间惯量阵</strong>：</p>
+<div class="math-block">\[
+\boldsymbol{\Lambda}(\boldsymbol{q}) = \left(\mathbf{J}_c\,\mathbf{M}^{-1}\mathbf{J}_c^{\top}\right)^{-1}
+\]</div>
+<p>及其偏置项（任务空间的科氏&#x2F;离心&#x2F;重力，<span class="math-inline">\(\bar{\mathbf{J}} = \mathbf{M}^{-1}\mathbf{J}_c^{\top}\boldsymbol{\Lambda}\)</span> 为动力学一致逆）：</p>
+<div class="math-block">\[
+\boldsymbol{\mu} + \boldsymbol{p} = \bar{\mathbf{J}}^{\top}\!\left(\mathbf{C}\dot{\boldsymbol{q}} + \boldsymbol{g}\right) - \boldsymbol{\Lambda}\,\dot{\mathbf{J}}_c\dot{\boldsymbol{q}}
+\]</div>
+<p>任务空间动力学于是有了与关节空间 <span class="math-inline">\(\mathbf{M}\ddot{\boldsymbol{q}} + \mathbf{C}\dot{\boldsymbol{q}} + \boldsymbol{g} = \boldsymbol{\tau}\)</span> <strong>完全同形</strong>的样子：</p>
+<div class="math-block">\[
+\boldsymbol{\Lambda}\ddot{\mathbf{x}}_c + \boldsymbol{\mu} + \boldsymbol{p} = \boldsymbol{F}
+\]</div>
+<p>混合控制律直接照抄计算力矩控制（第4节）的配方，只是按 <span class="math-inline">\(\mathbf{S}\)</span> 分两半：</p>
+<div class="math-block">\[
+\boldsymbol{F}_{\text{cmd}} = \mathbf{S}\Big(\boldsymbol{\Lambda}\big(\ddot{\mathbf{x}}_{c,d} + \mathbf{K}_d\dot{\tilde{\mathbf{x}}}_c + \mathbf{K}_p\tilde{\mathbf{x}}_c\big) + \boldsymbol{\mu} + \boldsymbol{p}\Big) + (\mathbf{I}-\mathbf{S})\Big(\boldsymbol{F}_d + \mathbf{K}_{fp}\tilde{\boldsymbol{F}} - \mathbf{K}_{fv}\dot{\mathbf{x}}_c\Big)
+\]</div>
+<div class="math-block">\[
+\boldsymbol{\tau} = \mathbf{J}_c^{\top}\boldsymbol{F}_{\text{cmd}}
+\]</div>
+<p>这个形式的好处全来自 <span class="math-inline">\(\boldsymbol{\Lambda}\)</span> 前馈：位置子空间的大加速度运动不再通过惯性耦合漏进力子空间；增益 <span class="math-inline">\(\mathbf{K}_p, \mathbf{K}_d\)</span> 是任务空间的 PD，物理意义明确（期望末端刚度和阻尼），随构型变化保持一致。<span class="math-inline">\(\bar{\mathbf{J}}\)</span> 的”动力学一致”性质保证力指令映射到关节时不引入任务空间之外的冗余运动激励。冗余自由度（<span class="math-inline">\(n &gt; 6\)</span>）时还可叠加零空间姿态控制：<span class="math-inline">\(\boldsymbol{\tau}_{\text{null}} = \left(\mathbf{I} - \mathbf{J}_c^{\top}\bar{\mathbf{J}}^{\top}\right)\boldsymbol{\tau}_0\)</span>，不干扰主任务。</p>
+<h2 id="9-阻抗控制：把”柔顺”设计进闭环"><a href="#9-阻抗控制：把”柔顺”设计进闭环" class="headerlink" title="9. 阻抗控制：把”柔顺”设计进闭环"></a>9. 阻抗控制：把”柔顺”设计进闭环</h2><p>混合控制要求约束几何已知；当接触&#x2F;脱离频繁、方向不确定时，更稳的思路是<strong>阻抗控制</strong>（Hogan）：不直接控力或位置，而是设计末端的<strong>机械阻抗</strong>——无论环境怎么推，末端都表现为一个可设计的弹簧-质量-阻尼系统。</p>
+<h3 id="9-1-推导"><a href="#9-1-推导" class="headerlink" title="9.1 推导"></a>9.1 推导</h3><p>目标闭环：</p>
+<div class="math-block">\[
+\mathbf{M}_d\ddot{\tilde{\mathbf{x}}} + \mathbf{B}_d\dot{\tilde{\mathbf{x}}} + \mathbf{K}_d\tilde{\mathbf{x}} = \boldsymbol{F}_{\text{ext}}, \qquad \tilde{\mathbf{x}} = \mathbf{x} - \mathbf{x}_d
+\]</div>
+<p>三步从关节动力学构造出来。</p>
+<p><strong>第一步：任务空间动力学</strong>。控制结构为 <span class="math-inline">\(\boldsymbol{\tau} = \mathbf{J}^{\top}\boldsymbol{F}_{\text{cmd}} + \mathbf{C}\dot{\boldsymbol{q}} + \boldsymbol{g}\)</span>（偏置在关节空间补掉），代入 <span class="math-inline">\(\mathbf{M}\ddot{\boldsymbol{q}} + \mathbf{C}\dot{\boldsymbol{q}} + \boldsymbol{g} = \boldsymbol{\tau} + \mathbf{J}^{\top}\boldsymbol{F}_{\text{ext}}\)</span>：</p>
+<div class="math-block">\[
+\mathbf{M}\ddot{\boldsymbol{q}} = \mathbf{J}^{\top}(\boldsymbol{F}_{\text{cmd}} + \boldsymbol{F}_{\text{ext}})
+\]</div>
+<p>左乘 <span class="math-inline">\(\mathbf{J}\mathbf{M}^{-1}\)</span> 并加上 <span class="math-inline">\(\dot{\mathbf{J}}\dot{\boldsymbol{q}}\)</span>（凑出 <span class="math-inline">\(\ddot{\mathbf{x}} = \mathbf{J}\ddot{\boldsymbol{q}} + \dot{\mathbf{J}}\dot{\boldsymbol{q}}\)</span>）：</p>
+<div class="math-block">\[
+\ddot{\mathbf{x}} = \mathbf{J}\mathbf{M}^{-1}\mathbf{J}^{\top}(\boldsymbol{F}_{\text{cmd}} + \boldsymbol{F}_{\text{ext}}) + \dot{\mathbf{J}}\dot{\boldsymbol{q}}
+\]</div>
+<p>定义操作空间惯量 <span class="math-inline">\(\boldsymbol{\Lambda} = (\mathbf{J}\mathbf{M}^{-1}\mathbf{J}^{\top})^{-1}\)</span>（第8节同一对象）：</p>
+<div class="math-block">\[
+\boxed{\ \boldsymbol{\Lambda}(\ddot{\mathbf{x}} - \dot{\mathbf{J}}\dot{\boldsymbol{q}}) = \boldsymbol{F}_{\text{cmd}} + \boldsymbol{F}_{\text{ext}}\ }
+\]</div>
+<p><strong>第二步：构造控制律</strong>。解出想要的 <span class="math-inline">\(\ddot{\mathbf{x}}\)</span>（由期望阻抗方程反解）并塞进去：</p>
+<div class="math-block">\[
+\ddot{\mathbf{x}}_{\text{ref}} = \ddot{\mathbf{x}}_d + \mathbf{M}_d^{-1}\big(\boldsymbol{F}_{\text{ext}} - \mathbf{B}_d\dot{\tilde{\mathbf{x}}} - \mathbf{K}_d\tilde{\mathbf{x}}\big)
+\]</div>
+<div class="math-block">\[
+\boldsymbol{F}_{\text{cmd}} = \boldsymbol{\Lambda}(\ddot{\mathbf{x}}_{\text{ref}} - \dot{\mathbf{J}}\dot{\boldsymbol{q}}) - \boldsymbol{F}_{\text{ext}}
+\]</div>
+<p>（<span class="math-inline">\(\boldsymbol{F}_{\text{ext}}\)</span> 由力传感器给出。）</p>
+<p><strong>第三步：代回验证</strong>。<span class="math-inline">\(\boldsymbol{\Lambda}(\ddot{\mathbf{x}} - \dot{\mathbf{J}}\dot{\boldsymbol{q}}) = \boldsymbol{\Lambda}(\ddot{\mathbf{x}}_{\text{ref}} - \dot{\mathbf{J}}\dot{\boldsymbol{q}})\)</span> ⟹ <span class="math-inline">\(\ddot{\mathbf{x}} = \ddot{\mathbf{x}}_{\text{ref}}\)</span>，代回第一步的参考式：</p>
+<div class="math-block">\[
+\ddot{\mathbf{x}} - \ddot{\mathbf{x}}_d = \mathbf{M}_d^{-1}(\boldsymbol{F}_{\text{ext}} - \mathbf{B}_d\dot{\tilde{\mathbf{x}}} - \mathbf{K}_d\tilde{\mathbf{x}}) \;\Longrightarrow\; \boxed{\ \mathbf{M}_d\ddot{\tilde{\mathbf{x}}} + \mathbf{B}_d\dot{\tilde{\mathbf{x}}} + \mathbf{K}_d\tilde{\mathbf{x}} = \boldsymbol{F}_{\text{ext}}\ }\qquad\blacksquare
+\]</div>
+<p>末端闭环<strong>精确等于</strong>设计出的二阶阻抗——刚度、阻尼、表观质量 <span class="math-inline">\((\mathbf{K}_d, \mathbf{B}_d, \mathbf{M}_d)\)</span> 全部是设计参数。</p>
+<p><strong>稳态接触力（弹簧串联公式）</strong>。命令轨迹把末端压进墙面 <span class="math-inline">\(p_0\)</span>（本 demo <span class="math-inline">\(p_0 = 0.04\)</span> m），稳态时：墙提供 <span class="math-inline">\(F = K_w d\)</span>，阻抗弹簧提供 <span class="math-inline">\(F = K_d\tilde{x}\)</span>，深度 <span class="math-inline">\(d = p_0 - \tilde{x}\)</span>，解出：</p>
+<div class="math-block">\[
+F = \frac{p_0}{\dfrac{1}{K_w} + \dfrac{1}{K_d}} \qquad \text{（墙刚度与期望刚度串联后的等效刚度 } \times \text{ 压入深度）}
+\]</div>
+<h3 id="9-2-代码与实测"><a href="#9-2-代码与实测" class="headerlink" title="9.2 代码与实测"></a>9.2 代码与实测</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">demo_impedance</span>(<span class="params">Kd_y, T=<span class="number">5.0</span></span>):</span><br><span class="line">    Md = np.diag([<span class="number">2.0</span>, <span class="number">2.0</span>]); Bd = np.diag([<span class="number">60.0</span>, <span class="number">60.0</span>])</span><br><span class="line">    Kd_task = np.diag([<span class="number">2000.0</span>, Kd_y])                <span class="comment"># y 方向刚度做实验变量</span></span><br><span class="line">    q, v = np.array([<span class="number">0.60</span>, <span class="number">0.40</span>]), np.zeros(<span class="number">2</span>)       <span class="comment"># 末端 (0.45, 0.45)，墙上方</span></span><br><span class="line">    Jold = jac(q); f_hist = []</span><br><span class="line">    <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">int</span>(T/DT)):</span><br><span class="line">        t = k * DT</span><br><span class="line">        J = jac(q); Jdot = (J - Jold)/DT; Jold = J   <span class="comment"># J̇ 用差分</span></span><br><span class="line">        x, xd = fk(q), J @ v</span><br><span class="line">        xd_d = np.array([<span class="number">0.45</span>, <span class="number">0.30</span> - <span class="number">0.04</span>*<span class="built_in">min</span>(<span class="number">1</span>, <span class="built_in">max</span>(<span class="number">0</span>, t-<span class="number">1</span>))])  <span class="comment"># 1s 起压入 4cm</span></span><br><span class="line">        Fext, tau_ext = wall(q)</span><br><span class="line">        Lam = np.linalg.inv(J @ np.linalg.inv(M(q)) @ J.T)</span><br><span class="line">        xt, vt = x - xd_d, xd</span><br><span class="line">        acc_ref = np.linalg.solve(Md, Fext - Bd @ vt - Kd_task @ xt)</span><br><span class="line">        Fcmd = Lam @ (acc_ref - Jdot @ v) - Fext     <span class="comment"># 推导中的控制律</span></span><br><span class="line">        tau = J.T @ Fcmd + Cv(q, v) + grav(q)</span><br><span class="line">        q, v = step(q, v, tau, tau_ext, DT)</span><br><span class="line">        <span class="keyword">if</span> t &gt; <span class="number">4.0</span>: f_hist.append(Fext[<span class="number">1</span>])</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;阻抗控制 Kd_y=<span class="subst">&#123;Kd_y:<span class="number">.0</span>f&#125;</span>: 稳态接触力 <span class="subst">&#123;np.mean(f_hist):<span class="number">.2</span>f&#125;</span> N&quot;</span>)</span><br><span class="line"></span><br><span class="line">demo_impedance(<span class="number">800.0</span>)    <span class="comment"># 实测: 31.50 N（串联公式理论 31.50）</span></span><br><span class="line">demo_impedance(<span class="number">8000.0</span>)   <span class="comment"># 实测: 275.86 N（理论 275.86）</span></span><br></pre></td></tr></table></figure>
+
+<p>实测 <strong>31.50 N &#x2F; 275.86 N，与串联公式理论值逐位一致</strong>——推导每一步正确性的最硬验证。期望刚度调软 10 倍，接触力降 8.8 倍，且不依赖任何力控积分。</p>
+<h2 id="10-导纳控制：位置机器人的柔顺外环"><a href="#10-导纳控制：位置机器人的柔顺外环" class="headerlink" title="10. 导纳控制：位置机器人的柔顺外环"></a>10. 导纳控制：位置机器人的柔顺外环</h2><p>阻抗控制要求底层是力矩接口。工业臂底层往往是<strong>刚性位置伺服</strong>（改不动），柔顺只能加在外环——导纳控制：测力，<strong>修正位置指令</strong>。</p>
+<h3 id="10-1-推导"><a href="#10-1-推导" class="headerlink" title="10.1 推导"></a>10.1 推导</h3><div class="math-block">\[
+\text{外环（导纳滤波器）：}\quad \mathbf{M}_a\ddot{\mathbf{e}}_c + \mathbf{B}_a\dot{\mathbf{e}}_c + \mathbf{K}_a\mathbf{e}_c = \boldsymbol{F}_{\text{meas}}, \qquad \mathbf{x}_{\text{cmd}} = \mathbf{x}_d + \mathbf{e}_c
+\]</div>
+<div class="math-block">\[
+\text{内环（刚性伺服）：}\quad \boldsymbol{\tau} = \mathbf{M}\,\mathbf{J}^{-1}\!\left(\ddot{\mathbf{x}}_{\text{ref}} - \dot{\mathbf{J}}\dot{\boldsymbol{q}}\right) + \mathbf{C}\dot{\boldsymbol{q}} + \boldsymbol{g},\quad \ddot{\mathbf{x}}_{\text{ref}} = k_p(\mathbf{x}_{\text{cmd}} - \mathbf{x}) - k_d\dot{\mathbf{x}}
+\]</div>
+<p>内环增益取很高（demo 中等效刚度 <span class="math-inline">\(2\times10^4\)</span> N&#x2F;m），近似 <span class="math-inline">\(\mathbf{x} \approx \mathbf{x}_{\text{cmd}}\)</span>。</p>
+<p><strong>稳态接触力</strong>：墙深 <span class="math-inline">\(d = p_0 - e_{c,y}\)</span>，力平衡 <span class="math-inline">\(K_w d = K_a e_{c,y}\)</span>，解出与阻抗控制<strong>同形的串联公式</strong> <span class="math-inline">\(F = p_0/(1/K_w + 1/K_a) = 39.2\)</span> N（<span class="math-inline">\(p_0=0.04\)</span>, <span class="math-inline">\(K_a=1000\)</span>）。对比<strong>纯位置基线</strong>（无导纳、同一压入轨迹、同一刚性内环）实测稳态力 <strong>683 N</strong>——导纳环把接触力压到 <strong>37.1 N（约 1&#x2F;18）</strong>，代价只是末端位置偏让约 3.7 cm。</p>
+<h3 id="10-2-代码与实测"><a href="#10-2-代码与实测" class="headerlink" title="10.2 代码与实测"></a>10.2 代码与实测</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">demo_admittance</span>(<span class="params">Ka_y, T=<span class="number">5.0</span></span>):</span><br><span class="line">    Ma, Ba = np.diag([<span class="number">1.5</span>, <span class="number">1.5</span>]), np.diag([<span class="number">80.0</span>, <span class="number">80.0</span>])</span><br><span class="line">    Ka = np.diag([<span class="number">400.0</span>, Ka_y])</span><br><span class="line">    q, v = np.array([<span class="number">0.60</span>, <span class="number">0.40</span>]), np.zeros(<span class="number">2</span>)</span><br><span class="line">    ec, ecd = np.zeros(<span class="number">2</span>), np.zeros(<span class="number">2</span>)</span><br><span class="line">    Jold = jac(q); f_hist, f_peak = [], <span class="number">0.0</span></span><br><span class="line">    <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">int</span>(T/DT)):</span><br><span class="line">        t = k * DT</span><br><span class="line">        J = jac(q); Jdot = (J - Jold)/DT; Jold = J</span><br><span class="line">        Fext, tau_ext = wall(q)</span><br><span class="line">        <span class="comment"># ---- 外环：导纳滤波器（半隐式欧拉积分）----</span></span><br><span class="line">        ecd_dot = np.linalg.solve(Ma, Fext - Ba @ ecd - Ka @ ec)</span><br><span class="line">        ec, ecd = ec + DT*ecd, ecd + DT*ecd_dot</span><br><span class="line">        xd_d = np.array([<span class="number">0.45</span>, <span class="number">0.30</span> - <span class="number">0.04</span>*<span class="built_in">min</span>(<span class="number">1</span>, <span class="built_in">max</span>(<span class="number">0</span>, t-<span class="number">1</span>))])</span><br><span class="line">        xc = xd_d + ec                                <span class="comment"># 修正后的位置指令</span></span><br><span class="line">        <span class="comment"># ---- 内环：刚性任务空间伺服（微分逆运动学 + 计算力矩）----</span></span><br><span class="line">        x, xd = fk(q), J @ v</span><br><span class="line">        xdd_ref = (xc - x)*<span class="number">20000.0</span> - xd*<span class="number">280.0</span></span><br><span class="line">        tau = M(q) @ np.linalg.solve(J, xdd_ref - Jdot @ v) + Cv(q, v) + grav(q)</span><br><span class="line">        q, v = step(q, v, tau, tau_ext, DT)</span><br><span class="line">        f_hist.append(Fext[<span class="number">1</span>]); f_peak = <span class="built_in">max</span>(f_peak, Fext[<span class="number">1</span>])</span><br><span class="line">    <span class="keyword">return</span> np.mean(f_hist[-<span class="number">2000</span>:]), f_peak</span><br><span class="line"></span><br><span class="line">f_mean, f_peak = demo_admittance(<span class="number">1000.0</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;导纳控制: 稳态接触力 <span class="subst">&#123;f_mean:<span class="number">.1</span>f&#125;</span> N, 峰值 <span class="subst">&#123;f_peak:<span class="number">.1</span>f&#125;</span> N&quot;</span>)</span><br><span class="line"><span class="comment"># 实测: 稳态 37.1 N（理论 39.2，内环有限刚度略拉低）, 峰值 112 N</span></span><br><span class="line"><span class="comment"># 同轨迹纯位置基线: 稳态 683 N —— 导纳把接触力降 18 倍</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="10-3-四类框架怎么选型"><a href="#10-3-四类框架怎么选型" class="headerlink" title="10.3 四类框架怎么选型"></a>10.3 四类框架怎么选型</h3><table>
+<thead>
+<tr>
+<th>框架</th>
+<th>控制目标</th>
+<th>需要力传感器</th>
+<th>需要约束几何</th>
+<th>典型场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>纯位置控制</td>
+<td>轨迹跟踪</td>
+<td>否</td>
+<td>—</td>
+<td>自由空间</td>
+</tr>
+<tr>
+<td><strong>阻抗控制</strong>（Hogan）</td>
+<td>机械阻抗 <span class="math-inline">\(\mathbf{Z} = \boldsymbol{\Lambda}s^2 + \mathbf{D}s + \mathbf{K}\)</span></td>
+<td>可选</td>
+<td>否</td>
+<td>接触&#x2F;非接触统一处理、过渡柔和</td>
+</tr>
+<tr>
+<td><strong>导纳控制</strong></td>
+<td>力测得→位置参考修正</td>
+<td>需要</td>
+<td>否</td>
+<td>高刚度位置机器人（工业臂）+ 接触</td>
+</tr>
+<tr>
+<td><strong>力位混合</strong></td>
+<td>法向精确控力、切向精确轨迹</td>
+<td>需要</td>
+<td><strong>是</strong>（约束系）</td>
+<td>打磨、装配、抛光、恒力抓握</td>
+</tr>
+</tbody></table>
+<p>三条经验法则：</p>
+<ol>
+<li><strong>任务方向已知且稳定 → 混合控制</strong>：法向力精度直接由力环保证（±0.5N 量级）；阻抗控制的法向力是 <span class="math-inline">\(K \cdot \Delta x\)</span> 的间接结果，误差大</li>
+<li><strong>接触&#x2F;脱离频繁、方向不确定 → 阻抗&#x2F;导纳</strong>：混合控制在约束系突然变化（打滑、跳离表面）时会瞬间失配，阻抗控制天然平滑过渡</li>
+<li><strong>工程上常叠两层</strong>：导纳外环（慢，管交互柔顺）+ 内部位置&#x2F;力混合环（快，管精度），工业协作臂多半是这种结构</li>
+</ol>
+<p>阻抗 vs 导纳的镜像关系：阻抗是”力矩接口，机械阻抗可设计，适合低减速比直驱”；导纳是”位置接口，表观柔顺可设计，适合高刚度工业臂”。两者不能直接比好坏，<strong>接口形态决定选择</strong>。</p>
+<h2 id="11-力位混合控制的完整-Python-实现"><a href="#11-力位混合控制的完整-Python-实现" class="headerlink" title="11. 力位混合控制的完整 Python 实现"></a>11. 力位混合控制的完整 Python 实现</h2><h3 id="11-1-推导回顾与控制律"><a href="#11-1-推导回顾与控制律" class="headerlink" title="11.1 推导回顾与控制律"></a>11.1 推导回顾与控制律</h3><p>约束几何：水平墙面 <span class="math-inline">\(y_w\)</span>，法向 <span class="math-inline">\(\hat{\mathbf{y}}\)</span>，选择矩阵 <span class="math-inline">\(\mathbf{S} = \mathrm{diag}(1, 0)\)</span>：<strong>切向 <span class="math-inline">\(x\)</span> 控位置、法向 <span class="math-inline">\(y\)</span> 控力</strong>（第五、七节）。位置子空间沿用 <span class="math-inline">\(\boldsymbol{\Lambda}\)</span> 前馈 + PD；力子空间设期望接触反力 <span class="math-inline">\(f_d\)</span>（作用于机器人，<span class="math-inline">\(+\hat{\mathbf{y}}\)</span>）、传感器读数 <span class="math-inline">\(f\)</span>。先验<strong>平衡态</strong>：稳态时 <span class="math-inline">\(\boldsymbol{F}_{\text{cmd}} + \boldsymbol{F}_{\text{ext}} = 0\)</span>，要 <span class="math-inline">\(f = f_d\)</span> 必须命令 <span class="math-inline">\(\boldsymbol{F}_{\text{cmd},y} = -f_d\)</span>（向 <span class="math-inline">\(-\hat{\mathbf{y}}\)</span> 压）。加误差校正与<strong>阻尼</strong>：</p>
+<div class="math-block">\[
+\boldsymbol{F}_{\text{frc}} = (\mathbf{I}-\mathbf{S})\begin{bmatrix} 0 \\ -\big(f_d + k_{fp}(f_d - f) + k_{fi}\!\int\!(f_d - f)\,dt\big) - k_{fv}\,\dot{y} \end{bmatrix}
+\]</div>
+<p>逐项验证方向：欠压（<span class="math-inline">\(f &lt; f_d\)</span>）⟹ 更向下压 ✓；过压则回撤 ✓；<span class="math-inline">\(-k_{fv}\dot y\)</span> 恒阻碍法向运动 ✓。积分项带<strong>抗饱和限幅</strong>。</p>
+<h3 id="11-2-代码与实测"><a href="#11-2-代码与实测" class="headerlink" title="11.2 代码与实测"></a>11.2 代码与实测</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">demo_hybrid</span>(<span class="params">Kfv, T=<span class="number">6.0</span></span>):</span><br><span class="line">    k_p, k_d = <span class="number">12.0</span>**<span class="number">2</span>, <span class="number">2</span>*<span class="number">0.9</span>*<span class="number">12.0</span>                   <span class="comment"># 位置环: ωn=12, ζ=0.9</span></span><br><span class="line">    k_fp, k_fi = <span class="number">0.8</span>, <span class="number">8.0</span></span><br><span class="line">    q, v = np.array([<span class="number">0.60</span>, <span class="number">0.40</span>]), np.zeros(<span class="number">2</span>)</span><br><span class="line">    Jold = jac(q); fI = <span class="number">0.0</span></span><br><span class="line">    f_hist, xerr = [], []</span><br><span class="line">    <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">int</span>(T/DT)):</span><br><span class="line">        t = k * DT</span><br><span class="line">        J = jac(q); Jdot = (J - Jold)/DT; Jold = J</span><br><span class="line">        x, xd = fk(q), J @ v</span><br><span class="line">        Fext, tau_ext = wall(q)</span><br><span class="line">        f = Fext[<span class="number">1</span>]                                   <span class="comment"># 法向力读数</span></span><br><span class="line">        xd_x = <span class="number">0.45</span> + <span class="number">0.05</span>*np.sin(<span class="number">1.5</span>*(t-<span class="number">1</span>)) <span class="keyword">if</span> t &gt; <span class="number">1</span> <span class="keyword">else</span> <span class="number">0.45</span>   <span class="comment"># 切向正弦</span></span><br><span class="line">        vd_x = <span class="number">0.05</span>*<span class="number">1.5</span>*np.cos(<span class="number">1.5</span>*(t-<span class="number">1</span>)) <span class="keyword">if</span> t &gt; <span class="number">1</span> <span class="keyword">else</span> <span class="number">0.0</span></span><br><span class="line">        fd  = <span class="number">10.0</span>*<span class="built_in">min</span>(<span class="number">1</span>, <span class="built_in">max</span>(<span class="number">0</span>, (t-<span class="number">1</span>)/<span class="number">1.5</span>))          <span class="comment"># 法向力 0→10N 斜坡</span></span><br><span class="line">        Lam = np.linalg.inv(J @ np.linalg.inv(M(q)) @ J.T)</span><br><span class="line">        <span class="comment"># 位置子空间（x）</span></span><br><span class="line">        ax = k_p*(xd_x - x[<span class="number">0</span>]) + k_d*(vd_x - xd[<span class="number">0</span>])</span><br><span class="line">        Fcmd = Lam @ np.array([ax, <span class="number">0.0</span>]) - Lam @ (Jdot @ v)</span><br><span class="line">        <span class="comment"># 力子空间（y）：P + I(限幅) + 速度阻尼</span></span><br><span class="line">        ef = fd - f</span><br><span class="line">        fI = np.clip(fI + ef*DT, -<span class="number">5.0</span>, <span class="number">5.0</span>)</span><br><span class="line">        Fcmd[<span class="number">1</span>] = -(fd + k_fp*ef + k_fi*fI) - Kfv*xd[<span class="number">1</span>]</span><br><span class="line">        tau = J.T @ Fcmd + Cv(q, v) + grav(q)</span><br><span class="line">        q, v = step(q, v, tau, tau_ext, DT)</span><br><span class="line">        <span class="keyword">if</span> t &gt; <span class="number">3.0</span>:</span><br><span class="line">            f_hist.append(f); xerr.append(<span class="built_in">abs</span>(x[<span class="number">0</span>] - xd_x))</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;混合控制 Kfv=<span class="subst">&#123;Kfv:<span class="number">.0</span>f&#125;</span>: 接触力 <span class="subst">&#123;np.mean(f_hist):<span class="number">.2</span>f&#125;</span>&quot;</span></span><br><span class="line">          <span class="string">f&quot; ± <span class="subst">&#123;np.std(f_hist):<span class="number">.2</span>f&#125;</span> N, 切向误差 <span class="subst">&#123;<span class="built_in">max</span>(xerr)*<span class="number">1000</span>:<span class="number">.1</span>f&#125;</span> mm&quot;</span>)</span><br><span class="line"></span><br><span class="line">demo_hybrid(<span class="number">40.0</span>)   <span class="comment"># 实测: 接触力 10.00 ± 0.01 N, 切向误差 0.8 mm</span></span><br><span class="line">demo_hybrid(<span class="number">0.0</span>)    <span class="comment"># 实测: 接触力 10.00 ± 3.25 N（去掉阻尼: 力波动放大 325 倍）</span></span><br></pre></td></tr></table></figure>
+
+<p>两组实测的对照就是第7节”力方向速度阻尼不可省”的定量证明：<strong>去掉 <span class="math-inline">\(k_{fv}\dot y\)</span> 一项，力波动标准差从 ±0.01 N 恶化到 ±3.25 N（325 倍）</strong>——原因是刚性墙的接触共振（<span class="math-inline">\(\sqrt{K_w/m_{\text{eff}}} \approx 350\)</span> rad&#x2F;s，见第12节）只有靠阻尼项压得住。均值 10.00 N 说明 P+I 通道无静差；切向 0.8 mm 说明位置子空间不受力子空间干扰（<span class="math-inline">\(\boldsymbol{\Lambda}\)</span> 前馈解耦有效）。</p>
+<h3 id="11-3-真机化路径：Pinocchio-骨架"><a href="#11-3-真机化路径：Pinocchio-骨架" class="headerlink" title="11.3 真机化路径：Pinocchio 骨架"></a>11.3 真机化路径：Pinocchio 骨架</h3><p>换成真实机器人时，<span class="math-inline">\(\mathbf{M}, \mathbf{C}, \boldsymbol{g}\)</span> 换成 <a href="/BlogNotes/2026/08/30/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80/">Pinocchio</a> 的 <code>crba / nonLinearEffects</code>，<span class="math-inline">\(f\)</span> 换成 F&#x2F;T 传感器读数——控制律一行不用改。1kHz 控制周期的最小骨架：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pinocchio <span class="keyword">as</span> pin</span><br><span class="line"></span><br><span class="line"><span class="comment"># ---- 离线：模型与约束系定义 ----</span></span><br><span class="line">model = pin.buildModelFromUrdf(<span class="string">&quot;robot.urdf&quot;</span>)</span><br><span class="line">data = model.createData()</span><br><span class="line">ft_frame = model.getFrameId(<span class="string">&quot;ft_sensor&quot;</span>)          <span class="comment"># 或末端 frame</span></span><br><span class="line">S = np.diag([<span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>]).astype(<span class="built_in">float</span>)     <span class="comment"># 选择矩阵：xy+ωz 控位置</span></span><br><span class="line">I6 = np.eye(<span class="number">6</span>)</span><br><span class="line">Kp, Kd = np.diag([<span class="number">2000</span>]*<span class="number">6</span>), np.diag([<span class="number">80</span>]*<span class="number">6</span>)        <span class="comment"># 任务空间刚度/阻尼（N/m, N·s/m）</span></span><br><span class="line">Kfp, Kfi, Kfv = np.diag([<span class="number">0.02</span>]*<span class="number">6</span>), np.diag([<span class="number">0.5</span>]*<span class="number">6</span>), np.diag([<span class="number">60</span>]*<span class="number">6</span>)</span><br><span class="line">F_int = np.zeros(<span class="number">6</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">control_cycle</span>(<span class="params">q, v, x_c, xd_c, x_d, xd_d, xdd_d, F_d, F_meas_c, dt</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;全部 6 维量均在约束系 &#123;C&#125; 下：x_c 当前位姿增量, F_meas_c 传感器读数。&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">global</span> F_int</span><br><span class="line"></span><br><span class="line">    <span class="comment"># ---- 模型更新 ----</span></span><br><span class="line">    M = pin.crba(model, data, q)                    <span class="comment"># 关节空间质量矩阵</span></span><br><span class="line">    nle = pin.nonLinearEffects(model, data, q, v)   <span class="comment"># C q̇ + g</span></span><br><span class="line">    J = pin.computeFrameJacobian(model, data, q, ft_frame,</span><br><span class="line">                                 pin.ReferenceFrame.LOCAL_WORLD_ALIGNED)</span><br><span class="line">    Jc = T_c @ J                                    <span class="comment"># 旋转到约束系（T_c 由任务层维护）</span></span><br><span class="line">    Minv = np.linalg.inv(M)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># ---- 操作空间惯量与偏置（Khatib）----</span></span><br><span class="line">    Lam = np.linalg.inv(Jc @ Minv @ Jc.T)           <span class="comment"># Λ = (J M⁻¹ Jᵀ)⁻¹</span></span><br><span class="line">    Jbar = Minv @ Jc.T @ Lam                        <span class="comment"># 动力学一致逆</span></span><br><span class="line">    bias_c = Jbar.T @ nle - Lam @ (pin.getFrameJacobianTimeVariation(</span><br><span class="line">        model, data, q, v, ft_frame,</span><br><span class="line">        pin.ReferenceFrame.LOCAL_WORLD_ALIGNED) @ v)  <span class="comment"># μ + p（近似，含 J̇q̇ 项）</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># ---- 误差 ----</span></span><br><span class="line">    e_x = x_d - x_c</span><br><span class="line">    ed_x = xd_d - xd_c</span><br><span class="line">    e_F = F_d - F_meas_c</span><br><span class="line">    F_int += e_F * dt                               <span class="comment"># 力积分（接触丢失时应清零）</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># ---- 混合控制律 ----</span></span><br><span class="line">    F_pos = S @ (Lam @ (xdd_d + Kd @ ed_x + Kp @ e_x) + bias_c)</span><br><span class="line">    F_frc = (I6 - S) @ (F_d + Kfp @ e_F + Kfi @ F_int - Kfv @ xd_c)</span><br><span class="line">    F_cmd = F_pos + F_frc</span><br><span class="line"></span><br><span class="line">    <span class="comment"># ---- 映射到关节力矩 ----</span></span><br><span class="line">    tau = Jc.T @ F_cmd + nle                        <span class="comment"># τ = Jᵀ F + 关节空间偏置补偿</span></span><br><span class="line">    <span class="keyword">return</span> tau</span><br></pre></td></tr></table></figure>
+
+<p>注意 <code>pin.computeFrameJacobian</code> 与 <code>getFrameJacobianTimeVariation</code> 的参考系要与 <span class="math-inline">\(\mathbf{T}_c\)</span>、位姿误差定义一致；重力在 <code>nle</code> 中已含，<code>bias_c</code> 不再重复加 <span class="math-inline">\(\boldsymbol{p}\)</span> 的关节空间版本（两处都写会双重补偿——力控实现的经典 bug）。</p>
+<h2 id="12-稳定性专题：力控为什么容易振荡"><a href="#12-稳定性专题：力控为什么容易振荡" class="headerlink" title="12. 稳定性专题：力控为什么容易振荡"></a>12. 稳定性专题：力控为什么容易振荡</h2><p>力反馈环是所有控制环里最容易失稳的，物理根源是<strong>接触共振</strong>：末端等效质量 <span class="math-inline">\(m_{\text{eff}}\)</span> 压在环境刚度 <span class="math-inline">\(K_e\)</span> 上，构成弹簧-质量系统 <span class="math-inline">\(\omega_n = \sqrt{K_e / m_{\text{eff}}}\)</span>。钢对钢 <span class="math-inline">\(K_e \sim 10^5\text{–}10^6\)</span> N&#x2F;m，<span class="math-inline">\(\omega_n\)</span> 轻松上 kHz——而力环带宽（受传感器滤波、采样、结构柔度限制）通常只有几十 Hz。相位滞后叠上去，就是一个待激发的振荡器。工程对策按优先级：</p>
+<ol>
+<li><strong>力方向的阻尼项</strong>（<span class="math-inline">\(-\mathbf{K}_{fv}\dot{\mathbf{x}}\)</span>，第7节）：消耗接触共振能量，最有效的一手</li>
+<li><strong>降 <span class="math-inline">\(K_e\)</span> 等效刚度</strong>：柔顺工具（缓冲垫、柔性腕），把 <span class="math-inline">\(\omega_n\)</span> 拉下来——打磨头装橡胶垫不是外行行为，是控制工程师行为</li>
+<li><strong>传感器滤波</strong>：截止频率取力环带宽 5<del>10 倍（典型 100</del>500 Hz），对机械臂结构共振频率（典型 20~80 Hz）处加陷波；滤波再狠也别把相位滞后留在环内</li>
+<li><strong>增益纪律</strong>：力环带宽先保守（5~10 Hz），稳了再提；<span class="math-inline">\(\mathbf{K}_{fp}\)</span> 从小往大试，振荡征兆（接触力毛刺、嗡鸣）立即回退</li>
+<li><strong>冲击过渡</strong>（自由空间→接触瞬间）：接近段用阻抗模式&#x2F;降速接近（&lt;0.05 m&#x2F;s），检测到接触后再切入力环——直接带力环全速撞上刚性表面，什么调参都救不了</li>
+</ol>
+<p>采样率要求：位置环&#x2F;导纳环 ≥ 500 Hz~1 kHz，力信号同步采样，控制周期抖动要小（实时线程，见<a href="/BlogNotes/tutorials/cpp-project-code-style/">C++ 规范实时专项</a>）。</p>
+<h2 id="13-实现要点清单"><a href="#13-实现要点清单" class="headerlink" title="13. 实现要点清单"></a>13. 实现要点清单</h2><p><strong>传感器与标定</strong>：</p>
+<ul>
+<li>F&#x2F;T 传感器装腕部（靠近末端，减少臂杆惯性污染）；末端工具的重力与惯性力先标定补偿：<span class="math-inline">\(\boldsymbol{F}_{\text{ext}} = \boldsymbol{F}_{\text{raw}} - \boldsymbol{F}_{\text{tool}}(\boldsymbol{q}, \dot{\boldsymbol{q}}, \ddot{\boldsymbol{q}})\)</span>——不补偿则手臂一加速，力环看到的全是自身惯性</li>
+<li>传感器系、工具系、约束系三套坐标系只用一个 <span class="math-inline">\(\mathbf{T}_c\)</span> 管理转换，全部旋转在<strong>一处代码</strong>完成</li>
+</ul>
+<p><strong>约束系管理</strong>：</p>
+<ul>
+<li>约束系可以是固定的（平面打磨），也可以随任务在线更新（曲面跟随：法向由视觉&#x2F;点云&#x2F;几何模型给出）；曲面情形把 <span class="math-inline">\(\mathbf{R}_c\)</span> 的更新频率与切向速度规划解耦</li>
+<li><span class="math-inline">\(\mathbf{S}\)</span> 矩阵允许”软切换”（0&#x2F;1 改为 0~1 连续过渡）以缓和不连续</li>
+</ul>
+<p><strong>调参流程</strong>（推荐顺序）：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1. 空载验证映射：给 F_cmd 常值，静置读传感器，确认 Jᵀ 映射与坐标系符号正确（±1N 就能查出符号错）</span><br><span class="line">2. 位置环单独调（S=I），自由空间跟踪达标</span><br><span class="line">3. 接触软目标（弹簧/海绵）调力环：先 P 后 I，加 Kfv 阻尼</span><br><span class="line">4. 换硬目标复调，验证 Kfp 不发散</span><br><span class="line">5. 全速任务轨迹联调，重点观察接触建立/脱离瞬间</span><br></pre></td></tr></table></figure>
+
+<h2 id="14-典型应用形态"><a href="#14-典型应用形态" class="headerlink" title="14. 典型应用形态"></a>14. 典型应用形态</h2><ul>
+<li><strong>恒力打磨&#x2F;抛光</strong>：<span class="math-inline">\(\mathbf{S}\)</span> 法向控力（恒定 <span class="math-inline">\(f_{z,d}\)</span>，±0.5N 精度），切向控速度走网格轨迹；进给速度与法向力联合决定去除率，力环质量直接等于工艺质量</li>
+<li><strong>轴孔装配</strong>：搜索阶段用螺旋搜索 + 力阈值检测；插入阶段混合控制——轴向控力、径向”顺从”（把径向等效刚度调低），配合倒角几何自对中</li>
+<li><strong>灵巧手恒力抓握</strong>（与本站<a href="/BlogNotes/2026/04/24/%E7%81%B5%E5%B7%A7%E6%89%8B%E8%AE%BE%E8%AE%A1%E6%80%BB%E7%BB%93/">灵巧手综述</a>的腱绳方案衔接）：指端法向力环维持目标握力（如 5N ± 0.2N），指间位置环维持包络形状；物体滑移由切向力&#x2F;触觉检测触发力环增力——“捏多紧”是抓握稳定性的第一变量</li>
+<li><strong>足式机器人足端</strong>：摆动腿是纯位置任务，支撑腿是力控任务（法向力分配由<a href="/BlogNotes/2026/08/30/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80/">动力学</a>的接触约束 KKT 系统求解），混合控制是双足&#x2F;四足步态控制器的底层原语</li>
+<li><strong>人机协作拖动</strong>：六维力传感器 + 导纳外环是”零力控制&#x2F;拖动示教”的实现本质</li>
+</ul>
+<h2 id="15-总结"><a href="#15-总结" class="headerlink" title="15. 总结"></a>15. 总结</h2><p>五个控制器的关系演进链——按”需要多少模型信息”递进，一路通向力位混合：</p>
+<div class="math-block">\[
+\underbrace{\text{①PD+重力}}_{\text{零模型}} \;\xrightarrow{\text{加前馈}}\; \underbrace{\text{②计算力矩}}_{\text{全模型，自由空间}} \;\xrightarrow{\text{换到任务空间}}\; \underbrace{\text{③阻抗}}_{\text{柔顺设计}} \;\xrightarrow{\text{外环化}}\; \underbrace{\text{④导纳}}_{\text{位置接口}} \;\xrightarrow{\text{子空间分解}}\; \underbrace{\text{⑤力位混合}}_{\text{接触任务终态}}
+\]</div>
+<p>力位混合控制的完整逻辑链条：</p>
+<div class="math-block">\[
+\underbrace{\text{环境几何}}_{\text{自然约束}} \Rightarrow \underbrace{\text{选择矩阵 } \mathbf{S}}_{\text{自由度二分}} \Rightarrow \underbrace{\mathbf{S}\text{ 位置环} + (\mathbf{I}-\mathbf{S})\text{ 力环}}_{\text{Raibert–Craig}} \Rightarrow \underbrace{\boldsymbol{\Lambda}\text{ 前馈}}_{\text{Khatib 动力学一致}} \Rightarrow \underbrace{\mathbf{J}^{\top}\text{ 落到关节}}
+\]</div>
+<p>一张卡片记住五件事：</p>
+<table>
+<thead>
+<tr>
+<th>要点</th>
+<th>内容</th>
+<th>本文实测锚点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>建模</td>
+<td>约束系 {C} + 选择矩阵 <span class="math-inline">\(\mathbf{S}\)</span>；自然约束与人工约束逐项互补</td>
+<td>—</td>
+</tr>
+<tr>
+<td>前置基础</td>
+<td>PD+重力：Lyapunov + 反对称性全局渐近稳定；计算力矩：反馈线性化</td>
+<td><span class="math-inline">\(10^{-14}\)</span> 收敛 &#x2F; 失配×2.6 鲁棒</td>
+</tr>
+<tr>
+<td>柔顺族</td>
+<td>阻抗 <span class="math-inline">\(\mathbf{M}_d\ddot{}+\mathbf{B}_d\dot{}+\mathbf{K}_d=\boldsymbol{F}_{ext}\)</span>；导纳是其位置接口镜像</td>
+<td>阻抗力&#x3D;理论逐位一致；导纳 683→37 N</td>
+</tr>
+<tr>
+<td>混合结构</td>
+<td>位置子空间 PD + 力子空间 PI + <strong>力方向速度阻尼</strong>（不可省）</td>
+<td>±0.01 vs ±3.25 N（去阻尼 325 倍恶化）</td>
+</tr>
+<tr>
+<td>稳定性</td>
+<td>接触共振 <span class="math-inline">\(\sqrt{K_e/m}\)</span> 是天敌：阻尼、柔顺垫、滤波、缓接触，四件套齐上</td>
+<td>—</td>
+</tr>
+</tbody></table>
+<p>选型心法一句话：<strong>方向明确的接触任务用混合控制要精度，方向多变的人机交互用阻抗控制要柔顺，工业高刚度平台两者之间加一层导纳</strong>。复现说明：第三、四、九、十、十一节的 demo 依赖第2节的公共平台，顺序拼接约 15 秒跑完全部结果。理解了这条从 PD 到力位混合的完整链路，协作机器人、打磨工作站、足式控制器里的”力控”就都有了同一张地图。</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/BlogNotes/about" rel="external nofollow noreferrer">Jianbo.Yuan</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://jianbo-yuan.github.io/BlogNotes/BlogNotes/2026/08/30/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%8A%9B%E4%BD%8D%E6%B7%B7%E5%90%88%E6%8E%A7%E5%88%B6/">https://jianbo-yuan.github.io/BlogNotes/BlogNotes/2026/08/30/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%8A%9B%E4%BD%8D%E6%B7%B7%E5%90%88%E6%8E%A7%E5%88%B6/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/BlogNotes/about" target="_blank">Jianbo.Yuan</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/BlogNotes/tags/%E5%8A%9B%E4%BD%8D%E6%B7%B7%E5%90%88%E6%8E%A7%E5%88%B6/">
+                                    <span class="chip bg-color">力位混合控制</span>
+                                </a>
+                            
+                                <a href="/BlogNotes/tags/%E9%98%BB%E6%8A%97%E6%8E%A7%E5%88%B6/">
+                                    <span class="chip bg-color">阻抗控制</span>
+                                </a>
+                            
+                                <a href="/BlogNotes/tags/%E5%AF%BC%E7%BA%B3%E6%8E%A7%E5%88%B6/">
+                                    <span class="chip bg-color">导纳控制</span>
+                                </a>
+                            
+                                <a href="/BlogNotes/tags/%E6%93%8D%E4%BD%9C%E7%A9%BA%E9%97%B4/">
+                                    <span class="chip bg-color">操作空间</span>
+                                </a>
+                            
+                                <a href="/BlogNotes/tags/%E6%9D%8E%E9%9B%85%E6%99%AE%E8%AF%BA%E5%A4%AB%E7%A8%B3%E5%AE%9A%E6%80%A7/">
+                                    <span class="chip bg-color">李雅普诺夫稳定性</span>
+                                </a>
+                            
+                                <a href="/BlogNotes/tags/%E5%8A%9B%E6%8E%A7%E5%88%B6/">
+                                    <span class="chip bg-color">力控制</span>
+                                </a>
+                            
+                                <a href="/BlogNotes/tags/%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%8E%A7%E5%88%B6/">
+                                    <span class="chip bg-color">机器人控制</span>
+                                </a>
+                            
+                                <a href="/BlogNotes/tags/Python%E4%BB%BF%E7%9C%9F/">
+                                    <span class="chip bg-color">Python仿真</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/BlogNotes/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/BlogNotes/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/BlogNotes/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/BlogNotes/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/BlogNotes/2026/08/30/Ether%20CAT%E5%8D%8F%E8%AE%AE%E5%8E%9F%E7%90%86%E4%B8%8E%E4%BD%BF%E7%94%A8/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/BlogNotes/medias/featureimages/7.jpg" class="responsive-img" alt="EtherCAT 协议原理与使用">
+                        
+                        <span class="card-title">EtherCAT 协议原理与使用</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2026-08-30
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/BlogNotes/categories/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%90%86%E8%AE%BA%E4%B8%8E%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    机器人理论与技术
+                                </a>
+                            
+                            <a href="/BlogNotes/categories/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%90%86%E8%AE%BA%E4%B8%8E%E6%8A%80%E6%9C%AF/%E6%9C%BA%E5%99%A8%E4%BA%BA%E9%80%9A%E8%AE%AF%E7%B3%BB%E7%BB%9F/" class="post-category">
+                                    机器人通讯系统
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/BlogNotes/tags/EtherCAT/">
+                        <span class="chip bg-color">EtherCAT</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/%E5%B7%A5%E4%B8%9A%E4%BB%A5%E5%A4%AA%E7%BD%91/">
+                        <span class="chip bg-color">工业以太网</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/SOEM/">
+                        <span class="chip bg-color">SOEM</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/IgH/">
+                        <span class="chip bg-color">IgH</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/PREEMPT-RT/">
+                        <span class="chip bg-color">PREEMPT_RT</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/%E5%AE%9E%E6%97%B6%E5%86%85%E6%A0%B8/">
+                        <span class="chip bg-color">实时内核</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/EoE/">
+                        <span class="chip bg-color">EoE</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/FoE/">
+                        <span class="chip bg-color">FoE</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E6%97%B6%E9%92%9F/">
+                        <span class="chip bg-color">分布式时钟</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/%E5%AE%9E%E6%97%B6%E9%80%9A%E8%AE%AF/">
+                        <span class="chip bg-color">实时通讯</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/BlogNotes/2026/08/30/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%8F%82%E6%95%B0%E8%BE%A8%E8%AF%86/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/BlogNotes/medias/featureimages/15.jpg" class="responsive-img" alt="机器人动力学参数辨识方法">
+                        
+                        <span class="card-title">机器人动力学参数辨识方法</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-08-30
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/BlogNotes/categories/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%90%86%E8%AE%BA%E4%B8%8E%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    机器人理论与技术
+                                </a>
+                            
+                            <a href="/BlogNotes/categories/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%90%86%E8%AE%BA%E4%B8%8E%E6%8A%80%E6%9C%AF/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%AD%A6%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/" class="post-category">
+                                    机器人学理论基础
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/BlogNotes/tags/%E5%8F%82%E6%95%B0%E8%BE%A8%E8%AF%86/">
+                        <span class="chip bg-color">参数辨识</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/%E7%B3%BB%E7%BB%9F%E8%BE%A8%E8%AF%86/">
+                        <span class="chip bg-color">系统辨识</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%8A%A8%E5%8A%9B%E5%AD%A6/">
+                        <span class="chip bg-color">机器人动力学</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98/">
+                        <span class="chip bg-color">最小二乘</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/Pinocchio/">
+                        <span class="chip bg-color">Pinocchio</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/BlogNotes/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/BlogNotes/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/BlogNotes/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/BlogNotes/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/BlogNotes/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        },
+        "HTML-CSS": {
+            linebreaks: {
+                automatic: true,
+                width: "container"
+            }
+        },
+        SVG: {
+            linebreaks: {
+                automatic: true,
+                width: "container"
+            }
+        }
+    });
+</script>
+<script>
+    (function () {
+        if (window.MathJax) return;
+
+        var sources = [
+            "https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML",
+            "https://unpkg.com/mathjax@2.7.9/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML",
+            "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+        ];
+
+        function loadMathJax(index) {
+            if (index >= sources.length) {
+                console.error("MathJax failed to load from all configured CDNs.");
+                return;
+            }
+
+            var script = document.createElement("script");
+            script.src = sources[index];
+            script.async = true;
+            script.onerror = function () {
+                loadMathJax(index + 1);
+            };
+            document.head.appendChild(script);
+        }
+
+        loadMathJax(0);
+    })();
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/BlogNotes/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.3'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/BlogNotes/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2026</span>
+            
+            <span id="year">2026</span>
+            <a href="/BlogNotes/about" target="_blank">Jianbo.Yuan</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:jianbo.yuan@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=335943408" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 335943408" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+    <a href="https://www.zhihu.com/people/Simple" class="tooltipped" target="_blank" data-tooltip="关注我的知乎: https://www.zhihu.com/people/Simple" data-position="top" data-delay="50">
+        <i class="fab fa-zhihu1">知</i>
+    </a>
+
+
+
+    <a href="/BlogNotes/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/BlogNotes/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/BlogNotes/libs/materialize/materialize.min.js"></script>
+    <script src="/BlogNotes/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/BlogNotes/libs/aos/aos.js"></script>
+    <script src="/BlogNotes/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/BlogNotes/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/BlogNotes/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/BlogNotes/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/BlogNotes/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/BlogNotes/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

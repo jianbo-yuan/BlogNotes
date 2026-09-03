@@ -1,0 +1,2002 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="EtherCAT 协议原理与使用, Jianbo.Yuan">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>EtherCAT 协议原理与使用 | Jianbo.Yuan</title>
+    <link rel="icon" type="image/png" href="/BlogNotes/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/css/my.css">
+
+    <script src="/BlogNotes/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/BlogNotes/" class="waves-effect waves-light">
+                    
+                    <img src="/BlogNotes/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Jianbo.Yuan</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/BlogNotes/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Jianbo.Yuan</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/BlogNotes/medias/featureimages/7.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">EtherCAT 协议原理与使用</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/BlogNotes/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/BlogNotes/tags/EtherCAT/">
+                                <span class="chip bg-color">EtherCAT</span>
+                            </a>
+                        
+                            <a href="/BlogNotes/tags/%E5%B7%A5%E4%B8%9A%E4%BB%A5%E5%A4%AA%E7%BD%91/">
+                                <span class="chip bg-color">工业以太网</span>
+                            </a>
+                        
+                            <a href="/BlogNotes/tags/SOEM/">
+                                <span class="chip bg-color">SOEM</span>
+                            </a>
+                        
+                            <a href="/BlogNotes/tags/IgH/">
+                                <span class="chip bg-color">IgH</span>
+                            </a>
+                        
+                            <a href="/BlogNotes/tags/PREEMPT-RT/">
+                                <span class="chip bg-color">PREEMPT_RT</span>
+                            </a>
+                        
+                            <a href="/BlogNotes/tags/%E5%AE%9E%E6%97%B6%E5%86%85%E6%A0%B8/">
+                                <span class="chip bg-color">实时内核</span>
+                            </a>
+                        
+                            <a href="/BlogNotes/tags/EoE/">
+                                <span class="chip bg-color">EoE</span>
+                            </a>
+                        
+                            <a href="/BlogNotes/tags/FoE/">
+                                <span class="chip bg-color">FoE</span>
+                            </a>
+                        
+                            <a href="/BlogNotes/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E6%97%B6%E9%92%9F/">
+                                <span class="chip bg-color">分布式时钟</span>
+                            </a>
+                        
+                            <a href="/BlogNotes/tags/%E5%AE%9E%E6%97%B6%E9%80%9A%E8%AE%AF/">
+                                <span class="chip bg-color">实时通讯</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/BlogNotes/categories/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%90%86%E8%AE%BA%E4%B8%8E%E6%8A%80%E6%9C%AF/" class="post-category">
+                                机器人理论与技术
+                            </a>
+                        
+                            <a href="/BlogNotes/categories/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%90%86%E8%AE%BA%E4%B8%8E%E6%8A%80%E6%9C%AF/%E6%9C%BA%E5%99%A8%E4%BA%BA%E9%80%9A%E8%AE%AF%E7%B3%BB%E7%BB%9F/" class="post-category">
+                                机器人通讯系统
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2026-08-30
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>当机器人从”单臂慢动”走向”人形全身几十个关节、每个关节 1kHz 以上电流环”时，<a href="/BlogNotes/2026/08/30/%E5%B8%B8%E7%94%A8%E4%B8%B2%E5%8F%A3%E5%8D%8F%E8%AE%AE%E4%B8%8E%E7%94%A8%E9%80%94/">CAN&#x2F;串口</a>的带宽与同步精度就到顶了：1Mbps 的 CAN 装不下几十路高频反馈，更做不到几十个伺服<strong>微秒级同步动作</strong>。EtherCAT（Ethernet for Control Automation Technology，倍福 Beckhoff 主导，ETG 标准）就是为此而生：<strong>复用以太网物理层，用”帧飞过即处理”的架构把上百个轴的确定性控制压进 100µs 级周期</strong>。它是当前高性能机器人（人形、协作臂、直流电机集群）的主流总线选择。</p>
+<p>本文讲三层：原理（为什么快）→ 协议（帧怎么组、状态机怎么走）→ 使用（pysoem 主站实战 + 报文级 Python demo，可跑部分已实测）。</p>
+<h2 id="1-为什么快：帧飞过即处理（Processing-on-the-Fly）"><a href="#1-为什么快：帧飞过即处理（Processing-on-the-Fly）" class="headerlink" title="1. 为什么快：帧飞过即处理（Processing on the Fly）"></a>1. 为什么快：帧飞过即处理（Processing on the Fly）</h2><p>传统以太网：每个节点收完整帧 → 检查是不是给我的 → 转发。延迟随节点数线性堆积。</p>
+<p>EtherCAT 的釜底抽薪：<strong>主站只发一个以太网帧，每个从站在帧”飞过”自己的瞬间，用硬件截取属于自己的那段数据、同时插入自己的反馈数据</strong>，帧继续往前飞，走到拓扑尽头再原路返回主站。整条总线在物理上被 ESC 芯片连成了一个<strong>逻辑环形移位链</strong>：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">   ┌────────── 主站帧发出 ─────────►┐</span><br><span class="line">   │                                ▼</span><br><span class="line">[主站 PC]──[从站1]──[从站2]──[从站3]──[从站4]──(线型拓扑尽头,帧自动折返)</span><br><span class="line">   ▲                                │</span><br><span class="line">   └────────── 帧返回主站 ◄─────────┘</span><br><span class="line">   每个从站: 帧经过时 → 读取自己 RxPDO 的指令字节</span><br><span class="line">                         → 覆写自己 TxPDO 的反馈字节</span><br><span class="line">                         → WKC +1（证明确实处理过）</span><br></pre></td></tr></table></figure>
+
+<p>速度账：以太网 100Mbps 全双工，一帧走完 N 个从站的时间 ≈ 物理传播延迟（每从站约 1µs 级硬件处理）。<strong>几十个从站、几百字节过程数据的总往返延迟在几十微秒量级</strong>，且<strong>抖动（jitter）&lt; 1µs</strong>——对比 CAN 总线 1 帧 100µs、CANopen 同步靠 SYNC 帧广播（±几十 µs 抖动），是量级差。</p>
+<p>带宽账：过程数据是<strong>周期性覆盖</strong>（不是排队发送），一帧里同时装着所有从站的数据——100µs 周期下等效”每轴专享 Mbps 级带宽”，且与从站数量几乎无关（帧长够装下即可）。</p>
+<h2 id="2-协议分层：以太网帧里的-EtherCAT"><a href="#2-协议分层：以太网帧里的-EtherCAT" class="headerlink" title="2. 协议分层：以太网帧里的 EtherCAT"></a>2. 协议分层：以太网帧里的 EtherCAT</h2><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">┌────────────── 以太网帧 (EtherType = 0x88A4) ──────────────┐</span><br><span class="line">│ 以太网头 │ EtherCAT 头(2B: 长度+类型) │ 子报文1 │ 子报文2 │…│ EtherCAT CRC</span><br><span class="line">│          │                          ├────────────────┤  │</span><br><span class="line">│          │                          │ 子报文(datagram)│  │</span><br><span class="line">└──────────────────────────────────────┴────────────────┴──┘</span><br></pre></td></tr></table></figure>
+
+<p>**子报文（datagram）**是基本工作单元，结构（可运行 demo 见 6.1）：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[命令 1B][索引 1B][地址 4B = 从站地址 2B + 寄存器偏移 2B][数据 n B][WKC 2B]</span><br></pre></td></tr></table></figure>
+
+<p>常用命令类型：</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>名称</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>APRD&#x2F;APWR</td>
+<td>自增地址读&#x2F;写</td>
+<td><strong>配置阶段</strong>：按物理位置逐个访问从站（地址自动 +1）</td>
+</tr>
+<tr>
+<td>FPRD&#x2F;FPWR</td>
+<td>配置地址读&#x2F;写</td>
+<td>读写<strong>单个</strong>已配置从站的寄存器</td>
+</tr>
+<tr>
+<td>BRD&#x2F;BWR</td>
+<td>广播读&#x2F;写</td>
+<td>一次访问<strong>全体</strong>从站（读回所有 DL 状态）</td>
+</tr>
+<tr>
+<td>LRD&#x2F;LWR&#x2F;<strong>LRW</strong></td>
+<td>逻辑地址读&#x2F;写</td>
+<td><strong>周期过程数据</strong>：一次读写全部从站的过程映像</td>
+</tr>
+<tr>
+<td>FRMW</td>
+<td>多从站读写</td>
+<td><strong>分布式时钟</strong>专用：传递参考时间</td>
+</tr>
+</tbody></table>
+<p><strong>WKC（Working Counter，工作计数器）</strong> 是 EtherCAT 最优雅的设计：每个从站成功处理了子报文（读 +1、写 +1、读写 +2），就把该子报文的 WKC 字段 +1。主站收回帧后<strong>只看一个数</strong>：WKC 是否等于期望值——等于，全体从站本轮都活着；小于，立刻知道丢了几个、配合状态定位谁掉线。这就是”闭环证据”式的可靠性，无需 ACK 帧泛滥。</p>
+<h2 id="3-从站结构与状态机"><a href="#3-从站结构与状态机" class="headerlink" title="3. 从站结构与状态机"></a>3. 从站结构与状态机</h2><p><strong>从站硬件核心是 ESC（EtherCAT Slave Controller）</strong>：专用芯片（ET1100、LAN9252&#x2F;9253）或 MCU 内置外设（XMC4800、iMX RT1180 的 ECI），它独立完成帧的截取&#x2F;插入&#x2F;转发与 WKC 维护。本地应用芯片（电机控制 MCU）通过 <strong>PDI</strong>（并行&#x2F;串行接口）与 ESC 交换数据——所以从站应用 CPU 完全不参与协议解析，实时性由硬件保证。</p>
+<p><strong>AL 状态机</strong>（应用层状态，主站按阶段推进）：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">INIT ──► PRE-OP ──► SAFE-OP ──► OP</span><br><span class="line"> (上电)   (邮箱就绪)   (输入有效)    (输入输出全通, 正式工作)</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>状态</th>
+<th>允许什么</th>
+<th>主站在此阶段做什么</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>INIT</td>
+<td>只有寄存器访问</td>
+<td>分配站点地址（按物理位置 1,2,3…）</td>
+</tr>
+<tr>
+<td>PRE-OP</td>
+<td>邮箱通讯（SDO）</td>
+<td>通过 SDO 配置对象字典：PDO 映射、驱动参数、DC 设置</td>
+</tr>
+<tr>
+<td>SAFE-OP</td>
+<td>输入 PDO 有效</td>
+<td>校验输入数据长度、观察从站就绪</td>
+</tr>
+<tr>
+<td>OP</td>
+<td>全双工过程数据</td>
+<td>周期循环开始，机器人在此状态下运动</td>
+</tr>
+</tbody></table>
+<p>跳步会失败：SAFE-OP 进不去，九成是 PDO 映射与实际固件配置长度不一致；SAFE-OP 反复掉回 PRE-OP，多半是周期时间设得太短或同步窗口配置错。</p>
+<h2 id="4-应用层：x-over-EtherCAT-协议家族"><a href="#4-应用层：x-over-EtherCAT-协议家族" class="headerlink" title="4. 应用层：x-over-EtherCAT 协议家族"></a>4. 应用层：x-over-EtherCAT 协议家族</h2><p>EtherCAT 的应用层不是单一协议，而是一个<strong>共享邮箱通道的协议家族</strong>（主站按邮箱头部的服务号分发）：</p>
+<table>
+<thead>
+<tr>
+<th>协议</th>
+<th>邮箱服务号</th>
+<th>血统</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>CoE</strong></td>
+<td>0x03</td>
+<td>CANopen</td>
+<td>对象字典、SDO 配置、PDO 映射——<strong>90% 场景的主力</strong></td>
+</tr>
+<tr>
+<td><strong>EoE</strong></td>
+<td>0x02</td>
+<td>TCP&#x2F;IP 隧道</td>
+<td>让从站”上网”：网页诊断、TCP&#x2F;IP 配置</td>
+</tr>
+<tr>
+<td><strong>FoE</strong></td>
+<td>0x04</td>
+<td>类 TFTP</td>
+<td>从站文件读写——<strong>固件升级的标准通道</strong></td>
+</tr>
+<tr>
+<td><strong>SoE</strong></td>
+<td>0x05</td>
+<td>SERCOS</td>
+<td>伺服行规（IDN 参数），少数老牌驱动器使用</td>
+</tr>
+<tr>
+<td><strong>VoE</strong></td>
+<td>0x0F</td>
+<td>厂商自定义</td>
+<td>私有标定&#x2F;配置通道的逃生门</td>
+</tr>
+<tr>
+<td>FSoE</td>
+<td>（叠加在 CoE 上）</td>
+<td>ETG.5100</td>
+<td>安全协议（黑通道原则，SIL3）：STO&#x2F;急停跨总线</td>
+</tr>
+</tbody></table>
+<h3 id="4-1-CoE：对象字典、PDO-与-SDO"><a href="#4-1-CoE：对象字典、PDO-与-SDO" class="headerlink" title="4.1 CoE：对象字典、PDO 与 SDO"></a>4.1 CoE：对象字典、PDO 与 SDO</h3><p>EtherCAT 直接继承了 CANopen 的应用层（<strong>CoE</strong>，CANopen over EtherCAT）——大量驱动器厂商的参数模型（CiA402 伺服行规）原样复用：</p>
+<ul>
+<li><strong>对象字典（OD）</strong>：16 位索引 + 8 位子索引寻址的参数表。<code>0x6000+</code> 运动行规（0x6040 控制字、0x6041 状态字、0x6060 运行模式、0x607A 目标位置、0x60FF 目标速度…）</li>
+<li><strong>SDO（Service Data Object）</strong>：走<strong>邮箱</strong>（非实时通道），配置阶段用，读写对象字典——设增益、设限幅、映射 PDO</li>
+<li><strong>PDO（Process Data Object）</strong>：走<strong>过程映像</strong>（实时通道），OP 状态周期交换。RxPDO（主→从：目标位置等指令）、TxPDO（从→主：实际位置&#x2F;温度等反馈）。PDO 内容由 SDO 配置的映射表（0x1600&#x2F;0x1A00）决定</li>
+</ul>
+<p>一句话分工：<strong>SDO 是”开机配置”，PDO 是”运行时数据”</strong>。周期循环里主站只搬 PDO 映像，一个字节都不浪费。</p>
+<h3 id="4-2-EoE：让从站”上网”（Ethernet-over-EtherCAT）"><a href="#4-2-EoE：让从站”上网”（Ethernet-over-EtherCAT）" class="headerlink" title="4.2 EoE：让从站”上网”（Ethernet over EtherCAT）"></a>4.2 EoE：让从站”上网”（Ethernet over EtherCAT）</h3><p><strong>原理</strong>：把标准以太网帧（MAC 帧完整封装）塞进 EtherCAT 邮箱隧道传输。主站侧是一个<strong>虚拟交换机</strong>：IgH 启用 EoE 后内核生成虚拟网口（<code>eoeX</code>），把它与物理网口桥接或配 IP，从站就能收发 TCP&#x2F;IP 报文；TwinCAT 里则是 EoE 路由器。</p>
+<p><strong>典型用途</strong>：</p>
+<ul>
+<li>伺服驱动器&#x2F;IO 模块的<strong>网页诊断界面</strong>（浏览器直接访问从站 IP 看温度、波形）</li>
+<li>视觉型从站（带处理器的智能相机）回传结果</li>
+<li>从站固件的网络配置（SSH&#x2F;Web 到从站）</li>
+</ul>
+<p><strong>边界（必须心里有数）</strong>：EoE 走的是<strong>邮箱通道</strong>——非实时、与 SDO 共享带宽、分片传输。诊断和配置够用；<strong>别用它传高吞吐数据流</strong>（相机原始流、大数据集）——那是独立以太网口或 EtherCAT 主干网关（如 EL6631&#x2F;EL6692 类通讯端子）的工作。</p>
+<h3 id="4-3-FoE：从站文件读写与固件升级（File-Access-over-EtherCAT）"><a href="#4-3-FoE：从站文件读写与固件升级（File-Access-over-EtherCAT）" class="headerlink" title="4.3 FoE：从站文件读写与固件升级（File Access over EtherCAT）"></a>4.3 FoE：从站文件读写与固件升级（File Access over EtherCAT）</h3><p><strong>原理</strong>：一个精简的类 TFTP 协议（ETG.5200），直接走邮箱，<strong>不需要从站实现 TCP&#x2F;IP 协议栈</strong>——这是它相对 FTP&#x2F;HTTP 的核心优势：8 位 MCU + ESC 也能做固件升级。报文核心字段：操作码（读请求 RRQ &#x2F; 写请求 WRQ &#x2F; 数据 DATA &#x2F; 确认 ACK &#x2F; 错误 ERROR）+ 文件名 + 口令（防误刷）。</p>
+<p><strong>典型用途</strong>：</p>
+<ul>
+<li><strong>从站固件升级</strong>：主站把 <code>firmware.bin</code> 用 FoE WRQ 推给从站 bootloader，写入 Flash 后复位——几十个关节的 OTA 就靠它（配合 CAN-FD 时代的机器人习惯完全一致）</li>
+<li>读取从站的参数快照、日志文件、EDS&#x2F;ESI 备份</li>
+</ul>
+<p>IgH 的 CLI 直接支持（无需写程序）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 把固件写到从站 0 的 &quot;firmware&quot; 文件（口令按厂商手册，常见 0x1234 或字符串）</span></span><br><span class="line"><span class="built_in">sudo</span> ethercat foe_write -p 0 --foe-password 0x1234 firmware.bin <span class="string">&quot;firmware&quot;</span></span><br><span class="line"><span class="built_in">sudo</span> ethercat foe_read  -p 0 --foe-password 0x1234 <span class="string">&quot;params.backup&quot;</span> backup.bin</span><br></pre></td></tr></table></figure>
+
+<p>厂商私有升级工具（如各伺服厂家的 GUI）底层大多是 FoE + 厂商约定文件名。SOEM 新版本也在补齐 FoE 接口，但成熟度以 IgH 与厂商工具为先。</p>
+<h3 id="4-4-SoE、VoE、FSoE：其余家族成员"><a href="#4-4-SoE、VoE、FSoE：其余家族成员" class="headerlink" title="4.4 SoE、VoE、FSoE：其余家族成员"></a>4.4 SoE、VoE、FSoE：其余家族成员</h3><ul>
+<li><strong>SoE</strong>（SERCOS over EtherCAT）：伺服行规的另一支血脉，参数按 SERCOS 的 IDN 编号（S-0-0036 之类）寻址。少数老牌驱动器（SERCOS 生态迁移过来）使用；<strong>新项目无脑选 CoE 即可</strong>，见到 SoE 认识就行</li>
+<li><strong>VoE</strong>（Vendor over EtherCAT）：厂商自定义邮箱协议的官方逃生门（服务号 0x0F）——私有标定流程、加密配置通道都挂在这里。逆向厂商设备时看到它，意味着这部分协议要翻厂商文档</li>
+<li><strong>FSoE</strong>（Fail Safe over EtherCAT，ETG.5100）：<strong>安全协议</strong>，叠加在 CoE 之上。核心思想是”黑通道”——EtherCAT 本身不需要安全认证，安全性由 FSoE 报文的看门狗计数 + CRC + 安全设备（安全 PLC、TwinSAFE 端子）保证，可达 SIL3。机器人的**急停链路（STO）、安全限速（SLS）**如果要走总线，就是 FSoE 的领域；安全相关设计与常规控制分列（安全逻辑跑在独立的安全控制器&#x2F;安全端子里）</li>
+</ul>
+<h2 id="5-分布式时钟（DC）：多轴微秒同步"><a href="#5-分布式时钟（DC）：多轴微秒同步" class="headerlink" title="5. 分布式时钟（DC）：多轴微秒同步"></a>5. 分布式时钟（DC）：多轴微秒同步</h2><p>EtherCAT 的另一张王牌。主站选一个从站（通常是第一个）作为<strong>参考时钟</strong>，用 FRMW 报文让参考时间随帧传遍全网，各从站测量自己收到的时间与参考的偏差，补偿 <strong>offset（偏移）+ drift（晶振漂移）</strong>，最终全网时钟对齐到<strong>亚微秒</strong>。</p>
+<p>对齐之后，从站可以按自己的本地时钟产生 <strong>SYNC0 中断</strong>：主站把”每个周期的第 X µs 采样&#x2F;生效”编排好，几十个驱动器的电流环采样、ADC 触发、PWM 更新在物理上同一时刻发生——<strong>多轴力控与全身控制的地基</strong>。CANopen 的 SYNC 广播只能做到几十 µs 级且随负载抖动，DC 是纳米级工艺。</p>
+<p>配套机制：主站周期里发 LRW 报文的时刻对齐到 SYNC0 前足够提前，使数据在 SYNC0 生效时刻已就位（”shift time” 参数）。</p>
+<h2 id="6-Python-实战"><a href="#6-Python-实战" class="headerlink" title="6. Python 实战"></a>6. Python 实战</h2><h3 id="6-1-报文级-demo（纯-Python-可运行，实测通过）"><a href="#6-1-报文级-demo（纯-Python-可运行，实测通过）" class="headerlink" title="6.1 报文级 demo（纯 Python 可运行，实测通过）"></a>6.1 报文级 demo（纯 Python 可运行，实测通过）</h3><p>理解协议最快的办法是亲手拆一个子报文：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> struct</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">datagram_pack</span>(<span class="params">cmd, idx, slave_adr, offset, data</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;cmd(1B) idx(1B) 地址(4B=从站2B+偏移2B) 数据 WKC(2B)&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> struct.pack(<span class="string">&quot;&lt;BBHH&quot;</span>, cmd, idx, slave_adr, offset) + data + <span class="string">b&quot;\x00\x00&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">datagram_unpack</span>(<span class="params">body</span>):</span><br><span class="line">    cmd, idx, adr, off = struct.unpack_from(<span class="string">&quot;&lt;BBHH&quot;</span>, body)</span><br><span class="line">    wkc = struct.unpack_from(<span class="string">&quot;&lt;H&quot;</span>, body, <span class="built_in">len</span>(body) - <span class="number">2</span>)[<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">dict</span>(cmd=cmd, idx=idx, adr=adr, offset=off, wkc=wkc, data=body[<span class="number">10</span>:-<span class="number">2</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># BRD 命令(0x07)：广播读所有从站的 DL 状态寄存器(偏移 0x0110)，探测总线</span></span><br><span class="line">dg = datagram_pack(<span class="number">0x07</span>, <span class="number">0x00</span>, <span class="number">0x0000</span>, <span class="number">0x0110</span>, <span class="string">b&quot;\x00\x00&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(dg.<span class="built_in">hex</span>().upper())</span><br><span class="line"><span class="comment"># 实测输出: 07000000100100000000   ← 10 字节, WKC 初值 0</span></span><br><span class="line"><span class="comment"># 发上真实总线后, WKC 会被每个从站 +1: 3 个从站返回 WKC=3 → 体检通过</span></span><br><span class="line"><span class="built_in">print</span>(datagram_unpack(dg))   <span class="comment"># cmd=7, offset=0x110, wkc=0</span></span><br></pre></td></tr></table></figure>
+
+<p>同理可拆 CoE 邮箱里的一条<strong>快速 SDO 写</strong>（写伺服运行模式 0x6060&#x3D;1，位布局与 CANopen 相同、与 canopen 库实现一致）：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">coe_sdo_write</span>(<span class="params">idx, sub, val: <span class="built_in">int</span>, size: <span class="built_in">int</span> = <span class="number">1</span></span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;快速(expedite)下载。命令字: bits7-5=001(下载请求) bits3-2=4-字节数</span></span><br><span class="line"><span class="string">    bit1=E(快速) bit0=S(带长度)；数据小端补齐 4 字节&quot;&quot;&quot;</span></span><br><span class="line">    hdr = (<span class="number">0b001</span> &lt;&lt; <span class="number">5</span>) | <span class="number">0b0011</span> | ((<span class="number">4</span> - size) &lt;&lt; <span class="number">2</span>)</span><br><span class="line">    <span class="keyword">return</span> (struct.pack(<span class="string">&quot;&lt;BBBB&quot;</span>, hdr, idx &amp; <span class="number">0xFF</span>, (idx &gt;&gt; <span class="number">8</span>) &amp; <span class="number">0xFF</span>, sub)</span><br><span class="line">            + val.to_bytes(<span class="number">4</span>, <span class="string">&quot;little&quot;</span>))</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(coe_sdo_write(<span class="number">0x6060</span>, <span class="number">0x00</span>, <span class="number">0x01</span>).<span class="built_in">hex</span>().upper())</span><br><span class="line"><span class="comment"># 实测输出: 2F60600001000000   ← 0x2F=1字节快速下载, 索引0x6060小端, 值1(位置模式)</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="6-2-主站实战：pysoem（需真实网卡-从站）"><a href="#6-2-主站实战：pysoem（需真实网卡-从站）" class="headerlink" title="6.2 主站实战：pysoem（需真实网卡 + 从站）"></a>6.2 主站实战：pysoem（需真实网卡 + 从站）</h3><p><strong>SOEM</strong>（Simple Open Source EtherCAT Master）是开源主站里的轻量王者，<code>pysoem</code> 是其 Python 绑定（<code>pip install pysoem</code>，Windows 需 Npcap，Linux 直接用）。完整骨架：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pysoem                            <span class="comment"># pip install pysoem</span></span><br><span class="line"><span class="keyword">import</span> struct, time</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">EthercatMaster</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, ifname: <span class="built_in">str</span></span>):     <span class="comment"># Windows: r&quot;\Device\NPF_&#123;GUID&#125;&quot;; Linux: &quot;eth0&quot;</span></span><br><span class="line">        <span class="variable language_">self</span>.master = pysoem.Master()</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> <span class="variable language_">self</span>.master.<span class="built_in">open</span>(ifname):</span><br><span class="line">            <span class="keyword">raise</span> RuntimeError(<span class="string">f&quot;打开网卡失败: <span class="subst">&#123;ifname&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">start</span>(<span class="params">self</span>):</span><br><span class="line">        m = <span class="variable language_">self</span>.master</span><br><span class="line">        n = m.config_init()                        <span class="comment"># ① 探测从站(按物理位置编址)</span></span><br><span class="line">        <span class="keyword">if</span> n &lt; <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">raise</span> RuntimeError(<span class="string">&quot;总线上没有从站&quot;</span>)</span><br><span class="line">        <span class="keyword">for</span> s <span class="keyword">in</span> m.slaves:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">f&quot;从站: <span class="subst">&#123;s.name&#125;</span>, eep_man=0x<span class="subst">&#123;s.eep_man:08X&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># ② PRE-OP 下用 SDO 做配置（示例：CiA402 驱动器）</span></span><br><span class="line">        drv = m.slaves[<span class="number">0</span>]</span><br><span class="line">        drv.sdo_write(<span class="number">0x6060</span>, <span class="number">0</span>, <span class="built_in">bytes</span>([<span class="number">1</span>]))       <span class="comment"># 运行模式 = 1 (PP 位置模式)</span></span><br><span class="line">        drv.sdo_write(<span class="number">0x60C2</span>, <span class="number">0x12</span>, (<span class="number">1000</span>).to_bytes(<span class="number">2</span>, <span class="string">&quot;little&quot;</span>))  <span class="comment"># 示例: 插补周期</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># ③ 过程映像与同步</span></span><br><span class="line">        <span class="variable language_">self</span>.expected_wkc = m.config_map()          <span class="comment"># PDO 映射 → 过程映像 + 期望 WKC</span></span><br><span class="line">        <span class="comment"># DC 同步(需从站支持): config_dc 会启用 SYNC0</span></span><br><span class="line">        m.config_dc()                               <span class="comment"># 具体参数以 pysoem 文档为准</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># ④ 全体进 OP</span></span><br><span class="line">        m.write_state(<span class="number">0</span>, pysoem.OP_STATE)</span><br><span class="line">        <span class="keyword">if</span> m.statecheck(<span class="number">0</span>, pysoem.OP_STATE, <span class="number">50000</span>) != pysoem.OP_STATE:</span><br><span class="line">            <span class="keyword">raise</span> RuntimeError(<span class="string">f&quot;进入 OP 失败: AL status <span class="subst">&#123;m.slaves[<span class="number">0</span>].al_status:#x&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">cycle</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;周期过程数据：调用方以 1kHz 实时线程驱动（Linux RT / Windows 高优先级）&quot;&quot;&quot;</span></span><br><span class="line">        m = <span class="variable language_">self</span>.master</span><br><span class="line">        m.send_processdata()                        <span class="comment"># 发出 LRW 帧（输出映像）</span></span><br><span class="line">        wkc = m.receive_processdata(<span class="number">2000</span>)           <span class="comment"># 收回帧（输入映像已更新）</span></span><br><span class="line">        <span class="keyword">if</span> wkc &lt; <span class="variable language_">self</span>.expected_wkc:                 <span class="comment"># WKC 掉落 = 有从站失联</span></span><br><span class="line">            <span class="keyword">raise</span> ConnectionError(<span class="string">f&quot;WKC 异常: <span class="subst">&#123;wkc&#125;</span>/<span class="subst">&#123;self.expected_wkc&#125;</span>&quot;</span>)</span><br><span class="line">        drv = m.slaves[<span class="number">0</span>]</span><br><span class="line">        <span class="comment"># 输出(RxPDO): 控制字 + 目标位置 —— 按该驱动器 PDO 映射的字节布局打包</span></span><br><span class="line">        drv.output = struct.pack(<span class="string">&quot;&lt;Hi&quot;</span>, <span class="number">0x0F</span>, <span class="number">10000</span>)   <span class="comment"># 使能+New Setpoint, 10000 incr</span></span><br><span class="line">        <span class="comment"># 输入(TxPDO): 状态字 + 实际位置</span></span><br><span class="line">        status, pos = struct.unpack(<span class="string">&quot;&lt;Hi&quot;</span>, drv.<span class="built_in">input</span>[:<span class="number">4</span>])</span><br><span class="line">        <span class="keyword">return</span> status, pos</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">stop</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="variable language_">self</span>.master.close()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    ec = EthercatMaster(<span class="string">&quot;eth0&quot;</span>)</span><br><span class="line">    ec.start()</span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1000</span>):</span><br><span class="line">        status, pos = ec.cycle()</span><br><span class="line">        time.sleep(<span class="number">0.001</span>)</span><br><span class="line">    ec.stop()</span><br></pre></td></tr></table></figure>
+
+<p>说明：PDO 的<strong>字节布局由从站的对象字典映射决定</strong>（用 TwinCAT 或 <code>m.slaves[0].pdo</code> 可查看），<code>drv.output</code>&#x2F;<code>drv.input</code> 就是过程映像的原始字节——<code>struct.pack/unpack</code> 是你与它的全部界面。CiA402 的使能时序（控制字 0x06→0x07→0x0F 走 Switch On 序列）是另一层状态机，按驱动器手册推进。</p>
+<h3 id="6-3-主站方案对比"><a href="#6-3-主站方案对比" class="headerlink" title="6.3 主站方案对比"></a>6.3 主站方案对比</h3><table>
+<thead>
+<tr>
+<th>方案</th>
+<th>形态</th>
+<th>适用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>pysoem &#x2F; SOEM</strong></td>
+<td>用户态开源库，Python&#x2F;C</td>
+<td>科研原型、快速验证（本文 6.2 节）</td>
+</tr>
+<tr>
+<td><strong>IgH EtherCAT Master</strong></td>
+<td>内核态开源，Linux RT</td>
+<td>产品级 Linux 控制器（<strong>详解见第7节</strong>）</td>
+</tr>
+<tr>
+<td>TwinCAT 3&#x2F;4</td>
+<td>倍福商业，Windows&#x2F;Linux</td>
+<td>工业标准，图形化配置</td>
+</tr>
+<tr>
+<td>EC-Master (acontis)</td>
+<td>商业 SDK</td>
+<td>嵌入式产品</td>
+</tr>
+</tbody></table>
+<p>从站开发（自研板）：LAN9252&#x2F;9253 芯片 + CODESYS&#x2F;TwinCAT 从站协议栈，或 XMC4800（MCU 内置 ESC，免外挂芯片）。</p>
+<h2 id="7-IgH-EtherCAT-Master-详解：内核态主站的工业级方案"><a href="#7-IgH-EtherCAT-Master-详解：内核态主站的工业级方案" class="headerlink" title="7. IgH EtherCAT Master 详解：内核态主站的工业级方案"></a>7. IgH EtherCAT Master 详解：内核态主站的工业级方案</h2><p>SOEM&#x2F;pysoem 跑在用户态，调试方便；但要上产品（1kHz 不掉帧、断电恢复、长时运行），<strong>IgH EtherCAT Master</strong>（EtherLab）是 Linux 上的标准答案：主站核心运行在<strong>内核模块</strong>里，帧收发走打补丁的网卡驱动，用户程序通过 <code>/dev/EtherCAT*</code> 字符设备与之交互。</p>
+<h3 id="7-1-架构与核心概念"><a href="#7-1-架构与核心概念" class="headerlink" title="7.1 架构与核心概念"></a>7.1 架构与核心概念</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">┌──────────────── 用户空间 ────────────────┐</span><br><span class="line">│  你的控制程序 (C/C++) ── ecrt 库 (libecrt) │</span><br><span class="line">│         │  ioctl(/dev/EtherCAT0)          │</span><br><span class="line">├─────────▼─────────── 内核空间 ────────────┤</span><br><span class="line">│  ec_master 模块：状态机/DC/域管理          │</span><br><span class="line">│         │                                 │</span><br><span class="line">│  原生网卡驱动(igb/e1000e/r8169, 已打补丁)  │── 差分线 ──► 从站</span><br><span class="line">│  或 generic 模式(任意网卡, 性能较低)        │</span><br><span class="line">└───────────────────────────────────────────┘</span><br></pre></td></tr></table></figure>
+
+<p>三个必须理解的对象：</p>
+<ul>
+<li><strong>master</strong>：与一块网卡一一对应，管理状态机与 DC</li>
+<li><strong>domain（域）</strong>：过程数据的打包单位——一个域的所有 PDO 拼在同一个周期帧里。简单系统一个域够用；把高速与低速数据分域可省带宽</li>
+<li><strong>slave config</strong>：按”总线位置 + 期望的 Vendor&#x2F;Product ID”绑定从站，做 PDO 映射与 DC 配置</li>
+</ul>
+<h3 id="7-2-源码安装（Debian-Ubuntu，PREEMPT-RT-内核）"><a href="#7-2-源码安装（Debian-Ubuntu，PREEMPT-RT-内核）" class="headerlink" title="7.2 源码安装（Debian&#x2F;Ubuntu，PREEMPT_RT 内核）"></a>7.2 源码安装（Debian&#x2F;Ubuntu，PREEMPT_RT 内核）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 依赖：编译工具 + 当前内核头文件（RT 内核则装 RT 头文件）</span></span><br><span class="line"><span class="built_in">sudo</span> apt install -y build-essential linux-headers-$(<span class="built_in">uname</span> -r) \</span><br><span class="line">                    git autoconf automake libtool pkg-config</span><br><span class="line"></span><br><span class="line"><span class="comment"># 取源码（IgH 官方仓库的社区维护版）</span></span><br><span class="line">git <span class="built_in">clone</span> https://gitlab.com/etherlab.org/ethercat.git</span><br><span class="line"><span class="built_in">cd</span> ethercat &amp;&amp; git checkout stable-1.5</span><br><span class="line">./bootstrap                          <span class="comment"># 生成 configure 脚本</span></span><br><span class="line"></span><br><span class="line">./configure --prefix=/usr/local \</span><br><span class="line">  --with-linux-dir=<span class="string">&quot;/lib/modules/<span class="subst">$(uname -r)</span>/build&quot;</span> \</span><br><span class="line">  --enable-generic    `# 兜底: 任意网卡可用(性能较低)` \</span><br><span class="line">  --enable-igb        `# Intel I210/I350 服务器网卡(推荐)` \</span><br><span class="line">  --enable-e1000e     `# Intel 千兆` \</span><br><span class="line">  --enable-r8169      `# Realtek` \</span><br><span class="line">  --disable-8139too</span><br><span class="line">make -j$(<span class="built_in">nproc</span>)</span><br><span class="line"><span class="built_in">sudo</span> make install</span><br><span class="line"><span class="built_in">sudo</span> make modules_install            <span class="comment"># 安装 ec_master + 网卡驱动模块</span></span><br><span class="line"><span class="built_in">sudo</span> depmod -a</span><br></pre></td></tr></table></figure>
+
+<p>要点：<strong>网卡驱动必须选列表里打了 IgH 补丁的原生驱动</strong>（性能最好）；找不在列表里的网卡就退 <code>--enable-generic</code>。内核升级后必须用新 headers 重新 <code>make modules_install</code>——“内核一升级主站就消失”是运维第一坑。</p>
+<h3 id="7-3-配置与启动"><a href="#7-3-配置与启动" class="headerlink" title="7.3 配置与启动"></a>7.3 配置与启动</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># /etc/ethercat.conf（老版本为 /etc/sysconfig/ethercat）</span></span><br><span class="line">MASTER0_DEVICE=<span class="string">&quot;00:1b:21:0f:98:4a&quot;</span>   <span class="comment"># 主站网卡的 MAC（ip link 查）</span></span><br><span class="line">DEVICE_MODULES=<span class="string">&quot;igb&quot;</span>                 <span class="comment"># 与编译时启用的驱动一致</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">sudo</span> systemctl <span class="built_in">enable</span> --now ethercat</span><br></pre></td></tr></table></figure>
+
+<h3 id="7-4-CLI-工具：ethercat——排障神器"><a href="#7-4-CLI-工具：ethercat——排障神器" class="headerlink" title="7.4 CLI 工具：ethercat——排障神器"></a>7.4 CLI 工具：<code>ethercat</code>——排障神器</h3><p>服务起来后，<code>ethercat</code> 命令行工具是调试效率的来源（SOEM 没有的体验）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ethercat master            <span class="comment"># 主站状态 + 帧计数/WKC 统计（看丢帧）</span></span><br><span class="line">ethercat slaves -v         <span class="comment"># 从站清单: 状态、AL status code、厂商信息</span></span><br><span class="line">ethercat pdos              <span class="comment"># 每个从站的 PDO 映射（配置对不对一眼看出）</span></span><br><span class="line">ethercat sdos              <span class="comment"># 全部 SDO 对象</span></span><br><span class="line">ethercat download -t int32 0x607A 0 15000   <span class="comment"># SDO 写（目标位置）</span></span><br><span class="line">ethercat upload   -t int16 0x6041 0         <span class="comment"># SDO 读（状态字）</span></span><br><span class="line">ethercat states OP         <span class="comment"># 切状态（正常应由应用程序管理）</span></span><br><span class="line">ethercat domains           <span class="comment"># 域的过程数据长度</span></span><br><span class="line">ethercat graph             <span class="comment"># 拓扑图</span></span><br></pre></td></tr></table></figure>
+
+<p>排障组合拳：<code>slaves -v</code> 看 OP 有没有进、<code>master</code> 看帧错误计数涨不涨、<code>pdos</code> 看映射长度与配置是否一致。</p>
+<h3 id="7-5-ecrt-编程模型（C，周期任务骨架）"><a href="#7-5-ecrt-编程模型（C，周期任务骨架）" class="headerlink" title="7.5 ecrt 编程模型（C，周期任务骨架）"></a>7.5 ecrt 编程模型（C，周期任务骨架）</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;ecrt.h&gt;</span>          <span class="comment">// 编译: gcc app.c -o app -lecrt</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">static</span> <span class="type">ec_master_t</span> *master;</span><br><span class="line"><span class="type">static</span> <span class="type">ec_domain_t</span> *domain1;</span><br><span class="line"><span class="type">static</span> <span class="type">ec_slave_config_t</span> *sc;</span><br><span class="line"><span class="type">static</span> <span class="type">uint8_t</span> *pd;                            <span class="comment">// 过程映像基址</span></span><br><span class="line"><span class="type">static</span> <span class="type">unsigned</span> <span class="type">int</span> off_status, off_actual;    <span class="comment">// PDO 项在域内的字节偏移</span></span><br><span class="line"><span class="type">static</span> <span class="type">unsigned</span> <span class="type">int</span> off_ctrl, off_target;</span><br><span class="line"></span><br><span class="line"><span class="type">static</span> <span class="type">void</span> <span class="title function_">cyclic_task</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">/* ---- 每周期固定五步 ---- */</span></span><br><span class="line">    ecrt_master_receive(master);               <span class="comment">// ① 收上一帧</span></span><br><span class="line">    ecrt_domain_process(domain1);              <span class="comment">// ② 校验 WKC、更新输入映像</span></span><br><span class="line">    <span class="type">uint16_t</span> status = EC_READ_U16(pd + off_status);   <span class="comment">// ③ 读 TxPDO</span></span><br><span class="line">    <span class="type">int32_t</span>  actual = EC_READ_S32(pd + off_actual);</span><br><span class="line">    EC_WRITE_U16(pd + off_ctrl, <span class="number">0x0F</span>);                <span class="comment">// ④ 写 RxPDO</span></span><br><span class="line">    EC_WRITE_S32(pd + off_target, <span class="number">15000</span>);</span><br><span class="line">    ecrt_domain_queue(domain1);                <span class="comment">// ⑤ 打包下一帧</span></span><br><span class="line">    ecrt_master_send(master);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    master  = ecrt_request_master(<span class="number">0</span>);          <span class="comment">// 请求 0 号主站</span></span><br><span class="line">    domain1 = ecrt_master_create_domain(master);</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 按位置绑定从站（0 号位, 期望厂商/产品码——防止拓扑变了还硬跑） */</span></span><br><span class="line">    sc = ecrt_master_slave_config(master, <span class="number">0</span>, <span class="number">0</span>, VENDOR_ID, PRODUCT_CODE);</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* PDO 映射（也可直接用从站 EEPROM 默认配置）与 DC */</span></span><br><span class="line">    <span class="comment">// ecrt_slave_config_pdos(sc, EC_END, syncs);</span></span><br><span class="line">    ecrt_slave_config_dc(sc, <span class="number">0x0300</span>, <span class="number">1000000</span>, <span class="number">500000</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">    <span class="comment">//            ↑assign/SYNC0 使能  ↑周期 1ms  ↑提前量 0.5ms</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 注册关心的 PDO 项 → 得到域内偏移 */</span></span><br><span class="line">    <span class="comment">// ecrt_domain_reg_pdo_entry_list(domain1, pdo_regs);</span></span><br><span class="line"></span><br><span class="line">    ecrt_master_activate(master);</span><br><span class="line">    pd = ecrt_domain_data(domain1);</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 把 cyclic_task 挂到 RT 线程: SCHED_FIFO 优先级 99 + mlockall */</span></span><br><span class="line">    <span class="comment">// ...（第8节的实时化是它能跑稳的前提）</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>与传统 SOEM 循环的差别：帧的<strong>收发</strong>（<code>receive/send</code>）与<strong>过程映像交换</strong>（<code>process/queue</code>）显式分离，中间穿插你的控制逻辑；DC 场景下每个周期还要调 <code>ecrt_master_application_time()</code> 喂参考时间、<code>ecrt_master_sync_slave_clocks()</code> 做从站时钟对齐。Python 侧若要复用 IgH，可用 python-ethercat 绑定或干脆”Python 决策层（UDP&#x2F;共享内存）+ C 实时层”的分工——控制环放 C，Python 只做上层编排（呼应<a href="/BlogNotes/tutorials/ros-code-style/">ROS 规范</a>的分层思想）。</p>
+<h2 id="8-Linux-实时化：内核补丁的种类与使用"><a href="#8-Linux-实时化：内核补丁的种类与使用" class="headerlink" title="8. Linux 实时化：内核补丁的种类与使用"></a>8. Linux 实时化：内核补丁的种类与使用</h2><p>EtherCAT 周期任务的死敌是<strong>迟到</strong>：1kHz 循环里偶发一次 500µs 的调度延迟，从站 SM watchdog 就报错、掉 SAFE-OP。vanilla Linux 的调度延迟典型几十 µs、尾部毫秒级（软中断、页缺失、内核态不可抢占区），<strong>必须实时化</strong>。</p>
+<h3 id="8-1-四条路线总览"><a href="#8-1-四条路线总览" class="headerlink" title="8.1 四条路线总览"></a>8.1 四条路线总览</h3><table>
+<thead>
+<tr>
+<th>路线</th>
+<th>原理</th>
+<th>cyclictest 典型 max</th>
+<th>维护成本</th>
+<th>定位</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>vanilla + 调优</td>
+<td>不打补丁，只做隔离&#x2F;关中断</td>
+<td>100 µs ~ ms 级</td>
+<td>低</td>
+<td>只够验证&#x2F;教学</td>
+</tr>
+<tr>
+<td><strong>PREEMPT_RT</strong></td>
+<td>单内核全面可抢占</td>
+<td>x86 常见 <strong>10~30 µs</strong></td>
+<td>低（发行版直接提供）</td>
+<td><strong>默认选择</strong></td>
+</tr>
+<tr>
+<td><strong>Xenomai 3 (Cobalt)</strong></td>
+<td>双内核：实时核接管调度&#x2F;中断</td>
+<td><strong>&lt; 10 µs</strong> 可硬实时</td>
+<td>中高（API 隔离、补丁跟踪）</td>
+<td>亚 10µs 硬指标</td>
+</tr>
+<tr>
+<td>RTAI</td>
+<td>老牌双内核</td>
+<td>≈Xenomai</td>
+<td>高（社区萎缩）</td>
+<td>遗留系统</td>
+</tr>
+</tbody></table>
+<h3 id="8-2-PREEMPT-RT：是什么，为什么是默认选择"><a href="#8-2-PREEMPT-RT：是什么，为什么是默认选择" class="headerlink" title="8.2 PREEMPT_RT：是什么，为什么是默认选择"></a>8.2 PREEMPT_RT：是什么，为什么是默认选择</h3><p>PREEMPT_RT 补丁把 Linux 内核改造成<strong>几乎完全可抢占</strong>，四件套：</p>
+<ol>
+<li><strong>内核临界区可抢占</strong>：spinlock 换成基于 rtmutex 的可睡眠锁，长临界区被拆碎</li>
+<li><strong>中断线程化</strong>：硬中断只留最小骨架，处理逻辑变成 <code>irq/xxx</code> 内核线程——可以被你的控制线程抢占&#x2F;排队</li>
+<li><strong>高精度定时器（hrtimer）</strong>：µs 级定时精度，周期任务的睡眠唤醒不再是毫秒轮询</li>
+<li><strong>优先级继承</strong>：rtmutex 解决优先级反转（高优先级等低优先级手里的锁时，临时提升后者）</li>
+</ol>
+<p>工程意义：<strong>你的控制程序就是普通 Linux 程序</strong>（POSIX，SCHED_FIFO + mlockall），不需要专门的实时 API——IgH&#x2F;pysoem 代码一行不改直接受益。该补丁近年在持续并入内核主线（6.12 之后残差已很小），发行版支持逐年变好，是”够硬、够省心”的甜点位。</p>
+<h3 id="8-3-PREEMPT-RT-安装：两条路"><a href="#8-3-PREEMPT-RT-安装：两条路" class="headerlink" title="8.3 PREEMPT_RT 安装：两条路"></a>8.3 PREEMPT_RT 安装：两条路</h3><p><strong>路线 A：发行版现成包（推荐，能不编译就不编译）</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Debian 12 —— 官方仓库直接装</span></span><br><span class="line"><span class="built_in">sudo</span> apt install linux-image-rt-amd64 linux-headers-rt-amd64</span><br><span class="line"></span><br><span class="line"><span class="comment"># Fedora</span></span><br><span class="line"><span class="built_in">sudo</span> dnf install kernel-rt</span><br><span class="line"></span><br><span class="line"><span class="comment"># Ubuntu 24.04 LTS（通过 Ubuntu Pro / 个人免费订阅）</span></span><br><span class="line"><span class="built_in">sudo</span> apt install ubuntu-realtime</span><br><span class="line"></span><br><span class="line"><span class="comment"># Arch: linux-rt / linux-rt-lts（AUR）</span></span><br><span class="line"><span class="built_in">sudo</span> reboot</span><br><span class="line"><span class="built_in">uname</span> -v        <span class="comment"># 输出含 &quot;PREEMPT_RT&quot; 即成功</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>路线 B：源码编译（需要特定内核版本&#x2F;嵌入式场景）</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ① 内核与 RT 补丁版本必须严格配套，从 kernel.org 下载:</span></span><br><span class="line"><span class="comment">#    https://kernel.org/pub/linux/kernel/projects/rt/</span></span><br><span class="line">VER=6.12.19; RT=patch-<span class="variable">$&#123;VER&#125;</span>-rt10</span><br><span class="line">wget https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-<span class="variable">$&#123;VER&#125;</span>.tar.xz</span><br><span class="line">wget https://cdn.kernel.org/pub/linux/kernel/projects/rt/6.12/<span class="variable">$&#123;RT&#125;</span>.patch.xz</span><br><span class="line"></span><br><span class="line">tar xf linux-<span class="variable">$&#123;VER&#125;</span>.tar.xz &amp;&amp; <span class="built_in">cd</span> linux-<span class="variable">$&#123;VER&#125;</span></span><br><span class="line">xzcat ../<span class="variable">$&#123;RT&#125;</span>.patch.xz | patch -p1              <span class="comment"># ② 打补丁</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">cp</span> /boot/config-$(<span class="built_in">uname</span> -r) .config              <span class="comment"># ③ 以当前配置为底</span></span><br><span class="line">scripts/config --set-val PREEMPT y \</span><br><span class="line">               --<span class="built_in">enable</span>  PREEMPT_RT \</span><br><span class="line">               --<span class="built_in">enable</span>  HIGH_RES_TIMERS</span><br><span class="line">make olddefconfig</span><br><span class="line">make -j$(<span class="built_in">nproc</span>) bindeb-pkg                       <span class="comment"># ④ 编成 deb（Ubuntu/Debian）</span></span><br><span class="line"><span class="built_in">sudo</span> dpkg -i ../linux-image-<span class="variable">$&#123;VER&#125;</span>-rt10_*.deb ../linux-headers-*.deb</span><br><span class="line"><span class="built_in">sudo</span> update-grub &amp;&amp; <span class="built_in">sudo</span> reboot</span><br></pre></td></tr></table></figure>
+
+<h3 id="8-4-Xenomai：双内核路线速览"><a href="#8-4-Xenomai：双内核路线速览" class="headerlink" title="8.4 Xenomai：双内核路线速览"></a>8.4 Xenomai：双内核路线速览</h3><p>思路与 PREEMPT_RT 相反：<strong>不给 Linux 打强心针，而是让一个实时核（Cobalt）坐在 Linux 底下</strong>——硬件中断先给 Cobalt，实时任务跑在 Cobalt 上（alchemy&#x2F;POSIX skin），Linux 沦为”最低优先级的后台任务”。收益是延迟天花板更低（&lt;10µs 且可认证），代价是：</p>
+<ul>
+<li>需要 Dovetail 补丁内核（老的 IPIPE 已停更），版本组合挑剔</li>
+<li>实时线程必须用 Xenomai API，与普通 Linux 程序交互要走 XDDP 管道</li>
+<li>IgH 需以 Xenomai 支持编译（<code>--with-xenomai-dir</code>），运维复杂度上一个台阶</li>
+</ul>
+<p>验证延迟用自带的 <code>latency</code> 命令（对应 PREEMPT_RT 的 cyclictest）。<strong>结论：有明确亚 10µs 指标或认证需求才选它，否则 PREEMPT_RT</strong>。</p>
+<h3 id="8-5-验证：cyclictest-是唯一的裁判"><a href="#8-5-验证：cyclictest-是唯一的裁判" class="headerlink" title="8.5 验证：cyclictest 是唯一的裁判"></a>8.5 验证：cyclictest 是唯一的裁判</h3><p>装好 RT 内核后，一切以实测为准（<code>rt-tests</code> 包）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt install rt-tests</span><br><span class="line"><span class="built_in">sudo</span> cyclictest -m -Sp99 -i1000 -h800 -D60</span><br><span class="line"><span class="comment">#   -m 锁内存  -S SMP  -p99 最高优先级  -i1000 1ms 周期  -D60 跑 60 秒</span></span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>cyclictest Max（60s）</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&lt; 20 µs</td>
+<td>优秀，8kHz 以上的循环都稳</td>
+</tr>
+<tr>
+<td>20~50 µs</td>
+<td>EtherCAT 1kHz 的合格线</td>
+</tr>
+<tr>
+<td>50~100 µs</td>
+<td>勉强，查 C-state&#x2F;超线程&#x2F;中断亲和</td>
+</tr>
+<tr>
+<td>&gt; 100 µs</td>
+<td>内核没装对或有系统噪声，先调优再上线</td>
+</tr>
+</tbody></table>
+<p><strong>带载复测</strong>才算数：<code>stress-ng --cpu 8</code> 压满的同时跑 cyclictest，max 仍合格才能交付。</p>
+<h3 id="8-6-调优清单（把尾部延迟摁下去）"><a href="#8-6-调优清单（把尾部延迟摁下去）" class="headerlink" title="8.6 调优清单（把尾部延迟摁下去）"></a>8.6 调优清单（把尾部延迟摁下去）</h3><p>内核启动参数（<code>/etc/default/grub</code> 的 <code>GRUB_CMDLINE_LINUX_DEFAULT</code>，改后 <code>update-grub</code>）：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">isolcpus=2,3 nohz_full=2,3 rcu_nocbs=2,3 irqaffinity=0-1 intel_idle.max_cstate=1</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>isolcpus=2,3</code></td>
+<td>把 2、3 号核从调度器摘除，专供控制进程（<code>taskset -c 2 ./ctrl</code>）</td>
+</tr>
+<tr>
+<td><code>nohz_full=2,3</code></td>
+<td>摘除时钟 tick 噪声（每秒上千次的中断）</td>
+</tr>
+<tr>
+<td><code>rcu_nocbs=2,3</code></td>
+<td>RCU 回调挪到别的核</td>
+</tr>
+<tr>
+<td><code>irqaffinity=0-1</code></td>
+<td>全部中断默认路由到非控制核（网卡 IRQ 单独设 <code>/proc/irq/*/smp_affinity</code>）</td>
+</tr>
+<tr>
+<td><code>intel_idle.max_cstate=1</code></td>
+<td>禁深度睡眠——C6 唤醒一次几十 µs，尾部延迟元凶</td>
+</tr>
+</tbody></table>
+<p>运行时措施：CPU 调频 <code>performance</code>、BIOS 关超线程邻居干扰与深度 C-state、关闭蓝牙&#x2F;USB 自动挂起等省电服务、<strong>控制进程 <code>mlockall()</code> 锁内存 + <code>SCHED_FIFO</code> 优先级 80~99</strong>、日志与 UI 进程钉在非隔离核。做完这套再跑一遍 8.5 的带载 cyclictest。</p>
+<h3 id="8-7-生产部署核对表"><a href="#8-7-生产部署核对表" class="headerlink" title="8.7 生产部署核对表"></a>8.7 生产部署核对表</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">□ PREEMPT_RT 内核: uname -v 含 PREEMPT_RT</span><br><span class="line">□ cyclictest 空载+满载 均 &lt; 50µs</span><br><span class="line">□ IgH 以 RT 内核 headers 编译, ethercat 服务开机自启</span><br><span class="line">□ 网卡: Intel I210/I350 系 + 原生驱动; IRQ 亲和到非控制核</span><br><span class="line">□ 控制进程: taskset 隔离核 + SCHED_FIFO + mlockall + 看门狗线程</span><br><span class="line">□ 断电/拔线恢复演练: WKC 掉落 → 安全态 → 自动重 config_init</span><br><span class="line">□ 长跑测试 ≥ 24h, 帧错误计数为 0</span><br></pre></td></tr></table></figure>
+
+<h2 id="9-主站与从站生态：软件栈与产品选型"><a href="#9-主站与从站生态：软件栈与产品选型" class="headerlink" title="9. 主站与从站生态：软件栈与产品选型"></a>9. 主站与从站生态：软件栈与产品选型</h2><h3 id="9-1-主站：软件与整机"><a href="#9-1-主站：软件与整机" class="headerlink" title="9.1 主站：软件与整机"></a>9.1 主站：软件与整机</h3><table>
+<thead>
+<tr>
+<th>主站方案</th>
+<th>形态</th>
+<th>典型载体</th>
+<th>适用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>TwinCAT 3&#x2F;4</strong>（倍福）</td>
+<td>商业，Windows&#x2F;Linux</td>
+<td>倍福 C60xx 工控机、CX 嵌入式控制器</td>
+<td>工业标准：图形化配置、PLC&#x2F;C++&#x2F;MATLAB 混合编程、诊断生态最全</td>
+</tr>
+<tr>
+<td><strong>IgH EtherCAT Master</strong></td>
+<td>开源，内核态（第7节）</td>
+<td>任意 x86&#x2F;ARM + Intel i210&#x2F;i225&#x2F;i350 网卡</td>
+<td>Linux 控制器的事实标准，科研与产品两用</td>
+</tr>
+<tr>
+<td><strong>SOEM&#x2F;pysoem</strong></td>
+<td>开源，用户态（6.2 节）</td>
+<td>同上，甚至树莓派</td>
+<td>原型验证、教学、上位机工具</td>
+</tr>
+<tr>
+<td>EC-Master（acontis）</td>
+<td>商业 SDK</td>
+<td>嵌入式 Linux&#x2F;VxWorks&#x2F;QNX</td>
+<td>商业认证需求、跨 RTOS</td>
+</tr>
+<tr>
+<td>rt-labs &#x2F; KPA Master</td>
+<td>商业 SDK</td>
+<td>嵌入式</td>
+<td>同上，按授权模式选</td>
+</tr>
+</tbody></table>
+<p>科研机器人最常见的组合就是 <strong>x86 迷你主机（Intel i210&#x2F;i225 网卡）+ Debian&#x2F;Ubuntu PREEMPT_RT + IgH</strong>——整套开源、成本可控、性能足够 1kHz 全身控制。</p>
+<h3 id="9-2-从站产品：按类别选型"><a href="#9-2-从站产品：按类别选型" class="headerlink" title="9.2 从站产品：按类别选型"></a>9.2 从站产品：按类别选型</h3><p><strong>IO 端子（传感器&#x2F;执行器接入）</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>类别</th>
+<th>代表产品</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>数字&#x2F;模拟 IO</td>
+<td><strong>倍福 EL 系列</strong>（EL1xxx DI &#x2F; EL2xxx DO &#x2F; EL3xxx AI &#x2F; EL4xxx AO）</td>
+<td>行业基准，种类 500+，耦合器 EK1100 + 端子即插即用</td>
+</tr>
+<tr>
+<td>IP67 级 IO（免控制柜）</td>
+<td>倍福 EP&#x2F;BOX 系列、ifm AL1xxx、Turck、魏德米勒</td>
+<td>直接装在机器人本体上，抗振动</td>
+</tr>
+<tr>
+<td>编码器输入</td>
+<td>EL5xxx（BISS&#x2F;EnDat&#x2F;SinCos）</td>
+<td>绝对值编码器接入标准做法</td>
+</tr>
+<tr>
+<td>安全 IO</td>
+<td>TwinSAFE（EL69xx&#x2F;EL19xx）</td>
+<td>FSoE 安全逻辑，急停&#x2F;安全门</td>
+</tr>
+<tr>
+<td>通讯网关</td>
+<td>EL6631（PROFINET）、EL6692（EtherCAT 桥）</td>
+<td>与其他总线&#x2F;第二台主站互联</td>
+</tr>
+</tbody></table>
+<p><strong>伺服&#x2F;电机驱动器（机器人关节）</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>梯队</th>
+<th>代表</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>欧系高性能</td>
+<td>倍福 AX8000&#x2F;AM8000、Elmo（Gold&#x2F;Platinum）、Copley（Accelnet XE）、Maxon（EPOS4&#x2F;MAXPOS EtherCAT）</td>
+<td>带宽高、CiA402 完整、调试软件成熟；机器人关节模组常用 Elmo&#x2F;Maxon</td>
+</tr>
+<tr>
+<td>机器人专用</td>
+<td>Synapticon Circulo（伺服+协议栈一体）、谐波关节模组厂（如 Kollmorgen RGM 类整体关节的 EtherCAT 版）</td>
+<td>集成度高，SDK 对机器人友好</td>
+</tr>
+<tr>
+<td>日系通用</td>
+<td>安川 Σ-7&#x2F;Σ-X、松下 MINAS A6B、三菱</td>
+<td>产业机械主力，做工稳</td>
+</tr>
+<tr>
+<td>国产性价比</td>
+<td>汇川 SV660N&#x2F;SV660P、台达 ASDA-B3、禾川 X3E、雷赛 L7&#x2F;ELEC</td>
+<td>人形&#x2F;国产协作臂量产主力，供应链在境内</td>
+</tr>
+<tr>
+<td>控制器一体</td>
+<td>欧姆龙 NJ&#x2F;NX、基恩士 KV-8000、安川 MP3300</td>
+<td>自带 EtherCAT 主站的运动控制器（不走 PC 路线的整机）</td>
+</tr>
+</tbody></table>
+<p>选型三问：<strong>PDO 布局是否开放可映射</strong>（决定你的实时接口好不好写）、<strong>DC 是否支持 SYNC0</strong>（多轴同步刚需）、<strong>固件升级是否走 FoE</strong>（量产 OTA）。</p>
+<p><strong>传感器</strong>：POSITAL&#x2F;Kübler 的 EtherCAT 绝对值编码器、EtherCAT 接口的 F&#x2F;T 与温控模块（各家均有），以及最常用的”EL3xxx 端子 + 模拟量传感器”组合——不必强求传感器本身带 EtherCAT。</p>
+<h3 id="9-3-从站芯片：自研板卡的基础"><a href="#9-3-从站芯片：自研板卡的基础" class="headerlink" title="9.3 从站芯片：自研板卡的基础"></a>9.3 从站芯片：自研板卡的基础</h3><table>
+<thead>
+<tr>
+<th>芯片</th>
+<th>厂商</th>
+<th>形态</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ET1100&#x2F;ET1200</td>
+<td>倍福</td>
+<td>专用 ESC</td>
+<td>经典方案，需外挂 PHY 与应用 MCU</td>
+</tr>
+<tr>
+<td><strong>LAN9250&#x2F;9251&#x2F;9252&#x2F;9253</strong></td>
+<td>Microchip</td>
+<td>ESC（9252&#x2F;9253 集成 PHY）</td>
+<td>当前自研从站最常用，HBI&#x2F;SPI 接 MCU</td>
+</tr>
+<tr>
+<td><strong>XMC4800</strong></td>
+<td>英飞凌</td>
+<td><strong>MCU 内置 ESC</strong></td>
+<td>单芯片即从站，ARM Cortex-M4，省一颗料</td>
+</tr>
+<tr>
+<td><strong>AX58100</strong></td>
+<td>亚信（ASIX）</td>
+<td>ESC</td>
+<td>价格优势明显，国产驱动板用量大</td>
+</tr>
+<tr>
+<td>Sitara AM335x PRU-ICSS</td>
+<td>TI</td>
+<td>ESC 用 PRU 固件实现</td>
+<td>BeagleBone 同款思路，软 ESC 天花板</td>
+</tr>
+<tr>
+<td>FPGA</td>
+<td>各家</td>
+<td>自研 ESC 逻辑</td>
+<td>全定制（含多口从站&#x2F;线缆冗余），门槛最高</td>
+</tr>
+</tbody></table>
+<p>自研从站的最短路径：<strong>LAN9252 + 你的 MCU（SPI&#x2F;PDI）+ SSC（Slave Stack Code，ETG 官方生成工具）</strong>——SSC 按 ESI 描述生成从站协议栈骨架，填上应用回调即可。</p>
+<h3 id="9-4-生态趋势两条"><a href="#9-4-生态趋势两条" class="headerlink" title="9.4 生态趋势两条"></a>9.4 生态趋势两条</h3><ul>
+<li><strong>EtherCAT P</strong>：数据与电源共用一对线（单线即插即用），机器人本体走线减半，倍福 EP 系列已铺开</li>
+<li><strong>TSN 融合</strong>：EtherCAT over TSN（ETG 对时间敏感网络的态度是融合而非对抗）——骨干网走 TSN、末段仍 EtherCAT 的架构在成型，对机器人是远期利好</li>
+</ul>
+<h2 id="10-调试与踩坑"><a href="#10-调试与踩坑" class="headerlink" title="10. 调试与踩坑"></a>10. 调试与踩坑</h2><ol>
+<li><strong>网卡</strong>：用户态主站（pysoem）对网卡挑剔——Intel 千兆系（I210&#x2F;I211&#x2F;I219）最稳，USB 网卡基本不可用；Windows 要装 Npcap 并用设备 GUID 打开</li>
+<li><strong>实时性</strong>：周期循环必须独占 CPU（PREEMPT_RT 内核 + <code>isolcpus</code> 隔离核 + <code>SCHED_FIFO</code>，完整路线与验证方法见第8节），否则偶发几百 µs 的迟到会触发从站 SM watchdog 掉 SAFE-OP。周期抖动监控：<code>cyclictest</code> 先过关再上总线（应用层实时纪律见<a href="/BlogNotes/tutorials/cpp-project-code-style/">C++ 规范实时专项</a>）</li>
+<li><strong>WKC 掉落三步排查</strong>：物理层（网线&#x2F;接头&#x2F;屏蔽）→ 从站供电 → SM&#x2F;PDO 长度配置（<code>config_map</code> 返回的期望值与从站 ESI 描述不符会周期性丢）</li>
+<li><strong>抓包</strong>：Wireshark 自带 EtherCAT 解析器（过滤 <code>ec_ether</code> &#x2F; EtherType 0x88A4），直接看到子报文、命令、WKC——配合本文 6.1 的手拆报文，帧里每个字节都能对上</li>
+<li><strong>DC 不齐的症状</strong>：多轴联动出现周期性毛刺&#x2F;啸叫。检查 DC 使能的从站是否含参考时钟、SYNC0 周期与主站周期是否整数倍关系</li>
+<li><strong>热插拔</strong>：EtherCAT 支持线缆冗余与热连接，但从站地址按物理位置编址——中途插入会改变位置编址，需重新 <code>config_init</code></li>
+</ol>
+<h2 id="11-总结"><a href="#11-总结" class="headerlink" title="11. 总结"></a>11. 总结</h2><table>
+<thead>
+<tr>
+<th>层</th>
+<th>关键词</th>
+<th>一句话</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>为什么快</td>
+<td>on-the-fly</td>
+<td>帧飞过即处理，整条总线一个帧，抖动 &lt;1µs</td>
+</tr>
+<tr>
+<td>协议帧</td>
+<td>datagram + WKC</td>
+<td>命令&#x2F;地址&#x2F;数据&#x2F;WKC；WKC 是全体从站的”到岗签名”</td>
+</tr>
+<tr>
+<td>状态机</td>
+<td>INIT→PRE-OP→SAFE-OP→OP</td>
+<td>邮箱配置在前、过程数据在后，跳步必败</td>
+</tr>
+<tr>
+<td>应用层</td>
+<td>CoE&#x2F;EoE&#x2F;FoE&#x2F;SoE&#x2F;VoE&#x2F;FSoE</td>
+<td>CoE 管参数与过程数据，EoE 让从站上网，FoE 管固件升级，FSoE 管安全（第4节）</td>
+</tr>
+<tr>
+<td>同步</td>
+<td>DC + SYNC0</td>
+<td>亚微秒全网对齐，多轴电流环同拍</td>
+</tr>
+<tr>
+<td>主站（原型）</td>
+<td>SOEM&#x2F;pysoem</td>
+<td>config_init → SDO 配置 → config_map → OP → 周期 cycle</td>
+</tr>
+<tr>
+<td>主站（产品）</td>
+<td>IgH</td>
+<td>内核态 + ecrt 五步循环 + <code>ethercat</code> CLI（第7节）</td>
+</tr>
+<tr>
+<td>实时地基</td>
+<td>PREEMPT_RT</td>
+<td>单内核全抢占、发行版直装、cyclictest &lt;50µs 合格（第8节）</td>
+</tr>
+<tr>
+<td>生态</td>
+<td>倍福&#x2F;Elmo&#x2F;汇川&#x2F;禾川…</td>
+<td>IO 端子、伺服、从站芯片（LAN9252&#x2F;XMC4800&#x2F;AX58100）全链路成熟（第9节）</td>
+</tr>
+</tbody></table>
+<p>选型一句话：<strong>≤4 轴、低速，CAN 足矣；多轴、高带宽、要同步，EtherCAT</strong>。而从<a href="/BlogNotes/2026/08/30/%E5%B8%B8%E7%94%A8%E4%B8%B2%E5%8F%A3%E5%8D%8F%E8%AE%AE%E4%B8%8E%E7%94%A8%E9%80%94/">串口&#x2F;CAN 的世界</a>迁移过来时，最大的观念转变是：CAN 是”发消息”，EtherCAT 是”操作一张全站共享的实时内存表（过程映像）”——主站每个周期只是把整张表刷新一遍。</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/BlogNotes/about" rel="external nofollow noreferrer">Jianbo.Yuan</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://jianbo-yuan.github.io/BlogNotes/BlogNotes/2026/08/30/Ether%20CAT%E5%8D%8F%E8%AE%AE%E5%8E%9F%E7%90%86%E4%B8%8E%E4%BD%BF%E7%94%A8/">https://jianbo-yuan.github.io/BlogNotes/BlogNotes/2026/08/30/Ether%20CAT%E5%8D%8F%E8%AE%AE%E5%8E%9F%E7%90%86%E4%B8%8E%E4%BD%BF%E7%94%A8/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/BlogNotes/about" target="_blank">Jianbo.Yuan</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/BlogNotes/tags/EtherCAT/">
+                                    <span class="chip bg-color">EtherCAT</span>
+                                </a>
+                            
+                                <a href="/BlogNotes/tags/%E5%B7%A5%E4%B8%9A%E4%BB%A5%E5%A4%AA%E7%BD%91/">
+                                    <span class="chip bg-color">工业以太网</span>
+                                </a>
+                            
+                                <a href="/BlogNotes/tags/SOEM/">
+                                    <span class="chip bg-color">SOEM</span>
+                                </a>
+                            
+                                <a href="/BlogNotes/tags/IgH/">
+                                    <span class="chip bg-color">IgH</span>
+                                </a>
+                            
+                                <a href="/BlogNotes/tags/PREEMPT-RT/">
+                                    <span class="chip bg-color">PREEMPT_RT</span>
+                                </a>
+                            
+                                <a href="/BlogNotes/tags/%E5%AE%9E%E6%97%B6%E5%86%85%E6%A0%B8/">
+                                    <span class="chip bg-color">实时内核</span>
+                                </a>
+                            
+                                <a href="/BlogNotes/tags/EoE/">
+                                    <span class="chip bg-color">EoE</span>
+                                </a>
+                            
+                                <a href="/BlogNotes/tags/FoE/">
+                                    <span class="chip bg-color">FoE</span>
+                                </a>
+                            
+                                <a href="/BlogNotes/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E6%97%B6%E9%92%9F/">
+                                    <span class="chip bg-color">分布式时钟</span>
+                                </a>
+                            
+                                <a href="/BlogNotes/tags/%E5%AE%9E%E6%97%B6%E9%80%9A%E8%AE%AF/">
+                                    <span class="chip bg-color">实时通讯</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/BlogNotes/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/BlogNotes/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/BlogNotes/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/BlogNotes/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/BlogNotes/2026/08/30/%E5%B8%B8%E7%94%A8%E4%B8%B2%E5%8F%A3%E5%8D%8F%E8%AE%AE%E4%B8%8E%E7%94%A8%E9%80%94/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/BlogNotes/medias/featureimages/18.jpg" class="responsive-img" alt="常用串口协议与用途">
+                        
+                        <span class="card-title">常用串口协议与用途</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2026-08-30
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/BlogNotes/categories/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%90%86%E8%AE%BA%E4%B8%8E%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    机器人理论与技术
+                                </a>
+                            
+                            <a href="/BlogNotes/categories/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%90%86%E8%AE%BA%E4%B8%8E%E6%8A%80%E6%9C%AF/%E6%9C%BA%E5%99%A8%E4%BA%BA%E9%80%9A%E8%AE%AF%E7%B3%BB%E7%BB%9F/" class="post-category">
+                                    机器人通讯系统
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/BlogNotes/tags/%E4%B8%B2%E5%8F%A3/">
+                        <span class="chip bg-color">串口</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/UART/">
+                        <span class="chip bg-color">UART</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/RS-232/">
+                        <span class="chip bg-color">RS-232</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/RS-485/">
+                        <span class="chip bg-color">RS-485</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/USB/">
+                        <span class="chip bg-color">USB</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/Modbus/">
+                        <span class="chip bg-color">Modbus</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/I2C/">
+                        <span class="chip bg-color">I2C</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/SPI/">
+                        <span class="chip bg-color">SPI</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/CAN/">
+                        <span class="chip bg-color">CAN</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/CAN-FD/">
+                        <span class="chip bg-color">CAN-FD</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/BlogNotes/2026/08/30/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%8A%9B%E4%BD%8D%E6%B7%B7%E5%90%88%E6%8E%A7%E5%88%B6/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/BlogNotes/medias/featureimages/20.jpg" class="responsive-img" alt="机器人力位混合控制算法">
+                        
+                        <span class="card-title">机器人力位混合控制算法</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-08-30
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/BlogNotes/categories/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%90%86%E8%AE%BA%E4%B8%8E%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    机器人理论与技术
+                                </a>
+                            
+                            <a href="/BlogNotes/categories/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%90%86%E8%AE%BA%E4%B8%8E%E6%8A%80%E6%9C%AF/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%AD%A6%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/" class="post-category">
+                                    机器人学理论基础
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/BlogNotes/tags/%E5%8A%9B%E4%BD%8D%E6%B7%B7%E5%90%88%E6%8E%A7%E5%88%B6/">
+                        <span class="chip bg-color">力位混合控制</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/%E9%98%BB%E6%8A%97%E6%8E%A7%E5%88%B6/">
+                        <span class="chip bg-color">阻抗控制</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/%E5%AF%BC%E7%BA%B3%E6%8E%A7%E5%88%B6/">
+                        <span class="chip bg-color">导纳控制</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/%E6%93%8D%E4%BD%9C%E7%A9%BA%E9%97%B4/">
+                        <span class="chip bg-color">操作空间</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/%E6%9D%8E%E9%9B%85%E6%99%AE%E8%AF%BA%E5%A4%AB%E7%A8%B3%E5%AE%9A%E6%80%A7/">
+                        <span class="chip bg-color">李雅普诺夫稳定性</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/%E5%8A%9B%E6%8E%A7%E5%88%B6/">
+                        <span class="chip bg-color">力控制</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%8E%A7%E5%88%B6/">
+                        <span class="chip bg-color">机器人控制</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/Python%E4%BB%BF%E7%9C%9F/">
+                        <span class="chip bg-color">Python仿真</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/BlogNotes/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/BlogNotes/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/BlogNotes/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/BlogNotes/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/BlogNotes/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        },
+        "HTML-CSS": {
+            linebreaks: {
+                automatic: true,
+                width: "container"
+            }
+        },
+        SVG: {
+            linebreaks: {
+                automatic: true,
+                width: "container"
+            }
+        }
+    });
+</script>
+<script>
+    (function () {
+        if (window.MathJax) return;
+
+        var sources = [
+            "https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML",
+            "https://unpkg.com/mathjax@2.7.9/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML",
+            "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+        ];
+
+        function loadMathJax(index) {
+            if (index >= sources.length) {
+                console.error("MathJax failed to load from all configured CDNs.");
+                return;
+            }
+
+            var script = document.createElement("script");
+            script.src = sources[index];
+            script.async = true;
+            script.onerror = function () {
+                loadMathJax(index + 1);
+            };
+            document.head.appendChild(script);
+        }
+
+        loadMathJax(0);
+    })();
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/BlogNotes/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.3'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/BlogNotes/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2026</span>
+            
+            <span id="year">2026</span>
+            <a href="/BlogNotes/about" target="_blank">Jianbo.Yuan</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:jianbo.yuan@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=335943408" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 335943408" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+    <a href="https://www.zhihu.com/people/Simple" class="tooltipped" target="_blank" data-tooltip="关注我的知乎: https://www.zhihu.com/people/Simple" data-position="top" data-delay="50">
+        <i class="fab fa-zhihu1">知</i>
+    </a>
+
+
+
+    <a href="/BlogNotes/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/BlogNotes/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/BlogNotes/libs/materialize/materialize.min.js"></script>
+    <script src="/BlogNotes/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/BlogNotes/libs/aos/aos.js"></script>
+    <script src="/BlogNotes/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/BlogNotes/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/BlogNotes/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/BlogNotes/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/BlogNotes/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/BlogNotes/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

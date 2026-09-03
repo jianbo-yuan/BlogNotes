@@ -1,0 +1,1900 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="机器人关节电机, Jianbo.Yuan">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>机器人关节电机 | Jianbo.Yuan</title>
+    <link rel="icon" type="image/png" href="/BlogNotes/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/BlogNotes/css/my.css">
+
+    <script src="/BlogNotes/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/BlogNotes/" class="waves-effect waves-light">
+                    
+                    <img src="/BlogNotes/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Jianbo.Yuan</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/BlogNotes/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/BlogNotes/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Jianbo.Yuan</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/BlogNotes/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/BlogNotes/medias/featureimages/8.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">机器人关节电机</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/BlogNotes/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/BlogNotes/tags/%E5%85%B3%E8%8A%82%E7%94%B5%E6%9C%BA/">
+                                <span class="chip bg-color">关节电机</span>
+                            </a>
+                        
+                            <a href="/BlogNotes/tags/%E6%97%A0%E5%88%B7%E7%94%B5%E6%9C%BA/">
+                                <span class="chip bg-color">无刷电机</span>
+                            </a>
+                        
+                            <a href="/BlogNotes/tags/FOC/">
+                                <span class="chip bg-color">FOC</span>
+                            </a>
+                        
+                            <a href="/BlogNotes/tags/%E8%B0%90%E6%B3%A2%E5%87%8F%E9%80%9F%E5%99%A8/">
+                                <span class="chip bg-color">谐波减速器</span>
+                            </a>
+                        
+                            <a href="/BlogNotes/tags/%E8%A1%8C%E6%98%9F%E5%87%8F%E9%80%9F%E5%99%A8/">
+                                <span class="chip bg-color">行星减速器</span>
+                            </a>
+                        
+                            <a href="/BlogNotes/tags/%E7%94%B5%E6%9C%BA%E6%8E%A7%E5%88%B6/">
+                                <span class="chip bg-color">电机控制</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/BlogNotes/categories/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%90%86%E8%AE%BA%E4%B8%8E%E6%8A%80%E6%9C%AF/" class="post-category">
+                                机器人理论与技术
+                            </a>
+                        
+                            <a href="/BlogNotes/categories/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%90%86%E8%AE%BA%E4%B8%8E%E6%8A%80%E6%9C%AF/%E6%9C%BA%E5%99%A8%E4%BA%BA%E9%9B%B6%E9%83%A8%E4%BB%B6/" class="post-category">
+                                机器人零部件
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2026-08-30
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>关节电机是机器人的”肌肉”：人形全身几十个、机械臂六七个、灵巧手每个手指两三个。一个现代关节模组 &#x3D; <strong>电机（产生扭矩）× 减速器（放大扭矩）× 编码器（知道转到哪）× 驱动器（决定怎么动）</strong> 的四合一集成件。本文按这条链逐层拆开：电机原理（有刷&#x2F;无刷&#x2F;空心杯&#x2F;步进）、控制原理（六步换相 → FOC 矢量控制 → 级联环 → MIT 力控模式）、减速器原理（行星&#x2F;谐波&#x2F;RV 摆线）、架构选型（直驱 vs 准直驱 vs 高减速比），并给出两个实测通过的 Python demo（FOC 的 Clarke&#x2F;Park 变换、电机-减速器选型计算）。与<a href="/BlogNotes/2026/08/30/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%B8%B8%E7%94%A8%E4%BC%A0%E6%84%9F%E5%99%A8/">传感器篇</a>（编码器）、<a href="/BlogNotes/2026/08/30/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80/">动力学基础</a>（惯量与扭矩）衔接。</p>
+<h2 id="1-关节电机模组：四件套集成"><a href="#1-关节电机模组：四件套集成" class="headerlink" title="1. 关节电机模组：四件套集成"></a>1. 关节电机模组：四件套集成</h2><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">        ┌─────────────── 关节模组 ───────────────┐</span><br><span class="line">输出端 ◄─│ [减速器]◄─[转子]──[电机定子]           │</span><br><span class="line">编码器 ◄─│ (输出端)    (电机端)                   │</span><br><span class="line">        │            [驱动器: FOC + CAN/EtherCAT] │</span><br><span class="line">        └────────────────────────────────────────┘</span><br></pre></td></tr></table></figure>
+
+<p>集成化的原因：分立件之间的线缆（三相线 + 编码器线 + 通信线）是机器人本体最脆弱的环节；一体化后模组对外只留一根电源 + 一根总线（CAN&#x2F;CAN-FD&#x2F;EtherCAT，见<a href="/BlogNotes/2026/08/30/%E5%B8%B8%E7%94%A8%E4%B8%B2%E5%8F%A3%E5%8D%8F%E8%AE%AE%E4%B8%8E%E7%94%A8%E9%80%94/">通讯篇</a>）。</p>
+<h2 id="2-电机原理详解：逐类拆解"><a href="#2-电机原理详解：逐类拆解" class="headerlink" title="2. 电机原理详解：逐类拆解"></a>2. 电机原理详解：逐类拆解</h2><p>一切电机共同的物理起点是<strong>洛伦兹力</strong>：载流导体在磁场中受力 <span class="math-inline">\(\boldsymbol{F} = I\boldsymbol{L} \times \boldsymbol{B}\)</span>；旋转视角下这就是电磁转矩，<span class="math-inline">\(\tau = k_t i\)</span>。各类电机的差异，全在于”怎么让导体里的电流方向与磁场方向始终垂直”——有刷用机械换向，无刷用电子换相，步进用磁阻最小原理，音圈用直线路程。逐类展开。</p>
+<h3 id="2-1-有刷直流：机械换向与机械特性推导"><a href="#2-1-有刷直流：机械换向与机械特性推导" class="headerlink" title="2.1 有刷直流：机械换向与机械特性推导"></a>2.1 有刷直流：机械换向与机械特性推导</h3><p><strong>结构</strong>：定子永磁体（磁钢提供 <span class="math-inline">\(\mathbf{B}\)</span>），转子（电枢）绕组由<strong>换向器 + 电刷</strong>供电。转子转到任何角度，电刷通过换向片把电流切入”此刻正好在 N&#x2F;S 极下、导体运动方向与磁场垂直”的那组绕组——电流方向随位置机械切换，转矩方向恒定。</p>
+<p><strong>转矩与反电动势的一体性</strong>：同一绕组既是电动机（通电受力 <span class="math-inline">\(\tau = k_t i\)</span>）又是发电机（切割磁链感生 <span class="math-inline">\(e = k_e\omega\)</span>），<span class="math-inline">\(k_t = k_e\)</span>（国际单位制下数值相等）。电枢回路电压平衡：</p>
+<div class="math-block">\[
+U = R i + e = R i + k_e \omega \quad\Longrightarrow\quad i = \frac{U - k_e\omega}{R}
+\]</div>
+<p>代回转矩公式得到<strong>机械特性（T-n 直线）</strong>：</p>
+<div class="math-block">\[
+\tau = k_t\,\frac{U - k_e\omega}{R}
+\]</div>
+<p>两个端点就是数据手册的关键值：<strong>堵转扭矩</strong> <span class="math-inline">\(\tau_{stall} = k_t U/R\)</span>（<span class="math-inline">\(\omega=0\)</span>，电流最大、发热最狠）与<strong>空载转速</strong> <span class="math-inline">\(\omega_0 = U/k_e\)</span>（<span class="math-inline">\(\tau=0\)</span>）。加电压就转、降电压就慢，控制被这根直线完全描述——这是它”两根线”之简单的原因。</p>
+<p><strong>淘汰它的原因也来自换向器</strong>：电刷与换向片滑动接触，磨损（千小时级寿命）、换向瞬间电感断流产生<strong>火花</strong>（EMC 污染 + 电蚀）、摩擦转矩占比随小型化升高。机器人关节已淘汰，仅存于微型泵、廉价夹爪。</p>
+<h3 id="2-2-永磁同步电机（BLDC-PMSM）：旋转磁场的合成"><a href="#2-2-永磁同步电机（BLDC-PMSM）：旋转磁场的合成" class="headerlink" title="2.2 永磁同步电机（BLDC&#x2F;PMSM）：旋转磁场的合成"></a>2.2 永磁同步电机（BLDC&#x2F;PMSM）：旋转磁场的合成</h3><p><strong>结构反转</strong>：把绕组放定子（静止、好散热）、永磁体放转子（无滑环、无磨损）——这就是”无刷”。剩下的唯一问题：定子磁场必须<strong>自己转起来</strong>。</p>
+<p><strong>旋转磁场怎么来</strong>：空间上相差 120° 的三相绕组，通时间上相差 120° 的正弦电流，三相磁动势合成一个<strong>幅值恒定、匀速旋转</strong>的合成磁动势（幅值为单相的 3&#x2F;2 倍），转速 &#x3D; 电流角频率（电角速度）。合成磁场拖着转子永磁体同步旋转——两块磁铁式的转矩。反电动势由转子磁链扫描定子绕组产生，绕组匝链的磁通波形决定了反电动势波形。</p>
+<p><strong>绕组形式决定”BLDC 还是 PMSM”</strong>：</p>
+<ul>
+<li><strong>集中绕组</strong>（每齿绕一相、节距 1 槽）：磁链波形接近梯形 → 反电动势梯形波 → 配方波六步驱动 &#x3D; 传统意义的 <strong>BLDC</strong>（绕组短、铜耗低、工艺便宜，但有转矩纹波）</li>
+<li><strong>分布绕组</strong>（跨槽分布、短距）：磁链正弦化 → 反电动势正弦波 → 配正弦电流 FOC &#x3D; <strong>PMSM</strong>（平滑、低噪声、低纹波）</li>
+</ul>
+<p>硬件连续谱、按驱动方式命名，现代关节电机全部按 <strong>PMSM + FOC</strong> 使用（第3节）。</p>
+<p><strong>转子磁路两种：SPM 与 IPM</strong>：</p>
+<ul>
+<li><strong>表贴式（SPM）</strong>：磁钢贴在转子表面，交直轴电感相等 <span class="math-inline">\(L_d = L_q\)</span>，转矩只来自永磁体：</li>
+</ul>
+<div class="math-block">\[
+\tau = \tfrac{3}{2} p\, \psi_f\, i_q = k_t i_q \qquad (\text{纯 } i_q \text{ 控制})
+\]</div>
+<ul>
+<li><strong>内嵌式（IPM）</strong>：磁钢埋入转子铁芯，气隙不均匀 → <span class="math-inline">\(L_d &lt; L_q\)</span>，凸极效应贡献<strong>磁阻转矩</strong>：</li>
+</ul>
+<div class="math-block">\[
+\tau = \tfrac{3}{2} p\,\big[\psi_f i_q + (L_d - L_q)\, i_d i_q\big]
+\]</div>
+<p>第二项与 <span class="math-inline">\(i_d\)</span> 相关——负 <span class="math-inline">\(i_d\)</span> 也能出转矩（磁阻转矩），IPM 可用 MTPA（最大转矩电流比）策略弱磁高速。关节电机以 SPM 为主（控制简单、<span class="math-inline">\(k_t\)</span> 线性），IPM 常见于需要高速弱磁的场景（无人机动力）。</p>
+<p><strong>内转子 vs 外转子</strong>：内转子惯量低（伺服友好）；<strong>外转子</strong>（定子在里、磁钢杯在外）同样的绕组能挂更多磁极、气隙半径大 → <span class="math-inline">\(k_t\)</span> 大、转速低——云台&#x2F;无人机&#x2F;部分关节电机的选择，代价是转子惯量大。</p>
+<p><strong>齿槽转矩的物理</strong>：转子旋转时磁路磁阻随定子齿槽位置周期变化，磁共能对角度的导数不为零 → 不通电也有脉动转矩。每转波动次数 &#x3D; <strong>槽数与极数的最小公倍数</strong>（12 槽 14 极 → 84 次&#x2F;转）。抑制三招：斜极&#x2F;斜槽（把周期性错开平均掉）、分数槽绕组（12N14P 本身就是分数槽）、驱动端谐波前馈补偿。</p>
+<p><strong>极对数 <span class="math-inline">\(p\)</span></strong>：电角度 &#x3D; 机械角度 × <span class="math-inline">\(p\)</span>。多极 → 同样电频率下机械转速更低、转矩密度更高，但铁损随极数上升、高速时电频率高对电流环带宽压力大。关节电机典型 5~14 极。</p>
+<h3 id="2-3-空心杯电机：去掉铁芯的得与失"><a href="#2-3-空心杯电机：去掉铁芯的得与失" class="headerlink" title="2.3 空心杯电机：去掉铁芯的得与失"></a>2.3 空心杯电机：去掉铁芯的得与失</h3><p><strong>结构</strong>：定子永磁体 + <strong>杯状自支撑绕组转子</strong>（无铁芯，铜线绕成杯 + 树脂定型，通过换向器或无刷形式供电——机器人用的是无刷空心杯）。</p>
+<p><strong>得（全部来自”没有铁芯”）</strong>：</p>
+<ul>
+<li><strong>无铁损</strong>：铁芯的涡流损耗与磁滞损耗消失，效率可达 90%+</li>
+<li><strong>零齿槽</strong>：没有齿槽结构就没有磁阻脉动</li>
+<li><strong>电气时间常数极小</strong>：<span class="math-inline">\(\tau_e = L/R\)</span>，无铁芯电感 L 小一个数量级 → 电流上升 µs 级 → 电流环带宽极高</li>
+<li><strong>转子惯量低一个数量级</strong>：只剩铜杯，加速度可达 10⁵ rad&#x2F;s² 量级——指尖关节毫秒级响应的物理基础</li>
+</ul>
+<p><strong>失（也来自”没有铁芯”）</strong>：</p>
+<ul>
+<li>气隙大（绕组杯占掉磁路空间）→ 有效磁密低 → 同体积扭矩密度不如有铁芯电机</li>
+<li><strong>热瓶颈</strong>：绕组是发热体，又没有铁芯做导热路径，热量只能靠空气与轴传出——过载能力秒级，堵转几秒就可能烧</li>
+<li>工艺贵（杯型绕组制造）</li>
+</ul>
+<p>定位：<strong>灵巧手指尖、光学调焦、高速扫描</strong>等”要响应不要持续扭矩”的场合（Maxon、Faulhaber），与<a href="/BlogNotes/2026/04/24/%E7%81%B5%E5%B7%A7%E6%89%8B%E8%AE%BE%E8%AE%A1%E6%80%BB%E7%BB%93/">灵巧手综述</a>的腱绳方案配套——电机放前臂，低惯量让腱绳往返的动态跟得上控制带宽。</p>
+<h3 id="2-4-步进电机：三种原理与微步"><a href="#2-4-步进电机：三种原理与微步" class="headerlink" title="2.4 步进电机：三种原理与微步"></a>2.4 步进电机：三种原理与微步</h3><p><strong>磁阻式（VR）</strong>：转子是凸极软铁（无磁钢），通电相绕组磁化磁路，转子被拉向<strong>磁阻最小</strong>（磁路最对齐）的位置。结构简单、步距大，转矩小。</p>
+<p><strong>永磁式（PM）</strong>：转子永磁体，定子通电极对转子磁极吸引&#x2F;排斥定位。步距粗（7.5°~15°），便宜（打印机&#x2F;云台）。</p>
+<p><strong>混合式（HB &#x3D; VR + PM）</strong>：转子 &#x3D; 永磁体 + 两端带齿的软铁段（齿错开半个齿距），兼具 VR 的细步距与 PM 的大转矩——两相 HB 典型 <strong>50 齿 → 每转 200 步、1.8°&#x2F;步</strong>，是”步进电机”的默认含义。</p>
+<p><strong>微步原理</strong>：不按通断驱动，而是给两相绕组通<strong>幅值按 sin&#x2F;cos 变化的细分电流</strong>（<span class="math-inline">\(\sin\theta, \cos\theta\)</span>），合成磁场连续旋转，转子停在两步之间的任意插值角——16&#x2F;32&#x2F;256 细分让 1.8° 变成 0.1° 级。注意微步提高的是<strong>分辨率</strong>不是<strong>精度</strong>（负载下仍会偏），且低速细分会暴露转矩波动。</p>
+<p><strong>失步与共振</strong>：开环是本性——负载超过保持转矩或加速度超过牵入能力就<strong>丢步</strong>且无从得知（位置谎言）；绕组-转子构成弹簧质量系统，低频（1~2 kHz 驱动脉冲附近）有共振区。这是关节不用它、夹爪滑台敢用它的分界线。</p>
+<h3 id="2-5-音圈电机（VCM）：洛伦兹力的直线形态"><a href="#2-5-音圈电机（VCM）：洛伦兹力的直线形态" class="headerlink" title="2.5 音圈电机（VCM）：洛伦兹力的直线形态"></a>2.5 音圈电机（VCM）：洛伦兹力的直线形态</h3><p><strong>原理</strong>最纯粹的电机：导体放在恒定磁场里，<span class="math-inline">\(F = B L i\)</span> <strong>直线力</strong>，无换向、无齿槽、无滞后——电流到力的传递带宽只受电感限制。行程 mm~cm 级（硬盘磁头臂、摄像头对焦、光学快门都是它），响应可达 kHz。机器人用途：<strong>高速夹爪</strong>（毫秒级开合）、主动隔振平台、触觉激励器。与力位混合控制的”零刚度直驱”天然匹配（<a href="/BlogNotes/2026/08/30/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%8A%9B%E4%BD%8D%E6%B7%B7%E5%90%88%E6%8E%A7%E5%88%B6/">力位混合控制</a>直驱讨论）。</p>
+<h3 id="2-6-直线电机与力矩电机：直驱的两种形态"><a href="#2-6-直线电机与力矩电机：直驱的两种形态" class="headerlink" title="2.6 直线电机与力矩电机：直驱的两种形态"></a>2.6 直线电机与力矩电机：直驱的两种形态</h3><ul>
+<li><strong>直线电机</strong>：把旋转电机”展开铺平”——永磁轨道（定子）+ 线圈滑块（动子），无丝杠等中间传动 → 无背隙、无限行程、带宽高。有铁芯（推力大、有齿槽）与无铁芯 U 型（无齿槽、轻）两支。用于高端 XY 平台、直驱滑台；成本与防磁污染是门槛</li>
+<li><strong>力矩电机（torque motor）</strong>：<strong>大直径、多极、扁平</strong>的 PMSM——牺牲转速换力矩：气隙半径大 + 极对数多 → <span class="math-inline">\(k_t\)</span> 巨大。配直接输出（无减速器）用于机床转台、雷达、机器人肩髋等需要大扭矩高透明性的直驱轴（第5节直驱架构的硬件基础）</li>
+</ul>
+<h3 id="2-7-读懂电机的参数语言"><a href="#2-7-读懂电机的参数语言" class="headerlink" title="2.7 读懂电机的参数语言"></a>2.7 读懂电机的参数语言</h3><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>含义</th>
+<th>选型含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><span class="math-inline">\(k_t\)</span>（N·m&#x2F;A）</td>
+<td>转矩常数</td>
+<td>相同电流出多少力矩；FOC 下 <span class="math-inline">\(\tau = k_t i_q\)</span></td>
+</tr>
+<tr>
+<td><span class="math-inline">\(k_e\)</span>（V·s&#x2F;rad）</td>
+<td>反电动势常数</td>
+<td>决定最高转速（<span class="math-inline">\(k_e = k_t\)</span>，单位制一致的同一物理量）</td>
+</tr>
+<tr>
+<td>额定 vs 峰值扭矩</td>
+<td>连续散热允许 &#x2F; 短时（秒级）允许</td>
+<td>峰值看加速与冲击，额定看稳态热</td>
+</tr>
+<tr>
+<td>机械特性 &#x2F; 矩速曲线</td>
+<td><span class="math-inline">\(\tau = k_t(U - k_e\omega)/R\)</span> 及其 FOC 等效</td>
+<td>工作点必须落在曲线内</td>
+</tr>
+<tr>
+<td>转子惯量 <span class="math-inline">\(J_m\)</span></td>
+<td>电机侧惯量</td>
+<td>决定力控透明性（第5节）</td>
+</tr>
+<tr>
+<td>电气时间常数 <span class="math-inline">\(L/R\)</span></td>
+<td>电流响应速度</td>
+<td>空心杯 µs 级，有铁芯 ms 级</td>
+</tr>
+<tr>
+<td>槽极配合（如 12N14P）</td>
+<td>定子槽数:转子极数</td>
+<td>分数槽 → 低齿槽；lcm(槽,极) &#x3D; 齿槽波动次数</td>
+</tr>
+</tbody></table>
+<h2 id="3-控制原理：从六步换相到-FOC"><a href="#3-控制原理：从六步换相到-FOC" class="headerlink" title="3. 控制原理：从六步换相到 FOC"></a>3. 控制原理：从六步换相到 FOC</h2><h3 id="3-1-六步换相（梯形波控制）"><a href="#3-1-六步换相（梯形波控制）" class="headerlink" title="3.1 六步换相（梯形波控制）"></a>3.1 六步换相（梯形波控制）</h3><p>用三个霍尔传感器知道转子位置（六个扇区），每个扇区导通固定的两相绕组——三相电流是方波，合成磁场是<strong>步进的六边形</strong>。简单廉价，但每换相一次转矩波动一次（纹波大）、电流环无法连续调节——用于风扇、无人机，不适合关节。</p>
+<h3 id="3-2-FOC-矢量控制：把交流电机当直流电机控"><a href="#3-2-FOC-矢量控制：把交流电机当直流电机控" class="headerlink" title="3.2 FOC 矢量控制：把交流电机当直流电机控"></a>3.2 FOC 矢量控制：把交流电机当直流电机控</h3><p>FOC（Field Oriented Control，磁场定向控制）的核心思想：<strong>通过坐标变换，让旋转的三相系统在”转子坐标系”里变成两个恒定的直流量</strong>——<span class="math-inline">\(i_d\)</span>（励磁分量，与磁链平行，不产转矩）和 <span class="math-inline">\(i_q\)</span>（转矩分量，与磁链正交）。于是转矩控制退化为 <span class="math-inline">\(\tau = k_t i_q\)</span> 的”直流电机”问题。</p>
+<p>全链路（每 10<del>50 µs 执行一次，电流环 20</del>100 kHz PWM）：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">相电流 iabc ──Clarke──► iαβ ──Park(θe)──► id, iq ──PI──► ud, uq</span><br><span class="line">                                                      │ 反Park</span><br><span class="line">              转子电角度 θe ◄── 编码器/p·θm            ▼</span><br><span class="line">              三相 PWM ◄───────────────── SVPWM ◄── uαβ</span><br></pre></td></tr></table></figure>
+
+<p><strong>Clarke 变换</strong>（abc → αβ，等幅值形式，把三相化为两相正交）：</p>
+<div class="math-block">\[
+i_\alpha = i_a, \qquad i_\beta = \frac{i_b - i_c}{\sqrt{3}}
+\]</div>
+<p><strong>Park 变换</strong>（αβ → dq，旋转到转子坐标系，<span class="math-inline">\(\theta_e\)</span> 为电角度）：</p>
+<div class="math-block">\[
+i_d = i_\alpha \cos\theta_e + i_\beta \sin\theta_e, \qquad i_q = -i_\alpha \sin\theta_e + i_\beta \cos\theta_e
+\]</div>
+<p><strong>控制策略（表贴式永磁）</strong>：<span class="math-inline">\(i_d^* = 0\)</span>（不励磁，纯转矩），<span class="math-inline">\(i_q^* = \tau^*/k_t\)</span>。两个 PI 电流环把 <span class="math-inline">\(i_d, i_q\)</span> 钉在给定值上，再反变换回三相电压经 SVPWM 输出。（内嵌式永磁 IPM 还可用 MTPA 利用磁阻转矩，关节电机少用。）</p>
+<h3 id="3-3-Python-demo：Clarke-Park-变换数值验证（可运行，实测）"><a href="#3-3-Python-demo：Clarke-Park-变换数值验证（可运行，实测）" class="headerlink" title="3.3 Python demo：Clarke&#x2F;Park 变换数值验证（可运行，实测）"></a>3.3 Python demo：Clarke&#x2F;Park 变换数值验证（可运行，实测）</h3><p>FOC 的精髓一张表看清——<strong>电流矢量方向决定转矩</strong>：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">clarke</span>(<span class="params">ia, ib, ic</span>):                    <span class="comment"># abc → αβ（等幅值变换）</span></span><br><span class="line">    <span class="keyword">return</span> ia, (ib - ic) / np.sqrt(<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">park</span>(<span class="params">ialpha, ibeta, th</span>):               <span class="comment"># αβ → dq（θe 电角度）</span></span><br><span class="line">    c, s = np.cos(th), np.sin(th)</span><br><span class="line">    <span class="keyword">return</span> ialpha*c + ibeta*s, -ialpha*s + ibeta*c</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">three_phase</span>(<span class="params">I, th, offset</span>):            <span class="comment"># 三相对称电流，相位偏移 offset</span></span><br><span class="line">    <span class="keyword">return</span> (I*np.cos(th+offset),</span><br><span class="line">            I*np.cos(th+offset-<span class="number">2</span>*np.pi/<span class="number">3</span>),</span><br><span class="line">            I*np.cos(th+offset+<span class="number">2</span>*np.pi/<span class="number">3</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> th <span class="keyword">in</span> np.linspace(<span class="number">0</span>, <span class="number">4</span>*np.pi, <span class="number">5</span>):      <span class="comment"># 电角度扫两圈</span></span><br><span class="line">    <span class="comment"># 情形 A：电流矢量对齐 d 轴（与磁链同向，offset=0）</span></span><br><span class="line">    d1, q1 = park(*clarke(*three_phase(<span class="number">10.0</span>, th, <span class="number">0.0</span>)), th)</span><br><span class="line">    <span class="comment"># 情形 B：电流矢量超前 90°（对齐 q 轴，FOC 的工作方式）</span></span><br><span class="line">    d2, q2 = park(*clarke(*three_phase(<span class="number">10.0</span>, th, np.pi/<span class="number">2</span>)), th)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;θ=<span class="subst">&#123;np.degrees(th):<span class="number">4.0</span>f&#125;</span>°  d轴注入: (<span class="subst">&#123;d1:<span class="number">5.1</span>f&#125;</span>,<span class="subst">&#123;q1:<span class="number">5.1</span>f&#125;</span>)&quot;</span></span><br><span class="line">          <span class="string">f&quot;  q轴注入: (<span class="subst">&#123;d2:<span class="number">5.1</span>f&#125;</span>,<span class="subst">&#123;q2:<span class="number">5.1</span>f&#125;</span>)&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong>实测输出</strong>：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">θ=   0°  d轴注入: ( 10.0,  0.0)  q轴注入: (  0.0, 10.0)</span><br><span class="line">θ= 180°  d轴注入: ( 10.0, -0.0)  q轴注入: (  0.0, 10.0)</span><br><span class="line">θ= 360°  d轴注入: ( 10.0, -0.0)  q轴注入: (  0.0, 10.0)</span><br><span class="line">θ= 540°  d轴注入: ( 10.0,  0.0)  q轴注入: (  0.0, 10.0)</span><br><span class="line">θ= 720°  d轴注入: ( 10.0,  0.0)  q轴注入: (  0.0, 10.0)</span><br></pre></td></tr></table></figure>
+
+<p>随转子旋转的交流量，在转子坐标系里是<strong>恒定直流量</strong>；电流对齐 d 轴时 <span class="math-inline">\(i_q=0\)</span>（10A 电流全部白费、零转矩），对齐 q 轴时 <span class="math-inline">\(i_d=0\)</span>、<span class="math-inline">\(i_q=10\)</span>（全部转化为转矩）——这就是”磁场定向”四个字的全部含义，也是 FOC 高效平滑的根源。</p>
+<h3 id="3-4-无感控制"><a href="#3-4-无感控制" class="headerlink" title="3.4 无感控制"></a>3.4 无感控制</h3><p>不装编码器&#x2F;霍尔，用<strong>观测器</strong>（滑模 SMO、磁链观测、HFI 高频注入）从电压电流反推转子位置。机器人关节必须要编码器做输出端位置反馈（无感精度不够），但无感用于启动（从静止把 PMSM 拉起来）与冗余。</p>
+<h3 id="3-5-级联控制环与-MIT-力控模式"><a href="#3-5-级联控制环与-MIT-力控模式" class="headerlink" title="3.5 级联控制环与 MIT 力控模式"></a>3.5 级联控制环与 MIT 力控模式</h3><p>驱动器内部的三环级联（外环给内环设定值）：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">位置环(0.5~2kHz) ─► 速度环(1~5kHz) ─► 电流环(10~40kHz) ─► PWM(20~100kHz)</span><br></pre></td></tr></table></figure>
+
+<p>关节力控的流行变体是 <strong>MIT Cheetah 模式</strong>（一条报文全给定，CAN-FD 的标准指令帧，见<a href="/BlogNotes/2026/08/30/%E5%B8%B8%E7%94%A8%E4%B8%B2%E5%8F%A3%E5%8D%8F%E8%AE%AE%E4%B8%8E%E7%94%A8%E9%80%94/">通讯篇</a>CAN-FD 节）：</p>
+<div class="math-block">\[
+\tau_{cmd} = k_p (q_d - q) + k_d (\dot{q}_d - \dot{q}) + \tau_{ff}
+\]</div>
+<p>位置刚度 <span class="math-inline">\(k_p\)</span>、阻尼 <span class="math-inline">\(k_d\)</span>、前馈力矩 <span class="math-inline">\(\tau_{ff}\)</span> 三个量在线可调——同一关节在”位置伺机&#x2F;阻抗回零&#x2F;纯力矩”之间无缝切换，是腿式&#x2F;人形全身控制的标准接口。</p>
+<h3 id="3-6-驱动器的控制模式全景：底层接口怎么选"><a href="#3-6-驱动器的控制模式全景：底层接口怎么选" class="headerlink" title="3.6 驱动器的控制模式全景：底层接口怎么选"></a>3.6 驱动器的控制模式全景：底层接口怎么选</h3><p>驱动器对上层暴露的”控制模式”就是接口层级——<strong>上层控制器越强，底层接口越该”原始”</strong>（带宽与灵活性最高）；层级越高越省心，但带宽越低、越不透明：</p>
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>驱动器内部闭环</th>
+<th>上层下发</th>
+<th>典型用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>电压&#x2F;占空比</td>
+<td>无</td>
+<td>duty</td>
+<td>航模电调、玩具（机器人不用）</td>
+</tr>
+<tr>
+<td><strong>电流（力矩）模式</strong></td>
+<td>电流环</td>
+<td><span class="math-inline">\(i_q\)</span> &#x2F; <span class="math-inline">\(\tau\)</span></td>
+<td><strong>机器人外层控制器的首选</strong>——动力学、力控、全身控制在主控侧自己跑</td>
+</tr>
+<tr>
+<td>速度模式</td>
+<td>电流 + 速度环</td>
+<td><span class="math-inline">\(\dot{q}\)</span></td>
+<td>AGV 轮、泵、回零阶段</td>
+</tr>
+<tr>
+<td>位置模式</td>
+<td>三环全用</td>
+<td><span class="math-inline">\(q\)</span></td>
+<td>传统机械手、PLC 点位控制</td>
+</tr>
+<tr>
+<td><strong>MIT&#x2F;阻抗模式</strong></td>
+<td>电流环 + 关节级 PD</td>
+<td><span class="math-inline">\(k_p, k_d, q_d, \tau_{ff}\)</span></td>
+<td>关节模组标配（DM&#x2F;AK&#x2F;宇树）</td>
+</tr>
+</tbody></table>
+<p>经验：跑 ROS&#x2F;全身控制器的主控选<strong>力矩模式</strong>（模型在外层，见<a href="/BlogNotes/tutorials/ros-code-style/">ROS 规范</a>分层）；无主控模型的独立轴（升降、夹爪本体）选位置&#x2F;速度模式省事；腿式与灵巧手关节选 MIT 模式做两者之间的折中。</p>
+<h3 id="3-7-参数整定：三环的带宽金字塔"><a href="#3-7-参数整定：三环的带宽金字塔" class="headerlink" title="3.7 参数整定：三环的带宽金字塔"></a>3.7 参数整定：三环的带宽金字塔</h3><p><strong>电流环（解析整定）</strong>：电机相绕组是一阶 RL 负载，PI 参数用零极点对消法<strong>直接算出来</strong>，不用试凑：</p>
+<div class="math-block">\[
+K_p = \omega_c L, \qquad K_i = \omega_c R
+\]</div>
+<p><span class="math-inline">\(\omega_c\)</span> 是目标电流环带宽，取 PWM 频率的 1&#x2F;10<del>1&#x2F;20（20 kHz PWM → 1</del>2 kHz）。验证标准：阶跃响应无超调、无振荡（电流环超调会在力矩上打齿）。</p>
+<p><strong>速度环与位置环（逐层 ×1&#x2F;5 降带宽）</strong>：</p>
+<div class="math-block">\[
+K_{p,v} = \omega_v \hat{J},\quad \omega_v \approx \tfrac{\omega_c}{5}; \qquad K_{p,p} = \omega_p^2 \hat{J},\quad K_{d,p} = 2\zeta\omega_p \hat{J},\quad \omega_p \approx \tfrac{\omega_v}{5}
+\]</div>
+<p><span class="math-inline">\(\hat{J}\)</span> 是折算到该轴的总惯量（<a href="/BlogNotes/2026/08/30/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80/">动力学基础</a>）——<strong>惯量不准，外环增益全错</strong>，驱动器的”惯量辨识”功能就是在线激振估计 <span class="math-inline">\(\hat{J}\)</span>。</p>
+<table>
+<thead>
+<tr>
+<th>环</th>
+<th>典型带宽</th>
+<th>关键参数</th>
+<th>整定方法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>电流环</td>
+<td>0.5~2 kHz</td>
+<td><span class="math-inline">\(K_p{=}\omega_cL,\ K_i{=}\omega_cR\)</span></td>
+<td>解析计算 + 阶跃验证</td>
+</tr>
+<tr>
+<td>速度环</td>
+<td>100~400 Hz</td>
+<td><span class="math-inline">\(K_p{=}\omega_v\hat J\)</span> + 积分</td>
+<td>惯量辨识后计算，阶跃微调</td>
+</tr>
+<tr>
+<td>位置环</td>
+<td>20~80 Hz</td>
+<td>PD（+积分慎用）</td>
+<td><span class="math-inline">\(\omega_p\)</span>、<span class="math-inline">\(\zeta{=}0.9{\sim}1\)</span>，五倍分离</td>
+</tr>
+</tbody></table>
+<p>带宽金字塔的意义：<strong>外环必须比内环慢约 5 倍</strong>，否则外环”追不上”内环的动态，互相激励振荡。</p>
+<h3 id="3-8-前馈、滤波与补偿：误差的下半场"><a href="#3-8-前馈、滤波与补偿：误差的下半场" class="headerlink" title="3.8 前馈、滤波与补偿：误差的下半场"></a>3.8 前馈、滤波与补偿：误差的下半场</h3><p>反馈（PD）管”出了错拉回来”，前馈管”提前抵消已知的扰动”——跟踪精度的大头在前馈：</p>
+<ul>
+<li><strong>惯量前馈</strong>：<span class="math-inline">\(\tau_{ff} \mathrel{+}= \hat{J}\ddot{q}_d\)</span>（轨迹规划器给出期望加速度）</li>
+<li><strong>重力前馈</strong>：<span class="math-inline">\(\tau_{ff} \mathrel{+}= \hat{g}(q_d)\)</span>（<a href="/BlogNotes/2026/08/30/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80/">动力学基础</a>的 <span class="math-inline">\(\boldsymbol{g}(\boldsymbol{q})\)</span>，参数来自<a href="/BlogNotes/2026/08/30/%E4%B8%B2%E8%81%94%E6%9C%BA%E6%A2%B0%E8%87%82%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%8F%82%E6%95%B0%E8%BE%A8%E8%AF%86/">参数辨识</a>）</li>
+<li><strong>摩擦前馈</strong>：<span class="math-inline">\(\tau_{ff} \mathrel{+}= \hat{F}_v \dot{q}_d + \hat{F}_c\,\mathrm{sign}(\dot{q}_d)\)</span>（黏性 + 库仑，辨识可得）</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Python demo（实测）：单关节 J q̈ = τ − g(q), 跟踪 0.5sin(2πt)</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">J, g0 = <span class="number">0.02</span>, <span class="number">5.0</span></span><br><span class="line">grav = <span class="keyword">lambda</span> q: g0*np.cos(q)</span><br><span class="line">dt, T = <span class="number">1e-4</span>, <span class="number">3.0</span></span><br><span class="line">Kp, Kd = <span class="number">400.0</span>, <span class="number">28.0</span>                    <span class="comment"># 位置环 PD（解析整定, ζ≈0.99）</span></span><br><span class="line">qd_f = <span class="keyword">lambda</span> t: <span class="number">0.5</span>*np.sin(<span class="number">2</span>*np.pi*t)</span><br><span class="line">vd_f = <span class="keyword">lambda</span> t: <span class="number">0.5</span>*<span class="number">2</span>*np.pi*np.cos(<span class="number">2</span>*np.pi*t)</span><br><span class="line">ad_f = <span class="keyword">lambda</span> t: -<span class="number">0.5</span>*(<span class="number">2</span>*np.pi)**<span class="number">2</span>*np.sin(<span class="number">2</span>*np.pi*t)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">run</span>(<span class="params">ff</span>):</span><br><span class="line">    q, v = <span class="number">0.0</span>, <span class="number">0.0</span></span><br><span class="line">    err = []</span><br><span class="line">    <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">int</span>(T/dt)):</span><br><span class="line">        t = k*dt</span><br><span class="line">        qd, vd, ad = qd_f(t), vd_f(t), ad_f(t)</span><br><span class="line">        tau = Kp*(qd-q) + Kd*(vd-v) + (J*ad + grav(qd) <span class="keyword">if</span> ff <span class="keyword">else</span> <span class="number">0.0</span>)</span><br><span class="line">        v += dt*(tau - grav(q))/J; q += dt*v</span><br><span class="line">        <span class="keyword">if</span> t &gt; <span class="number">1.0</span>: err.append(<span class="built_in">abs</span>(qd-q))</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">max</span>(err)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;纯 PD:     <span class="subst">&#123;run(<span class="literal">False</span>)*<span class="number">1000</span>:<span class="number">.2</span>f&#125;</span> mrad&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;PD + 前馈: <span class="subst">&#123;run(<span class="literal">True</span>)*<span class="number">1000</span>:<span class="number">.2</span>f&#125;</span> mrad&quot;</span>)</span><br><span class="line"><span class="comment"># 实测输出: 纯 PD 12.64 mrad → PD+前馈 0.34 mrad（降至 2.7%，37 倍）</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>滤波与补偿技巧</strong>（每条对应一类真实问题）：</p>
+<ul>
+<li><strong>电流采样低通</strong>：截止 ≈ PWM 频率&#x2F;5，滤开关纹波；采样点选 PWM 周期中点（低边开关噪声窗口外）</li>
+<li><strong>速度滤波</strong>：编码器差分的速度噪声大（M&#x2F;T 法 + 低通，或 Luenberger 观测器——速度环增益被噪声卡住时先查这里）</li>
+<li><strong>力矩&#x2F;指令斜坡</strong>（slew limit）：目标突变限幅，保护减速器冲击</li>
+<li><strong>积分抗饱和</strong>：接触&#x2F;限位时误差长期同号，积分必须钳位或反算，否则松开瞬间”报复性”超调</li>
+<li><strong>逆变器死区补偿</strong>：功率管防直通插入的死区时间在低速造成电压畸变与 5&#x2F;7 次谐波力矩纹波——低速轻载抖动的隐形元凶，驱动器里叫”死区补偿”</li>
+<li><strong><span class="math-inline">\(k_t\)</span> 温漂</strong>：钕铁硼剩磁温度系数约 −0.12%&#x2F;K，长时间大电流后”同样的电流出的力变小”不是错觉——力矩估计要乘温度补偿</li>
+</ul>
+<h3 id="3-9-PID-家族：变体原理与使用场景"><a href="#3-9-PID-家族：变体原理与使用场景" class="headerlink" title="3.9 PID 家族：变体原理与使用场景"></a>3.9 PID 家族：变体原理与使用场景</h3><p>PID 的三项各有物理身份：<strong>P 是刚度</strong>（误差越大拉得越狠，”现在”）、<strong>I 是记忆</strong>（消除稳态误差，”过去”）、<strong>D 是阻尼</strong>（抑制超调，”未来”）。关节控制的各环从不裸用完整 PID，而是按对象特性裁剪：</p>
+<table>
+<thead>
+<tr>
+<th>结构</th>
+<th>用在哪</th>
+<th>为什么</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>PI（无 D）</strong></td>
+<td>电流环、速度环</td>
+<td>一阶对象无需 D；电流采样噪声大，D 会把噪声放大成力矩毛刺</td>
+</tr>
+<tr>
+<td><strong>PD（无 I）</strong></td>
+<td>位置环、MIT 模式</td>
+<td>二阶对象 D 给阻尼；有重力&#x2F;摩擦前馈时稳态误差已消，I 反而添乱（<a href="/BlogNotes/2026/08/30/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%8A%9B%E4%BD%8D%E6%B7%B7%E5%90%88%E6%8E%A7%E5%88%B6/">力位混合控制</a> Lyapunov 全局稳定的正是 PD+重力补偿）</td>
+</tr>
+<tr>
+<td><strong>PD + 小 I</strong></td>
+<td>精密位置伺服</td>
+<td>消除剩余稳态差（齿槽、装配偏心），但 I 必须配抗饱和</td>
+</tr>
+<tr>
+<td><strong>级联 PI-PD</strong></td>
+<td>三环结构</td>
+<td>3.7 节带宽金字塔</td>
+</tr>
+</tbody></table>
+<p>在此之上是一族<strong>工程变体</strong>（每个变体解决一类真实病症）：</p>
+<p><strong>① 积分抗饱和（Anti-windup）</strong>。误差长期同号（顶死限位、堵转）时积分器”充爆”，退出饱和后释放出巨大反向超调。两种修法：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">钳位法:   积分项超出 |I_max| 就不再累加（简单，工程默认）</span><br><span class="line">反算法:   I += Ki·e·dt + (u_sat − u)/Tt   （饱和瞬间往回泄放, 恢复更快）</span><br></pre></td></tr></table></figure>
+
+<p><strong>② 积分分离</strong>。大误差时干脆切除积分、只用 PD 接近；误差进入小带（如 ±2% 量程）再投入积分清尾差——<strong>大阶跃启动不过冲</strong>的标准做法，回零&#x2F;换向频繁的关节必开。</p>
+<p><strong>③ 微分先行（D on measurement）</strong>。D 项作用在<strong>测量值</strong>而非误差上：<span class="math-inline">\(\tau = K_p(q_d - q) - K_d\dot{q}\)</span>。设定值突变的瞬间，误差微分是 <span class="math-inline">\(\Delta q_d/\Delta t\)</span> ——一个巨大的假信号（<strong>微分踢</strong>）：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Python demo（实测）：t=0.5s 位置目标阶跃 0.5 rad, J=0.02, Kp=400, Kd=28</span></span><br><span class="line"><span class="comment">#   常规 D(作用于误差):    峰值力矩 140200 N·m  ← 设定值突变被 D 微分成冲击</span></span><br><span class="line"><span class="comment">#   微分先行 D(作用于测量): 峰值力矩    200 N·m  ← 无踢, 只有 Kp·0.5</span></span><br><span class="line"><span class="comment"># 结论: 轨迹含阶跃/拐点的关节, D 一律接测量端</span></span><br></pre></td></tr></table></figure>
+
+<p>两条物理直觉：<strong>设定值自己不会动</strong>，它的微分只该反映测量量的变化；期望速度可由 <span class="math-inline">\(\dot{q}_d\)</span> 单独前馈，不劳 D 项。</p>
+<p><strong>④ 增益调度（Gain Scheduling）</strong>。机械臂关节的等效惯量随构型变化（<span class="math-inline">\(\mathbf{M}(\boldsymbol{q})\)</span>，肩关节远近构型可差 3~10 倍，见<a href="/BlogNotes/2026/08/30/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80/">动力学基础</a>）——固定增益在轻载构型过刚（振荡）、重载构型过软（跟踪差）。修法：按 <span class="math-inline">\(\hat{J}(q)\)</span> 在线更新增益 <span class="math-inline">\(K_p = \omega_p^2 \hat{J}(q)\)</span>（调度源：模型计算或在线惯量辨识），增益随构型”呼吸”。</p>
+<p><strong>⑤ 前馈复合控制</strong>（3.8 节）：PD 管未知扰动、前馈管已知动力学——实测把跟踪误差压到 2.7%。</p>
+<p><strong>⑥ 自抗扰 ADRC（一页纸版）</strong>：不区分摩擦&#x2F;重力&#x2F;负载变化，统一当”总扰动”用扩张状态观测器（ESO）实时估计并补偿——<strong>不需要精确模型</strong>，对减速器摩擦变化鲁棒；国产高性能驱动器已开始内置。调参量少（带宽化），但观测器带宽与噪声的折中要试。适合”模型懒得辨识又要性能”的量产关节。</p>
+<p><strong>选型速查</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>场景</th>
+<th>推荐</th>
+<th>一句话理由</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>电流&#x2F;速度环</td>
+<td>PI</td>
+<td>一阶对象 + 噪声</td>
+</tr>
+<tr>
+<td>关节位置（有前馈）</td>
+<td>PD</td>
+<td>Lyapunov 可证全局稳定</td>
+</tr>
+<tr>
+<td>精密点位（换向少）</td>
+<td>PD + 抗饱和 I</td>
+<td>清尾差</td>
+</tr>
+<tr>
+<td>频繁阶跃&#x2F;轨迹拐点</td>
+<td>微分先行</td>
+<td>杀微分踢</td>
+</tr>
+<tr>
+<td>大阶跃回零</td>
+<td>积分分离 + 斜坡</td>
+<td>防过冲</td>
+</tr>
+<tr>
+<td>变构型机械臂</td>
+<td>增益调度（按 J(q)）</td>
+<td>增益随惯量呼吸</td>
+</tr>
+<tr>
+<td>模型不准+要求高</td>
+<td>ADRC</td>
+<td>总扰动一把抓</td>
+</tr>
+</tbody></table>
+<h3 id="3-10-工程技巧清单"><a href="#3-10-工程技巧清单" class="headerlink" title="3.10 工程技巧清单"></a>3.10 工程技巧清单</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">□ 调参顺序永远从内环开始：电流环（解析整定+阶跃）→ 速度环 → 位置环，逐层开环验证</span><br><span class="line">□ 使能走 CiA402 状态机：Shutdown → Switch On → Enable Operation，别直接拉使能</span><br><span class="line">□ 位置模式上电抖动：上电先把目标位置设为&quot;当前实际位置&quot;再接管（目标从 0 开始=跳变指令）</span><br><span class="line">□ MIT 模式调试：先 kp=kd=0（纯力矩）验证 τ 通道 → 加 kd（阻尼手感）→ 加 kp（弹簧手感，</span><br><span class="line">  手掰关节感受刚度是否符合理想 K），全程低增益起步</span><br><span class="line">□ 通信看门狗：CAN/EtherCAT 丢帧超时（如 10ms）→ 进安全态（失能或保持力矩），绝不&quot;用旧指令继续跑&quot;</span><br><span class="line">□ 碰撞检测用原始（未滤波）电流，控制用滤波电流——两套并行</span><br><span class="line">□ 换减速比/换负载后必须重跑惯量辨识与外环增益（J 变 → 速度/位置环全变）</span><br><span class="line">□ 长时间运行力矩&quot;变小&quot;：先查电机温度（kt 退磁），再查母线电压跌落</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-减速器原理"><a href="#4-减速器原理" class="headerlink" title="4. 减速器原理"></a>4. 减速器原理</h2><h3 id="4-1-为什么必须减速"><a href="#4-1-为什么必须减速" class="headerlink" title="4.1 为什么必须减速"></a>4.1 为什么必须减速</h3><p>电机的高效区在”高速低扭矩”，关节需要”低速大扭矩”——减速器完成这个变换：<span class="math-inline">\(T_{out} = N\,\eta\, T_{in}\)</span>，<span class="math-inline">\(\omega_{out} = \omega_{in}/N\)</span>。代价：背隙（空程）、弹性（刚度）、摩擦、寿命。<strong>关节设计的一半艺术在选减速器</strong>。</p>
+<h3 id="4-2-行星轮系：一级行星"><a href="#4-2-行星轮系：一级行星" class="headerlink" title="4.2 行星轮系：一级行星"></a>4.2 行星轮系：一级行星</h3><p>太阳轮（输入）驱动 2~4 个行星轮，行星轮在外圈齿圈内滚动，行星架（输出）：</p>
+<div class="math-block">\[
+i = 1 + \frac{z_{ring}}{z_{sun}} \qquad \text{（齿圈固定）}
+\]</div>
+<p>单级 3~10（如 <span class="math-inline">\(z_{sun}{=}12,\ z_{ring}{=}84\)</span> 时 <span class="math-inline">\(i{=}8\)</span>），多级串联到 100。特点：同轴输出、功率密度高、<strong>便宜</strong>；缺点：背隙（arcmin 级，精密级预紧后可到 &lt;1 arcmin）、多级后效率下降。<strong>准直驱关节的标准选择</strong>。</p>
+<h3 id="4-3-谐波减速器：柔性变形的艺术"><a href="#4-3-谐波减速器：柔性变形的艺术" class="headerlink" title="4.3 谐波减速器：柔性变形的艺术"></a>4.3 谐波减速器：柔性变形的艺术</h3><p>三个零件：<strong>波发生器</strong>（椭圆凸轮 + 薄壁柔性轴承，输入）+ <strong>柔轮</strong>（薄壁杯状弹性件，外齿，输出）+ <strong>刚轮</strong>（内齿圈，固定）。波发生器把柔轮撑成椭圆，椭圆长轴处柔轮外齿与刚轮内齿啮合：</p>
+<ul>
+<li><strong>传动原理</strong>：柔轮齿数比刚轮少（通常差 2 齿）。波发生器转一圈，啮合位置转过柔轮全部齿，而柔轮相对刚轮”退”了 2 齿——<strong>减速比</strong>：</li>
+</ul>
+<div class="math-block">\[
+i = \frac{z_{flex}}{z_{rigid} - z_{flex}} \qquad \text{（如 } z_f{=}200, z_r{=}202 \Rightarrow i=100\text{）}
+\]</div>
+<ul>
+<li><strong>特点</strong>：多齿同时啮合 → <strong>零背隙</strong>、高精度（arcsec 级）、单级 50<del>160、同轴、体积小；柔轮周期性变形 → 疲劳寿命有限（数千</del>数万小时，随负载折减）、刚度低且有”软”区、高速发热</li>
+<li><strong>柔轮的形变测量</strong>还顺便提供了关节力矩传感的机会（在柔轮或输出端贴应变片——<a href="/BlogNotes/2026/08/30/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%B8%B8%E7%94%A8%E4%BC%A0%E6%84%9F%E5%99%A8/">传感器篇</a>4.6 节）</li>
+</ul>
+<h3 id="4-4-RV-减速器（摆线针轮）：大扭矩的抗冲击王者"><a href="#4-4-RV-减速器（摆线针轮）：大扭矩的抗冲击王者" class="headerlink" title="4.4 RV 减速器（摆线针轮）：大扭矩的抗冲击王者"></a>4.4 RV 减速器（摆线针轮）：大扭矩的抗冲击王者</h3><p>两级结构：第一级渐开线行星（粗减速）+ 第二级<strong>摆线针轮</strong>（偏心轮带动摆线轮，摆线轮的摆线齿廓沿针齿滚动啮合，输出经曲柄轴）。特点：扭矩密度最高、抗冲击过载能力极强、刚度大、寿命长；但笨重、贵。用途：大负载工业臂的底座三轴（腰、肩、肘），与谐波（腕部三轴）分工。</p>
+<h3 id="4-5-减速器对比表"><a href="#4-5-减速器对比表" class="headerlink" title="4.5 减速器对比表"></a>4.5 减速器对比表</h3><table>
+<thead>
+<tr>
+<th></th>
+<th>行星</th>
+<th>谐波</th>
+<th>RV&#x2F;摆线</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>单级减速比</td>
+<td>3~10（多级至 100）</td>
+<td>50~160</td>
+<td>30~200+</td>
+</tr>
+<tr>
+<td>背隙</td>
+<td>arcmin 级（预紧可减小）</td>
+<td><strong>≈0</strong></td>
+<td>≈0（&lt;1 arcmin）</td>
+</tr>
+<tr>
+<td>扭矩密度</td>
+<td>中</td>
+<td>高</td>
+<td><strong>最高</strong></td>
+</tr>
+<tr>
+<td>抗冲击</td>
+<td>中</td>
+<td>弱（柔轮疲劳）</td>
+<td><strong>强</strong></td>
+</tr>
+<tr>
+<td>效率</td>
+<td>90~97%</td>
+<td>65~85%</td>
+<td>70~90%</td>
+</tr>
+<tr>
+<td>成本</td>
+<td>低</td>
+<td>中高</td>
+<td>高</td>
+</tr>
+<tr>
+<td>关节定位</td>
+<td>准直驱（N&#x3D;6~10）</td>
+<td>轻载高精度（腕&#x2F;指&#x2F;人形全身）</td>
+<td>大负载底座轴</td>
+</tr>
+</tbody></table>
+<h2 id="5-关节架构：直驱、准直驱与高减速比"><a href="#5-关节架构：直驱、准直驱与高减速比" class="headerlink" title="5. 关节架构：直驱、准直驱与高减速比"></a>5. 关节架构：直驱、准直驱与高减速比</h2><p><strong>折算惯量与透明性</strong>是架构选择的核心物理量。从负载侧看，电机转子惯量被放大 <span class="math-inline">\(N^2\)</span> 倍：</p>
+<div class="math-block">\[
+J_{\text{eq,load}} = N^2 J_m + J_L
+\]</div>
+<ul>
+<li><strong>直驱（N&#x3D;1）</strong>：无背隙无谐振、力矩最透明（碰撞安全）；但电机要直接输出全部扭矩——体积重量大。只有力矩密度极高的电机（如 T-Motor 级外转子）+ 特定场景（小负载）</li>
+<li><strong>准直驱（N&#x3D;6~10，行星）</strong>：MIT Cheetah&#x2F;宇树路线。<span class="math-inline">\(N^2=36\sim100\)</span>，转子折算惯量仍可控，背隙小、带宽高，配合 MIT 模式做高透明力控——<strong>腿式&#x2F;人形主流</strong></li>
+<li><strong>高减速比（N&#x3D;50~160，谐波）</strong>：协作臂路线。位置精度与功率密度最优；<span class="math-inline">\(N^2 \sim 10^4\)</span> 的折算惯量让碰撞力巨大——只能靠<strong>力矩传感器</strong>（而非电机电流）实现安全力控（Franka 方案）</li>
+</ul>
+<p>一条经验：<strong>减速比越高，越需要”外置力感”；减速比越低，电流环就是力传感器</strong>。</p>
+<h2 id="6-代表型号与产品生态"><a href="#6-代表型号与产品生态" class="headerlink" title="6. 代表型号与产品生态"></a>6. 代表型号与产品生态</h2><table>
+<thead>
+<tr>
+<th>类别</th>
+<th>厂家&#x2F;型号</th>
+<th>电机原理（对应本节）</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>谐波减速器</td>
+<td><strong>Harmonic Drive</strong>（CSF&#x2F;CSD&#x2F;SHF 系列）</td>
+<td>—</td>
+<td>行业发明者与标杆，精度寿命双冠</td>
+</tr>
+<tr>
+<td></td>
+<td>绿的谐波（Leaderdrive）、来福谐波</td>
+<td>—</td>
+<td>国产替代主力，人形供应链</td>
+</tr>
+<tr>
+<td>RV 减速器</td>
+<td><strong>Nabtesco</strong>（RV-C&#x2F;RV-E）</td>
+<td>—</td>
+<td>全球垄断级份额，工业臂底座标配</td>
+</tr>
+<tr>
+<td></td>
+<td>双环传动、中大力德</td>
+<td>—</td>
+<td>国产 RV</td>
+</tr>
+<tr>
+<td>精密行星</td>
+<td>Neugart（德）、纽氏达特</td>
+<td>—</td>
+<td>准直驱关节与外部轴</td>
+</tr>
+<tr>
+<td>关节模组（准直驱）</td>
+<td><strong>CubeMars&#x2F;达妙 AK80-9、DM-J4310&#x2F;8009</strong></td>
+<td>外转子 PMSM（2.2）+ 行星</td>
+<td>MIT 模式 + CAN，人形&#x2F;腿式&#x2F;竞赛圈事实标准</td>
+</tr>
+<tr>
+<td></td>
+<td>宇树 Unitree 关节电机（A1 电机等）</td>
+<td>外转子 PMSM（2.2）</td>
+<td>自研高功率密度，腿式出身</td>
+</tr>
+<tr>
+<td></td>
+<td>DJI RoboMaster M3508&#x2F;M2006</td>
+<td>PMSM（2.2 集中绕组）</td>
+<td>竞赛生态标准件（+C620 电调）</td>
+</tr>
+<tr>
+<td>空心杯&#x2F;微型</td>
+<td><strong>Maxon</strong>（DCX&#x2F;EC-i）、Faulhaber</td>
+<td>空心杯（2.3）</td>
+<td>灵巧手指尖关节、高端伺服</td>
+</tr>
+<tr>
+<td>无框力矩电机</td>
+<td>T-Motor、Kollmorgen RBE</td>
+<td>力矩电机（2.6）</td>
+<td>直驱&#x2F;低减速比方案的核心件</td>
+</tr>
+<tr>
+<td>音圈&#x2F;直线</td>
+<td>Akribis、PBA、雅科贝思</td>
+<td>音圈&#x2F;直线电机（2.5&#x2F;2.6）</td>
+<td>高速夹爪、直驱滑台</td>
+</tr>
+<tr>
+<td>驱动器芯片&#x2F;方案</td>
+<td>TI（DRV83xx + InstaSPIN）、ST（STDRIVE）、Elmo</td>
+<td>FOC 实现（第3节）</td>
+<td>从芯片到整驱的生态</td>
+</tr>
+</tbody></table>
+<h2 id="7-选型计算（可运行，实测）"><a href="#7-选型计算（可运行，实测）" class="headerlink" title="7. 选型计算（可运行，实测）"></a>7. 选型计算（可运行，实测）</h2><p>给定负载需求，扫描减速比找可行域——三条约束：电机转速 ≤ 额定、电机侧扭矩 ≤ 峰值、<strong>折算惯量比</strong>（负载折算到电机侧与转子惯量之比，伺服推荐 1~10）：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment"># ---- 负载需求：峰值 15 N·m @ 30 rpm，负载惯量 0.5 kg·m²，加速度 20 rad/s² ----</span></span><br><span class="line">TL, wL, JL, aL = <span class="number">15.0</span>, <span class="number">30</span>/<span class="number">60</span>*<span class="number">2</span>*np.pi, <span class="number">0.5</span>, <span class="number">20.0</span></span><br><span class="line"><span class="comment"># ---- 电机参数（典型关节电机）----</span></span><br><span class="line">kt, T_rated, T_peak = <span class="number">0.11</span>, <span class="number">1.2</span>, <span class="number">3.6</span>          <span class="comment"># N·m/A, 额定/峰值扭矩</span></span><br><span class="line">w_max = <span class="number">3000</span>/<span class="number">60</span>*<span class="number">2</span>*np.pi                        <span class="comment"># 额定转速 3000 rpm</span></span><br><span class="line">Jm, eta = <span class="number">1.1e-4</span>, <span class="number">0.85</span>                         <span class="comment"># 转子惯量, 传动效率</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;<span class="string">&#x27;N&#x27;</span>:&gt;<span class="number">4</span>&#125;</span> | <span class="subst">&#123;<span class="string">&#x27;ωm(rpm)&#x27;</span>:&gt;<span class="number">8</span>&#125;</span> | <span class="subst">&#123;<span class="string">&#x27;Tm需求&#x27;</span>:&gt;<span class="number">7</span>&#125;</span> | <span class="subst">&#123;<span class="string">&#x27;惯量比&#x27;</span>:&gt;<span class="number">6</span>&#125;</span> | 可行&quot;</span>)</span><br><span class="line"><span class="keyword">for</span> N <span class="keyword">in</span> [<span class="number">1</span>, <span class="number">6</span>, <span class="number">16</span>, <span class="number">25</span>, <span class="number">50</span>, <span class="number">80</span>, <span class="number">100</span>]:</span><br><span class="line">    wm = N * wL                                 <span class="comment"># 电机转速</span></span><br><span class="line">    Tm = (TL + JL*aL) / (N * eta)               <span class="comment"># 电机侧扭矩需求(含加速)</span></span><br><span class="line">    r  = JL / (N**<span class="number">2</span> * Jm)                       <span class="comment"># 折算惯量比(推荐 1~10)</span></span><br><span class="line">    ok = wm &lt;= w_max <span class="keyword">and</span> Tm &lt;= T_peak <span class="keyword">and</span> <span class="number">0.5</span> &lt;= r &lt;= <span class="number">10</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;N:4d&#125;</span> | <span class="subst">&#123;wm*<span class="number">60</span>/<span class="number">2</span>/np.pi:<span class="number">8.0</span>f&#125;</span> | <span class="subst">&#123;Tm:<span class="number">7.2</span>f&#125;</span> | <span class="subst">&#123;r:<span class="number">6.1</span>f&#125;</span> | <span class="subst">&#123;<span class="string">&#x27;✓&#x27;</span> <span class="keyword">if</span> ok <span class="keyword">else</span> <span class="string">&#x27;&#x27;</span>&#125;</span>&quot;</span>)</span><br><span class="line"><span class="comment"># 实测输出: N=25 (Tm=1.18, 惯量比7.3) / N=50 (0.59, 1.8) / N=80 (0.37, 0.7) 可行</span></span><br></pre></td></tr></table></figure>
+
+<p>读表：N&#x3D;1 需要电机直接出 29.4 N·m（不可能），惯量比 4545（完全失控）；N&#x3D;25 起进入可行域。<strong>力控关节选最小可行 N&#x3D;25</strong>（透明性最好，惯量比 7.3 仍在推荐域）；纯位置关节可选 N&#x3D;50~80（惯量比更接近 1，动态更”紧”）。选型三步：负载折算 → 约束扫描 → 按架构理念（透明 vs 精度）定 N，最后核对连续扭矩需求 ≤ 额定值（热设计，见 <span class="math-inline">\(I^2R\)</span> 与绕组温升）。</p>
+<h2 id="8-总结"><a href="#8-总结" class="headerlink" title="8. 总结"></a>8. 总结</h2><table>
+<thead>
+<tr>
+<th>层</th>
+<th>关键词</th>
+<th>一句话</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>电机</td>
+<td>BLDC&#x2F;PMSM、空心杯、<span class="math-inline">\(k_t\)</span></td>
+<td>关节全是 FOC 驱动的正弦永磁同步；空心杯 &#x3D; 灵巧手</td>
+</tr>
+<tr>
+<td>控制</td>
+<td>Clarke&#x2F;Park、<span class="math-inline">\(i_d^*=0\)</span>、三环级联、MIT 模式</td>
+<td>坐标变换把交流变直流：<span class="math-inline">\(\tau = k_t i_q\)</span></td>
+</tr>
+<tr>
+<td>减速</td>
+<td>行星 3<del>10 &#x2F; 谐波 50</del>160（零背隙）&#x2F; RV（抗冲击）</td>
+<td>减速比 &#x3D; 扭矩 × N，惯量 × N²</td>
+</tr>
+<tr>
+<td>架构</td>
+<td>直驱 &#x2F; 准直驱 &#x2F; 高减速比</td>
+<td>N² 折算惯量定透明性；减速比越高越需要外置力感</td>
+</tr>
+<tr>
+<td>选型</td>
+<td>转速、峰值扭矩、惯量比三约束扫描</td>
+<td>力控选最小可行 N，位置选惯量比≈1</td>
+</tr>
+</tbody></table>
+<p>一句话：<strong>关节 &#x3D; 把”高速小扭矩的电”变换成”低速大扭矩的力”的机器</strong>——FOC 管前半段（电→电磁转矩），减速器管后半段（转矩放大），编码器与动力学模型（<a href="/BlogNotes/2026/08/30/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80/">动力学基础</a>）把两端联系起来。选型时记住 <span class="math-inline">\(N^2\)</span>：它同时决定了你的力控透明性和碰撞安全性。</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/BlogNotes/about" rel="external nofollow noreferrer">Jianbo.Yuan</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://jianbo-yuan.github.io/BlogNotes/BlogNotes/2026/08/30/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%85%B3%E8%8A%82%E7%94%B5%E6%9C%BA/">https://jianbo-yuan.github.io/BlogNotes/BlogNotes/2026/08/30/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%85%B3%E8%8A%82%E7%94%B5%E6%9C%BA/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/BlogNotes/about" target="_blank">Jianbo.Yuan</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/BlogNotes/tags/%E5%85%B3%E8%8A%82%E7%94%B5%E6%9C%BA/">
+                                    <span class="chip bg-color">关节电机</span>
+                                </a>
+                            
+                                <a href="/BlogNotes/tags/%E6%97%A0%E5%88%B7%E7%94%B5%E6%9C%BA/">
+                                    <span class="chip bg-color">无刷电机</span>
+                                </a>
+                            
+                                <a href="/BlogNotes/tags/FOC/">
+                                    <span class="chip bg-color">FOC</span>
+                                </a>
+                            
+                                <a href="/BlogNotes/tags/%E8%B0%90%E6%B3%A2%E5%87%8F%E9%80%9F%E5%99%A8/">
+                                    <span class="chip bg-color">谐波减速器</span>
+                                </a>
+                            
+                                <a href="/BlogNotes/tags/%E8%A1%8C%E6%98%9F%E5%87%8F%E9%80%9F%E5%99%A8/">
+                                    <span class="chip bg-color">行星减速器</span>
+                                </a>
+                            
+                                <a href="/BlogNotes/tags/%E7%94%B5%E6%9C%BA%E6%8E%A7%E5%88%B6/">
+                                    <span class="chip bg-color">电机控制</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/BlogNotes/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/BlogNotes/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/BlogNotes/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/BlogNotes/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/BlogNotes/2026/09/01/%E5%B8%B8%E7%94%A8%E7%94%9F%E6%88%90%E8%8C%83%E5%BC%8F%E6%A8%A1%E5%9E%8B%E4%BB%8B%E7%BB%8D/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/BlogNotes/medias/featureimages/23.jpg" class="responsive-img" alt="常用生成范式模型介绍">
+                        
+                        <span class="card-title">常用生成范式模型介绍</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2026-09-01
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/BlogNotes/categories/%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7/" class="post-category">
+                                    科研工具
+                                </a>
+                            
+                            <a href="/BlogNotes/categories/%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7/%E6%95%B0%E5%AD%A6%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/" class="post-category">
+                                    数学理论基础
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/BlogNotes/tags/VLA/">
+                        <span class="chip bg-color">VLA</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/%E5%85%B7%E8%BA%AB%E6%99%BA%E8%83%BD/">
+                        <span class="chip bg-color">具身智能</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/%E7%94%9F%E6%88%90%E8%8C%83%E5%BC%8F/">
+                        <span class="chip bg-color">生成范式</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/">
+                        <span class="chip bg-color">扩散模型</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/%E8%87%AA%E5%9B%9E%E5%BD%92/">
+                        <span class="chip bg-color">自回归</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/%E6%B5%81%E5%8C%B9%E9%85%8D/">
+                        <span class="chip bg-color">流匹配</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/DDPM/">
+                        <span class="chip bg-color">DDPM</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/%E6%A8%A1%E5%9E%8B%E9%80%89%E5%9E%8B/">
+                        <span class="chip bg-color">模型选型</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/BlogNotes/2026/08/30/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E6%9C%BA%E5%8F%8A%E6%A0%87%E5%AE%9A/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/BlogNotes/medias/featureimages/7.jpg" class="responsive-img" alt="机器人相机及标定">
+                        
+                        <span class="card-title">机器人相机及标定</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-08-30
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/BlogNotes/categories/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%90%86%E8%AE%BA%E4%B8%8E%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    机器人理论与技术
+                                </a>
+                            
+                            <a href="/BlogNotes/categories/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%90%86%E8%AE%BA%E4%B8%8E%E6%8A%80%E6%9C%AF/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%AD%A6%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/" class="post-category">
+                                    机器人学理论基础
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/BlogNotes/tags/%E8%A7%86%E8%A7%89%E6%84%9F%E7%9F%A5/">
+                        <span class="chip bg-color">视觉感知</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/%E7%9B%B8%E6%9C%BA%E6%A8%A1%E5%9E%8B/">
+                        <span class="chip bg-color">相机模型</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/%E6%89%8B%E7%9C%BC%E6%A0%87%E5%AE%9A/">
+                        <span class="chip bg-color">手眼标定</span>
+                    </a>
+                    
+                    <a href="/BlogNotes/tags/%E7%9B%B8%E6%9C%BA%E6%A0%87%E5%AE%9A/">
+                        <span class="chip bg-color">相机标定</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/BlogNotes/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/BlogNotes/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/BlogNotes/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/BlogNotes/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/BlogNotes/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        },
+        "HTML-CSS": {
+            linebreaks: {
+                automatic: true,
+                width: "container"
+            }
+        },
+        SVG: {
+            linebreaks: {
+                automatic: true,
+                width: "container"
+            }
+        }
+    });
+</script>
+<script>
+    (function () {
+        if (window.MathJax) return;
+
+        var sources = [
+            "https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML",
+            "https://unpkg.com/mathjax@2.7.9/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML",
+            "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+        ];
+
+        function loadMathJax(index) {
+            if (index >= sources.length) {
+                console.error("MathJax failed to load from all configured CDNs.");
+                return;
+            }
+
+            var script = document.createElement("script");
+            script.src = sources[index];
+            script.async = true;
+            script.onerror = function () {
+                loadMathJax(index + 1);
+            };
+            document.head.appendChild(script);
+        }
+
+        loadMathJax(0);
+    })();
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/BlogNotes/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.3'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/BlogNotes/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2026</span>
+            
+            <span id="year">2026</span>
+            <a href="/BlogNotes/about" target="_blank">Jianbo.Yuan</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:jianbo.yuan@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=335943408" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 335943408" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+    <a href="https://www.zhihu.com/people/Simple" class="tooltipped" target="_blank" data-tooltip="关注我的知乎: https://www.zhihu.com/people/Simple" data-position="top" data-delay="50">
+        <i class="fab fa-zhihu1">知</i>
+    </a>
+
+
+
+    <a href="/BlogNotes/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/BlogNotes/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/BlogNotes/libs/materialize/materialize.min.js"></script>
+    <script src="/BlogNotes/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/BlogNotes/libs/aos/aos.js"></script>
+    <script src="/BlogNotes/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/BlogNotes/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/BlogNotes/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/BlogNotes/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/BlogNotes/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/BlogNotes/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
